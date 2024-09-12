@@ -1,0 +1,262 @@
+		<style>
+			
+			main {font-size:0px;}			
+			main #titulo {padding:20px 30px;font-family:"Helvetica Roman";font-size:38px;text-transform:uppercase;color:#333;border-bottom:#222 dashed 1px;}			
+			main #titulo i {font-style:normal;font-family:"Helvetica Heavy";}
+			main #formulario {}
+			main #formulario form {display:flex;flex-flow:row wrap;}
+			main #formulario .coluna {flex-basis:calc(25% - 60px);flex-grow:2;border-right:#999 solid 1px;margin:30px 30px 0px 30px;border:#999 solid 1px;border-radius:4px}
+			main #formulario .coluna:last-child {border:none}
+			main #formulario .coluna .campo:last-child {border:none}
+			main #formulario .coluna .campo {padding:10px;}
+			main #formulario .campo {width:100%;padding:10px 30px;transition:background-color 1s;border-bottom:#666 dashed 1px;position:relative}
+			main #formulario .campo > div {display:inline-block;vertical-align:top;width:calc(100% - 170px);position:relative}
+			main #formulario .campo > div > div {display:block}
+			main #formulario .campo i {font-size:12px;font-family:"Helvetica Bold";font-weight:normal;font-style:normal;color:#333}
+			main #formulario .campo label {padding:7px 9px 7px 0px;font-family:"Helvetica Medium";display:inline-block;font-size:14px;text-transform:lowercase;color:#333;width:160px;text-align:left;vertical-align:top}
+			main #formulario .campo > div > label {display:block}
+			main #formulario .campo table {width:100%;position:relative}
+			main #formulario .campo input, main #formulario .campo select, main #formulario .campo textarea {resize:none;min-height:33px;background-color:#09C;border:none;outline:none;border-radius:4px;padding:7px 10px;vertical-align:top;color:#fff;width:calc(100% - 170px) !important;margin-bottom: 1px}
+			main #formulario .enviar {padding:30px;flex-basis:100%;}
+			main #formulario .enviar a {font-family:"Helvetica Medium";text-transform:uppercase;margin:0 auto;display:block;padding:16px;background-color:#09c;color:#fff;font-size:14px;border-radius:4px;width:200px;text-align:center;}
+			main #formulario .campo > div input {width:100% !important}
+
+			#ui-datepicker-div {background-color: #656565 !important;color: #fff;padding: 20px;font-family: "Roboto";font-size: 14px;display:none}
+			#ui-datepicker-div a {padding: 3px;text-align: center;display: inline-block;}			
+			#ui-datepicker-div .ui-datepicker-next {float:right}
+			#ui-datepicker-div .ui-datepicker-title {padding-bottom: 10px;text-align: center;font-weight: 700;color: #18c5ff;}
+			
+        </style>
+        
+        <div id="titulo">
+            busca avançada de <i>documentos</i>
+        </div>
+        
+        <div id="formulario">
+            
+           {{{form}}}
+            
+            	<div class="coluna">
+					
+					<!-- Estamos desabilitando o campo "fundos e coleções, porque é um 
+					campo que se repete no primeiro nível dos campos abaixo
+					FRED 6/2/2021
+
+                    <div class="campo">        
+                        <label>fundos e coleções</label>
+                        <select name="ca_objects.idno" id="idno" >
+                            <option value="">-</option>
+                            <option value="FMS*">Francisco Matarazzo Sobrinho</option>
+                            <option value="MAM*">Museu de Arte Moderna de São Paulo</option>
+                            <option value="BSP*">Fundação Bienal de São Paulo</option>
+                            <option value="BIB*">Biblioteca</option>
+                            <option value="DAR*">Dossiê de Artistas</option>
+                            <option value="DTA*">Dossiê de Temas de Arte</option>
+                        </select>
+                        <input type="hidden" name="ca_objects.idno_label" value="fundo" />
+                    </div>
+                    -->
+					
+                    <div class="campo">        
+                       
+                        <label>Em um nível hierárquico</label>
+                        <div>
+                            <select id="hierarchyselecter1" style="width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="1">
+                                <option>carregando...</option>
+                            </select>
+                            <select id="hierarchyselecter2" disabled="disabled" style="opacity:.2;width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="2"></select>
+                            <select id="hierarchyselecter3" disabled="disabled" style="opacity:.2;width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="3"></select>
+                            <select id="hierarchyselecter4" disabled="disabled" style="opacity:.2;width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="4"></select>
+                            
+							<!--
+							<select id="hierarchyselecter5" disabled="disabled" style="opacity:.2;width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="5"></select>
+                            -->
+							
+							<input type="hidden" name="ca_objects.parent_id" id="parent_id" class="hierarchyselectervalue" />       
+                            <input type="hidden" name="ca_objects.parent_id_label" value="nível hierárquico" />
+                        </div>
+                        <script>
+						
+                            function hierarchyfinder_find( $obj ) {
+                                var selecter = $( $obj );
+                                var value = selecter.val();
+                                var level = Number(selecter.data("level"));
+                                var populate = $("#hierarchyselecter" + (level+1) );
+                                hierarchyfinder_clear(level+1);
+                                populate.prop('disabled', 'disabled');
+                                populate.css("opacity",".2");					
+                                populate.find('option').remove().end().append('<option value="">carregando...</option>').val('');				
+                                
+								if ( (value == '') && (level > 1) )
+								{
+									$(".hierarchyselectervalue").val( $("#hierarchyselecter" + (level-1)).children("option:selected").val() );
+								}
+								else
+									$(".hierarchyselectervalue").val( value );				
+                                
+								hierarchyfinder_get( value , populate );
+                            }
+                            function hierarchyfinder_disable( $obj ) {
+                                $obj.prop('disabled', 'disabled');
+                                $obj.css("opacity",".2");					
+                                $obj.find('option').remove().end().append('<option value="">-</option>').val('');
+                            }
+                            function hierarchyfinder_clear( $level ) {
+                                for ( var i = $level+1 ; i <= 5 ; i++ ) {
+                                    hierarchyfinder_disable( $("#hierarchyselecter" + i ) );
+                                }
+                            }							
+                            function hierarchyfinder_get( $parent_id , $selecter ) {
+								
+                                u = "/service.php/HierarchyLookup/objects?id=" + $parent_id;
+								
+								$.ajax({
+                                    url: u ,
+                                    dataType: 'json',
+                                    method:'GET',
+                                    success: function( $data ) {
+                                        hierarchyfinder_populate( $data , $parent_id , $selecter );
+                                    }
+                                });
+								
+                            }
+                            function hierarchyfinder_populate( $data , $parent_id , $selecter ) {
+
+								$data = $data[ $parent_id ];								
+                                if ( $data["_itemCount"] > 0 ) {
+                                    $selecter.prop('disabled', false);
+                                    $selecter.css("opacity","1");		
+                                    $selecter.find("option:first-child").html("-").val("");		
+									$.each( $data , function() {
+                                        var o = this;							
+                                       if ( o["name"] ) $selecter.append($("<option />").val( o["object_id"] ).text( o["name"] ));
+                                    });	
+                                } else {
+                                    $selecter.find("option:first-child").html("não há mais registros");
+                                }
+                            }
+                            hierarchyfinder_get( 1 , $("#hierarchyselecter1") );
+							
+                        </script>
+                    </div>
+                    
+                </div>
+                
+                <div class="coluna">
+                
+                    <div class="campo">
+                        <label>Título ou denominação do documento</label>
+                        {{{ca_objects.preferred_labels}}}
+                    </div>
+                    
+    				<div class="campo">
+                        <label>Data ou período de produção</label>
+                        <div>
+                        {{{ca_objects.unitdate.date_value}}}
+                        {{{ca_objects.unitdate.dates_types}}}
+                        </div>
+                    </div>
+                    
+                    <div class="campo _attribute_value_document_genre">
+                        <label>Gênero documental</label>
+                        {{{ca_objects.document_genre}}}
+                    </div>
+            
+                    <div class="campo">
+                        <label>Espécie documental</label>
+                        {{{ca_objects.document_type}}}
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Analógico / digital</label>
+                        {{{ca_objects.analog_digital}}}
+                    </div>
+
+                    <div class="campo">
+                        <label>Suporte</label>
+                        {{{ca_objects.document_support}}}
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Entidade / responsável</label>
+                        {{{ca_entities.preferred_labels%restrictToRelationshipTypes=creator;publisher;edition;contributor}}}
+                        <label>Instituição</label>
+                        <input name="ca_objects_x_entities.entity_institution"/>
+                        <input type="hidden" name="ca_objects_x_entities.entity_institution_label" value="ca_objects_x_entities.entity_institution" />
+                    </div>
+				    
+                    <!--
+                    <div class="campo">
+                        <label>Local relacionado no contexto de produção</label>
+                        <div>
+                        <label>cidade</label>
+                        {{{ca_objects.city_country.city_country_cityvalue}}}
+                        <label>país</label>
+                        {{{ca_objects.city_country.city_country_countryvalue}}}
+                        </div>
+                    </div>
+                    -->
+                                        
+                    <div class="campo">
+                        <label>Evento relacionado no contexto de produção</label>
+                        {{{ca_occurrences.preferred_labels%restrictToRelationshipTypes=production;subject}}}
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Representação nacional</label>
+                        <input name="ca_objects.nat_representation[]" />
+                        <input type="hidden" name="ca_objects.nat_representation_label" value="ca_objects.nat_representation" />
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Descrição do conteúdo</label>
+                        {{{ca_objects.content_description}}}
+                    </div>
+
+                    <div class="campo">
+                        <label>Vocabulário controlado relacionado</label>
+                        {{{ca_list_item_labels}}}
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Entidade relacionada</label>
+                        {{{ca_entities.preferred_labels}}}
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Obras relacionadas</label>
+                        <input name="ca_objects.related.preferred_labels" />
+                        <input type="hidden" name="ca_objects.related.preferred_labels_label" value="ca_objects.related.preferred_labels" />
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Eventos relacionados</label>
+                        {{{ca_occurrences.preferred_labels}}}
+                    </div>
+                    
+                    <div class="campo">
+                        <label>Lugares relacionados</label>
+                        {{{ca_places.preferred_labels}}}
+                    </div>
+                    
+                </div>
+                
+                <div class="enviar">{{{submit%label=procurar}}}</div>                       
+                
+            {{{/form}}}
+
+        </div>
+        
+        <script>
+		
+			var a = $("input[name='_formElements']").val();
+			var b = a.split("|");
+			b.splice(2, 0, "ca_objects.parent_id");
+			b.splice(2, 0, "ca_objects.idno");
+			b.splice(2, 0, "ca_objects.nat_representation");
+			b.splice(2, 0, "ca_objects.related.preferred_labels");
+			b.splice(2, 0, "ca_objects_x_entities.entity_institution");
+			b = b.join("|");
+			$("input[name='_formElements']").val( b );
+		
+		</script>

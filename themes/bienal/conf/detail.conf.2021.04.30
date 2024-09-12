@@ -1,0 +1,38 @@
+# Allow download of representation on object detail page?
+# accepted values include: anyone, logged_in, logged_in_privileged
+
+allow_ca_objects_representation_download = anyone
+
+# attribute of description text to use in share function - emailing record
+
+share_ca_objects_description_attribute = none
+
+#
+# Details supported in this theme
+#
+
+detailTypes = {
+	obra = {
+		displayName = "Obra",
+		table = ca_objects,
+		restrictToTypes = [artworks]
+	},
+	documento = {
+		displayName = "Documento",
+		table = ca_objects,
+		restrictToTypes = [file,documents,document_parts],
+		options = {}		
+	},
+	entidade = {
+		displayName = "Entidade",
+		table = ca_entities,
+		restrictToTypes = [],
+		options = {}
+	},
+	evento = {
+		displayName = "Evento",
+		table = ca_occurrences,
+		restrictToTypes = [],
+		options = {}
+	}
+}
