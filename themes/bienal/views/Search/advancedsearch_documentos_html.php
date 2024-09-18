@@ -124,16 +124,19 @@
                                 }
                             }							
                             function hierarchyfinder_get( $parent_id , $selecter ) {
-								
-                                u = "/service.php/HierarchyLookup/objects?id=" + $parent_id;
-								
+                                u = "/pawtucket/service.php/HierarchyLookup/objects?id=" + $parent_id;
+
 								$.ajax({
                                     url: u ,
                                     dataType: 'json',
                                     method:'GET',
                                     success: function( $data ) {
+                                        console.log($data);
                                         hierarchyfinder_populate( $data , $parent_id , $selecter );
                                     }
+                                })
+                                .fail(function (jqXHR, textStatus, errorThrown) {
+                                    console.log(errorThrown);
                                 });
 								
                             }
