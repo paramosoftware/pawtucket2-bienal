@@ -947,7 +947,6 @@ $vb_exibir_imagem = true;
                 ?>
 				
 				<?php
-					require_once(__CA_LIB_DIR__."/core/Db.php");
 					$o_data = new Db();
 					$o_id = $item->get('object_id');
 					
