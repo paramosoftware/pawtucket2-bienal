@@ -738,10 +738,11 @@ $vb_exibir_imagem = true;
 					$va_object_locations_ids = array();
 					
 					$vb_resource_found = false;
+
 					if ($vn_object_location_id && ($item->get('ca_objects.has_external_image') == 227) && $vb_exibir_imagem)
 					{
 						$va_info_resources = explode("|", $item->getWithTemplate('<unit relativeTo="ca_objects.info_resource_rs" delimiter="|">^ca_objects.info_resource_rs.info_resource_rs_location_id:^ca_objects.info_resource_rs.info_resource_public_access</unit>'));
-						
+
 						$va_resources_permissions = array();
                         foreach ($va_info_resources as $va_info_resource)
                         {
@@ -753,15 +754,15 @@ $vb_exibir_imagem = true;
 						
 						foreach ($va_initial_object_locations_ids as $vn_object_location_id)
                         {
-                            if (in_array($va_resources_permissions[$vn_object_location_id], ["", "Sim"]))
+                            if (in_array($va_resources_permissions[$vn_object_location_id], ["", "Sim", "Yes"]))
                                 $va_object_locations_ids[] = $vn_object_location_id;
                         }
-						
+
 						foreach ($va_object_locations_ids as $vn_object_location_id)
                         {						
 							//$vs_rs_url = "http://179.125.16.90/api/?";
-							$vs_rs_url = "http://187.50.25.114/api/?";
-							//$vs_rs_url = "http://imagens.bienal.art.br/api/?";
+							//$vs_rs_url = "http://187.50.25.114/api/?";
+							$vs_rs_url = "http://imagens.bienal.art.br/api/?";
 							$vs_private_key = "fd2b498d659711bea88994660ba62a9fc69549ec3b882d3dd6e8238676732ee5";
 							$vs_user = "api_access";
 
@@ -771,7 +772,7 @@ $vb_exibir_imagem = true;
 							$vs_sign = hash("sha256", $vs_private_key . $vs_query);
 
 							$va_resources = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
-							
+
 							if (is_array($va_resources) && count($va_resources))
                             {
                                 $vb_resource_found = true;
@@ -835,7 +836,7 @@ $vb_exibir_imagem = true;
 									
 									function update_image(vn_pagina, vs_location_id)
 									{
-										vs_url_imagem = "http://arquivo.fbsp.org.br/pawtucket/themes/bienal/views/Details/read_resource.php?id="+vn_pagina;
+										vs_url_imagem = "/pawtucket/themes/bienal/views/Details/read_resource.php?id="+vn_pagina;
 										$("#images").html("<i class='caIcon fa fa fa-cog fa-spin fa-1x' ></i> Carregando imagem...");
 										
 										//$("#images").load(vs_url_imagem);
