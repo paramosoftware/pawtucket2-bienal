@@ -5,23 +5,17 @@
 	
 	header("Access-Control-Allow-Origin: *");
 
-	if (isset($_GET["id"]) && $_GET["id"])
-		$vn_object_location_id = $_GET["id"];
-	else
-		exit();
+	$vn_object_location_id = $this->getVar("id");
+	$va_api_credentials = $this->getVar("api_credentials");
 
-	
-	//if (isset($_GET["page"]) && $_GET["page"])
-		//$vn_page = $_GET["page"];
-	//else
-		//$vn_page = 1;
+	foreach($va_api_credentials as $vs_instance => $va_instance_api)
+	{
+		$vs_rs_url = $va_instance_api['resourcespace_base_api_url'];
+		$vs_private_key = $va_instance_api['resourcespace_api_key'];
+		$vs_user = $va_instance_api['resourcespace_user'];
 
-	//$vs_rs_url = "http://179.125.16.90/api/?";
-	//$vs_rs_url = "http://imagens.bienal.art.br/api/?";
-	$vs_rs_url = "http://187.50.25.114/api/?";
-	
-	$vs_private_key = "fd2b498d659711bea88994660ba62a9fc69549ec3b882d3dd6e8238676732ee5";
-	$vs_user = "api_access";
+		break;
+	}
 
 	$vs_query = "user=" . $vs_user . "&function=do_search&search=" . $vn_object_location_id . "&order_by=resourceid&sort=asc";
 
@@ -65,12 +59,8 @@
 	
 	$vs_sign = hash("sha256", $vs_private_key . $vs_query);
 
-	$vs_resource_path = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
-	$vs_resource_path = str_replace('/var/www/resourcespace/include/../', 'http://imagens.bienal.art.br/', $vs_resource_path);
-	
-	//$vs_resource_path = str_replace('/var/www/resourcespace/include/../', 'http://187.50.25.114/', $vs_resource_path);
-	
-	
+	$vs_resource_path = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));	
+
 	if (!$vb_pdf)
 	{
 	?>										

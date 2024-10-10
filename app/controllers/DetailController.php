@@ -846,6 +846,23 @@ class DetailController extends FindController {
 	 * Download representation from currently open object stored in ResourceSpace
 	 *
 	 */ 
+	public function ReadResourceSpaceResource() {
+		$vn_object_location_id = $this->request->getParameter('id', pString);
+
+		$o_config = Configuration::load();
+
+		if (!is_array($va_api_credentials = $o_config->get('resourcespace_apis'))) { $va_api_credentials = []; }
+
+		$this->view->setVar('id', $vn_object_location_id);
+		$this->view->setVar('api_credentials', $va_api_credentials);
+
+		$this->render('Details/read_resource.php', false);
+	}
+	# -------------------------------------------------------
+	/**
+	 * Download representation from currently open object stored in ResourceSpace
+	 *
+	 */ 
 	public function DownloadResourceSpaceResource() {
 		if (!($vn_object_id = $this->request->getParameter('object_id', pInteger))) {
 			$vn_object_id = $this->request->getParameter('id', pInteger);

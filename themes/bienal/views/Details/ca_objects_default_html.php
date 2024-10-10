@@ -730,10 +730,22 @@ $vb_exibir_imagem = true;
 				<!-- Vamos montar aqui a seção do representante digital -->
 				
 				<?php
+                    $o_config = Configuration::load();
+
+                    if (!is_array($va_api_credentials = $o_config->get('resourcespace_apis'))) { $va_api_credentials = []; }
+                    
+                    foreach($va_api_credentials as $vs_instance => $va_instance_api)
+                    {
+                        $vs_rs_url = $va_instance_api['resourcespace_base_api_url'];
+                        $vs_private_key = $va_instance_api['resourcespace_api_key'];
+                        $vs_user = $va_instance_api['resourcespace_user'];
+                
+                        break;
+                    }
+
 					$vb_external_image_access = $item->get('ca_objects.rs_resource_public');
 					$vb_exibir_imagem = ($vb_external_image_access == 227);
-					//$vb_exibir_imagem = false;
-								
+													
 					$vn_object_location_id = $item->get('ca_objects.location_identifier');
 					$va_object_locations_ids = array();
 					
@@ -760,12 +772,6 @@ $vb_exibir_imagem = true;
 
 						foreach ($va_object_locations_ids as $vn_object_location_id)
                         {						
-							//$vs_rs_url = "http://179.125.16.90/api/?";
-							//$vs_rs_url = "http://187.50.25.114/api/?";
-							$vs_rs_url = "http://imagens.bienal.art.br/api/?";
-							$vs_private_key = "fd2b498d659711bea88994660ba62a9fc69549ec3b882d3dd6e8238676732ee5";
-							$vs_user = "api_access";
-
 							$vs_query = "user=" . $vs_user . "&function=do_search&search=" . urlencode("cdigodelocalizao:" . $vn_object_location_id) . "&order_by=resourceid&sort=asc";
 
 							// Sign the query using the private key
@@ -836,10 +842,9 @@ $vb_exibir_imagem = true;
 									
 									function update_image(vn_pagina, vs_location_id)
 									{
-										vs_url_imagem = "/pawtucket/themes/bienal/views/Details/read_resource.php?id="+vn_pagina;
+										vs_url_imagem = "/pawtucket/index.php/Detail/ReadResourceSpaceResource/id/"+vn_pagina;
 										$("#images").html("<i class='caIcon fa fa fa-cog fa-spin fa-1x' ></i> Carregando imagem...");
 										
-										//$("#images").load(vs_url_imagem);
 										$.get(vs_url_imagem, function(data, status)
 										{
 											$("#images").html(data);
@@ -879,13 +884,10 @@ $vb_exibir_imagem = true;
 											
 												$vs_sign = hash("sha256", $vs_private_key . $vs_query);
 										
-												$vs_resource_path = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
-												//$vs_resource_path = str_replace('/var/www/resourcespace/include/../', 'http://179.125.16.90/', $vs_resource_path);
-												$vs_resource_path = str_replace('/var/www/resourcespace/include/../', 'http://imagens.bienal.art.br/', $vs_resource_path);
-												
+												$vs_resource_path = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));												
 											?>										
 												
-												<img id="image" src="<?php print trim($vs_resource_path); ?>" width="500px"
+												<img id="image" src="data:image/png;base64,<?php print base64_encode(file_get_contents($vs_resource_path)); ?>" width="500px"
 												<?php if ($contador_recursos > 1)
 													print ' style="display:none"';
 												?>
