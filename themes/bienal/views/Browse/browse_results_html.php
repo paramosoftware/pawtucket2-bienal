@@ -132,16 +132,18 @@
             
             <?php } ?>
             
-			<?php if($is_search && !$total_resultado && $termo_busca){
-                $o_search = caGetSearchInstance($tabela);
-                if ( sizeof($sugestoes = $o_search->suggest($termo_busca, array('request' => $this->request)))) {
-                    $sugestoes_links = array();
-                    foreach($sugestoes as $sugestao){
-                        $sugestoes_links[] = caNavLink($this->request, $sugestao, '', '*', '*', '*', array('search' => $sugestao, 'sort' => $ordenacao_atual, 'view' => $view));
-                    }                    
-                    print "<div id='vocequisdizer'>Você quis dizer " . join(', ', $sugestoes_links) . "</div>";
-                }
-            }?>
+			<?php 
+				// if($is_search && !$total_resultado && $termo_busca){
+                // $o_search = caGetSearchInstance($tabela);
+                // if ( sizeof($sugestoes = $o_search->suggest($termo_busca, array('request' => $this->request)))) {
+                //     $sugestoes_links = array();
+                //     foreach($sugestoes as $sugestao){
+                //         $sugestoes_links[] = caNavLink($this->request, $sugestao, '', '*', '*', '*', array('search' => $sugestao, 'sort' => $ordenacao_atual, 'view' => $view));
+                //     }                    
+                //     print "<div id='vocequisdizer'>Você quis dizer " . join(', ', $sugestoes_links) . "</div>";
+                // }
+            	// }
+			?>
 			
             <?php if ( $total_resultado > 0 ) { ?>
 				
