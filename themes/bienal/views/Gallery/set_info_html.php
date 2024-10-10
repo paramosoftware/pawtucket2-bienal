@@ -18,6 +18,19 @@
 	$pagina_atual = ( ( $offset / $itens_por_pagina ) +1 );
 			
 	$paginas_totais = ceil(count($va_set_items) / $itens_por_pagina);
+
+	$o_config = Configuration::load();
+
+	if (!is_array($va_api_credentials = $o_config->get('resourcespace_apis'))) { $va_api_credentials = []; }
+	
+	foreach($va_api_credentials as $vs_instance => $va_instance_api)
+	{
+		$vs_rs_url = $va_instance_api['resourcespace_base_api_url'];
+		$vs_private_key = $va_instance_api['resourcespace_api_key'];
+		$vs_user = $va_instance_api['resourcespace_user'];
+
+		break;
+	}
 ?>
 
 <link rel="stylesheet" type="text/css" href="/pawtucket/assets/bootstrap/css/bootstrap.css" />
@@ -151,17 +164,12 @@
 									// Lendo a imagem via API do ResourceSpace
 									// FRED 24/11/2022
 									//////////////////////////////////////////
-									
-									$vs_rs_url = "http://187.50.25.114/api/?";
-									//$vs_rs_url = "http://imagens.bienal.art.br/api/?";
-									$vs_private_key = "fd2b498d659711bea88994660ba62a9fc69549ec3b882d3dd6e8238676732ee5";
-									$vs_user = "api_access";
 
 									$vs_query = "user=" . $vs_user . "&function=do_search&search=" . urlencode("cdigodelocalizao:" . $vn_object_location_id) . "&order_by=resourceid&sort=asc";
 
 									// Sign the query using the private key
 									$vs_sign = hash("sha256", $vs_private_key . $vs_query);
-									
+
 									$va_resources = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
 									
 									if (is_array($va_resources) && count($va_resources))
@@ -174,17 +182,16 @@
 								}
 
 								$vs_resource_path = "";
+
 								if (count($va_resources))
 								{
 									$va_resource = $va_resources[0];
 									
-									$vs_query = "user=" . $vs_user . "&function=get_resource_path&ref=" . $va_resource->ref . "&getfilepath=1&size=thm";
+									$vs_query = "user=" . $vs_user . "&function=get_resource_path&ref=" . $va_resource->ref . "&getfilepath=0&size=thm";
 									
 									$vs_sign = hash("sha256", $vs_private_key . $vs_query);
 
 									$vs_resource_path = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
-									//$vs_resource_path = str_replace('/var/www/resourcespace/include/../', 'http://187.50.25.114/', $vs_resource_path);
-									$vs_resource_path = str_replace('/var/www/resourcespace/include/../', 'http://imagens.bienal.art.br/', $vs_resource_path);	
 								}
 							}
 						?>
@@ -196,7 +203,7 @@
 										{
 										?>
 											<div class='text-center bResultItemImg'>
-												<img src="<?php print $vs_resource_path; ?>">
+												<img src="data:image/png;base64,<?php print base64_encode(file_get_contents($vs_resource_path)); ?>">
 											</div>
 										<?php
 										}
