@@ -842,6 +842,92 @@ class DetailController extends FindController {
 		$this->render('Details/object_representation_download_binary.php', true);
 	}
 	# -------------------------------------------------------
+	/**
+	 * Download representation from currently open object stored in ResourceSpace
+	 *
+	 */ 
+	public function DownloadResourceSpaceResource() {
+		if (!($vn_object_id = $this->request->getParameter('object_id', pInteger))) {
+			$vn_object_id = $this->request->getParameter('id', pInteger);
+		}
+
+		$t_object = new ca_objects($vn_object_id);
+		if (!$t_object->isLoaded()) {
+			throw new ApplicationException(_t('Cannot download media'));
+		}
+
+		if(sizeof($this->opa_access_values) && (!in_array($t_object->get("access"), $this->opa_access_values))){
+			return;
+		}
+
+		$vn_resource_ref = $this->request->getParameter('resource', pString);
+		$vs_resource_location_identifier = $this->request->getParameter('location_id', pString);
+		$vs_resource_format = $this->request->getParameter('format', pString);
+		$pn_representation_id = $vn_resource_ref;
+		
+		$t_download_log = new Downloadlog();
+		$t_download_log->log(array(
+				"user_id" => $this->request->getUserID() ? $this->request->getUserID() : null, 
+				"ip_addr" => $_SERVER['REMOTE_ADDR'] ?  $_SERVER['REMOTE_ADDR'] : null, 
+				"table_num" => $t_object->TableNum(), 
+				"row_id" => $vn_object_id, 
+				"representation_id" => $pn_representation_id, 
+				"download_source" => "pawtucket"
+		));
+
+		$o_config = Configuration::load();
+
+		if (!is_array($va_api_credentials = $o_config->get('resourcespace_apis'))) { $va_api_credentials = []; }
+		
+		foreach($va_api_credentials as $vs_instance => $va_instance_api)
+		{
+			$vs_rs_url = $va_instance_api['resourcespace_base_api_url'];
+			$vs_private_key = $va_instance_api['resourcespace_api_key'];
+			$vs_user = $va_instance_api['resourcespace_user'];
+
+			break;
+		}
+
+		$va_queries = array();
+		$va_resources_paths = array();
+
+		if ($vs_resource_format == "pdf")
+		{
+			$va_queries[] = "user=" . $vs_user . "&function=get_resource_path&ref=" . $vn_resource_ref . "&getfilepath=1&extension=pdf";
+		}
+		else
+		{
+			$vs_query = "user=" . $vs_user . "&function=do_search&search=" . urlencode("cdigodelocalizao:" . $vs_resource_location_identifier) . "&order_by=resourceid&sort=asc";
+			$vs_sign = hash("sha256", $vs_private_key . $vs_query);
+			
+			$va_resources = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
+			
+			if (is_array($va_resources) && count($va_resources))
+			{
+				foreach($va_resources as $va_resource)
+				{
+					$va_queries[] = "user=" . $vs_user . "&function=get_resource_path&ref=" . $va_resource->ref . "&getfilepath=1&size=lpr";
+				}
+			}
+		}
+
+		foreach ($va_queries as $vs_query)
+		{
+			$vs_sign = hash("sha256", $vs_private_key . $vs_query);
+
+			$vs_resource_path = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
+			$vs_resource_path = str_replace('/var/www/resourcespace/include/../', 'http://imagens.bienal.art.br/', $vs_resource_path);
+
+			$va_resources_paths[] = $vs_resource_path;
+		}
+
+		$this->view->setVar('version_path', $va_resources_paths);
+		$this->view->setVar('version_download_name', $vs_resource_location_identifier);
+		$this->view->setVar('format', $vs_resource_format);
+		
+		$this->render('Details/object_representation_download_binary.php', true);
+	}
+	# -------------------------------------------------------
 	# Tagging and commenting
 	# -------------------------------------------------------
 	/**
