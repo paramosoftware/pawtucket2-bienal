@@ -122,7 +122,7 @@
                     <h2>Faça uma busca rápida</h2>
                     
                 	<div class="busca">
-                        <form action="http://arquivo.bienal.org.br/pawtucket/index.php/MultiSearch/Index" method="get">
+                        <form action="/pawtucket/index.php/MultiSearch/Index" method="get">
                             <input name="search"/>
                             <button></button>
                         </form>
@@ -141,8 +141,8 @@
                     <div class="box">
                         <h1>documentos</h1>
                         
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Search/advanced/documentos">busca avançada</a>
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Browse/documentos">explore</a>
+                        <a href="/pawtucket/index.php/Search/advanced/documentos">busca avançada</a>
+                        <a href="/pawtucket/index.php/Browse/documentos">explore</a>
                         
                         <p>Registros de conjuntos ou itens documentais, organizados em fundos ou coleções</p>
                     </div>
@@ -150,8 +150,8 @@
                     <div class="box">
                         <h1>obras</h1>
                        
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Search/advanced/obras">busca avançada</a>
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Browse/obras">explore</a> 
+                        <a href="/pawtucket/index.php/Search/advanced/obras">busca avançada</a>
+                        <a href="/pawtucket/index.php/Browse/obras">explore</a> 
                         
                         <p>Informações sobre as obras e suas participações nas Bienais</p>
                     </div>
@@ -159,8 +159,8 @@
                     <div class="box">
                         <h1>entidades</h1>
                         
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Search/advanced/entidades">busca avançada</a>
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Browse/entidades">explore</a>
+                        <a href="/pawtucket/index.php/Search/advanced/entidades">busca avançada</a>
+                        <a href="/pawtucket/index.php/Browse/entidades">explore</a>
                         
                         <p>Dados sobre pessoas e instituições, suas relações com a documentação ou eventos cadastrados</p>
                     </div>
@@ -168,8 +168,8 @@
                     <div class="box">
                         <h1>eventos</h1>
                         
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Search/advanced/eventos">busca avançada</a>
-                        <a href="http://arquivo.bienal.org.br/pawtucket/index.php/Browse/eventos">explore</a>
+                        <a href="/pawtucket/index.php/Search/advanced/eventos">busca avançada</a>
+                        <a href="/pawtucket/index.php/Browse/eventos">explore</a>
                         
                         <p>Informações sobre eventos realizados pela Fundação Bienal e outros relacionados à documentação</p>
                     </div>
@@ -183,7 +183,7 @@
                   <div class="box a">
                 
                 	<div class="content">
-                    	<a href="http://arquivo.bienal.org.br/pawtucket/index.php/Detail/documento/1">
+                    	<a href="/pawtucket/index.php/Detail/documento/1">
                             <h1>fundos e coleções</h1>
                             <p>Explore mais de 200 mil registros do Arquivo Bienal</p>
                         </a>
@@ -194,7 +194,7 @@
                 <div class="box b">
                 
                 	<div class="content">
-                    	<a href="http://arquivo.fbsp.org.br/pawtucket/index.php/Gallery/Index">
+                    	<a href="/pawtucket/index.php/Gallery/Index">
                             <h1>galerias</h1>
                             <p>Explore registros fotográficos de obras e eventos ou reproduções digitais da documentação</p>
                         </a>
