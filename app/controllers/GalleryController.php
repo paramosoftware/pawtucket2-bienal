@@ -216,6 +216,52 @@
 					}
  			}
  			$this->view->setVar("set_item", $set_item);
+
+
+			
+			// FRED 16/11/2022
+			$this->view->setVar("set_items", caExtractValuesByUserLocale($t_set->getItems(array("thumbnailVersions" => array("icon", "iconlarge"), "checkAccess" => $this->opa_access_values))));
+
+			// FRED 14/03/2024
+			// Recuperando subsets deste set //
+
+			if (!is_null($t_set->get("ca_sets.subsets")))
+			{
+				$o_data = new Db();
+
+				$va_subsets_idnos = explode(";", $t_set->get("ca_sets.subsets"));
+				$va_subsets_info = array();
+
+				foreach ($va_subsets_idnos as $vs_idno)
+				{	
+					$qr_result = $o_data->query("
+						SELECT ca_sets.set_id, ca_set_labels.name
+						FROM ca_sets
+						INNER JOIN ca_set_labels on ca_sets.set_id = ca_set_labels.set_id AND ca_set_labels.locale_id = 13
+						WHERE ca_sets.set_code = '$vs_idno' AND ca_sets.deleted = 0 AND ca_sets.access = 1
+					");
+					
+					if($qr_result->nextRow())
+					{
+						$va_subsets_info[] = [
+							"set_id" => $qr_result->get('set_id'),
+							"set_name" => $qr_result->get('name')
+						];
+					}
+				}
+
+				$this->view->setVar("subsets", $va_subsets_info);
+			}
+
+			$this->view->setVar("parent_set", $this->request->getParameter('parent', pInteger));
+
+			// FRED 14/03/2024
+			// Recuperando subsets deste set //
+			
+			$pn_start = $this->request->getParameter('s', pInteger);
+			$this->view->setVar("start", $pn_start);
+
+
  			$this->render("Gallery/set_info_html.php");
  		}
 		# -------------------------------------------------------
