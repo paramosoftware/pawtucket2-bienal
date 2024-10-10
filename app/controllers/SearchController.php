@@ -151,7 +151,7 @@ class SearchController extends FindController {
 		}
 		
 		MetaTagManager::setWindowTitle($this->request->config->get("app_display_name").$this->request->config->get("page_title_delimiter")._t("Search %1", $va_browse_info["displayName"]).$this->request->config->get("page_title_delimiter").$this->opo_result_context->getSearchExpressionForDisplay());
-		
+
 		//
 		// Handle advanced search form submissions
 		//
@@ -380,7 +380,7 @@ class SearchController extends FindController {
 			$o_browse->setFacetGroup($vs_facet_group);
 		}
 		$va_available_facet_list = caGetOption('availableFacets', $va_browse_info, null);
-		$va_facets = $o_browse->getInfoForAvailableFacets(['checkAccess' => $this->opa_access_values, 'request' => $this->request]);
+		//$va_facets = $o_browse->getInfoForAvailableFacets(['checkAccess' => $this->opa_access_values, 'request' => $this->request]);
 		if(is_array($va_available_facet_list) && sizeof($va_available_facet_list)) {
 			foreach($va_facets as $vs_facet_name => $va_facet_info) {
 				if (!in_array($vs_facet_name, $va_available_facet_list)) {
