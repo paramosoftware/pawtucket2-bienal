@@ -131,7 +131,6 @@
                                     dataType: 'json',
                                     method:'GET',
                                     success: function( $data ) {
-                                        console.log($data);
                                         hierarchyfinder_populate( $data , $parent_id , $selecter );
                                     }
                                 })
