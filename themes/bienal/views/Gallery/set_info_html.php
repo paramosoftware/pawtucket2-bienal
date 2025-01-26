@@ -141,6 +141,7 @@
 					<?php
 					
 					$contador = 1;
+
 					foreach($va_set_items as $va_set_item)
 					{
 						if ($contador > $offset)
@@ -152,6 +153,7 @@
 							
 							$vs_resource_path = "";
 							$vb_resource_found = false;
+
 							if ( true && (!isset($vb_external_image_access) || ($vb_external_image_access == 59)) && ($t_object->get('ca_objects.has_external_image') == 227) )
 							{
 								$vn_object_location_id = $t_object->get('location_identifier');
@@ -185,7 +187,27 @@
 
 								if (count($va_resources))
 								{
-									$va_resource = $va_resources[0];
+									/////////////////////////////////////////////////////////
+									/// Recupera as permissões de acesso dos recursos do item
+
+									$va_info_resources = explode("|", $t_object->getWithTemplate('<unit relativeTo="ca_objects.info_resource_rs" delimiter="|">^ca_objects.info_resource_rs.info_resource_rs_location_id:^ca_objects.info_resource_rs.info_resource_public_access</unit>'));
+
+									$va_resources_permissions = array();
+                        
+									foreach ($va_info_resources as $va_info_resource)
+									{
+										$va_resources_permissions[explode(":", $va_info_resource)[0]] = explode(":", $va_info_resource)[1];
+									}
+
+									//////////////////////////////////////////////////
+
+									foreach ($va_resources as $va_resource)
+									{
+										if (isset($va_resources_permissions[$va_resource->field92]) && in_array($va_resources_permissions[$va_resource->field92], ["", "Sim", "Yes"]))
+											break;
+									}
+									
+									//$va_resource = $va_resources[0];
 									
 									$vs_query = "user=" . $vs_user . "&function=get_resource_path&ref=" . $va_resource->ref . "&getfilepath=0&size=thm";
 									

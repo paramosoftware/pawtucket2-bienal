@@ -756,17 +756,18 @@ $vb_exibir_imagem = true;
 						$va_info_resources = explode("|", $item->getWithTemplate('<unit relativeTo="ca_objects.info_resource_rs" delimiter="|">^ca_objects.info_resource_rs.info_resource_rs_location_id:^ca_objects.info_resource_rs.info_resource_public_access</unit>'));
 
 						$va_resources_permissions = array();
+
                         foreach ($va_info_resources as $va_info_resource)
                         {
                             $va_resources_permissions[explode(":", $va_info_resource)[0]] = explode(":", $va_info_resource)[1];
                         }
-						
+
 						$va_initial_object_locations_ids = explode(";", $vn_object_location_id);
 						sort($va_initial_object_locations_ids);
 						
 						foreach ($va_initial_object_locations_ids as $vn_object_location_id)
                         {
-                            if (in_array($va_resources_permissions[$vn_object_location_id], ["", "Sim", "Yes"]))
+                            if (isset($va_resources_permissions[$vn_object_location_id]) && in_array($va_resources_permissions[$vn_object_location_id], ["", "Sim", "Yes"]))
                                 $va_object_locations_ids[] = $vn_object_location_id;
                         }
 
@@ -844,7 +845,7 @@ $vb_exibir_imagem = true;
 									{
 										vs_url_imagem = "/pawtucket/index.php/Detail/ReadResourceSpaceResource/id/"+vn_pagina;
 										$("#images").html("<i class='caIcon fa fa fa-cog fa-spin fa-1x' ></i> Carregando imagem...");
-										
+
 										$.get(vs_url_imagem, function(data, status)
 										{
 											$("#images").html(data);
@@ -872,15 +873,22 @@ $vb_exibir_imagem = true;
 										$contador_recursos = 1;
 										$vb_pdf = false;
 										
-										foreach($va_resources as $va_resource)
+										foreach($va_resources as $va_resource_temp)
 										{
-											if ($va_resource->file_extension == "pdf")
+                                            if ($va_resource_temp->file_extension == "pdf")
+                                            {
+                                                $va_resource = $va_resource_temp;
 												$vb_pdf = true;
+                                            }
 
-											//if (in_array($va_resource->field113, $va_object_locations_ids) && (!$vb_pdf) )
-											if ((!$vb_pdf) )
+											if (!$vb_pdf)
 											{
-												$vs_query = "user=" . $vs_user . "&function=get_resource_path&ref=" . $va_resource->ref . "&getfilepath=1&size=lpr&page=". $vn_page;
+                                                if (isset($va_resources_permissions[$va_resource_temp->field92]) && ($va_resources_permissions[$va_resource_temp->field92] == "No"))
+										    	   continue;
+
+                                                $va_resource = $va_resource_temp;
+
+												$vs_query = "user=" . $vs_user . "&function=get_resource_path&ref=" . $va_resource_temp->ref . "&getfilepath=1&size=lpr&page=". $vn_page;
 											
 												$vs_sign = hash("sha256", $vs_private_key . $vs_query);
 										

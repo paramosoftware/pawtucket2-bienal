@@ -921,8 +921,25 @@ class DetailController extends FindController {
 			
 			if (is_array($va_resources) && count($va_resources))
 			{
+				/////////////////////////////////////////////////////////
+				/// Recupera as permissões de acesso dos recursos do item
+
+				$va_info_resources = explode("|", $t_object->getWithTemplate('<unit relativeTo="ca_objects.info_resource_rs" delimiter="|">^ca_objects.info_resource_rs.info_resource_rs_location_id:^ca_objects.info_resource_rs.info_resource_public_access</unit>'));
+
+				$va_resources_permissions = array();
+	
+				foreach ($va_info_resources as $va_info_resource)
+				{
+					$va_resources_permissions[explode(":", $va_info_resource)[0]] = explode(":", $va_info_resource)[1];
+				}
+
+				//////////////////////////////////////////////////
+
 				foreach($va_resources as $va_resource)
 				{
+					if (isset($va_resources_permissions[$va_resource->field92]) && in_array($va_resources_permissions[$va_resource->field92], ["No"]))
+						continue;
+					
 					$va_queries[] = "user=" . $vs_user . "&function=get_resource_path&ref=" . $va_resource->ref . "&getfilepath=1&size=lpr";
 				}
 			}
