@@ -62,7 +62,7 @@ class BatchProcessor {
 		if ($perform_type_access_checking = (bool)$t_subject->getAppConfig()->get('perform_type_access_checking')) {
 			$va_restrict_to_types = caGetTypeRestrictionsForUser($t_subject->tableName(), array('access' => __CA_BUNDLE_ACCESS_EDIT__));
 		}
-		$perform_item_level_access_checking = (bool)$t_subject->getAppConfig()->get('perform_item_level_access_checking');
+		$perform_item_level_access_checking = caACLIsEnabled($t_subject);
 
 		$we_set_transaction = false;
 		
@@ -75,15 +75,15 @@ class BatchProcessor {
 			//$o_trans = new Transaction($t_subject->getDb());
 		//}
 
-		$o_log = new Batchlog(array(
+		$o_log = new Batchlog([
 			'user_id' => $po_request->getUserID(),
 			'batch_type' => 'BE',
 			'table_num' => (int)$rs->tableNum(),
 			'notes' => '',
-			//'transaction' => $o_trans
-		));
+			//'transaction' => $o_tran
+		]);
 
-		$vs_screen = $po_request->getActionExtra();
+		$vs_screen = caGetOption('screen', $pa_options, $po_request->getActionExtra());
 		$t_screen = new ca_editor_ui_screens(str_replace("Screen", "", $vs_screen));
 		if($t_screen->getPrimaryKey()) {
 			$t_ui = new ca_editor_uis($t_screen->get('ui_id'));
@@ -117,7 +117,7 @@ class BatchProcessor {
 				//
 				// Does user have access to row?
 				//
-				if (($perform_item_level_access_checking) && ($t_subject->checkACLAccessForUser($po_request->user) == __CA_ACL_EDIT_ACCESS__)) {
+				if (caACLIsEnabled($t_subject) && ($t_subject->checkACLAccessForUser($po_request->user) == __CA_ACL_EDIT_ACCESS__)) {
 					continue;		// skip
 				}
 
@@ -138,6 +138,16 @@ class BatchProcessor {
 						'idno' => $t_subject->get($t_subject->getProperty('ID_NUMBERING_ID_FIELD')),
 						'label' => $t_subject->getLabelForDisplay(),
 						'status' => 'SUCCESS'
+					);
+
+					$opo_app_plugin_manager = new ApplicationPluginManager() ;
+					$opo_app_plugin_manager->hookSaveItem(
+						array(
+							'id' => $vn_row_id,
+							'table_num' => $t_subject->tableNum(),
+							'table_name' => $t_subject->tableName(),
+							'instance' => $t_subject
+						)
 					);
 				}
 
@@ -219,7 +229,7 @@ class BatchProcessor {
 		if ($vb_perform_type_access_checking = (bool)$t_subject->getAppConfig()->get('perform_type_access_checking')) {
 			$va_restrict_to_types = caGetTypeRestrictionsForUser($t_subject->tableName(), array('access' => __CA_BUNDLE_ACCESS_EDIT__));
 		}
-		$vb_perform_item_level_access_checking = (bool)$t_subject->getAppConfig()->get('perform_item_level_access_checking');
+		$vb_perform_item_level_access_checking = caACLIsEnabled($t_subject);
 
 		$vb_we_set_transaction = false;
 		$o_tx = caGetOption('transaction',$pa_options);
@@ -256,7 +266,7 @@ class BatchProcessor {
 				}
 
 				// Does user have access to row?
-				if (($vb_perform_item_level_access_checking) && ($t_subject->checkACLAccessForUser($po_request->user) == __CA_ACL_EDIT_ACCESS__)) {
+				if (caACLIsEnabled($t_subject) && ($t_subject->checkACLAccessForUser($po_request->user) == __CA_ACL_EDIT_ACCESS__)) {
 					continue; // skip
 				}
 
@@ -343,7 +353,7 @@ class BatchProcessor {
 		if ($vb_perform_type_access_checking = (bool)$t_subject->getAppConfig()->get('perform_type_access_checking')) {
 			$va_restrict_to_types = caGetTypeRestrictionsForUser($t_subject->tableName(), array('access' => __CA_BUNDLE_ACCESS_EDIT__));
 		}
-		$vb_perform_item_level_access_checking = (bool)$t_subject->getAppConfig()->get('perform_item_level_access_checking');
+		$vb_perform_item_level_access_checking = caACLIsEnabled($t_subject);
 
 		$vb_we_set_transaction = false;
 		$o_tx = caGetOption('transaction',$pa_options);
@@ -380,7 +390,7 @@ class BatchProcessor {
 				}
 
 				// Does user have access to row?
-				if (($vb_perform_item_level_access_checking) && ($t_subject->checkACLAccessForUser($po_request->user) == __CA_ACL_EDIT_ACCESS__)) {
+				if (caACLIsEnabled($t_subject) && ($t_subject->checkACLAccessForUser($po_request->user) == __CA_ACL_EDIT_ACCESS__)) {
 					continue; // skip
 				}
 
@@ -1401,7 +1411,7 @@ class BatchProcessor {
 		$vn_file_num = 0;
 		foreach($va_sources as $vs_source) {
 			if(is_dir($vs_source)) { continue; }
-			if(!is_readable($vs_source)) { continue; }
+			if(file_exists($vs_source) && !is_readable($vs_source)) { continue; }
 			$vn_file_num++;
 			$t_importer = new ca_data_importers();
 			if (($ret = $t_importer->importDataFromSource($vs_source, $ps_importer, [
