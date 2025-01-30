@@ -218,14 +218,38 @@ h1 i {
 	}
 }
 .navbar {
-  border-radius:0px;
-  background-image:none;
-  background-color:#FFFFFF;
-  border-top:0px;
-  border:0px;
-  -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
+	/* --navbar-bg-color: white; */
+	--navbar-bg-color: #111;
+	/* --navbar-active-color: #f5f5f5; */
+	--navbar-active-color: var(--bienal_primary);
+	/* --navbar-text-color: black; */
+	--navbar-text-color: white;
+	/* --navbar-a-hover-color: #333; */
+	--navbar-a-hover-color: black;
+
+	border-radius:0px;
+  	background-image:none;
+  	background-color: var(--navbar-bg-color);
+  	border-top: 1px solid var(--navbar-bg-color);
+  	border-bottom: 1px solid var(--navbar-bg-color);
+	border-left: 0;
+	border-right: 0;
+  	/* -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.3); */
+  	/* box-shadow:0 1px 3px rgba(0, 0, 0, 0.3); */
+  	margin-bottom: 0;
 }
+
+.navbar .dropdown-menu {
+	background-color: var(--navbar-bg-color);
+	padding-block: 0;
+	a {
+		color: var(--navbar-text-color) !important;
+		font-family: "Helvetica Roman";
+		padding-block: 10px;
+		border-bottom: 1px solid white;
+	}
+}
+
 .navbar-collapse{
 	-webkit-box-shadow: none;
 	box-shadow: none;
@@ -247,17 +271,17 @@ h1 i {
     border: 1px solid #cccccc;
 }
 .navbar .navbar-nav > .active > a {
-  	background-color: #f5f5f5;
-    color: #000000;
+  	background-color: var(--navbar-active-color);
+    color: var(--navbar-text-color);
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    background-color: #f5f5f5;
+    background-color: var(--navbar-active-color);
 }
-.nav > li > a, .nav > li > a:hover, .nav > li > a:focus {
-	font-family: lato;
+.nav > li > a {
+	font-family: "Helvetica Roman";
 	/*font-size:11px;*/
-	color:#000;
+	color: var(--navbar-text-color);
 }
 .navbar-brand, .navbar-nav > li > a {
     text-shadow: 0 0px 0 rgba(255, 255, 255, 0.25);
@@ -271,13 +295,13 @@ h1 i {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  background-color: #f5f5f5;
+  background-color: var(--navbar-active-color);
   background-image: none;
   filter: none;
   color:#000;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #000000;
+  color: var(--navbar-text-color);
 }
 .nav > li.dropdown > a.icon{
 	font-size:16px;
@@ -291,13 +315,20 @@ h1 i {
 	.nav > li > a, .nav > li > a:hover, .nav > li > a:focus{
 		font-size:14px;
 	}
-}
-@media (min-width: 768px) {
-	.nav > li > a {
-		/*padding-top:28px;
-		padding-bottom:28px;*/
+
+	.nav > li > a:hover {
+		color: var(--navbar-a-hover-color) !important;
+		background-color: var(--bienal_primary) !important;
 	}
 }
+/*
+@media (min-width: 768px) {
+	.nav > li > a {
+		padding-top:28px;
+		padding-bottom:28px;
+	}
+}
+*/
 @media (min-width: 768px) {
 	.navbar-form {
 	 /* margin-top:18px;*/
@@ -310,15 +341,26 @@ h1 i {
 	margin-left:-10px;
 	color:#cccccc;
 }
-.navbar-brand img {
-  	width: 100%;
-}
 .navbar-brand {
-	width:200px;
+	--navbar-height: 57px;
+	--logo-height: 30px;
+	width: calc(var(--logo-height) + 30ch);
 	padding:0;
-	padding-top:8px;
-	padding-bottom:8px;
+	padding-block: calc((var(--navbar-height) - var(--logo-height)) * 0.5);
 	padding-left:15px;
+}
+.navbar-brand img {
+  	/* width: var(--logo-height); */
+	height: var(--logo-height);
+	/* max-width: var(--logo-height); */
+	max-height: var(--logo-height);
+}
+.navbar-brand .brand-title {
+	color: var(--navbar-text-color);
+	margin-left: 2rem;
+	font-family: "Helvetica Roman";
+	/* padding:0;
+	padding-block: calc((var(--navbar-height) - 2rem) * 0.5); */
 }
 .navbar .form-control {
 	padding: 0px 7px;
@@ -347,7 +389,7 @@ h1 i {
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    /* -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; */
 	position:relative;
 	border-radius: 3px;
 }
@@ -358,6 +400,12 @@ h1 i {
 .navbar-form .form-group {
 	width:140px;
 }
+.navbar .formOutline
+{
+	background-color: white;
+	color: black;
+}
+
 @media (min-width: 768px) {
 	.navbar .formOutline{
 		margin-left:5px;
@@ -549,7 +597,7 @@ ul.browseMenuFacetList > li div{
 	font-weight:bold;
 }
 div.browseFacetItem{
-   background-color:#f5f5f5;
+   background-color:var(--navbar-active-color);
    border-left:4px solid #fff;
    border-top:2px solid #fff;
    border-bottom:2px solid #fff;
@@ -620,7 +668,7 @@ a.browseRemoveFacet img {
     float: right;
     vertical-align: middle;
     margin-top: 7px;
-    display: inline-block;
+    /* display: inline-block; */
     border-top: #999 4px solid;
 }
 .filterMenuResults {
@@ -704,7 +752,7 @@ div.browseMenuBrowseSearch input {
     line-height: 1.42857;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     width: 100%;
 }
 .filterMenuFacetList .btn-default {
@@ -1459,7 +1507,7 @@ a.browseRemoveFacet img {
 /* front page */
 /* --------------------------------- */
 .front H1{
-	color:#757575;
+	color:white;
 	line-height:1.3;
 	text-transform:none;
 }
@@ -1537,21 +1585,21 @@ a.browseRemoveFacet img {
     text-decoration:none;
 }
 .front .nav-pills > li > a {
-    background-color: #f5f5f5;
+    background-color: var(--navbar-active-color);
     padding: 12px 10px 10px 10px;
-    color: #333;
+    color: var(--navbar-a-hover-color);
     font-size: 14px;
     text-decoration: none !important;
     text-transform: none;
 }
 .front .nav-pills > li > a:hover {
     font-weight:normal;
-    color:#333;
-    background-color:#f5f5f5;
+    color:var(--navbar-a-hover-color);
+    background-color:var(--navbar-active-color);
 }
 .front .nav-pills > li:hover > a {
-     background-color:#f5f5f5;
-     color:#333;
+     background-color:var(--navbar-active-color);
+     color:var(--navbar-a-hover-color);
 }
 .frontSlide{
 	position:relative;
