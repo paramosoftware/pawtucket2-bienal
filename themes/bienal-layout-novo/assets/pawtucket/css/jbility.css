@@ -1,0 +1,303 @@
+/*	ACESSIBILIDADE
+*	jBility
+* https://github.com/urielcaire/jbility
+*/
+
+.pagina-acessivel{
+	background-color: #111111 !important;
+	color: #FFFFFF;
+}
+
+.pagina-acessivel h1, .pagina-acessivel h2, .pagina-acessivel h3, .pagina-acessivel h4{
+	color: #FFFFFF!important;
+}
+
+.pagina-acessivel a, .pagina-acessivel h1 a, .pagina-acessivel h2 a, .pagina-acessivel h3 a, .pagina-acessivel h4 a, .pagina-acessivel i{
+	text-decoration: none;
+	color: #FFFF00!important;
+}
+
+.pagina-acessivel a:hover{
+	text-decoration: underline;
+}
+
+.pagina-acessivel .dropdown-menu{
+	border-color: #FFFFFF!important;
+}
+
+.pagina-acessivel li.active > a{
+	color: 	#E53935!important;
+}
+.pagina-acessivel #bMorePanel {
+    padding: 30px;
+    background-color: #111;
+    position: fixed;
+    top: 70px;
+    right: 0px;
+    width: 100%;
+    height: calc(100% - 70px);
+    display: none;
+    max-width: 400px;
+    font-size: 0px;
+    border: 1px dashed;
+        border-right-color: currentcolor;
+        border-right-style: dashed;
+        border-right-width: 1px;
+        border-bottom-color: currentcolor;
+        border-bottom-style: dashed;
+        border-bottom-width: 1px;
+    border-bottom: 0 !important;
+    border-right: 0px;
+}
+.pagina-acessivel #bMorePanel #bScrollListLabel .bFilterCount {
+    font-size: 15px;
+    display: block;
+    border-radius: 4px;
+    padding: 5px 8px;
+    background-color: #222;
+    color: #fff;
+    margin-top: 10px;
+    border: 1px solid;
+}
+select.pagina-acessivel > option {
+    
+	font-family: "Helvetica Roman", Helvetica, Arial, sans-serif;
+}
+
+select.pagina-acessivel:focus > option:hover { background: red !important;}
+select.pagina-acessivel
+    {   -webkit-appearance: none;  /* Remove estilo padrão do Chrome */   
+        -moz-appearance: none; /* Remove estilo padrão do FireFox */   
+        appearance: none; /* Remove estilo padrão do FireFox*/   
+        background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;  
+        /* Imagem de fundo (Seta) */   
+        background-position: 218px center;  /*Posição da imagem do background*/   
+        width: 250px; /* Tamanho do select, maior que o tamanho da div "div-select" */   height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */   
+        border:1px solid #ddd;
+}
+
+/*select:focus.pagina-acessivel > option:hover { background: #ff0!important; color:#000;}
+select:focus.pagina-acessivel > option:focus { background: red!important;}
+select.pagina-acessivel {border: 1px solid #ff0;} 
+*/
+/*
+.acess-container {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+    z-index: 9999;
+}
+*/
+.acess-container {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    right: -1px;
+    bottom: 80px;
+    z-index: 9999;
+    background: #004b93;
+    border: 1px solid !important;
+}
+/*
+#jbbutton{
+	margin-left: 0px;
+	width: 54px;
+	height: 54px;
+	float: left;
+}
+*/
+#jbbutton {
+    margin-left: 0px;
+    width: auto;
+    height: auto;
+    float: left;
+}
+
+.acess-icon{
+	margin-top: 7px;
+	margin-left: 2px;
+	float: left;
+}
+
+#acess-icons{
+	display: none;
+	float: left;
+}
+
+.f-transparent{
+	background-color: transparent!important;
+}
+
+.balloon {
+    position: relative;
+    display: inline-block;
+}
+
+.balloon .balloontext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #1E88E5;
+    color: #FFFFFF;
+    text-align: center;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.balloon .balloontext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1E88E5 transparent transparent transparent;
+}
+
+.balloon:hover .balloontext {
+    visibility: visible;
+}
+.pagina-acessivel section a {
+    border-bottom: #FF0 solid 4px !important;
+    cursor: pointer;
+}
+header .pagina-acessivel input, header .pagina-acessivel button {
+    color: #fff !important;
+}
+header menu .pagina-acessivel a, header menu .pagina-acessivel li {
+    color: #FF0 !important;
+}
+
+header menu .pagina-acessivel a:hover, header menu .pagina-acessivel li:hover {
+	border: 1px solid #000 !important;
+}
+.balloontext {
+	display: none;
+}
+#acess-icons img {
+    max-width: 18px;
+    margin: 0 2px;
+}
+
+#introducao h1.pagina-acessivel {
+    color: #ff0 !important;
+}
+#titulo.pagina-acessivel {
+    color: #ff0;
+}
+#ferramentas .pagina.pagina-acessivel {
+    color: #ffF;
+}
+.selecionado.pagina-acessivel, .selecionado.pagina-acessivel:hover {
+    color: #000 !important;
+    border: 0px dashed #ff0 !important;
+    background-color: #ff0 !important;
+}
+.label.pagina-acessivel {
+    color: #ff0 !important;
+}
+#itens a .pagina-acessivel {
+    color: #ff0 !important;
+}
+#contagem.pagina-acessivel {
+    color: #fff !important;
+}
+
+#itens .box {
+
+    width: calc(100%/4);
+
+    max-width: 24.9%;
+}
+
+section {
+
+    display: flex;
+
+}
+#ferramentas {
+    /*display: flex;*/
+	display:block;
+}
+
+
+.campo.pagina-acessivel select, .campo.pagina-acessivel input, .campo.pagina-acessivel textarea {
+    background: #111 !important;
+    color: #fff !important;
+    border: 1px solid #ff0 !important;
+}
+/*.campo.pagina-acessivel select, .campo.pagina-acessivel input {
+    background: #fff !important;
+    color: #000 !important;
+}
+.campo.pagina-acessivel select, .campo.pagina-acessivel input {
+    background: #000 !important;
+    color: #000 !important;
+    border: 1px solid #ff0 !important;
+}*/
+.campo.pagina-acessivel label {
+    color: #fff !important;
+}
+
+.idno.pagina-acessivel {
+    color: yellow !important;
+    border: 1px solid yellow !important;
+}
+#busca .pagina-acessivel input {
+    background: #111 !important;
+    color: yellow !important;
+    border: 1px solid yellow;
+}
+#paginacao .pagina-acessivel {
+    color: yellow !important;
+}
+.acess-container.pagina-acessivel.f-transparent {
+    background: #111 !important;
+}
+
+.selectBox-label.pagina-acessivel {
+    font-size: 14px;
+}
+
+#ui-datepicker-div.pagina-acessivel {
+    background-color: #111 !important;
+    border: 1px solid #ff0;
+}
+.caAdvancedSearchFormSubmit.pagina-acessivel {
+    color: #000 !important;
+    background-color: #ff0 !important;
+}
+
+menu .pagina-acessibilidade > a:hover {
+	background-color: #fff;
+}
+
+/*
+* Acertos ref tabelas/divs de resultados e filtros
+*/
+
+main #resultado {
+    width: calc(100% - 253px) !important;
+}
+.col:nth-child(2) {
+    max-width: 300px !important;
+}
+.col:nth-child(4) {
+    max-width: 200px !important;
+}
+main #atributos .atributo .label, main #atributos .atributo .valor {
+    display: table;
+}
+main #atributos .atributo .valor {
+
+    width: calc(100% - 204px) !important;
+
+}
