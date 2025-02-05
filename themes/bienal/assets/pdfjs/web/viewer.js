@@ -1639,13 +1639,13 @@ const PDFViewerApplication = {
 };
 exports.PDFViewerApplication = PDFViewerApplication;
 {
-  const HOSTED_VIEWER_ORIGINS = ["null", "http://mozilla.github.io", "https://mozilla.github.io", "http://imagens.bienal.art.br", "http://arquivo.fbsp.org.br", "http://arquivo.bienal.org.br"];
+  const HOSTED_VIEWER_ORIGINS = ["null", "http://mozilla.github.io", "https://mozilla.github.io", "http://imagens.bienal.art.br", "http://arquivo.fbsp.org.br", "http://arquivo.bienal.org.br", "http://192.168.1.140"];
   var validateFileURL = function (file) {
     if (!file) {
       return;
     }
     try {
-      const viewerOrigin = new URL(window.location.href).origin || "null";
+      const viewerOrigin = new URL(window.location.href).origin || "null"; console.log(viewerOrigin);
       if (HOSTED_VIEWER_ORIGINS.includes(viewerOrigin)) {
         return;
       }
