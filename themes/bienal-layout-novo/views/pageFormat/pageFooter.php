@@ -1,13 +1,11 @@
 <!-- <div style="clear:both; height:1px;"></div> -->
-</div><!-- end pageArea --></div><!-- end main --></div><!-- end col --></div><!-- end row --></div><!-- end container -->
+</div><!-- end pageArea --></main><!-- end main --></div><!-- end col --></div><!-- end row --></div><!-- end container -->
 
 <footer id="footer">
 	<div class="footer__container">
 		<div class="footer__logos">
 			<div class="footer__logo-bienal col-3 col-md-8">
-				<figure class="footer__logo-bienal">
-					<img src="https://bienal.org.br/wp-content/themes/bienal-sp/images/logo-bienal-inverse.svg" alt="Bienal" loading="lazy">
-				</figure>
+				<img src="https://bienal.org.br/wp-content/themes/bienal-sp/images/logo-bienal-inverse.svg" alt="Logo Bienal" loading="lazy">
 				<img height="60px" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/pawtucket/graphics/bienal-bloco_marcas-video_arquivo_br.png" />
 			</div>
 			<ul class="footer__logos-social col-9 col-md-4">
@@ -52,14 +50,14 @@
 		<hr>
 		<div class="footer__info">
 			<p>
-				O banco de dados do AHWS contou com recursos do Proac e está em constante desenvolvimento.<br />
-				As informações aqui apresentadas estão em constante revisão.<br />
-				Para completar sua pesquisa, entre em contato com o Arquivo Bienal.
+				<?=_t("The AHWS database was supported by Proac and is under continuous development.")?><br />
+				<?=_t("The information presented here is under constant review.")?><br />
+				<?=_t("To complete your research, contact the Bienal Archive.")?>
 			</p>
 			<div class="footer__contato">
-				<h2>Arquivo Histórico Wanda Svevo</h2>
-				<p>Parque Ibirapuera – Portão 3<br />Pavilhão Ciccillo Matarazzo - 2º andar<br />04094-000 – São Paulo – SP</p>
-				<h2>Contato</h2>
+				<h2><?=_t("Wanda Svevo Historical Archive")?></h2>
+				<p>Parque Ibirapuera – Portão 3<br />Pavilhão Ciccillo Matarazzo - 2º <?=_t("Floor")?><br />04094-000 – São Paulo – SP</p>
+				<h2><?=_t("Contact Us")?></h2>
 				<p>
 					+55 11 5576 7635<br />
 					<a href="mailto:arquivo.historico@bienal.org.br"><u>arquivo.historico@bienal.org.br</u></a>
@@ -70,9 +68,9 @@
 	<div class="footer__copyright">
 		<span>Copyright © 2025 Bienal de São Paulo</span>
 		<div class="footer__privacidade">
-			<a class="footer__privacidade-link" href="https://bienal.org.br/privacidade">Privacidade</a>
+			<a class="footer__privacidade-link" href="https://bienal.org.br/privacidade"><?=_t("Privacy")?></a>
 			•
-			<a class="footer__privacidade-link" href="https://bienal.org.br/termosdeuso">Termos de uso</a>
+			<a class="footer__privacidade-link" href="https://bienal.org.br/termosdeuso"><?=_t("Terms of Use")?></a>
 		</div>
 	</div>
 </footer>
@@ -123,7 +121,42 @@ if (Debug::isEnabled()) {
 	});
 	/*(function(e,d,b){var a=0;var f=null;var c={x:0,y:0};e("[data-toggle]").closest("li").on("mouseenter",function(g){if(f){f.removeClass("open")}d.clearTimeout(a);f=e(this);a=d.setTimeout(function(){f.addClass("open")},b)}).on("mousemove",function(g){if(Math.abs(c.x-g.ScreenX)>4||Math.abs(c.y-g.ScreenY)>4){c.x=g.ScreenX;c.y=g.ScreenY;return}if(f.hasClass("open")){return}d.clearTimeout(a);a=d.setTimeout(function(){f.addClass("open")},b)}).on("mouseleave",function(g){d.clearTimeout(a);f=e(this);a=d.setTimeout(function(){f.removeClass("open")},b)})})(jQuery,window,200);*/
 </script>
-<?= $this->render("Cookies/banner_html.php"); ?>
+<?php
+// echo $this->render("Cookies/banner_html.php"); 
+?>
+
+<!-- Accessibility -->
+<div class="acess-container">
+	<div id="jbbutton" class="balloon" title="Acessibilidade"><span class="balloontext">Acessibilidade</span>
+		<img src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/graphics/jbility/accessibility.png">
+	</div>
+	<div id="acess-icons">
+
+		<div class="acess-icon balloon"><span class="balloontext">Contraste</span>
+			<img id="contrast" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/graphics/jbility/contraste42.png" />
+		</div>
+
+
+		<div class="acess-icon balloon"><span class="balloontext">Diminuir Fonte</span>
+			<img id="decreaseFont" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/graphics/jbility/fontsme42.png" />
+		</div>
+
+		<div class="acess-icon balloon"><span class="balloontext">Tamanho normal</span>
+			<img id="normalSizeFont" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/graphics/jbility/fontsno42.png" />
+		</div>
+
+		<div class="acess-icon balloon"><span class="balloontext">Aumentar Fonte</span>
+			<img id="increaseFont" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/graphics/jbility/fontsma42.png" />
+		</div>
+	</div>
+</div>
+<!-- HandTalk -->
+<script type="application/javascript" src="//api.handtalk.me/plugin/latest/handtalk.min.js"></script>
+<script>
+	var ht = new HT({
+		token: "1ac1a32959126e7c2aaf00ed89ce3f0b"
+	});
+</script>
 </body>
 
 </html>

@@ -63,7 +63,7 @@
 		line-height: 38px;
 		content: "você será redirecionado";
 		background-color: var(--bienal_primary);
-		color: #fff;
+		color: var(--bienal_tertiary);
 		padding: 0px 11px;
 		width: 200px;
 		font-family: "Helvetica Roman" !important;
@@ -86,7 +86,7 @@
 	}
 
 	section {
-		background-color: #0b0b0b;
+		background-color: var(--bienal_secondary);
 		width: 100%;
 		padding: 0px;
 		margin: 0;
@@ -111,7 +111,7 @@
 
 	section a:hover {
 		background-color: var(--bienal_primary);
-		color: #fff !important;
+		color: var(--bienal_tertiary) !important;
 	}
 
 	section h1,
@@ -139,7 +139,7 @@
 	}
 
 	#introducao h1 {
-		color: #fff;
+		color: var(--bienal_tertiary);
 		text-transform: uppercase;
 		font-size: 50px;
 		margin-bottom: 50px;
@@ -148,7 +148,7 @@
 	}
 
 	#introducao h2 {
-		color: #fff;
+		color: var(--bienal_tertiary);
 		text-transform: uppercase;
 		font-size: 20px;
 		letter-spacing: -.025em;
@@ -159,7 +159,7 @@
 	}
 
 	#introducao p {
-		color: #fff;
+		color: var(--bienal_tertiary);
 		font-family: "Helvetica Medium";
 		font-size: 16px;
 		line-height: 22px;
@@ -172,7 +172,7 @@
 
 	#introducao .busca {
 		position: relative;
-		border: #fff dashed 1px;
+		border: var(--bienal_tertiary) dashed 1px;
 		padding: 15px 10px;
 		border-radius: 4px;
 		width: 100%;
@@ -184,7 +184,7 @@
 		width: 100%;
 		border-radius: 3px;
 		background-color: transparent;
-		color: #fff;
+		color: var(--bienal_tertiary);
 		font-size: 20px;
 		border: none;
 		outline: none;
@@ -204,7 +204,7 @@
 	#introducao .busca form button:before {
 		content: "\f002";
 		font-family: "FontAwesome";
-		color: #fff;
+		color: var(--bienal_tertiary);
 		font-size: 32px;
 	}
 
@@ -232,7 +232,7 @@
 	#itens .box {
 		display: inline-block;
 		font-size: 12px;
-		color: #fff;
+		color: var(--bienal_tertiary);
 		vertical-align: top;
 		width: 25%;
 		padding-right: 30px
@@ -266,11 +266,11 @@
 	}
 
 	#ferramentas a {
-		color: white;
+		color: var(--bienal_tertiary);
 	}
 
 	#ferramentas .box {
-		color: #fff;
+		color: var(--bienal_tertiary);
 		display: inline-block;
 		vertical-align: top;
 		width: 50%;
@@ -281,12 +281,12 @@
 	}
 
 	#ferramentas .box.a {
-		background-color: #111;
+		background-color: var(--bienal_secondary2);
 		text-align: right;
 	}
 
 	#ferramentas .box.b {
-		background-color: #171717;
+		background-color: var(--bienal_secondary3);
 		text-align: left;
 	}
 
@@ -366,8 +366,8 @@
 		<div class="box">
 			<h1>DOCUMENTOS</h1>
 
-			<a href="/pawtucket/index.php/Search/advanced/documentos">busca avançada</a>
-			<a href="/pawtucket/index.php/Browse/documentos">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/documentos">busca avançada</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/documentos">explore</a>
 
 			<p>Registros de conjuntos ou itens documentais, organizados em fundos ou coleções</p>
 		</div>
@@ -375,8 +375,8 @@
 		<div class="box">
 			<h1>OBRAS</h1>
 
-			<a href="/pawtucket/index.php/Search/advanced/obras">busca avançada</a>
-			<a href="/pawtucket/index.php/Browse/obras">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/obras">busca avançada</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/obras">explore</a>
 
 			<p>Informações sobre as obras e suas participações nas Bienais</p>
 		</div>
@@ -384,8 +384,8 @@
 		<div class="box">
 			<h1>ENTIDADES</h1>
 
-			<a href="/pawtucket/index.php/Search/advanced/entidades">busca avançada</a>
-			<a href="/pawtucket/index.php/Browse/entidades">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/entidades">busca avançada</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/entidades">explore</a>
 
 			<p>Dados sobre pessoas e instituições, suas relações com a documentação ou eventos cadastrados</p>
 		</div>
@@ -393,8 +393,8 @@
 		<div class="box">
 			<h1>EVENTOS</h1>
 
-			<a href="/pawtucket/index.php/Search/advanced/eventos">busca avançada</a>
-			<a href="/pawtucket/index.php/Browse/eventos">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/eventos">busca avançada</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/eventos">explore</a>
 
 			<p>Informações sobre eventos realizados pela Fundação Bienal e outros relacionados à documentação</p>
 		</div>

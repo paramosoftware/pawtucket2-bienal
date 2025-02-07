@@ -1,50 +1,52 @@
-<?php
-// $lightboxDisplayName = caGetLightboxDisplayName();
-// $lightbox_sectionHeading = ucFirst($lightboxDisplayName["section_heading"]);
-
-# Collect the user links: they are output twice, once for toggle menu and once for nav
-// $user_links = array();
-// if ($this->request->isLoggedIn()) {
-// 	$user_links[] = '<li role="presentation" class="dropdown-header">' . trim($this->request->user->get("fname") . " " . $this->request->user->get("lname")) . ', ' . $this->request->user->get("email") . '</li>';
-// 	$user_links[] = '<li class="divider nav-divider"></li>';
-// 	if (caDisplayLightbox($this->request)) {
-// 		$user_links[] = "<li>" . caNavLink($this->request, $lightbox_sectionHeading, '', '', 'Lightbox', 'Index', array()) . "</li>";
-// 	}
-// 	$user_links[] = "<li>" . caNavLink($this->request, _t('User Profile'), '', '', 'LoginReg', 'profileForm', array()) . "</li>";
-
-// 	if ($this->request->config->get('use_submission_interface')) {
-// 		$user_links[] = "<li>" . caNavLink($this->request, _t('Submit content'), '', '', 'Contribute', 'List', array()) . "</li>";
-// 	}
-// 	$user_links[] = "<li>" . caNavLink($this->request, _t('Logout'), '', '', 'LoginReg', 'Logout', array()) . "</li>";
-// } else {
-// 	if (!$this->request->config->get(['dontAllowRegistrationAndLogin', 'dont_allow_registration_and_login']) || $this->request->config->get('pawtucket_requires_login')) {
-// 		$user_links[] = "<li><a href='#' onclick='caMediaPanel.showPanel(\"" . caNavUrl($this->request, '', 'LoginReg', 'LoginForm', array()) . "\"); return false;' >" . _t("Login") . "</a></li>";
-// 	}
-// 	if (!$this->request->config->get(['dontAllowRegistrationAndLogin', 'dont_allow_registration_and_login']) && !$this->request->config->get('dontAllowRegistration')) {
-// 		$user_links[] = "<li><a href='#' onclick='caMediaPanel.showPanel(\"" . caNavUrl($this->request, '', 'LoginReg', 'RegisterForm', array()) . "\"); return false;' >" . _t("Register") . "</a></li>";
-// 	}
-// }
-// $has_user_links = (sizeof($user_links) > 0);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-	<?= MetaTagManager::getHTML(); ?>
-	<?= AssetLoadManager::getLoadHTML($this->request); ?>
 
-	<title><?= (MetaTagManager::getWindowTitle()) ? MetaTagManager::getWindowTitle() : $this->request->config->get("app_display_name"); ?></title>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-22818412-4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
 
-	<script type="text/javascript">
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'UA-22818412-4');
+	</script>
+
+
+	<!-- Accessibility -->
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/css/jbility.css" />
+	<!-- jQuery selectBox -->
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/css/jquery.selectBox.css" />
+
+	<!-- jQuery 2.2.2 -->
+	<script type="application/javascript" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/js/jquery-2.2.2.min.js"></script>
+	<!-- jQuery-ui -->
+	<script type="application/javascript" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/js/jquery-ui.min.js"></script>
+
+	<!-- Accessibility -->
+	<script type="application/javascript" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/js/jbility.js"></script>
+	<!-- jQuery selectBox -->
+	<script type="application/javascript" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/js/jquery.selectBox.js"></script>
+
+	<!-- meta/asset loader do theme default -->
+	<?=MetaTagManager::getHTML();?>
+	<?=AssetLoadManager::getLoadHTML($this->request);?>
+
+	<title>
+		<?=(MetaTagManager::getWindowTitle()) ? MetaTagManager::getWindowTitle() : $this->request->config->get("app_display_name");?>
+	</title>
+
+	<!-- <script type="text/javascript">
 		jQuery(document).ready(function() {
 			jQuery('#browse-menu').on('click mouseover mouseout mousemove mouseenter', function(e) {
 				e.stopPropagation();
 			});
 		});
-	</script>
+	</script> -->
 	<?php
 	if (Debug::isEnabled()) {
 		//
@@ -55,6 +57,7 @@
 		print $o_debugbar_renderer->renderHead();
 	}
 	?>
+	<!-- fim do meta/asset loader do theme default -->
 </head>
 
 <body>
@@ -80,11 +83,20 @@
 					<span class="icon-bar"></span>
 				</button>
 				<?php
-				print caNavLink($this->request,
-					caHTMLImage("https://bienal.org.br/wp-content/themes/bienal-sp/images/logo-bienal-inverse.svg",
+				$vs_bienal_archive = _t("Bienal Archive");
+				$vs_db = _t("Database");
+
+				print caNavLink(
+					$this->request,
+					caHTMLImage(
+						"https://bienal.org.br/wp-content/themes/bienal-sp/images/logo-bienal-inverse.svg",
 						['alt' => _t("Logo Bienal"), 'class' => 'headerImg']
-					)."<span class='brand-title'>Arquivo Bienal Banco de Dados</span>",
-					"navbar-brand", "", "", "");
+					) . "<span class='brand-title'>$vs_bienal_archive $vs_db</span>",
+					"navbar-brand",
+					"",
+					"",
+					""
+				);
 				?>
 			</div>
 
@@ -114,10 +126,10 @@
 				<?php
 				}
 				?>
-				<form class="navbar-form navbar-right" role="search" action="<?= caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>" aria-label="<?= _t("Search"); ?>">
+				<form class="navbar-form navbar-right" role="search" action="<?= caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>" aria-label="<?=_t("Search")?>">
 					<div class="formOutline">
 						<div class="form-group">
-							<input type="text" class="form-control" id="headerSearchInput" placeholder="Search" name="search" autocomplete="off" aria-label="<?= _t("Search text"); ?>" />
+							<input type="text" class="form-control" id="headerSearchInput" placeholder="<?=mb_convert_case(_t("Search"), MB_CASE_UPPER, "UTF-8")?>" name="search" autocomplete="off" aria-label="<?= _t("Texto de busca"); ?>" />
 						</div>
 						<button type="submit" class="btn-search" id="headerSearchButton"><span class="glyphicon glyphicon-search" aria-label="<?= _t("Submit"); ?>"></span></button>
 					</div>
@@ -131,19 +143,47 @@
 					});
 				</script>
 				<ul class="nav navbar-nav navbar-right menuItems" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
-					<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("GALERIAS"), "", "", "Gallery", "Index"); ?></li>
-					<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("FUNDOS E COLEÇÕES"), "", "", "Detail", "documento/1"); ?></li>
+					<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, mb_convert_case(_t("Galleries"), MB_CASE_UPPER, "UTF-8"), "", "", "Gallery", "Index"); ?></li>
+					<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, mb_convert_case(_t("Funds and Collections"), MB_CASE_UPPER, "UTF-8"), "", "", "Detail", "documento/1"); ?></li>
 
-					<?= $this->render("pageFormat/browseMenu.php"); ?>
+					<?php
+						// mb_convert_case('virá', MB_CASE_UPPER, "UTF-8");
+						// echo $this->render("pageFormat/browseMenu.php");
+					?>
+
+					<li <?php print ($this->request->getController() == "Browse") ? 'class="selecionado"' : ''; ?>>
+						<button popovertarget="browse-list" id="btn_browse-list"><?=mb_convert_case(_t("Explore"), MB_CASE_UPPER, "UTF-8")?> <span id="browse-list-arrow" class="arrow"></span></button>
+						<ul popover id="browse-list">
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Documents"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "documentos") ?></li>
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Artworks"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "obras") ?></li>
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Entities"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "entidades") ?></li>
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Events"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "eventos") ?></li>
+						</ul>
+					</li>
+
+					<li <?php print ($this->request->getController() == "Search") ? 'class="selecionado"' : ''; ?>>
+						<button popovertarget="search-list" id="btn_search-list"><?=mb_convert_case(_t("Advanced Search"), MB_CASE_UPPER, "UTF-8")?> <span id="search-list-arrow" class="arrow"></span></button>
+						<ul popover id="search-list">
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Documents"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/documentos") ?></li>
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Artworks"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/obras") ?></li>
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Entities"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/entidades") ?></li>
+							<li><?= caNavLink($this->request, mb_convert_case(_t("Events"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/eventos") ?></li>
+						</ul>
+					</li>
+
+					<li>
+						<button popovertarget="locale-list" id="btn_locale-list"><?=mb_convert_case(_t("en-US"), MB_CASE_UPPER, "UTF-8")?> <span id="locale-list-arrow" class="arrow"></span></button>
+						<ul popover id="locale-list">
+							<li><a href="#"><?=mb_convert_case(_t("pt-BR"), MB_CASE_UPPER, "UTF-8")?></a></li>
+						</ul>
+					</li>
+
 					<!-- <li -->
-					<?php /*(($this->request->getController() == "Search") && ($this->request->getAction() == "advanced")) ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Advanced Search"), "", "", "Search", "advanced/objects");*/ ?>
+					<?php
+					/*(($this->request->getController() == "Search") && ($this->request->getAction() == "advanced")) ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Advanced Search"), "", "", "Search", "advanced/objects");
+					*/ ?>
 					<!-- </li> -->
-					<!-- <li -->
-					<?php /*($this->request->getController() == "Collections") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Collections"), "", "", "Collections", "index");*/ ?>
-					<!-- </li> -->
-					<!-- <li -->
-					<?php /*($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form");*/ ?>
-					<!-- </li> -->
+
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- end container -->
@@ -151,5 +191,5 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<div role="main" id="main">
+				<main role="main" id="main">
 					<div id="pageArea" <?= caGetPageCSSClasses(); ?>>
