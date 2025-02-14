@@ -31,7 +31,7 @@
  * @type page
  * @pageSize letter
  * @pageOrientation landscape
- * @tables ca_objects
+ * @tables
  * @marginTop 0.75in
  * @marginLeft 0.5in
  * @marginRight 0.5in

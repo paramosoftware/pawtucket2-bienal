@@ -53,8 +53,10 @@
 		# ----------------------------------------
 		default:
 ?>
-			<div id='headerdompdf'>
+			<div id='header'>
 				<?= caGetReportLogo(); ?>
+
+				<?php print "<div class='pagingText'>"._t('Pág.')." </div>"; ?>
 			</div>
 <?php
 		break;
