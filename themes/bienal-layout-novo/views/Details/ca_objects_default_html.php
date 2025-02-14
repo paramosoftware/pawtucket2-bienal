@@ -1,6 +1,4 @@
 <?php
-echo __FILE__;
-
 $item = $this->getVar("item");
 $exportacao_formatos = $this->getVar('export_formats');
 $acao = $this->request->getAction();
@@ -545,14 +543,14 @@ $vb_exibir_imagem = true;
                         
                         {{{<ifdef code="ca_objects.content_description">
                         <div class="atributo">
-                            <div class="label"><?=_t("Language)")?></div>
+                            <div class="label"><?=_t("Content Description")?></div>
                             <div class="valor">^ca_objects.content_description</div>
                         </div>
                         </ifdef>}}}
                         
                         {{{<ifdef code="ca_objects.langmaterial.lang_material_lang">
                         <div class="atributo">
-                            <div class="label"><?=_t("Language)")?></div>
+                            <div class="label"><?=_t("Language")?></div>
                             <div class="valor">^ca_objects.langmaterial.lang_material_lang</div>
                         </div>
                         </ifdef>}}}
@@ -1068,7 +1066,7 @@ $vb_exibir_imagem = true;
 					?>
 							
                     <div id="contagem">
-                        <strong><span class="quantidade"><?php print $vn_numero_itens . ( $vn_numero_itens ? " registros" : " registro" ); ?></span></strong> neste nível
+                        <strong><span class="quantidade"><?=$vn_numero_itens . ($vn_numero_itens ? " "._t("Records")." " : " "._t("Record")." ")?></span></strong><?=_t("at this level")?>
                     </div>         
 
                     <div id="itens">
@@ -1082,7 +1080,7 @@ $vb_exibir_imagem = true;
 							print '<div class="col descricao">' . $qr_result->get('description') . '</div>';
 							
 							if ( ($qr_result->get('has_external_image') == 227) )
-								print '<div class="col img"><img src="/pawtucket/themes/bienal/assets/graphics/image.png" width="24px"></div>';
+								print '<div class="col img"><img src="/pawtucket2-bienal/themes/bienal-layout-novo/assets/pawtucket/graphics/image.png" width="24px"></div>';
 							
 							print '</a></div>';
 						}

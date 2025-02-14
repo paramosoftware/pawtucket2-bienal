@@ -1,5 +1,5 @@
 <?php
-echo __FILE__;
+
 
 $facetas 			= $this->getVar('facets');				// array of available browse facets
 $va_criteria 		= $this->getVar('criteria');			// array of browse criteria
@@ -15,10 +15,10 @@ $vn_facet_display_length_maximum = 60;
 
 <style>
 
-	#bMorePanel {padding:30px;background-color:#09C;position:fixed;top:70px;right:0px;width:100%;overflow:auto;height:calc(100% - 70px);display:none;max-width:400px;font-size:0px}
+	#bMorePanel {padding:30px;background-color:var(--bienal_primary);position:fixed;top:70px;right:0px;width:100%;overflow:auto;height:calc(100% - 70px);display:none;max-width:400px;font-size:0px}
 	#bMorePanel #bMorePanelClose {}
 	#bMorePanel #bScrollListLabel {color:#fff;font-weight:normal;font-size:22px;line-height:22px;font-family:"Helvetica Medium";margin: 0;padding: 0;margin-bottom: 20px;}
-	#bMorePanel #bScrollListLabel .bFilterCount {font-size: 15px;display: block;border-radius: 4px;padding: 5px 8px;background-color: #fff;color: #09c;margin-top: 10px;}
+	#bMorePanel #bScrollListLabel .bFilterCount {font-size: 15px;display: block;border-radius: 4px;padding: 5px 8px;background-color: #fff;color: var(--bienal_primary);margin-top: 10px;}
 	#bMorePanel #bLetterBar {width:30px;display:inline-block;vertical-align:top;color:#fff;font-size:12px;font-family:"Helvetica Bold"}
 	#bMorePanel #bScrollList {width:calc(100% - 30px);display:inline-block;vertical-align:top;color:#fff;font-size:12px;font-family:"Helvetica Roman"}
 	#bMorePanel #bScrollList div {margin:2px;}

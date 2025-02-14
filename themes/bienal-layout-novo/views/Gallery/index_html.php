@@ -37,7 +37,7 @@
 
 
 	<div id="titulo">
-		<i>Galerias</i>
+		<i><?=_t("Galleries")?></i>
 	</div>
 	
 <?php
@@ -61,7 +61,7 @@
 				?>
 					<div id="descricao">
 						<div id="contagem">
-							<strong><?php print count($va_sets) . " galerias disponíveis"; ?></strong>
+							<strong><?php print count($va_sets) . " "._t("Available Galleries"); ?></strong>
 						</div>
 					
 						<div id="itens">

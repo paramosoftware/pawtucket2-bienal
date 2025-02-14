@@ -66,7 +66,7 @@
 		</div>
 	</div>
 	<div class="footer__copyright">
-		<span>Copyright © 2025 Bienal de São Paulo</span>
+		<span>Copyright © 2025 <?=_t("São Paulo Bienal")?></span>
 		<div class="footer__privacidade">
 			<a class="footer__privacidade-link" href="https://bienal.org.br/privacidade"><?=_t("Privacy")?></a>
 			•

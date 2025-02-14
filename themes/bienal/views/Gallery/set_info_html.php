@@ -33,7 +33,7 @@
 	}
 ?>
 
-<link rel="stylesheet" type="text/css" href="/pawtucket/assets/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/pawtucket2-bienal/assets/bootstrap/css/bootstrap.css" />
 
 <style>
 	.container {margin:0 auto;max-width:1300px;display:flex;flex-flow:row wrap;width:100%}
@@ -116,14 +116,14 @@
 						if ($vn_parent_set) 
 						{ 
 						?>
-							<a href="/pawtucket/index.php/Gallery/getSetInfo/set_id/<?php print $vn_parent_set; ?>">Voltar</a>
+							<a href="/pawtucket2-bienal/index.php/Gallery/getSetInfo/set_id/<?php print $vn_parent_set; ?>">Voltar</a>
 						<?php 
 						} 
 						
 						foreach ($va_subsets_info as $va_subset)
 						{
 						?>
-							<a href="/pawtucket/index.php/Gallery/getSetInfo/set_id/<?php print $va_subset["set_id"]; ?>/parent/<?php print $vn_set_id; ?>"><?php print $va_subset["set_name"]; ?></a>
+							<a href="/pawtucket2-bienal/index.php/Gallery/getSetInfo/set_id/<?php print $va_subset["set_id"]; ?>/parent/<?php print $vn_set_id; ?>"><?php print $va_subset["set_name"]; ?></a>
 						<?php
 						}
 					?>

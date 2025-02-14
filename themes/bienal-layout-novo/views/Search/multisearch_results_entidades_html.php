@@ -1,6 +1,4 @@
 <?php
-echo __FILE__;
-
 	$results = $this->getVar('result');
 	$block_info = $this->getVar('blockInfo');
 	$vn_start		 	= (int)$this->getVar('start');

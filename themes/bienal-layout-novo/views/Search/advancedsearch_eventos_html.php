@@ -1,7 +1,4 @@
-<?php
-echo __FILE__;
-?>
-<style>
+        <style>
 			
 			/* main {font-size:0px;}			 */
 			main #titulo {padding:20px 30px;font-family:"Helvetica Roman";font-size:38px;text-transform:uppercase;color:#333;border-bottom:#222 dashed 1px;}			
@@ -32,7 +29,7 @@ echo __FILE__;
         </style>
         
         <div id="titulo">
-            busca avançada de <i>eventos</i>
+        <?= _t("Advanced Search") ?>: <i><?= _t("Events") ?></i>
         </div>
         
         <div id="formulario">
@@ -43,10 +40,10 @@ echo __FILE__;
                 	
 					<div class="campo">        
                        
-                        <label>Em um nível</label>
+                        <label><?=_t("At a Level")?></label>
                         <div>
                             <select id="hierarchyselecter1" style="width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="1">
-                                <option>carregando...</option>
+                                <option><?=_t("Loading")?>...</option>
                             </select>
                             <select id="hierarchyselecter2" disabled="disabled" style="opacity:.2;width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="2"></select>
                             <select id="hierarchyselecter3" disabled="disabled" style="opacity:.2;width:250px;display:block !important;margin-bottom:10px !important" onchange="hierarchyfinder_find(this)" data-level="3"></select>
@@ -67,7 +64,7 @@ echo __FILE__;
                                 hierarchyfinder_clear(level+1);
                                 populate.prop('disabled', 'disabled');
                                 populate.css("opacity",".2");					
-                                populate.find('option').remove().end().append('<option value="">carregando...</option>').val('');				
+                                populate.find('option').remove().end().append('<option value=""><?=_t("Loading")?>...</option>').val('');				
                                 
 								$(".hierarchyselectervalue").val( value );
 								$(".hierarchyselectervalue2").val( selecter.find('option:selected').attr('tag') );
@@ -136,13 +133,13 @@ echo __FILE__;
                     </div>
                     
                     <div class="campo">
-                        <label>Tipo de nível</label>
-                        {{{ca_occurrences.type_id%label=Tipo de nível}}}
+                        <label><?=_t("Type of Level")?></label>
+                        {{{ca_occurrences.type_id%label=<?=_t("Type of Level")?>}}}
                     </div>
                                         
                     <div class="campo">
-                        <label>Denominação do evento</label>
-                        {{{ca_occurrences.preferred_labels%label=Denominação do evento}}}
+                        <label><?=_t("Event Denomination")?></label>
+                        {{{ca_occurrences.preferred_labels%label=<?=_t("Event Denomination")?>}}}
                     </div>
                     
 					<!--
@@ -153,8 +150,8 @@ echo __FILE__;
 					-->
 				
                     <div class="campo">
-                        <label>Tipo de evento</label>
-                        {{{ca_occurrences.event_type%label=Tipo de evento}}}
+                        <label><?=_t("Type of Event")?></label>
+                        {{{ca_occurrences.event_type%label=<?=_t("Type of Event")?>}}}
                     </div>
                     
                 </div>
@@ -163,22 +160,22 @@ echo __FILE__;
 
 					<div class="campo">
 							
-                        <label>Entidade relacionada</label>
+                        <label><?=_t("Related Entity")?></label>
                         <div>
-                        <label>Nome</label>
-                        {{{ca_entities.preferred_labels%label=Entidade relacionada}}}
+                        <label><?=_t("Name")?></label>
+                        {{{ca_entities.preferred_labels%label=<?=_t("Related Entity")?>}}}
 						
-                        <label>Função</label>
-                        {{{ca_entities_x_occurrences.ocurrencexentity_entityrole%label=Função}}}
+                        <label><?=_t("Function")?></label>
+                        {{{ca_entities_x_occurrences.ocurrencexentity_entityrole%label=<?=_t("Function")?>}}}
 						
 						<!--
                         <label>Manifestação</label>
                         {{{ca_entities_x_occurrences.ocurrencexentity_juriartforms}}}
 						-->
 						
-                        <label>Representação Nacional</label>
+                        <label><?=_t("National Representation")?></label>
                         <input name="ca_entities_x_occurrences.ocurrencexentity_curatorplace" value="" class="" id="ca_entities_x_occurrences_ocurrencexentity_curatorplace" rows="1" style="" size="" type="text">
-                        <input name="ca_entities_x_occurrences.ocurrencexentity_curatorplace_label" value="Representação nacional" type="hidden">
+                        <input name="ca_entities_x_occurrences.ocurrencexentity_curatorplace_label" value="<?=_t("National Representation")?>" type="hidden">
                         <script>
 							jQuery(document).ready(function() {
 								var v = jQuery('#ca_entities_x_occurrences_ocurrencexentity_curatorplace').val();	
@@ -191,7 +188,7 @@ echo __FILE__;
 										html: true,
 										source: function( request, response ) {										
 											$.ajax({
-												url: '/pawtucket/index.php/quickfind/Place',
+												url: '/pawtucket2-bienal/index.php/quickfind/Place',
 												dataType: 'json',
 												method:'GET',
 												data: { term: request.term , limit:5 },										
@@ -223,32 +220,32 @@ echo __FILE__;
                     </div>
                     
                     <div class="campo">
-                        <label>Data de realização</label>
+                        <label><?=_t("Event Date")?></label>
                         <div>
-                            <label>Data inicial</label>
-                            {{{ca_occurrences.event_period.event_period_startdate%label=Data inicial}}}
+                            <label><?=_t("Start Date")?></label>
+                            {{{ca_occurrences.event_period.event_period_startdate%label=<?=_t("Start Date")?>}}}
 							
-                            <label>Data final</label>
-                            {{{ca_occurrences.event_period.event_period_enddate%label=Data final}}}
+                            <label><?=_t("End Date")?></label>
+                            {{{ca_occurrences.event_period.event_period_enddate%label=<?=_t("End Date")?>}}}
                         </div>
                     </div>
                     
                     <div class="campo">
-                        <label>Instituição responsável</label>
-                        {{{ca_entities.preferred_labels%restrictToRelationshipTypes=realizacao&label=Instituição responsável}}}
+                        <label><?=_t("Responsible Institution")?></label>
+                        {{{ca_entities.preferred_labels%restrictToRelationshipTypes=realizacao&label=<?=_t("Responsible Institution")?>}}}
                     </div>
                     
                     <div class="campo">
-                        <label>Local de realização</label>
-                        {{{ca_places.preferred_labels%restrictToRelationshipTypes=site&label=Local de realização}}}
+                        <label><?=_t("Event Location")?></label>
+                        {{{ca_places.preferred_labels%restrictToRelationshipTypes=site&label=<?=_t("Event Location")?>}}}
                     </div>                    
 
                     <div class="campo">
-                        <label>Representação nacional</label>
+                        <label><?=_t("National Representation")?></label>
                         <div>
-                            <label>Nome da entidade</label>
+                            <label><?=_t("Name of Entity")?></label>
                             <input name="ca_entities.preferred_labels.displayname/representacao" value=""id="ca_entities_preferred_labels" rows="1" style="" size="" type="text">
-                            <input name="ca_entities.preferred_labels/representacao_label" value="Nome da entidade (Representação nacional)" type="hidden">
+                            <input name="ca_entities.preferred_labels/representacao_label" value="<?=_t("Name of Entity")?> (<?=_t("National Representation")?>)" type="hidden">
 							<script>
                                 jQuery(document).ready(function() {
                                     var v = jQuery('#ca_entities_preferred_labels[name="ca_entities.preferred_labels.displayname/representacao"]').val();	
@@ -261,7 +258,7 @@ echo __FILE__;
                                             html: true,
                                             source: function( request, response ) {										
                                                 $.ajax({
-                                                    url: '/pawtucket/index.php/quickfind/Entity',
+                                                    url: '/pawtucket2-bienal/index.php/quickfind/Entity',
                                                     dataType: 'json',
                                                     method:'GET',
                                                     //data: { term: request.term , limit:5 },
@@ -289,9 +286,9 @@ echo __FILE__;
                                 });
                             </script>
                             
-                            <label>País de origem/representação</label>
+                            <label><?=_t("Country of Origin/Representation")?></label>
                             <input name="ca_entities_x_occurrences.ocurrencexentity_repnacplace" value="" class="" id="ca_entities_x_occurrences_ocurrencexentity_repnacplace" rows="1" style="" size="" type="text">
-                            <input name="ca_entities_x_occurrences.ocurrencexentity_repnacplace_label" value="País de origem/representação" type="hidden">
+                            <input name="ca_entities_x_occurrences.ocurrencexentity_repnacplace_label" value="<?=_t("Country of Origin/Representation")?>" type="hidden">
                             <script>
                                 jQuery(document).ready(function() {
                                     var v = jQuery('#ca_entities_x_occurrences_ocurrencexentity_repnacplace').val();	
@@ -304,7 +301,7 @@ echo __FILE__;
                                             html: true,
                                             source: function( request, response ) {										
                                                 $.ajax({
-                                                    url: '/pawtucket/index.php/quickfind/Place',
+                                                    url: '/pawtucket2-bienal/index.php/quickfind/Place',
                                                     dataType: 'json',
                                                     method:'GET',
                                                     data: { term: request.term , limit:5 },										
@@ -336,9 +333,9 @@ echo __FILE__;
 					<div class="campo">
                         <label>Participação</label>
                         <div>
-                            <label>Nome da entidade</label>
+                            <label><?=_t("Name of Entity")?></label>
                             <input name="ca_entities.preferred_labels/participation" value=""id="ca_entities_preferred_labels" rows="1" style="" size="" type="text">
-                            <input name="ca_entities.preferred_labels/participation_label" value="Nome da entidade (Participação)" type="hidden">
+                            <input name="ca_entities.preferred_labels/participation_label" value="<?=_t("Name of Entity")?> (<?=_t("Participation")?>)" type="hidden">
                             <script>
                                 jQuery(document).ready(function() {
                                     var v = jQuery('#ca_entities_preferred_labels[name="ca_entities.preferred_labels/participation"]').val();	
@@ -351,7 +348,7 @@ echo __FILE__;
                                             html: true,
                                             source: function( request, response ) {										
                                                 $.ajax({
-                                                    url: '/pawtucket/index.php/quickfind/Entity',
+                                                    url: '/pawtucket2-bienal/index.php/quickfind/Entity',
                                                     dataType: 'json',
                                                     method:'GET',
                                                     //data: { term: request.term , limit:5 }
@@ -378,12 +375,12 @@ echo __FILE__;
                                     ).click(function() { this.select(); });
                                 });
                             </script>
-                            <label>Tipo de participação</label>
+                            <label><?=_t("Type of Participation")?></label>
                             {{{ca_entities_x_occurrences.participation_type}}}
 							
-                            <label>Seção/subseção</label>
+                            <label><?=_t("Section / Subsection")?></label>
                             <input name="ca_entities_x_occurrences.participation_event_section" value="" class="" id="ca_entities_x_occurrences_participation_event_section" rows="1" style="" size="" type="text">
-                            <input name="ca_entities_x_occurrences.participation_event_section_label" value="Seção/subseção" type="hidden">
+                            <input name="ca_entities_x_occurrences.participation_event_section_label" value="<?=_t("Section / Subsection")?>" type="hidden">
                             <script>
                                 jQuery(document).ready(function() {
                                     var v = jQuery('#ca_entities_x_occurrences_participation_event_section').val();	
@@ -426,18 +423,18 @@ echo __FILE__;
 					</div>
                         
                     <div class="campo">
-                        <label>Documentos relacionados (busca por título)</label>
-                        {{{ca_objects.preferred_labels.name/production%label=Documentos relacionados}}}
+                        <label><?=_t("Related Documents (Search by Title)")?></label>
+                        {{{ca_objects.preferred_labels.name/production%label=<?=_t("Related Documents (Search by Title)")?>}}}
                     </div>
     
                     <div class="campo">
-                        <label>Obra relacionada (busca por título)</label>
-                        {{{ca_objects.preferred_labels.name/participation%label=Obra relacionada}}}
+                        <label><?=_t("Related Artworks (Search by Title)")?></label>
+                        {{{ca_objects.preferred_labels.name/participation%label=<?=_t("Related Artworks (Search by Title)")?>}}}
                     </div>
 
                 </div>                
 
-            <div class="enviar">{{{submit%label=procurar}}}</div>                       
+            <div class="enviar">{{{submit%label=<?=_t("Search")?>}}}</div>                       
             
         {{{/form}}}
 

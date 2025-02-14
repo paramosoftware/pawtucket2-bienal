@@ -8,7 +8,8 @@ html {
     position: relative;
     min-height: 100%;
 
-	--bienal_primary: #ff4e78;
+	--bienal_primary: #ff4e77;
+	--bienal_primary2: #ff7b9a;
 	--bienal_secondary: black;
 	--bienal_secondary2: #111111;
 	--bienal_secondary3: #171717;
@@ -18,6 +19,7 @@ html {
 
 .accessibility-colors {
 	--bienal_primary: #00b5aa;
+	--bienal_primary2: #0091b5;
 	--bienal_secondary: white;
 	--bienal_secondary2: rgb(202, 202, 202);
 	--bienal_secondary3: rgb(179, 179, 179);
@@ -471,7 +473,7 @@ h1 i {
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    background-color: var(--navbar-active-color);
+    background-color: var(--bienal_primary);
 }
 .nav > li > a {
 	font-family: "Helvetica Roman";
@@ -1870,6 +1872,9 @@ a.browseRemoveFacet img {
 	color:#757575;
 	text-decoration:none;
 }
+span.selectBox-label {
+	color: var(--bienal_tertiary);	
+}
 
 .detail a:hover{
 	color:#737373;
@@ -2521,7 +2526,8 @@ a.browseRemoveFacet .glyphicon {
 	padding-left:25px;
 }
 #bMorePanel #bScrollList a{
-	color:#454545;
+	/* color:#454545; */
+	color: var(--bienal_tertiary);
 	line-height:1.1em;
 	font-size:11px;
 }
@@ -2529,13 +2535,18 @@ a.browseRemoveFacet .glyphicon {
 	padding-bottom:8px;
 }
 #bMorePanel #bLetterBar{
-	float:right;
-	margin:0px 40px 0px 10px;
-	text-align:center;
+	float:left;
+	/* margin:0px 40px 0px 10px; */
+	/* text-align:center; */
 }
 #bMorePanel #bLetterBar a{
+	color: var(--bienal_tertiary);
 	text-decoration:none;
 	font-weight:bold;
+}
+#bMorePanel #bLetterBar a:hover {
+	background-color: var(--bienal_primary);
+	text-decoration: underline;
 }
 #bMorePanelClose{
 	display:none;

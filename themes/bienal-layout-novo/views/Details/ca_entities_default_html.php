@@ -1,6 +1,4 @@
 <?php
-echo __FILE__;
-
 $t_object = $this->getVar("item");
 $exportacao_formatos = $this->getVar('export_formats');
 $acao = $this->request->getAction();

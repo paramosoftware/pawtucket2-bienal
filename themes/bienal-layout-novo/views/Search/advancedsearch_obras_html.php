@@ -1,7 +1,4 @@
-<?php
-echo __FILE__;
-?>
-<style>
+		<style>
 			
 			/* main {font-size:0px;}			 */
 			main #titulo {padding:20px 30px;font-family:"Helvetica Roman";font-size:38px;text-transform:uppercase;color:#333;border-bottom:#222 dashed 1px;}			
@@ -32,7 +29,7 @@ echo __FILE__;
         </style>
         
         <div id="titulo">
-            busca avançada de <i>obras</i>
+		<?= _t("Advanced Search") ?>: <i><?= _t("Artworks") ?></i>
         </div>
         
         <div id="formulario">
@@ -42,13 +39,13 @@ echo __FILE__;
                 <div class="coluna">
                 
                     <div class="campo">
-                        <label>Título da obra</label>
-                        {{{ca_objects.preferred_labels%label=Título da obra}}}
+                        <label><?=_t("Title of the Artwork")?></label>
+                        {{{ca_objects.preferred_labels%label=<?=_t("Title of the Artwork")?>}}}
                     </div>
                     
                     <div class="campo" id="campo_ca_entities_preferred_labels">
-                        <label>Artista / responsável pela criação</label>
-                        {{{ca_entities.preferred_labels%restrictToRelationshipTypes=creator&label=Artista/responsável pela criação}}}
+                        <label><?=_t("Artist / Creator")?></label>
+                        {{{ca_entities.preferred_labels%restrictToRelationshipTypes=creator&label=<?=_t("Artist / Creator")?>}}}
                         
                         <script>
 							jQuery(document).ready(function() {
@@ -62,7 +59,7 @@ echo __FILE__;
 									html: true,
 									source: function( request, response ) {										
 										$.ajax({
-											url: '/pawtucket/index.php/quickfind/Entity',
+											url: '/pawtucket2-bienal/index.php/quickfind/Entity',
 											dataType: 'json',
 											method:'GET',
 											data: { term: ('ca_entities.preferred_labels.displayname:' + request.term) , limit:5 },										
@@ -91,13 +88,13 @@ echo __FILE__;
                     </div>
 					
 					<div class="campo">
-                        <label>Data de criação</label>
-                        {{{ca_objects.production_date.production_date_value%label=Data de criação}}}
+                        <label><?=_t("Creation Date")?></label>
+                        {{{ca_objects.production_date.production_date_value%label=<?=_t("Creation Date")?>}}}
                     </div>
 					
 					<div class="campo">
-                        <label>Processos artísticos (suporte, técnica e material)</label>
-                        {{{artisticProcess%label=Processos artísticos}}}
+                        <label><?=_t("Artistic Processes (Support, Technique, and Material)")?></label>
+                        {{{artisticProcess%label=<?=_t("Artistic Processes (Support, Technique, and Material)")?>}}}
                     </div>
                </div>
                
@@ -110,10 +107,10 @@ echo __FILE__;
                     -->
                     
                     <div class="campo">
-                        <label>Premiação em evento</label>
+                        <label><?=_t("Award in Event")?></label>
                         <div>
-                            <label>Nome do evento</label>
-                            {{{ca_occurrences.preferred_labels%restrictToRelationshipTypes=award&label=Nome do evento (Premiação em evento)}}}
+                            <label><?=_t("Event Name")?></label>
+                            {{{ca_occurrences.preferred_labels%restrictToRelationshipTypes=award&label=<?=_t("Event Name")?>}}}
                             
 							<script>
                                 jQuery(document).ready(function() {
@@ -127,7 +124,7 @@ echo __FILE__;
                                             html: true,
                                             source: function( request, response ) {										
                                                 $.ajax({
-                                                    url: '/pawtucket/index.php/quickfind/Occurrence',
+                                                    url: '/pawtucket2-bienal/index.php/quickfind/Occurrence',
                                                     dataType: 'json',
                                                     method:'GET',
                                                     data: { term: request.term , limit:5 },										
@@ -153,8 +150,8 @@ echo __FILE__;
                                     ).click(function() { this.select(); });
                                 });
                             </script>                        
-                            <label>Prêmio recebido</label>
-                            {{{ca_objects_x_occurrences.bienal_awards%label=Prêmio recebido}}}
+                            <label><?=_t("Prize Awarded")?></label>
+                            {{{ca_objects_x_occurrences.bienal_awards%label=<?=_t("Prize Awarded")?>}}}
                         </div>
                         
                     </div>
@@ -167,8 +164,8 @@ echo __FILE__;
 					-->
                     
                     <div class="campo">
-                        <label>Eventos relacionados</label>
-                        {{{evento_relacionado%label=Eventos relacionados}}}
+                        <label><?=_t("Related Events")?></label>
+                        {{{evento_relacionado%label=<?=_t("Related Events")?>}}}
 						
                         <script>
 							jQuery(document).ready(function() {
@@ -182,7 +179,7 @@ echo __FILE__;
 										html: true,
 										source: function( request, response ) {										
 											$.ajax({
-												url: '/pawtucket/index.php/quickfind/Occurrence',
+												url: '/pawtucket2-bienal/index.php/quickfind/Occurrence',
 												dataType: 'json',
 												method:'GET',
 												//data: { term: request.term , limit:5 },
@@ -230,7 +227,7 @@ echo __FILE__;
 										html: true,
 										source: function( request, response ) {										
 											$.ajax({
-												url: '/pawtucket/index.php/quickfind/Entity',
+												url: '/pawtucket2-bienal/index.php/quickfind/Entity',
 												dataType: 'json',
 												method:'GET',
 												data: { term: request.term , limit:5 },										
@@ -260,7 +257,7 @@ echo __FILE__;
                                                 
 				</div>
                 
-				<div class="enviar">{{{submit%label=procurar}}}</div>                       
+				<div class="enviar">{{{submit%label=<?=_t("Search")?>}}}</div>                       
                 
 			{{{/form}}}
 

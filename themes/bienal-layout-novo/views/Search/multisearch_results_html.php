@@ -1,6 +1,3 @@
-<?php
-echo __FILE__;
-?>
 <style>
 				
 				main {font-size:0px;display:flex;flex-flow:row wrap;padding:20px;justify-content:center;}

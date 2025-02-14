@@ -24,7 +24,7 @@
     padding: 3px;
 	margin-bottom: 9px;
 	background-color: #09C;
-	min-height:27px;	
+	min-height:27px;
 }
 .pagina-acessivel .selectBox-dropdown {
     min-width: 150px;
@@ -183,7 +183,7 @@
 }
 
 .selectBox-options LI.selectBox-hover A {
-    background-color: blue;
+    background-color: var(--bienal_primary2);
 }
 
 

@@ -172,9 +172,17 @@
 					</li>
 
 					<li>
-						<button popovertarget="locale-list" id="btn_locale-list"><?=mb_convert_case(_t("en-US"), MB_CASE_UPPER, "UTF-8")?> <span id="locale-list-arrow" class="arrow"></span></button>
+						<button popovertarget="locale-list" id="btn_locale-list"><?=mb_convert_case(_t("en"), MB_CASE_UPPER, "UTF-8")?> <span id="locale-list-arrow" class="arrow"></span></button>
 						<ul popover id="locale-list">
-							<li><a href="#"><?=mb_convert_case(_t("pt-BR"), MB_CASE_UPPER, "UTF-8")?></a></li>
+							<?php
+							$fullPath = $this->request->getFullUrlPath();
+							if(str_ends_with($fullPath, "index.php")) {
+								$fullPath = $fullPath."/Front/Index"; # /lang/<idioma> não funciona no index.php; mas funciona no /Front/Index, que mostra a mesma tela.
+							} elseif(str_contains($fullPath, "lang/"._t("en_US"))) {
+								$fullPath = substr($fullPath, 0, strlen($fullPath)-(strlen("/lang/")+5)); # remove "/lang/<idioma>" redundantes do final para evitar chamadas redundantes de /lang como "/lang/en_US/lang/pt_BR"
+							}
+							?>
+							<li><a href="<?=$fullPath."/lang/"._t("pt_BR")?>"><?=mb_convert_case(_t("pt"), MB_CASE_UPPER, "UTF-8")?></a></li>
 						</ul>
 					</li>
 

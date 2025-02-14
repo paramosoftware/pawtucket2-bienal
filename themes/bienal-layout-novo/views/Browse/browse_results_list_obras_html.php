@@ -1,6 +1,4 @@
 <?php
-echo __FILE__;
-
 $acesso = $this->getVar('access_values');
 $tabela = $this->getVar('table');
 $resultado = $this->getVar('result');

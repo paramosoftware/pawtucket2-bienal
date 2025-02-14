@@ -341,10 +341,9 @@
 <section id="introducao">
 
 	<div class="board">
+		<h1><?=_t("Consult information about the document archive and the São Paulo Biennials.")?></h1>
 
-		<h1>Consulte informações sobre o acervo documental e as Bienais de São Paulo.</h1>
-
-		<h2>Faça uma busca rápida</h2>
+		<h2><?=_t("Do a quick search")?></h2>
 
 		<div class="busca">
 			<form action="/pawtucket/index.php/MultiSearch/Index" method="get">
@@ -353,7 +352,7 @@
 			</form>
 		</div>
 
-		<p>Busca ampla em qualquer campo, recupera todos os termos indicados individualmente. Para refinar sua pesquisa utilize a <strong>busca avançada</strong></p>
+		<p><?=_t("Broad search in any field, retrieves all terms indicated individually. To refine your search, use the")?> <strong><?=_t("Advanced Search")?></strong></p>
 
 	</div>
 
@@ -364,39 +363,39 @@
 	<div class="board">
 
 		<div class="box">
-			<h1>DOCUMENTOS</h1>
+			<h1><?=mb_convert_case(_t("Documents"), MB_CASE_UPPER, "UTF-8")?></h1>
 
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/documentos">busca avançada</a>
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/documentos">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/documentos"><?=_t("Advanced Search")?></a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/documentos"><?=_t("Explore")?></a>
 
-			<p>Registros de conjuntos ou itens documentais, organizados em fundos ou coleções</p>
+			<p><?=_t("Records of sets or documentary items, organized in funds or collections")?></p>
 		</div>
 
 		<div class="box">
-			<h1>OBRAS</h1>
+			<h1><?=mb_convert_case(_t("Artworks"), MB_CASE_UPPER, "UTF-8")?></h1>
 
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/obras">busca avançada</a>
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/obras">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/obras"><?=_t("Advanced Search")?></a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/obras"><?=_t("Explore")?></a>
 
-			<p>Informações sobre as obras e suas participações nas Bienais</p>
+			<p><?=_t("Information about the artworks and their participation in the Biennials")?></p>
 		</div>
 
 		<div class="box">
-			<h1>ENTIDADES</h1>
+			<h1><?=mb_convert_case(_t("Entities"), MB_CASE_UPPER, "UTF-8")?></h1>
 
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/entidades">busca avançada</a>
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/entidades">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/entidades"><?=_t("Advanced Search")?></a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/entidades"><?=_t("Explore")?></a>
 
-			<p>Dados sobre pessoas e instituições, suas relações com a documentação ou eventos cadastrados</p>
+			<p><?=_t("Data about people and institutions, their relationships with documentation or registered events")?></p>
 		</div>
 
 		<div class="box">
-			<h1>EVENTOS</h1>
+			<h1><?=mb_convert_case(_t("Events"), MB_CASE_UPPER, "UTF-8")?></h1>
 
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/eventos">busca avançada</a>
-			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/eventos">explore</a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Search/advanced/eventos"><?=_t("Advanced Search")?></a>
+			<a href="<?=$this->request->getBaseUrlPath()?>/index.php/Browse/eventos"><?=_t("Explore")?></a>
 
-			<p>Informações sobre eventos realizados pela Fundação Bienal e outros relacionados à documentação</p>
+			<p><?=_t("Information about events held by the Bienal Foundation and others related to documentation")?></p>
 		</div>
 
 	</div>
@@ -409,22 +408,20 @@
 
 		<div class="content">
 			<a href="/pawtucket/index.php/Detail/documento/1">
-				<h1>FUNDOS E COLEÇÕES</h1>
-				<p>Explore mais de 200 mil registros do Arquivo Bienal</p>
+				<h1><?=mb_convert_case(_t("Funds and Collections"), MB_CASE_UPPER, "UTF-8")?></h1>
+				<p><?=_t("Explore over 200,000 records from the Bienal Archive")?></p>
 			</a>
 		</div>
-
 	</div>
 
 	<div class="box b">
 
 		<div class="content">
 			<a href="/pawtucket/index.php/Gallery/Index">
-				<h1>GALERIAS</h1>
-				<p>Explore registros fotográficos de obras e eventos ou reproduções digitais da documentação</p>
+				<h1><?=mb_convert_case(_t("Galleries"), MB_CASE_UPPER, "UTF-8")?></h1>
+				<p><?=_t("Explore photographic records of works and events or digital reproductions of documentation")?></p>
 			</a>
 		</div>
-
 	</div>
 
 </section>
