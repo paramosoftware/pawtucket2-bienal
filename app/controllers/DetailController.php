@@ -538,6 +538,15 @@ class DetailController extends FindController {
 
 		$this->view->setVar("shareLink", "<a href='#' onclick='caMediaPanel.showPanel(\"".caNavUrl($this->request, '', 'Detail', 'ShareForm', array("tablename" => $t_subject->tableName(), "item_id" => $t_subject->getPrimaryKey()))."\"); return false;'>".$ps_label."</a>");
 
+		// FRED 25/11/2022
+		// Passando o número da página de navegação pelos registros filhos
+		//////////////////////////////////////////////////////////////////
+		
+		$this->view->setVar('page', $this->request->getParameter('page', pString));
+		
+		//////////////////////////////////////////////////////////////////
+		// FRED 25/11/2022
+
 		// find view
 		//		first look for type-specific view
 		$path = "Details/{$table}_default_html.php";		// If no type specific view use the default

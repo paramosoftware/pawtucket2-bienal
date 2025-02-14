@@ -30,7 +30,7 @@
  * @type omit
  * @pageSize letter
  * @pageOrientation landscape
- * @tables ca_objects
+ * @tables
  *
  * ----------------------------------------------------------------------
  */
