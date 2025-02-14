@@ -1,0 +1,147 @@
+/* DIN-Regular  
+@font-face {font-family: 'DIN17SBOP-Regular';src: url('din/28EC2C_0_0.eot');src: url('din/28EC2C_0_0.eot?#iefix') format('embedded-opentype'),url('din/28EC2C_0_0.woff') format('woff'),url('din/28EC2C_0_0.ttf') format('truetype');}
+*/
+
+/* Proxima-Nova 
+@font-face {font-family: 'Proximanova';src: url('proximanova/proximanova-reg-webfont.eot');src: url('proximanova/proximanova-reg-webfont.eot?#iefix') format('embedded-opentype'),url('proximanova/proximanova-reg-webfont.woff') format('woff'),url('proximanova/proximanova-reg-webfont.ttf') format('truetype');}
+
+@font-face {font-family: 'ProximanovaBold';src: url('proximanova/proximanova-bold-webfont.eot');src: url('proximanova/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),url('proximanova/proximanova-bold-webfont.woff') format('woff'),url('proximanova/proximanova-bold-webfont.ttf') format('truetype');}
+*/
+
+/* Franklin Gothic 
+
+@font-face {font-family: 'Franklin Gothic';src: url('franklingothic/frankgotmed-webfont.eot');src: url('franklingothic/frankgotmed-webfont.eot?#iefix') format('embedded-opentype'),url('franklingothic/frankgotmed-webfont.woff') format('woff'),url('franklingothic/frankgotmed-webfont.ttf') format('truetype');}
+*/
+
+/* Webfont: Lato-Bold */@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato-Bold.eot'); /* IE9 Compat Modes */
+    src: url('Lato/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Lato/Lato-Bold.woff2') format('woff2'), /* Modern Browsers */
+         url('Lato/Lato-Bold.woff') format('woff'), /* Modern Browsers */
+         url('Lato/Lato-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-BoldItalic */@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato-BoldItalic.eot'); /* IE9 Compat Modes */
+    src: url('Lato/Lato-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Lato/Lato-BoldItalic.woff2') format('woff2'), /* Modern Browsers */
+         url('Lato/Lato-BoldItalic.woff') format('woff'), /* Modern Browsers */
+         url('Lato/Lato-BoldItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: Lato-Italic */@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato-Italic.eot'); /* IE9 Compat Modes */
+    src: url('Lato/Lato-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Lato/Lato-Italic.woff2') format('woff2'), /* Modern Browsers */
+         url('Lato/Lato-Italic.woff') format('woff'), /* Modern Browsers */
+         url('Lato/Lato-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Regular */@font-face {
+    font-family: 'Lato';
+    src: url('Lato/Lato-Regular.eot'); /* IE9 Compat Modes */
+    src: url('Lato/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Lato/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+         url('Lato/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+         url('Lato/Lato-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: Lato-Light */@font-face {
+    font-family: 'LatoLight';
+    src: url('Lato/Lato-Light.eot'); /* IE9 Compat Modes */
+    src: url('Lato/Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Lato/Lato-Light.woff2') format('woff2'), /* Modern Browsers */
+         url('Lato/Lato-Light.woff') format('woff'), /* Modern Browsers */
+         url('Lato/Lato-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-LightItalic */@font-face {
+    font-family: 'LatoLight';
+    src: url('Lato/Lato-LightItalic.eot'); /* IE9 Compat Modes */
+    src: url('Lato/Lato-LightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Lato/Lato-LightItalic.woff2') format('woff2'), /* Modern Browsers */
+         url('Lato/Lato-LightItalic.woff') format('woff'), /* Modern Browsers */
+         url('Lato/Lato-LightItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Helvetica-Roman */@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Roman.otf') format("opentype");
+    font-style: normal;
+    font-weight: "roman";
+    /* text-rendering: optimizeLegibility; */
+}
+
+/* Webfont: Helvetica-Bold */@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Bd.otf') format("opentype");
+    font-style: normal;
+    font-weight: bold;
+    /* text-rendering: optimizeLegibility; */
+}
+
+/* Fontes de front_page_html.php */
+@font-face {
+    font-family: "Baskerville";
+    src: url('Baskerville/Baskerville1757.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Helvetica Heavy";
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Hv.otf') format('opentype');
+}
+
+@font-face {font-family: "Helvetica Medium";
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Md.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "Helvetica Bold";
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Bd.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "Helvetica Roman";
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Roman.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "Helvetica Light";
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Lt.otf') format('otf');
+}
+
+@font-face {
+    font-family: "Helvetica Thin";
+    src: url('HelveticaNeue/HelveticaNeueLTStd-Th.otf') format('otf');
+}
+
+@font-face {
+    font-family: "FontAwesome";
+    src: url('fontawesome/fontawesome-webfont.eot?v=3.2.1');
+    src: url('fontawesome/fontawesome-webfont.eot?#iefix&v=3.2.1') format('embedded-opentype'),
+        url('fontawesome/fontawesome-webfont.woff?v=3.2.1') format('woff'),
+        url('fontawesome/fontawesome-webfont.ttf?v=3.2.1') format('truetype'),
+        url('fontawesome/fontawesome-social-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

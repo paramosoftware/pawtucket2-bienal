@@ -1,0 +1,878 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CollectiveAccess Pawtucket2 Default Theme\n"
+"POT-Creation-Date: 2016-10-10 22:50-0400\n"
+"PO-Revision-Date: 2025-02-11 15:04-0300\n"
+"Last-Translator: Seth <Seth@collectiveacess.org>\n"
+"Language-Team: CollectiveAccess <info@collectiveaccess.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Poedit-Basepath: ../../views\n"
+"X-Poedit-KeywordsList: _t\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: fundos_e_coleções/documentos
+msgid "at this level"
+msgstr "neste nível"
+
+msgid "Relationship type"
+msgstr "Tipo de Relacionamento"
+
+msgid "Records"
+msgstr "Registros"
+
+msgid "Record"
+msgstr "Registro"
+
+msgid "Associated with Artwork(s)"
+msgstr "Associado com obra(s)"
+
+msgid "Awarded Artwork"
+msgstr "Obra Premiada"
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
+msgid "Image"
+msgstr "Imagem"
+
+msgid "Contains Image"
+msgstr "Tem imagem"
+
+msgid "Doesn't Contain Image"
+msgstr "Não tem imagem"
+
+msgid "Documents found"
+msgstr "Documentos Encontrados"
+
+msgid "Immediate source of acquisition or transfer"
+msgstr "Fonte imediata da aquisição ou transferência"
+
+msgid "Documentos"
+msgstr "Documents"
+
+msgid "Artworks found"
+msgstr "Obras Encontradas"
+
+msgid "Obras"
+msgstr "Artworks"
+
+msgid "Entities found"
+msgstr "Entidades Encontradas"
+
+msgid "Entidades"
+msgstr "Entities"
+
+msgid "Events found"
+msgstr "Eventos Encontrados"
+
+msgid "Eventos"
+msgstr "Events"
+
+msgid "Jump to page"
+msgstr "Pular para página"
+
+msgid "Of"
+msgstr "De"
+
+msgid "Page"
+msgstr "Página"
+
+msgid "Section / Subsection"
+msgstr "Seção / Subseção"
+
+msgid "Related Documents or Artworks (Search by Title)"
+msgstr "Documentos ou obras relacionadas (busca por título)"
+
+msgid "Type of Entity"
+msgstr "Tipo de Entidade"
+
+msgid "Iconographic Vocabulary"
+msgstr "Vocabulário Iconográfico"
+
+msgid "Bibliographic Vocabulary"
+msgstr "Vocabulário Bibliográfico"
+
+msgid "Loading"
+msgstr "Carregando"
+
+msgid "Explore photographic records of works and events or digital reproductions of documentation"
+msgstr "Explore registros fotográficos de obras e eventos ou reproduções digitais da documentação"
+
+msgid "São Paulo Bienal"
+msgstr "Bienal de São Paulo"
+
+msgid "Explore over 200,000 records from the Bienal Archive"
+msgstr "Explore mais de 200 mil registros do Arquivo Bienal"
+
+msgid "Information about events held by the Bienal Foundation and others related to documentation"
+msgstr "Informações sobre eventos realizados pela Fundação Bienal e outros relacionados à documentação"
+
+msgid "Data about people and institutions, their relationships with documentation or registered events"
+msgstr "Dados sobre pessoas e instituições, suas relações com a documentação ou eventos cadastrados"
+
+msgid "Information about the artworks and their participation in the Biennials"
+msgstr "Informações sobre as obras e suas participações nas Bienais"
+
+msgid "Records of sets or documentary items, organized in funds or collections"
+msgstr "Registros de conjuntos ou itens documentais, organizados em fundos ou coleções"
+
+msgid "Broad search in any field, retrieves all terms indicated individually. To refine your search, use the"
+msgstr "Busca ampla em qualquer campo, recupera todos os termos indicados individualmente. Para refinar sua pesquisa utilize a"
+
+msgid "Do a quick search"
+msgstr "Faça uma busca rápida"
+
+msgid "Consult information about the document archive and the São Paulo Biennials."
+msgstr "Consulte informações sobre o acervo documental e as Bienais de São Paulo."
+
+msgid "The AHWS database was supported by Proac and is under continuous development."
+msgstr "O banco de dados do AHWS contou com recursos do Proac e está em constante desenvolvimento."
+
+msgid "The information presented here is under constant review."
+msgstr "As informações aqui apresentadas estão em constante revisão."
+
+msgid "To complete your research, contact the Bienal Archive."
+msgstr "Para completar sua pesquisa, entre em contato com o Arquivo Bienal."
+
+msgid "Bienal Archive"
+msgstr "Arquivo Bienal"
+
+msgid "Floor"
+msgstr "Andar"
+
+msgid "Contact Us"
+msgstr "Contato"
+
+msgid "Privary"
+msgstr "Privacidade"
+
+msgid "Terms of Use"
+msgstr "Termos de Uso"
+
+msgid "Wanda Svevo Historical Archive"
+msgstr "Arquivo Histórico Wanda Svevo"
+
+msgid "Database"
+msgstr "Banco de Dados"
+
+msgid "Events"
+msgstr "Eventos"
+
+msgid "en_US"
+msgstr "pt_BR"
+
+msgid "pt_BR"
+msgstr "en_US"
+
+msgid "en"
+msgstr "pt"
+
+msgid "pt"
+msgstr "en"
+
+msgid "Artworks"
+msgstr "Obras"
+
+msgid "Entities"
+msgstr "Entidades"
+
+msgid "Category"
+msgstr "Categoria"
+
+msgid "Place"
+msgstr "Local"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Type."
+msgstr "Espécie."
+
+msgid "Artwork Description"
+msgstr "Descrição da obra"
+
+msgid "Fonds"
+msgstr "Fundos"
+
+msgid "Fond"
+msgstr "Fundo"
+
+#: Ficha_de_Obra
+msgid "Other Titles"
+msgstr "Outros Títulos"
+
+#: Ficha_de_Obra
+msgid "Production Date"
+msgstr "Data de produção"
+
+#: Ficha_de_Obra Ficha de_Documentos
+msgid "Support"
+msgstr "Suporte"
+
+#: Ficha_de_Obra Ficha_de_Documentos
+msgid "Technique"
+msgstr "Técnica"
+
+#: Ficha_de_Obra
+msgid "Type of Work"
+msgstr "Tipo de obra"
+
+#: Ficha_de_Obra Ficha_de_Evento
+msgid "Artistic Expression"
+msgstr "Manifestação artística"
+
+#: Ficha_de_Obra Ficha_de_Evento
+msgid "Prize Awarded"
+msgstr "Prêmio recebido"
+
+#: Ficha_de_Documentos
+msgid "Dates"
+msgstr "Datas"
+
+#: Ficha_de_Documentos Filtro_Documentos/Obras Busca_Avançada_Documentos
+msgid "Documentary Genre"
+msgstr "Gênero documental"
+
+#: Ficha_de_Documentos Filtro_Documentos/Obras Busca_Avançada_Documentos
+msgid "Document Type"
+msgstr "Espécie documental"
+
+#: Ficha_de_Documentos
+msgid "Analog/Digital"
+msgstr "Analógico/digital"
+
+#: Ficha_de_Documentos
+msgid "Accessible Digital Document"
+msgstr "Documento digital acessível"
+
+#: Ficha_de_Documentos
+msgid "Non-accessible Digital Document"
+msgstr "Documento digital não acessível"
+
+#: Ficha_de_Documentos
+msgid "Form"
+msgstr "Forma"
+
+#: Ficha_de_Documentos
+msgid "Inscription"
+msgstr "Inscrição"
+
+#: Ficha_de_Documentos
+msgid "Pre-existing Identification"
+msgstr "Identificação pré-existente"
+
+#: Ficha_de_Documentos
+msgid "Other Numbers or Identification Codes"
+msgstr "Outros números ou códigos de identificação"
+
+#: Ficha_de_Documentos
+msgid "Dimension"
+msgstr "Dimensão"
+
+#: Ficha_de_Documentos
+msgid "Type of Measured Material"
+msgstr "Tipo de material mensurado"
+
+#: Ficha_de_Documentos
+msgid "Type of Dimension"
+msgstr "Tipo de dimensão"
+
+#: Ficha_de_Documentos
+msgid "Dimension Value"
+msgstr "Valor da dimensão"
+
+#: Ficha_de_Documentos
+msgid "Location Code"
+msgstr "Código de localização"
+
+#: Ficha_de_Documentos
+msgid "Location Note"
+msgstr "Nota de Localização"
+
+#: Ficha_de_Documentos Ficha_de_Evento
+msgid "Related Entities (Production Context)"
+msgstr "Entidades relacionadas (contexto de produção)"
+
+#: Ficha_de_Documentos
+msgid "Place of Production"
+msgstr "Local de produção"
+
+#: Ficha_de_Documentos
+msgid "Administrative History / Biography"
+msgstr "História administrativa / biografia"
+
+#: Ficha_de_Documentos
+msgid "Archival History"
+msgstr "História arquivística"
+
+#: Ficha_de_Documentos
+msgid "Scope and Content"
+msgstr "Âmbito e conteúdo"
+
+msgid "Appraisal, Disposal, and Time Span"
+msgstr "Avaliação, eliminação e temporalidade"
+
+#: Ficha_de_Documentos
+msgid "Incorporations"
+msgstr "Incorporações"
+
+#: Ficha_de_Documentos
+msgid "Arrangement System"
+msgstr "Sistema de arranjo"
+
+#: Ficha_de_Documentos
+msgid "Related Event (Documentary Production Context)"
+msgstr "Evento relacionado (contexto de produção documental)"
+
+#: Ficha_de_Documentos Ficha_de_Evento Filtro_Documentos/Obras
+#: Busca_Avançada_Documentos Busca_Avançada_Eventos
+msgid "National Representation"
+msgstr "Representação nacional"
+
+#: Ficha_de_Documentos
+msgid "Language"
+msgstr "Idioma"
+
+#: Ficha_de_Documentos
+msgid "Number of Existing Document Units"
+msgstr "Número de unidades documentais existentes"
+
+#: Ficha_de_Documentos
+msgid "Registered Copies/Originals"
+msgstr "Cópias / originais cadastrados"
+
+#: Ficha_de_Documentos Ficha_de_Entidade
+msgid "Related Documents"
+msgstr "Documentos relacionados"
+
+#: Ficha_de_Documentos Ficha_de_Entidade Busca_Avançada_Documentos
+msgid "Related Controlled Vocabulary"
+msgstr "Vocabulário controlado relacionado"
+
+#: Ficha_de_Documentos Ficha_de_Entidade
+msgid "Related Entities"
+msgstr "Entidades relacionadas"
+
+#: Ficha_de_Documentos Ficha_de_Entidade
+msgid "Related Artwork"
+msgstr "Obras relacionadas"
+
+#: Ficha_de_Documentos Ficha_de_Entidade Busca_Avançada_Obras
+msgid "Related Events"
+msgstr "Eventos relacionados"
+
+#: Ficha_de_Documentos Ficha_de_Entidade Filtro_Entidades
+msgid "Event Participation"
+msgstr "Participação em evento"
+
+#: Ficha_de_Documentos
+msgid "Edition Month"
+msgstr "Mês da edição"
+
+#: Ficha_de_Documentos
+msgid "Edition Number"
+msgstr "Número da edição"
+
+#: Ficha_de_Documentos
+msgid "Tome / Volume"
+msgstr "Tomo / Volume"
+
+#: Ficha_de_Documentos Filtro_Documentos/Obras
+msgid "Chromatics"
+msgstr "Cromia"
+
+#: Ficha_de_Documentos Filtro_Documentos/Obras
+msgid "Polarity"
+msgstr "Polaridade"
+
+#: Ficha_de_Documentos Filtro_Documentos/Obras
+msgid "Type of Media"
+msgstr "Tipo de mídia"
+
+#: Ficha_de_Documentos
+msgid "Recording Standard"
+msgstr "Padrão de gravação"
+
+#: Ficha_de_Documentos
+msgid "Type of Publication"
+msgstr "Tipo de publicação"
+
+#: Ficha_de_Documentos
+msgid "Subject"
+msgstr "Assunto"
+
+#: Ficha_de_Documentos
+msgid "PHA Table"
+msgstr "Tabela PHA"
+
+#: Ficha_de_Documentos
+msgid "Physical Access"
+msgstr "Acesso Físico"
+
+#: Ficha_de_Documentos Ficha_de_Entidade
+msgid "External Links"
+msgstr "Links externos"
+
+#: Ficha_de_Entidade
+msgid "Biography"
+msgstr "Biografia"
+
+#: Ficha_de_Evento
+msgid "Cost"
+msgstr "Custo"
+
+#: Ficha_de_Evento
+msgid "Event Date"
+msgstr "Data de realização"
+
+#: Ficha_de_Evento
+msgid "Related Event(s)"
+msgstr "Evento(s) relacionado(s)"
+
+#: Ficha_de_Evento Filtro_Eventos Busca_Avançada_Eventos
+msgid "Event Location"
+msgstr "Local de realização"
+
+#: Ficha_de_Evento Busca_Avançada_Documentos
+msgid "Related Places"
+msgstr "Lugares relacionados"
+
+#: Ficha_de_Entidade Filtro_Entidades
+msgid "Nationality"
+msgstr "Nacionalidade"
+
+#: Ficha_de_Entidade
+msgid "Display Name"
+msgstr "Nome para visualização"
+
+#: Ficha_de_Entidade
+msgid "Alternative Names"
+msgstr "Nomes alternativos"
+
+#: Ficha_de_Entidade
+msgid "Note"
+msgstr "Nota"
+
+#: Ficha_de_Evento
+msgid "Notes"
+msgstr "Notas"
+
+#: Ficha_de_Evento
+msgid "Number of Participating Artists"
+msgstr "Número de artistas participantes"
+
+#: Ficha_de_Evento
+msgid "Number of Works Exhibited"
+msgstr "Número de obras expostas"
+
+#: Ficha_de_Evento
+msgid "Number of Countries Represented"
+msgstr "Número de países representados"
+
+#: Ficha_de_Evento
+msgid "Number of Visitor Attendees"
+msgstr "Número de público visitante"
+
+#: Ficha_de_Entidade
+msgid "Occupation/Functions"
+msgstr "Ocupação/funções"
+
+#: Ficha_de_Evento
+msgid "Other Names"
+msgstr "Outros nomes"
+
+#: Ficha_de_Entidade
+msgid "Other First Names"
+msgstr "Outros primeiros nomes"
+
+#: Ficha_de_Entidade
+msgid "Other Alternative First Names"
+msgstr "Outros primeiros nomes alternativos"
+
+#: Ficha_de_Evento
+msgid "Sponsors and Supporters"
+msgstr "Patrocinadores e apoiadores"
+
+#: Ficha_de_Evento
+msgid "Executed By"
+msgstr "Realizado por"
+
+#: Ficha_de_Entidade
+msgid "Representation in Event"
+msgstr "Representação em evento"
+
+#: Ficha_de_Evento Eventos
+msgid "Sections / Subsections"
+msgstr "Seções / subseções"
+
+#: Ficha_de_Evento Filtro_Eventos Busca_Avançada_Eventos
+msgid "Type of Event"
+msgstr "Tipo de evento"
+
+#: Menu_Superior Galeria
+msgid "Galleries"
+msgstr "Galerias"
+
+#: Menu_Superior
+msgid "Funds and Collections"
+msgstr "Fundos e Coleções"
+
+#: Menu_Superior
+msgid "Explore"
+msgstr "Explorar"
+
+#: Menu_Superior
+msgid "Advanced Search"
+msgstr "Busca Avançada"
+
+#: Filtro_Documentos/Obras
+msgid "Entity / Responsible"
+msgstr "Entidade / responsável"
+
+#: Filtro_Documentos/Obras
+msgid "Event in Documentary Production Context"
+msgstr "Evento no contexto de produção documental"
+
+#: Filtro_Documentos/Obras
+msgid "Related Vocabulary"
+msgstr "Vocabulário Relacionado"
+
+#: Filtro_Documentos/Obras
+msgid "Related Event"
+msgstr "EVENTO RELACIONADO"
+
+#: Filtro_Documentos/Obras
+msgid "Contain Image"
+msgstr "TEM IMAGEM"
+
+#: Filtro_Documentos/Obras
+msgid "Nationality of Entity / Responsible"
+msgstr "Nacionalidade da Entidade / Responsável"
+
+#: Filtro_Documentos/Obras Explorar_Documentos
+msgid "Type of Document"
+msgstr "Tipo de Documento"
+
+#: Filtro_Documentos/Obras Filtro_Eventos
+msgid "Decade"
+msgstr "DÉCADA"
+
+#: Filtro_Documentos/Obras/Entidades/Eventos
+msgid "Filter Results"
+msgstr "Filtrar Resultados"
+
+#: Filtro_Entidades Busca_Avançada_Entidades
+msgid "Entity Category"
+msgstr "Categoria da entidade"
+
+#: Filtro_Entidades
+msgid "Bienal Artist"
+msgstr "ARTISTA BIENAL"
+
+#: Filtro_Eventos
+msgid "Event Level"
+msgstr "Nível do Evento"
+
+#: Filtro_Eventos Explorar_Eventos
+msgid "Bienal Event"
+msgstr "Evento Bienal"
+
+#: Filtro_Eventos
+msgid "Country/Representation of Related Entity"
+msgstr "País/Representação da Entidade Relacioanda"
+
+#: Busca_Avançada_Documentos
+msgid "Advanced Document Search"
+msgstr "BUSCA AVANÇADA DE DOCUMENTOS"
+
+#: Busca_Avançada_Documentos
+msgid "Hierarchical Level"
+msgstr "Em um nível hierárquico"
+
+#: Busca_Avançada_Documentos
+msgid "Title or Denomination of Document"
+msgstr "Título ou denominação do documento"
+
+#: Busca_Avançada_Documentos
+msgid "Production Date or Period"
+msgstr "Data ou período de produção"
+
+#: Busca_Avançada_Documentos
+msgid "Institution"
+msgstr "Instituição"
+
+#: Busca_Avançada_Documentos
+msgid "Related Event in Production Context"
+msgstr "Evento relacionado no contexto de produção"
+
+#: Busca_Avançada_Documentos
+msgid "Content Description"
+msgstr "Descrição do conteúdo"
+
+#: Busca_Avançada_Documentos Busca_Avançada_Eventos
+msgid "Related Entity"
+msgstr "Entidade relacionada"
+
+#: Busca_Avançada_Obras
+msgid "Advanced Artwork Search"
+msgstr "BUSCA AVANÇADA DE OBRAS"
+
+#: Busca_Avançada_Obras
+msgid "Title of the Artwork"
+msgstr "Título da obra"
+
+#: Busca_Avançada_Obras
+msgid "Artist / Creator"
+msgstr "Artista / responsável pela criação"
+
+#: Busca_Avançada_Obras
+msgid "Creation Date"
+msgstr "Data de criação"
+
+#: Busca_Avançada_Obras
+msgid "Artistic Processes (Support, Technique, and Material)"
+msgstr "Processos artísticos (suporte, técnica e material)"
+
+#: Busca_Avançada_Obras
+msgid "Award in Event"
+msgstr "Premiação em evento"
+
+#: Busca_Avançada_Obras
+msgid "Event Name"
+msgstr "Nome do evento"
+
+#: Busca_Avançada_Entidades
+msgid "Advanced Entity Search"
+msgstr "BUSCA AVANÇADA DE ENTIDADES"
+
+#: Busca_Avançada_Entidades Busca_Avançada_Eventos
+msgid "Name"
+msgstr "Nome"
+
+#: Busca_Avançada_Entidades
+msgid "Date of Birth"
+msgstr "Data de nascimento"
+
+#: Busca_Avançada_Entidades
+msgid "Date of Death"
+msgstr "Data de morte"
+
+#: Busca_Avançada_Entidades
+msgid "Nationality (Country)"
+msgstr "Nacionalidade (país)"
+
+#: Busca_Avançada_Documentos/Obras/Entidades/Eventos
+msgid "Search"
+msgstr "Buscar"
+
+#: Busca_Avançada_Eventos
+msgid "Advanced Event Search"
+msgstr "BUSCA AVANÇADA DE EVENTOS"
+
+#: Busca_Avançada_Eventos
+msgid "At a Level"
+msgstr "Em um nível"
+
+#: Busca_Avançada_Eventos
+msgid "Type of Level"
+msgstr "Tipo de nível"
+
+#: Busca_Avançada_Eventos
+msgid "Event Denomination"
+msgstr "Denominação do evento"
+
+#: Busca_Avançada_Eventos
+msgid "Function"
+msgstr "Função"
+
+#: Busca_Avançada_Eventos
+msgid "Start Date"
+msgstr "Data inicial"
+
+#: Busca_Avançada_Eventos
+msgid "End Date"
+msgstr "Data final"
+
+#: Busca_Avançada_Eventos
+msgid "Responsible Institution"
+msgstr "Instituição responsável"
+
+#: Busca_Avançada_Eventos
+msgid "Name of Entity"
+msgstr "Nome da entidade"
+
+#: Busca_Avançada_Eventos
+msgid "Country of Origin/Representation"
+msgstr "País de origem/representação"
+
+#: Busca_Avançada_Eventos
+msgid "Participation"
+msgstr "Participação"
+
+#: Busca_Avançada_Eventos
+msgid "Type of Participation"
+msgstr "Tipo de participação"
+
+#: Busca_Avançada_Eventos
+msgid "Related Documents (Search by Title)"
+msgstr "Documentos relacionados (busca por título)"
+
+#: Busca_Avançada_Eventos
+msgid "Related Artwork (Search by Title)"
+msgstr "Obra relacionada (busca por título)"
+
+#: Explorar_Documentos
+msgid "Documents Found"
+msgstr "DOCUMENTOS ENCONTRADOS"
+
+#: Explorar_Documentos Explorar_Obras Explorar_Entidades Explorar_Eventos
+msgid "Order by"
+msgstr "Ordenar por"
+
+#: Explorar_Documentos
+msgid "Title"
+msgstr "Título"
+
+#: Explorar_Documentos
+msgid "Genre"
+msgstr "Gênero"
+
+#: Explorar_Documentos
+msgid "Event"
+msgstr "Evento"
+
+#: Explorar_Documentos
+msgid "Reference Code"
+msgstr "Código de referência"
+
+#: Explorar_Documentos
+msgid "Level/Document"
+msgstr "Nível/documento"
+
+#: Explorar_Documentos
+msgid "Select a Report"
+msgstr "Selecione um relatório"
+
+#: Explorar_Documentos Explorar_Obras Explorar_Entidades Explorar_Eventos
+msgid "Basic Report (EXCEL)"
+msgstr "Relatório Básico (EXCEL)"
+
+#: Explorar_Documentos Explorar_Obras Explorar_Entidades Explorar_Eventos
+msgid "Select a View"
+msgstr "Selecione uma visualização"
+
+#: Explorar_Documentos Explorar_Obras Explorar_Entidades Explorar_Eventos
+msgid "List"
+msgstr "Lista"
+
+#: Explorar_Documentos
+msgid "List with Images"
+msgstr "Lista com imagens"
+
+#: Explorar_Obras
+msgid "Artwork Found"
+msgstr "OBRAS ENCONTRADAS"
+
+#: Explorar_Obras
+msgid "Artist"
+msgstr "Artista"
+
+#: Explorar_Entidades
+msgid "Entities Found"
+msgstr "ENTIDADES ENCONTRADAS"
+
+#: Explorar_Entidades
+msgid "Bienal Participation"
+msgstr "Participação bienal"
+
+#: Explorar_Eventos
+msgid "Events Found"
+msgstr "Eventos Encontrados"
+
+#: Explorar_Eventos
+msgid "Identification Code"
+msgstr "Código de identificação"
+
+#: Galeria
+msgid "Gallery"
+msgstr "Galeria"
+
+#: Galeria
+msgid "Available Galleries"
+msgstr "Galerias disponíveis"
+
+#: Explorar_Eventos
+msgid "Items"
+msgstr "Itens"
+
+#: fundos_e_coleções/documentos
+msgid "Group"
+msgstr "Grupo"
+
+#: fundos_e_coleções/documentos
+msgid "Subgroup"
+msgstr "Subgrupo"
+
+#: fundos_e_coleções/documentos
+msgid "Document Set"
+msgstr "Conjunto Documental"
+
+#: fundos_e_coleções/documentos
+msgid "Series"
+msgstr "Série"
+
+#: fundos_e_coleções/documentos
+msgid "Document"
+msgstr "Documento"
+
+#: fundos_e_coleções/documentos
+msgid "Documents"
+msgstr "Documentos"
+
+#: fundos_e_coleções/documentos
+msgid "Part of Document"
+msgstr "Parte de Documento"
+
+#: fundos_e_coleções/documentos
+msgid "Collection"
+msgstr "Coleção"
+
+#: fundos_e_coleções/documentos
+msgid "Records at this level"
+msgstr "Registros neste nível"
+
+#: Eventos
+msgid "Event Record"
+msgstr "Ficha do evento"
+
+#: Entidades
+msgid "Entity Record"
+msgstr "Ficha da entidade"
+
+#: Documentos/Obras
+msgid "Document Record"
+msgstr "Ficha do documento"
+
+#: Ficha_de_Entidade
+msgid "Person"
+msgstr "Pessoa"
+
+#: Ficha_de_Entidade
+msgid "Group of People"
+msgstr "Grupo de Pessoas"
+
+#: Ficha_de_Entidade
+msgid "Undefined"
+msgstr "Não Definido"

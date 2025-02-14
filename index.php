@@ -25,6 +25,8 @@
  *
  * ----------------------------------------------------------------------
  */
+	ini_set('memory_limit', '512M');
+
 	define("__CA_APP_TYPE__", "PAWTUCKET");
 	define("__CA_MICROTIME_START_OF_REQUEST__", microtime());
 	define("__CA_SEARCH_IS_FOR_PUBLIC_DISPLAY__", 1);

@@ -124,7 +124,7 @@
                                 }
                             }							
                             function hierarchyfinder_get( $parent_id , $selecter ) {
-                                u = "/pawtucket/service.php/HierarchyLookup/objects?id=" + $parent_id;
+                                u = "/pawtucket2-bienal/service.php/HierarchyLookup/objects?id=" + $parent_id;
 
 								$.ajax({
                                     url: u ,
@@ -247,7 +247,7 @@
 
                     function load_vocabulary_list()
                     {	
-                        u = "/pawtucket/index.php/lookup/ListItem/GetHierarchyLevel/list_id/85/id/7549/noSymbols/1/init/1";
+                        u = "/pawtucket2-bienal/index.php/lookup/ListItem/GetHierarchyLevel/list_id/85/id/7549/noSymbols/1/init/1";
  
                         $.ajax({
                             url: u,
@@ -277,7 +277,7 @@
                             console.log(errorThrown);
                         });
 
-                        u = "/pawtucket/index.php/lookup/ListItem/GetHierarchyLevel/list_id/83/id/246/noSymbols/1/init/1";
+                        u = "/pawtucket2-bienal/index.php/lookup/ListItem/GetHierarchyLevel/list_id/83/id/246/noSymbols/1/init/1";
                         
                         $.ajax({
                             url: u ,
