@@ -1,4 +1,4 @@
-<?php	
+<?php
 /* ----------------------------------------------------------------------
  * app/templates/header.php : standard PDF report header
  * ----------------------------------------------------------------------
@@ -31,35 +31,39 @@
  *
  * ----------------------------------------------------------------------
  */
- 
- if($this->request->config->get('summary_header_enabled')) {
-	switch($this->getVar('PDFRenderer')) {
+
+if ($this->request->config->get('summary_header_enabled')) {
+	switch ($this->getVar('PDFRenderer')) {
 		case 'wkhtmltopdf':
 ?>
-			<!--BEGIN HEADER--><!DOCTYPE html>
+			<!--BEGIN HEADER-->
+			<!DOCTYPE html>
 			<html>
 				<head>
-					<link type="text/css" href="<?php print $this->getVar('base_path');?>/pdf.css" rel="stylesheet" />
+					<link type="text/css" href="<?php print $this->getVar('base_path'); ?>/pdf.css" rel="stylesheet" />
 					<meta charset="utf-8" />
 				</head>
-				<body><div id='header'>
-					<?= caGetReportLogo(); ?>
-				</div>
-				<br style="clear: both;"/>
-			</body>
+
+				<body>
+					<div id='header'>
+						<?= caGetReportLogo(); ?>
+					</div>
+					<br style="clear: both;" />
+				</body>
+
 			</html><!--END HEADER-->
 <?php
-		break;
+			break; // END case 'wkhtmltopdf'
 		# ----------------------------------------
 		default:
 ?>
 			<div id='header'>
-				<?= caGetReportLogo(); ?>
+				<?= caGetReportLogo() ?>
 
-				<?php print "<div class='pagingText'>"._t('Pág.')." </div>"; ?>
+				<?php print "<div class='pagingText'>" . _t('Pág.') . " </div>"; ?>
 			</div>
 <?php
-		break;
-		# ----------------------------------------
-	}
-}
+			break; // END switch default
+			# ----------------------------------------
+	} // END switch
+} // END if
