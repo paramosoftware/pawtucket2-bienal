@@ -1,39 +1,93 @@
 			<style>
-				main {
-					font-size: 0px;
+				/* #home {
+					grid-area: home;
+					padding-inline: 40px;
 				}
 
-				main #titulo {
+
+				#titulo {
+					grid-area: titulo;
+				} */
+
+				.sec-header {
+					grid-area: sec-header;
+					padding-inline: 40px;
+				}
+
+				/* #criterios {
+					grid-area: criterios;
+				} */
+
+				#resultado {
+					grid-area: resultado;
+				}
+
+				#facetas {
+					grid-area: facetas;
+				}
+
+				.sec-footer {
+					grid-area: sec-footer;
+					padding-right: 40px;
+				}
+
+				main {
+					display: grid;
+					grid-template-columns: auto 240px;
+					grid-template-areas:
+						"sec-header sec-header"
+						"resultado facetas"
+						"resultado facetas"
+						"sec-footer sec-footer"
+				}
+
+				/* main #titulo {
 					padding: 20px 30px;
 					font-family: "Helvetica Heavy";
 					font-size: 38px;
 					text-transform: uppercase;
 					color: #333;
+				} */
+
+				.sec-header>div:has(#criterios) {
+					justify-content: start;
+					align-items: center;
 				}
 
 				main #criterios {
-					padding: 25px 30px;
-					border-top: #888 dashed 1px
-				}
-
-				main #criterios span {
-					font-family: "Helvetica Roman";
-					border-radius: 4px;
-					background-color: #222;
-					color: #fff;
-					padding: 9px 16px 9px 10px;
-					font-size: 13px;
-					margin-right: 5px
+					height: 30px;
 				}
 
 				main #criterios a {
-					font-family: "Helvetica Roman";
-					border-radius: 4px;
+					text-decoration: none;
+					font-family: "Helvetica Neue Bold";
 					background-color: var(--bienal_primary);
-					color: #fff;
-					padding: 9px 16px 9px 10px;
-					font-size: 13px;
-					margin-right: 5px
+					color: var(--secondary);
+					font-size: 16px;
+
+					display: inline-block;
+					height: 30px;
+					border: 1px solid var(--tertiary3);
+					border-radius: 4px;
+					padding-left: 9px;
+					padding-right: 5px;
+					padding-top: 2px;
+
+					margin-left: 20px;
+				}
+
+				main #criterios a:first-of-type {
+					margin-left: 40px;
+				}
+
+
+				main #criterios span {
+					font-family: "Helvetica Neue Roman";
+					background-color: var(--tertiary);
+					color: var(--secondary);
+					/* padding: 9px 16px 9px 10px; */
+					font-size: 16px;
+					/* margin-right: 5px */
 				}
 
 				main #criterios a:before {
@@ -48,22 +102,27 @@
 				*/
 
 				main #facetas {
-					border-top: #555 dashed 1px;
-					display: inline-block;
+					border-top: 1px solid var(--secondary);
 					vertical-align: top;
-					width: 200px;
-					font-size: 12px;
+					display: inline-block;
+					width: 100%;
 					height: 100%;
 					position: relative;
+					padding-right: 40px;
 				}
 
 				main #facetas h3 {
-					font-family: "Helvetica Heavy";
 					text-transform: uppercase;
+					text-align: center;
 					font-weight: normal;
-					color: #333;
-					padding: 30px 30px 0px 30px;
+					color: var(--primary);
+					padding-top: 20px;
+					padding-bottom: 42px;
 					margin: 0;
+				}
+
+				main #facetas h3 a {
+					color: var(--primary);
 				}
 
 				main #facetas h3:before {
@@ -76,25 +135,34 @@
 					padding: 0;
 					margin: 0;
 					list-style: none;
-					margin: 0;
-					padding: 15px;
-					border-bottom: #888 dashed 1px;
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+					width: 100%;
 					color: #333;
 				}
 
-				main #facetas ul:last-child {
-					border: none
+				main #facetas a {
+					font-family: "Helvetica Neue Bold";
+					text-decoration: none;
+					font-size: 16px;
+				}
+
+				#filtros a {
+					color: var(--tertiary4);
+					padding-block: 6px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
 				}
 
 				main #facetas li {
+					width: 100%;
 					font-family: "Helvetica Roman";
-					padding: 4px 0px;
-					border-top: #aaa dashed 1px
-				}
-
-				main #facetas li:first-child {
-					border: none;
-					padding-bottom: 10px
+					padding: 4px;
+					border: 1px solid var(--tertiary3);
+					border-radius: 4px;
 				}
 
 				main #facetas li.mais {
@@ -103,7 +171,6 @@
 
 				main #facetas li.titulo {
 					font-family: "Helvetica Bold";
-					text-transform: uppercase;
 					width: 100%
 				}
 
@@ -124,20 +191,27 @@
 				}
 
 				main #resultado {
-					padding: 0px 30px 30px 30px;
-					border-top: #555 dashed 1px;
+					margin-left: 40px;
+					padding-right: 15px;
+					padding-bottom: 32px;
+					border-top: 1px solid var(--secondary);
 					display: inline-block;
 					vertical-align: top;
-					width: calc(100% - 250px);
+					/* width: calc(100% - 250px); */
+					/* width: 100%; */
 					font-size: 12px;
 					height: 100%;
-					position: relative
+					position: relative;
 				}
 
 				main #ferramentas {
-					padding: 20px 0px;
-					height: 70px;
-					text-align: right
+					padding-block: 30px;
+					height: 90px;
+					text-align: right;
+
+					display: flex;
+					align-items: center;
+					justify-content: space-evenly;
 				}
 
 				main #ferramentas select {
@@ -170,20 +244,25 @@
 
 				main #ordenacao {
 					padding: 20px 10px;
-					font-family: "Helvetica Bold";
-					font-size: 13px;
-					color: #222;
-					border: #bbb solid 1px;
-					border-bottom: #aaa solid 1px;
-					border-radius: 5px 5px 0px 0px
+					color: var(--secondary);
+					font-size: 16px !important;
+					border-top: 1px solid var(--secondary);
+					/* border-bottom: #aaa solid 1px; */
+					display: flex;
+					align-items: center;
+					gap: 20px;
 				}
 
 				main #ordenacao ul {
 					margin: 0;
 					padding: 0;
 					list-style: none;
-					display: inline-block;
-					vertical-align: top
+					display: flex;
+					gap: 20px;
+				}
+
+				main #ordenacao ul li:first-of-type {
+					font-family: "Helvetica Neue Medium";
 				}
 
 				main #ordenacao ul li {
@@ -193,35 +272,83 @@
 				}
 
 				main #ordenacao ul li a {
-					color: inherit;
-					font-family: "Helvetica Roman";
+					color: var(--tertiary4);
+					font-family: "Helvetica Neue Bold";
+					text-decoration: none;
+				}
+
+
+				main #ordenacao ul li:not(:first-of-type) {
+					font-family: "Helvetica Neue Bold";
+					color: var(--tertiary4);
+					background-color: var(--tertiary2);
+					border: 1px solid var(--tertiary3);
+					border-radius: 4px;
+					padding-top: 5px;
+					padding-bottom: 3px;
+					padding-inline: 9px;
 				}
 
 				main #ordenacao ul li.selecionado {
-					color: var(--bienal_primary);
-					border: var(--bienal_primary) dashed 1px;
+					font-family: "Helvetica Neue Bold";
+					color: var(--tertiary);
+					background-color: var(--primary);
+					border: 1px solid var(--primary);
 					border-radius: 4px;
-					padding: 4px 9px
+					padding-top: 5px;
+					padding-bottom: 3px;
+					padding-inline: 9px;
 				}
 
 				main #cabecalho {
-					font-size: 0px;
-					color: #444;
-					border: #aaa solid 1px;
-					border-top: none;
-					border-bottom: #555 dashed 1px;
-					font-family: "Helvetica Medium"
+					/* font-family: "Helvetica Neue Bold";
+					font-size: 16px;
+					text-transform: uppercase; */
+					height: 94px;
+
+					color: var(--secondary);
+					background-color: var(--tertiary2);
+					border-block: 2px solid var(--secondary);
+
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
 				}
 
 				main #itens {
-					border: #aaa solid 1px;
-					border-top: none
+					font-family: "Helvetica Neue Roman";
+					font-size: 16px;
+					color: var(--secondary);
+					border-bottom: 1px solid var(--secondary);
+					height: max-content;
+				}
+
+				main #itens a {
+					text-decoration: none;
+					font-family: "Helvetica Neue Bold";
+					
+					color: var(--primary);
+					&:hover {
+						color: var(--secondary);
+					}
+				}
+
+				main #cabecalho {
+					font-family: "Helvetica Neue Bold";
+					font-size: 16px;
+					text-transform: uppercase;
 				}
 
 				main #itens .item {
-					font-family: "Helvetica Roman";
-					border-bottom: #aaa dashed 1px;
-					font-size: 0px;
+					height: 100%;
+
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+				}
+
+				main #itens .item:nth-child(even) {
+					background-color: var(--tertiary2);
 				}
 
 				main #itens .item:last-child {
@@ -229,72 +356,75 @@
 				}
 
 				main #paginacao {
-					padding: 20px 10px;
-					border: #aaa solid 1px;
-					border-top: none;
-					font-family: "Helvetica Roman";
+					font-family: "Helvetica Neue Bold";
+					font-size: 18px;
 					text-align: center;
-					border-radius: 0px 0px 5px 5px
+					padding-top: 25px;
+					padding-bottom: 30px;
+					border-bottom: 2px solid var(--tertiary3);
+
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+				}
+
+				main #paginacao * {
+					font-family: "Helvetica Neue Bold";
 				}
 
 				main #paginacao .pagina {
-					display: inline-block;
+					padding-left: 0;
 				}
 
 				main #paginacao .paginas {
-					display: inline-block
+					display: flex;
+					align-items: center;
 				}
 
 				main #paginacao .jumper {
-					float: right;
-					color: #333;
-					font-family: "Helvetica Heavy";
-					text-transform: uppercase;
-					display: inline-block;
+					color: var(--secondary);
+					margin-left: auto;
 				}
 
 				main #paginacao .jumper input {
-					background-color: #222;
-					color: #fff;
+					background-color: var(--tertiary);
+					color: var(--tertiary4);
+					border: 1px solid var(--tertiary3);
 					border-radius: 4px;
-					padding: 7px 11px;
-					border: none;
-					width: 60px;
-					margin-left: 4px
+					padding-left: 5px;
+					padding-right: 11px;
+					padding-top: 7px;
+					padding-bottom: 3px;
+
+					width: 90px;
+					height: 30px;
+					margin-left: 4px;
+
+					font-size: 16px;
+					text-align: end;
 				}
 
-				main #paginacao .paginas .botao {
+				/* main #paginacao .paginas .botao {
 					width: 30px;
+					height: 30px;
 					margin-right: 3px;
-				}
+				} */
 
 				main #paginacao .paginas ul {
 					margin: 0;
 					padding: 0;
 					list-style: none;
-					display: inline-block;
-					line-height: 20px;
 				}
 
 				main #paginacao .paginas ul li {
 					display: inline-block;
-					color: #333;
-					font-family: "Helvetica Roman";
-					font-size: 14px;
-					padding: 0px 7px
+					font-size: 16px;
+					padding: 0px;
 				}
 
-				main #paginacao .paginas ul li.selecionado {
-					padding: 4px 9px 5px 9px;
-					border: var(--bienal_primary) dashed 1px;
-					color: var(--bienal_primary);
-					font-family: "Helvetica Heavy";
-					border-radius: 4px
-				}
-
-				main #paginacao .paginas ul li a {
+				/* main #paginacao .paginas ul li a {
 					color: inherit
-				}
+				} */
 
 				main #vocequisdizer {
 					border-top: #666 dashed 1px;
@@ -311,12 +441,43 @@
 				.botao {
 					padding: 7px 10px;
 					border-radius: 4px;
-					background-color: #fff;
-					border: #333 solid 1px;
-					color: #333;
+					background-color: var(--tertiary);
+					border: 1px solid var(--primary);
+					color: var(--primary) !important;
 					display: inline-block;
 					vertical-align: top;
-					font-size: 14px
+					font-size: 16px !important;
+				}
+
+				main #paginacao .paginas a {
+					text-decoration: none;
+					color: var(--primary);
+					background-color: var(--tertiary);
+					border: 1px solid var(--primary);
+					border-radius: 4px;
+					padding: 0;
+					margin-left: 20px;
+
+					width: 30px;
+					height: 30px;
+
+					display: inline-block;
+					align-content: center;
+					font-size: 16px;
+				}
+
+				main #paginacao .paginas li:first-of-type a {
+					margin-left: 0;
+				}
+
+				main #paginacao .paginas ul a {
+					padding-top: 3px;
+				}
+
+				main #paginacao .paginas ul li.selecionado a {
+					border: 1px solid var(--primary);
+					background-color: var(--primary);
+					color: var(--tertiary);
 				}
 
 				.pagina {
@@ -324,22 +485,25 @@
 					height: 30px;
 					line-height: 30px;
 					display: inline-block;
-					font-family: "Helvetica Bold";
-					font-size: 14px;
-					text-transform: uppercase;
-					color: #222;
+					font-family: "Helvetica Neue Bold";
+					font-size: 18px;
+					color: var(--secondary);
+					padding-left: 15px;
+					margin-right: auto;
 				}
 
 				.col {
 					padding: 20px 10px;
 					display: inline-block;
-					font-size: 13px;
+					/* font-size: 13px; */
 					width: 20%;
 					vertical-align: top;
-					border-right: #aaa dashed 1px
+					border-left: 1px solid var(--tertiary3);
+
+					height: 100%;
 				}
 
-				.col:last-child {
+				.col:first-child {
 					border: none
 				}
 
@@ -386,6 +550,131 @@
 				.icon.ordenacao-desc:before {
 					content: "\f161"
 				}
+
+				/* LOADING COG ICON & ANIMATION*/
+				.fa {
+					display: inline-block;
+					font: normal normal normal 14px/1 FontAwesome;
+					font-size: inherit;
+					text-rendering: auto;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale
+				}
+
+				.fa-spin {
+					-webkit-animation: fa-spin 2s infinite linear;
+					animation: fa-spin 2s infinite linear
+				}
+
+				.fa-cog:before {
+					content: "\f013"
+				}
+
+				@-webkit-keyframes fa-spin {
+					0% {
+						-webkit-transform: rotate(0deg);
+						transform: rotate(0deg)
+					}
+
+					100% {
+						-webkit-transform: rotate(359deg);
+						transform: rotate(359deg)
+					}
+				}
+
+				@keyframes fa-spin {
+					0% {
+						-webkit-transform: rotate(0deg);
+						transform: rotate(0deg)
+					}
+
+					100% {
+						-webkit-transform: rotate(359deg);
+						transform: rotate(359deg)
+					}
+				}
+
+				/* LOADING COG END */
+
+				/* jQuery-SelectBox */
+				.selectBox-dropdown {
+					padding: 0;
+					margin: 0;
+					margin-left: 20px;
+					height: 50px;
+					cursor: pointer;
+
+					color: var(--primary);
+					background-color: var(--tertiary);
+					border: 1px solid var(--primary);
+					border-radius: 4px;
+
+					font-family: "Helvetica Neue Medium";
+					font-size: 18px;
+
+					display: flex !important;
+					align-items: center;
+				}
+
+				.selectBox-dropdown:hover {
+					color: var(--tertiary);
+					background-color: var(--primary);
+					border: 1px solid var(--primary);
+				}
+
+				.selectBox-dropdown:focus {
+					border: 1px solid var(--primary);
+				}
+
+				.selectBox-dropdown .selectBox-arrow {
+					display: none;
+					/* filter: var(--filter-bienal-pink); */
+				}
+
+				.selectBox-dropdown>.selectBox-label {
+					margin: 0;
+					padding-block: 0;
+					padding-right: 20px;
+					padding-left: 10px;
+				}
+
+				.selectBox-dropdown>.selectBox-label::before {
+					font-family: "FontAwesome";
+					border: none;
+					font-size: inherit;
+					color: inherit;
+					vertical-align: top;
+				}
+
+				.selectBox-dropdown:last-of-type>.selectBox-label::before {
+					content: "\f0ca";
+					margin-right: 10px;
+				}
+
+				.selectBox-dropdown:first-of-type>.selectBox-label::before {
+					content: "\f019";
+					margin-right: 10px;
+				}
+
+				.selectBox-dropdown-menu {
+					border-top: 1px solid var(--primary) !important;
+				}
+
+				.selectBox-dropdown-menu li a {
+					font-family: "Helvetica Neue Medium" !important;
+					/* font-size: 16px !important; */
+					color: var(--primary);
+					background-color: var(--tertiary);
+				}
+
+				.selectBox-dropdown-menu li a:hover {
+					color: var(--tertiary);
+					background-color: var(--primary);
+				}
+
+				.selectBox-options li a {
+					padding-top: 2px;
+				}
 			</style>
 
 
@@ -423,38 +712,51 @@
 			$negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 			?>
 
-			<div id="titulo">
-				<?php
-				if ($total_resultado > 0) {
-					// var_dump($ordenacoes);
-					print "$total_resultado " . _t(_t($label) . " $found_plural");
-				} else {
-					print "$negative_word $label_singular $found_singular";
-				}
-				?>
-			</div>
+			<div id="home" class="sec-header">
+				<span>Home / <b><?= _t(_t($label)) ?></b></span>
+				<hr />
 
-			<?php if (sizeof($criterios) > 0) { ?>
-
-				<div id="criterios">
-
+				<div id="titulo">
 					<?php
-					foreach ($criterios as $filtro) {
-						if ($filtro['facet_name'] != '_search') {
-							print caNavLink($this->request, $filtro['value'], 'browseRemoveFacet', '*', '*', '*', array('removeCriterion' => $filtro['facet_name'], 'removeID' => $filtro['id'], 'view' => $view, 'key' => $key));
-						} else {
-							$termo_busca = $filtro['value'];
-							if ($is_advanced) {
-								print "<span>" . $termo_busca . "</span>";
-							} else {
-								print "<span>Palavra chave: " . $termo_busca . "</span>";
-							}
-						}
+					if ($total_resultado > 0) {
+						$h1_text =  _t(_t($label));
+					} else {
+						$h1_text =  "$negative_word $label_singular $found_singular";
 					}
 					?>
+					<h1><?= $h1_text ?></h1>
 				</div>
+				<div>
+					<span><b><?= $total_resultado . " " . _t(_t($label)) ?></b> <?= _t("available") ?></span>
 
-			<?php } ?>
+					<?php if (sizeof($criterios) > 0) { ?>
+						<div id="criterios">
+							<?php
+							foreach ($criterios as $filtro) {
+								if ($filtro['facet_name'] != '_search') {
+									$removalLinkElement = caNavLink($this->request, $filtro['value'], 'browseRemoveFacet', '*', '*', '*', array('removeCriterion' => $filtro['facet_name'], 'removeID' => $filtro['id'], 'view' => $view, 'key' => $key));
+									$removalLinkElement_prefix = substr($removalLinkElement, 0, 1 + strpos($removalLinkElement, '>'));
+									$removalLinkElement_suffix = substr($removalLinkElement, strlen($removalLinkElement_prefix));
+
+									print $removalLinkElement_prefix . "<span>" . $filtro['facet'] . ":&nbsp;</span>" . $removalLinkElement_suffix;
+
+									// print "<span>" . $filtro['facet'] . ": $removalLinkElement</span>";
+								} else {
+									$termo_busca = $filtro['value'];
+									if ($is_advanced) {
+										print "<span>" . $termo_busca . "</span>";
+									} else {
+										print "<span>Palavra chave: " . $termo_busca . "</span>";
+									}
+								}
+							}
+							?>
+						</div>
+
+					<?php } ?>
+				</div>
+			</div>
+			</div>
 
 			<?php
 			// if($is_search && !$total_resultado && $termo_busca){
@@ -475,10 +777,9 @@
 
 					<div id="ferramentas">
 
-						<div class="pagina"><?= _t("Page") . " " . $pagina_atual . " " . _t("Of") . " " . $paginas_totais ?></div>
+						<div class="pagina"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
 
 						<?php if (sizeof($exportacao_formatos)) { ?>
-							<span class="icon download"></span>
 							<select id="download">
 								<option data-type='none' value='none'><?= _t("Select a Report") ?></option>
 								<?php
@@ -496,8 +797,6 @@
 								});
 							</script>
 						<?php } ?>
-
-						<span class="icon layout"></span>
 
 						<select id="layout">
 							<option data-type='none' value='none'><?= _t("Select a View") ?></option>
@@ -525,7 +824,7 @@
 							foreach ($ordenacoes as $ordenacao => $campo_ordenacao) {
 								if ($ordenacao_atual === $ordenacao) {
 									//var_dump(_t($ordenacao));
-									print "<li class='selecionado'>"._t(_t($ordenacao))."</li>\n";
+									print "<li class='selecionado'>" . _t(_t($ordenacao)) . "</li>\n";
 								} else {
 									print "<li>" . caNavLink($this->request, $ordenacao, '', '*', '*', '*', array('view' => $view, 'key' => $key, 'sort' => $ordenacao, '_advanced' => $is_advanced ? 1 : 0)) . "</li>\n";
 								}
@@ -560,7 +859,7 @@
 
 					<div id="paginacao">
 
-						<div class="pagina"><?= _t("Page") . " " . $pagina_atual . " " . _t("Of") . " " . $paginas_totais ?></div>
+						<div class="pagina"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
 
 						<div class="paginas">
 							<?php
@@ -647,3 +946,17 @@
 					}
 				});
 			</script>
+
+			<div class="sec-footer">
+				<ul class="sec-footer-social-list">
+					<li>
+						<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/x-twitter.svg" alt="logo twitter" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/whatsapp.svg" alt="logo whatsapp" /></a>
+					</li>
+				</ul>
+			</div>

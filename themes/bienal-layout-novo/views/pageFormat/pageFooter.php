@@ -1,126 +1,5 @@
-<!-- <div style="clear:both; height:1px;"></div> -->
-</div><!-- end pageArea --></main><!-- end main --></div><!-- end col --></div><!-- end row --></div><!-- end container -->
+</main>
 
-<footer id="footer">
-	<div class="footer__container">
-		<div class="footer__logos">
-			<div class="footer__logo-bienal col-3 col-md-8">
-				<img src="https://bienal.org.br/wp-content/themes/bienal-sp/images/logo-bienal-inverse.svg" alt="Logo Bienal" loading="lazy">
-				<img height="60px" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/pawtucket/graphics/bienal-bloco_marcas-video_arquivo_br.png" />
-			</div>
-			<ul class="footer__logos-social col-9 col-md-4">
-				<li class="footer__item-social">
-					<a href="https://www.instagram.com/bienalsaopaulo/" rel="nofollow" target="_blank">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-							<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-						</svg>
-					</a>
-				</li>
-				<li class="footer__item-social">
-					<a href="https://www.facebook.com/bienalsaopaulo/" rel="nofollow" target="_blank">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-							<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-						</svg>
-					</a>
-				</li>
-				<li class="footer__item-social">
-					<a href="https://www.tiktok.com/@bienalsaopaulo/" rel="nofollow" target="_blank">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
-							<path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
-						</svg>
-					</a>
-				</li>
-				<li class="footer__item-social">
-					<a href="https://twitter.com/bienalsaopaulo/" rel="nofollow" target="_blank">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-							<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
-						</svg>
-					</a>
-				</li>
-				<li class="footer__item-social">
-					<a href="https://www.youtube.com/bienalsp/" rel="nofollow" target="_blank">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-							<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
-						</svg>
-					</a>
-				</li>
-			</ul>
-
-		</div>
-		<hr>
-		<div class="footer__info">
-			<p>
-				<?=_t("The AHWS database was supported by Proac and is under continuous development.")?><br />
-				<?=_t("The information presented here is under constant review.")?><br />
-				<?=_t("To complete your research, contact the Bienal Archive.")?>
-			</p>
-			<div class="footer__contato">
-				<h2><?=_t("Wanda Svevo Historical Archive")?></h2>
-				<p>Parque Ibirapuera – Portão 3<br />Pavilhão Ciccillo Matarazzo - 2º <?=_t("Floor")?><br />04094-000 – São Paulo – SP</p>
-				<h2><?=_t("Contact Us")?></h2>
-				<p>
-					+55 11 5576 7635<br />
-					<a href="mailto:arquivo.historico@bienal.org.br"><u>arquivo.historico@bienal.org.br</u></a>
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="footer__copyright">
-		<span>Copyright © 2025 <?=_t("São Paulo Bienal")?></span>
-		<div class="footer__privacidade">
-			<a class="footer__privacidade-link" href="https://bienal.org.br/privacidade"><?=_t("Privacy")?></a>
-			•
-			<a class="footer__privacidade-link" href="https://bienal.org.br/termosdeuso"><?=_t("Terms of Use")?></a>
-		</div>
-	</div>
-</footer>
-<?php
-//
-// Output HTML for debug bar
-//
-if (Debug::isEnabled()) {
-	print Debug::$bar->getJavascriptRenderer()->render();
-}
-?>
-
-<?= TooltipManager::getLoadHTML(); ?>
-<div id="caMediaPanel" role="complementary">
-	<div id="caMediaPanelContentArea">
-
-	</div>
-</div>
-<script type="text/javascript">
-	/*
-				Set up the "caMediaPanel" panel that will be triggered by links in object detail
-				Note that the actual <div>'s implementing the panel are located here in views/pageFormat/pageFooter.php
-			*/
-	var caMediaPanel;
-	jQuery(document).ready(function() {
-		if (caUI.initPanel) {
-			caMediaPanel = caUI.initPanel({
-				panelID: 'caMediaPanel',
-				/* DOM ID of the <div> enclosing the panel */
-				panelContentID: 'caMediaPanelContentArea',
-				/* DOM ID of the content area <div> in the panel */
-				onCloseCallback: function(data) {
-					if (data && data.url) {
-						window.location = data.url;
-					}
-				},
-				exposeBackgroundColor: '#FFFFFF',
-				/* color (in hex notation) of background masking out page content; include the leading '#' in the color spec */
-				exposeBackgroundOpacity: 0.7,
-				/* opacity of background color masking out page content; 1.0 is opaque */
-				panelTransitionSpeed: 400,
-				/* time it takes the panel to fade in/out in milliseconds */
-				allowMobileSafariZooming: true,
-				mobileSafariViewportTagID: '_msafari_viewport',
-				closeButtonSelector: '.close' /* anything with the CSS classname "close" will trigger the panel to close */
-			});
-		}
-	});
-	/*(function(e,d,b){var a=0;var f=null;var c={x:0,y:0};e("[data-toggle]").closest("li").on("mouseenter",function(g){if(f){f.removeClass("open")}d.clearTimeout(a);f=e(this);a=d.setTimeout(function(){f.addClass("open")},b)}).on("mousemove",function(g){if(Math.abs(c.x-g.ScreenX)>4||Math.abs(c.y-g.ScreenY)>4){c.x=g.ScreenX;c.y=g.ScreenY;return}if(f.hasClass("open")){return}d.clearTimeout(a);a=d.setTimeout(function(){f.addClass("open")},b)}).on("mouseleave",function(g){d.clearTimeout(a);f=e(this);a=d.setTimeout(function(){f.removeClass("open")},b)})})(jQuery,window,200);*/
-</script>
 <?php
 // echo $this->render("Cookies/banner_html.php"); 
 ?>
@@ -157,6 +36,95 @@ if (Debug::isEnabled()) {
 		token: "1ac1a32959126e7c2aaf00ed89ce3f0b"
 	});
 </script>
+
+<footer>
+	<div id="footer-logo-grid">
+		<a id="footer-logo-bienal-link" href="<?= $this->request->getBaseUrlPath() ?>/Front/Index">
+			<img id="footer-logo-bienal" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/logo.svg" />
+		</a>
+		<div id="footer-logo-social">
+			<ul id="footer-logo-list">
+				<li>
+					<a href="https://www.instagram.com/bienalsaopaulo/"><img
+							class="footer-logo"
+							src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/instagram.svg"
+							alt="instagram logo" /></a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/bienalsaopaulo/"><img
+							class="footer-logo"
+							src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg"
+							alt="facebook logo" /></a>
+				</li>
+				<li>
+					<a href="https://www.tiktok.com/@bienalsaopaulo/"><img
+							class="footer-logo"
+							src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/tiktok.svg"
+							alt="tiktok logo" /></a>
+				</li>
+				<li>
+					<a href="https://twitter.com/bienalsaopaulo/"><img
+							class="footer-logo"
+							src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/x-twitter.svg"
+							alt="twitter logo" /></a>
+				</li>
+				<li>
+					<a href="https://www.youtube.com/bienalsp/"><img
+							class="footer-logo-youtube"
+							src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/youtube.svg"
+							alt="youtube logo" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<div id="footer-main">
+		<ul id="footer-main-list">
+			<li><a href="#"><?=_t("Historical Archive")?></a></li>
+        	<li><a href="#"><?=_t("Collection Guide")?></a></li>
+        	<li><a href="#"><?=_t("Research Requests")?></a></li>
+        	<li><a href="#"><?=_t("Classification Plan")?></a></li>
+		</ul>
+		<div id="footer-disclaimer">
+			<p>
+				<?= _t("The AHWS database was supported by Proac and is under continuous development.") ?>
+			</p>
+			<p>
+				<?= _t("The information presented here is under constant review.") ?>
+				<?= _t("To complete your research, contact the Bienal Archive.") ?>
+			</p>
+			<div id="footer-disclaimer-logos">
+				<img
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/logo.svg"
+					height="50px"
+					width="50px"
+					alt="logo bienal" />
+				<img
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/sp-duplo.png"
+					height="50px"
+					alt="logo Proac, logo São Paulo" />
+			</div>
+		</div>
+		<div id="footer-info">
+			<div>
+				<h4><?= _t("Wanda Svevo Historical Archive") ?></h4>
+				<p>
+					Parque Ibirapuera – Portão 3 Pavilhão Ciccillo Matarazzo - 2º
+					<?= _t("Floor") ?><br />
+					CEP 04094-000 - São Paulo / SP
+				</p>
+			</div>
+			<div>
+				<h4><?= _t("Contact Us") ?></h4>
+				<p>
+					+55 11 5576 7635<br />
+					<a href="mailto:arquivo.historico@bienal.org.br">arquivo.historico@bienal.org.br</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+</body>
 </body>
 
 </html>

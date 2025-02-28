@@ -17,6 +17,16 @@
 	</script>
 
 
+
+	<!-- CSS Reset -->
+	<link rel="stylesheet" type="text/css" href="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/css/reset.css" />
+	<!-- Global CSS -->
+	<link rel="stylesheet" type="text/css" href="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/css/global.css" />
+	<!-- Header CSS -->
+	<link rel="stylesheet" type="text/css" href="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/css/header.css" />
+	<!-- Footer CSS -->
+	<link rel="stylesheet" type="text/css" href="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/css/footer.css" />
+
 	<!-- Accessibility -->
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/css/jbility.css" />
 	<!-- jQuery selectBox -->
@@ -33,11 +43,16 @@
 	<script type="application/javascript" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/js/jquery.selectBox.js"></script>
 
 	<!-- meta/asset loader do theme default -->
-	<?=MetaTagManager::getHTML();?>
-	<?=AssetLoadManager::getLoadHTML($this->request);?>
+	<?php
+	// echo MetaTagManager::getHTML();
+	// echo AssetLoadManager::getLoadHTML($this->request);
+	?>
 
 	<title>
-		<?=(MetaTagManager::getWindowTitle()) ? MetaTagManager::getWindowTitle() : $this->request->config->get("app_display_name");?>
+		LAYOUT-DEV
+		<?php
+		//echo (MetaTagManager::getWindowTitle()) ? MetaTagManager::getWindowTitle() : $this->request->config->get("app_display_name");
+		?>
 	</title>
 
 	<!-- <script type="text/javascript">
@@ -61,78 +76,56 @@
 </head>
 
 <body>
-	<div id="skipNavigation"><a href="#main">Skip to main content</a></div>
-	<nav class="navbar navbar-default yamm" role="navigation">
-		<div class="container menuBar">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
+	<!-- <div id="skipNavigation"><a href="#main">Skip to main content</a></div> -->
+	<header>
+		<div id="header-logo-div">
+			<a id="header-logo-link" href="<?= $this->request->getBaseUrlPath() ?>/Front/Index">
+				<img
+					id="header-logo-img"
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/logo.svg"
+					alt="bienal logo" />
+			</a>
+		</div>
+		<div id="header-main">
+			<ul id="header-link-list" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
+				<li><a href="#"><?=_t("Biennials")?></a></li>
+				<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Funds and Collections"), "", "", "Detail", "documento/1") ?></li>
+				<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Galleries"), "", "", "Gallery", "Index") ?></li>
+				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Documents"), "", "", "Browse", "documentos") ?></li>
+				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Artworks"), "", "", "Browse", "obras") ?></li>
+				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Entities"), "", "", "Browse", "entidades") ?></li>
+				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Events"), "", "", "Browse", "eventos") ?></li>
 				<?php
-				if ($has_user_links) {
+					$fullPath = $this->request->getFullUrlPath();
+					if(str_ends_with($fullPath, "index.php")) {
+						$fullPath = $fullPath."/Front/Index"; # /lang/<idioma> não funciona no index.php; mas funciona no /Front/Index, que mostra a mesma tela.
+					} elseif(str_contains($fullPath, "lang/"._t("en_US"))) {
+						$fullPath = substr($fullPath, 0, strlen($fullPath)-(strlen("/lang/")+5)); # remove "/lang/<idioma>" redundantes do final para evitar chamadas redundantes de /lang como "/lang/en_US/lang/pt_BR"
+					}
 				?>
-					<button type="button" class="navbar-toggle navbar-toggle-user" data-toggle="collapse" data-target="#user-navbar-toggle">
-						<span class="sr-only">User Options</span>
-						<span class="glyphicon glyphicon-user"></span>
-					</button>
-				<?php
-				}
-				?>
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-main-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+				<li>|&nbsp; &nbsp;<a href="<?=$fullPath."/lang/"._t("pt_BR")?>"><?=_t("pt")?></a></li>
+			</ul>
+			<div id="header-form">
+				<button
+					id="header-adv-search-btn"
+					popovertarget="header-adv-search-popover">
+					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/folder-search.svg" />
+					<?=_t("Advanced Search")?>
 				</button>
-				<?php
-				$vs_bienal_archive = _t("Bienal Archive");
-				$vs_db = _t("Database");
-
-				print caNavLink(
-					$this->request,
-					caHTMLImage(
-						"https://bienal.org.br/wp-content/themes/bienal-sp/images/logo-bienal-inverse.svg",
-						['alt' => _t("Logo Bienal"), 'class' => 'headerImg']
-					) . "<span class='brand-title'>$vs_bienal_archive $vs_db</span>",
-					"navbar-brand",
-					"",
-					"",
-					""
-				);
-				?>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<!-- bs-user-navbar-collapse is the user menu that shows up in the toggle menu - hidden at larger size -->
-			<?php
-			if ($has_user_links) {
-			?>
-				<div class="collapse navbar-collapse" id="user-navbar-toggle">
-					<ul class="nav navbar-nav" role="list" aria-label="<?= _t("Mobile User Navigation"); ?>">
-						<?= join("\n", $user_links); ?>
+				<div popover id="header-adv-search-popover">
+					<ul>
+						<li><?= caNavLink($this->request, _t("Documents"), "", "", "Search", "advanced/documentos") ?></li>
+						<li><?= caNavLink($this->request, _t("Artworks"), "", "", "Search", "advanced/obras") ?></li>
+						<li><?= caNavLink($this->request, _t("Entities"), "", "", "Search", "advanced/entidades") ?></li>
+						<li><?= caNavLink($this->request, _t("Events"), "", "", "Search", "advanced/eventos") ?></li>
 					</ul>
 				</div>
-			<?php
-			}
-			?>
-			<div class="collapse navbar-collapse" id="bs-main-navbar-collapse-1">
-				<?php
-				if ($has_user_links) {
-				?>
-					<ul class="nav navbar-nav navbar-right" id="user-navbar" role="list" aria-label="<?= _t("User Navigation"); ?>">
-						<li class="dropdown" style="position:relative;">
-							<a href="#" class="dropdown-toggle icon" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-label="<?= _t("User options"); ?>"></span></a>
-							<ul class="dropdown-menu" role="list"><?= join("\n", $user_links); ?></ul>
-						</li>
-					</ul>
-				<?php
-				}
-				?>
-				<form class="navbar-form navbar-right" role="search" action="<?= caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>" aria-label="<?=_t("Search")?>">
-					<div class="formOutline">
-						<div class="form-group">
-							<input type="text" class="form-control" id="headerSearchInput" placeholder="<?=mb_convert_case(_t("Search"), MB_CASE_UPPER, "UTF-8")?>" name="search" autocomplete="off" aria-label="<?= _t("Texto de busca"); ?>" />
-						</div>
-						<button type="submit" class="btn-search" id="headerSearchButton"><span class="glyphicon glyphicon-search" aria-label="<?= _t("Submit"); ?>"></span></button>
-					</div>
+
+				<form id="header-search-form" role="search" action="<?= caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>" aria-label="<?= _t("Search") ?>">
+					<input id="headerSearchInput" type="text" placeholder="<?= _t("Search") ?>" name="search" autocomplete="off" aria-label="<?= _t("Texto de busca"); ?>" />
+					<button id="headerSearchButton" type="submit" aria-label="<?= _t("Submit"); ?>">
+						<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/magnifying-glass.svg" />
+					</button>
 				</form>
 				<script type="text/javascript">
 					$(document).ready(function() {
@@ -142,62 +135,8 @@
 						})
 					});
 				</script>
-				<ul class="nav navbar-nav navbar-right menuItems" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
-					<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, mb_convert_case(_t("Galleries"), MB_CASE_UPPER, "UTF-8"), "", "", "Gallery", "Index"); ?></li>
-					<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, mb_convert_case(_t("Funds and Collections"), MB_CASE_UPPER, "UTF-8"), "", "", "Detail", "documento/1"); ?></li>
+			</div>
+		</div>
+	</header>
 
-					<?php
-						// mb_convert_case('virá', MB_CASE_UPPER, "UTF-8");
-						// echo $this->render("pageFormat/browseMenu.php");
-					?>
-
-					<li <?php print ($this->request->getController() == "Browse") ? 'class="selecionado"' : ''; ?>>
-						<button popovertarget="browse-list" id="btn_browse-list"><?=mb_convert_case(_t("Explore"), MB_CASE_UPPER, "UTF-8")?> <span id="browse-list-arrow" class="arrow"></span></button>
-						<ul popover id="browse-list">
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Documents"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "documentos") ?></li>
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Artworks"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "obras") ?></li>
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Entities"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "entidades") ?></li>
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Events"), MB_CASE_UPPER, "UTF-8"), "", "", "Browse", "eventos") ?></li>
-						</ul>
-					</li>
-
-					<li <?php print ($this->request->getController() == "Search") ? 'class="selecionado"' : ''; ?>>
-						<button popovertarget="search-list" id="btn_search-list"><?=mb_convert_case(_t("Advanced Search"), MB_CASE_UPPER, "UTF-8")?> <span id="search-list-arrow" class="arrow"></span></button>
-						<ul popover id="search-list">
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Documents"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/documentos") ?></li>
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Artworks"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/obras") ?></li>
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Entities"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/entidades") ?></li>
-							<li><?= caNavLink($this->request, mb_convert_case(_t("Events"), MB_CASE_UPPER, "UTF-8"), "", "", "Search", "advanced/eventos") ?></li>
-						</ul>
-					</li>
-
-					<li>
-						<button popovertarget="locale-list" id="btn_locale-list"><?=mb_convert_case(_t("en"), MB_CASE_UPPER, "UTF-8")?> <span id="locale-list-arrow" class="arrow"></span></button>
-						<ul popover id="locale-list">
-							<?php
-							$fullPath = $this->request->getFullUrlPath();
-							if(str_ends_with($fullPath, "index.php")) {
-								$fullPath = $fullPath."/Front/Index"; # /lang/<idioma> não funciona no index.php; mas funciona no /Front/Index, que mostra a mesma tela.
-							} elseif(str_contains($fullPath, "lang/"._t("en_US"))) {
-								$fullPath = substr($fullPath, 0, strlen($fullPath)-(strlen("/lang/")+5)); # remove "/lang/<idioma>" redundantes do final para evitar chamadas redundantes de /lang como "/lang/en_US/lang/pt_BR"
-							}
-							?>
-							<li><a href="<?=$fullPath."/lang/"._t("pt_BR")?>"><?=mb_convert_case(_t("pt"), MB_CASE_UPPER, "UTF-8")?></a></li>
-						</ul>
-					</li>
-
-					<!-- <li -->
-					<?php
-					/*(($this->request->getController() == "Search") && ($this->request->getAction() == "advanced")) ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Advanced Search"), "", "", "Search", "advanced/objects");
-					*/ ?>
-					<!-- </li> -->
-
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- end container -->
-	</nav>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<main role="main" id="main">
-					<div id="pageArea" <?= caGetPageCSSClasses(); ?>>
+	<main role="main">

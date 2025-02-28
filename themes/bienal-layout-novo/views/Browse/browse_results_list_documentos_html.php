@@ -10,72 +10,53 @@ $primary_key = $this->getVar('primaryKey');
 ?>
 
 <style>
-	#cabecalho .col:nth-child(1) {
-		width: 3%
-	}
-
-	#cabecalho .col:nth-child(2) {
-		width: 17%
-	}
-
-	#cabecalho .col:nth-child(3) {
-		width: 8%
-	}
-
-	#cabecalho .col:nth-child(4) {
-		width: 22%
-	}
-
-	#cabecalho .col:nth-child(5) {
-		width: 10%
-	}
-
-	#cabecalho .col:nth-child(6) {
-		width: 10%
-	}
-
-	#cabecalho .col:nth-child(7) {
-		width: 10%
-	}
-
-	#cabecalho .col:nth-child(8) {
-		width: 18%
-	}
-
+	#cabecalho .col:nth-child(1),
 	.item .col:nth-child(1) {
-		width: 3%
+		width: 4%;
 	}
 
+	#cabecalho .col:nth-child(2),
 	.item .col:nth-child(2) {
-		width: 17%
+		width: 13%;
+		font-family: "Helvetica Neue Bold";
+		font-size: 16px;
+		text-transform: uppercase;
 	}
 
+	#cabecalho .col:nth-child(3),
 	.item .col:nth-child(3) {
-		width: 8%
+		width: 13%;
 	}
 
+	#cabecalho .col:nth-child(4),
 	.item .col:nth-child(4) {
-		width: 22%
+		width: 20%;
 	}
 
+	#cabecalho .col:nth-child(5),
 	.item .col:nth-child(5) {
-		width: 10%
+		width: 11%;
 	}
 
+	#cabecalho .col:nth-child(6),
 	.item .col:nth-child(6) {
-		width: 10%
+		width: 13%;
 	}
 
+
+	#cabecalho .col:nth-child(7),
 	.item .col:nth-child(7) {
-		width: 10%
+		width: 13%;
 	}
 
+
+	#cabecalho .col:nth-child(8),
 	.item .col:nth-child(8) {
-		width: 18%
+		width: 13%;
 	}
 
 
-	@media screen and (min-width:1380px) {
+	/* @media screen and (min-width:1380px) {
 
 		#cabecalho .col:nth-child(1) {
 			width: 3%;
@@ -143,19 +124,19 @@ $primary_key = $this->getVar('primaryKey');
 			width: 18%
 		}
 
-	}
+	} */
 </style>
 
 <div id="cabecalho">
 
 	<div class="col"><img src="<?= $this->request->getBaseUrlPath() . '/themes/bienal-layout-novo/assets/pawtucket/graphics/image.png' ?>" width="24px"></div>
-	<div class="col"><?=_t("Reference Code")?></div>
-	<div class="col"><?=_t("Type of Document")?></div>
-	<div class="col"><?=_t("Level/Document")?></div>
-	<div class="col"><?=_t("Date")?></div>
-	<div class="col"><?=_t("Genre")?></div>
-	<div class="col"><?=_t("Type.")?></div>
-	<div class="col"><?=_t("Event")?></div>
+	<div class="col"><?= _t("Reference Code") ?></div>
+	<div class="col"><?= _t("Type of Document") ?></div>
+	<div class="col"><?= _t("Level / Document") ?></div>
+	<div class="col"><?= _t("Date") ?></div>
+	<div class="col"><?= _t("Genre") ?></div>
+	<div class="col"><?= _t("Type.") ?></div>
+	<div class="col"><?= _t("Event") ?></div>
 
 </div>
 
@@ -183,7 +164,7 @@ $primary_key = $this->getVar('primaryKey');
 
 			$vs_image_check_icon = "";
 			if ($resultado->get("ca_objects.rs_resource_public") == 227)
-				$vs_image_check_icon = '<img src="' . $this->request->getBaseUrlPath() . '/themes/bienal-layout-novo/assets/pawtucket/graphics/check.png" width="16px">';
+				$vs_image_check_icon = '<img src="' . $this->request->getBaseUrlPath() . '/themes/bienal-layout-novo/assets/pawtucket/graphics/image.png" width="24px">';
 
 			print "
 			<div class='item'>

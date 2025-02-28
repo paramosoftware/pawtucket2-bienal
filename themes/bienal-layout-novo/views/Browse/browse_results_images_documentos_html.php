@@ -9,41 +9,66 @@ $primary_key = $this->getVar('primaryKey');
 
 ?>
 
+<style>
+	.col {
+		display: flex;
+		align-items: center;
+	}
+
+	.col:nth-child(1) {
+		max-width: 30%;
+		width: 30%;
+	}
+
+	.col:nth-child(2) {
+		max-width: 69% !important;
+		width: 69%;
+	}
+
+	#itens .col:nth-child(2) a {
+		color: var(--primary);
+		text-decoration: none;
+		text-transform: none;
+
+		&:hover {
+			color: var(--secondary);
+		}
+	}
+</style>
+
 <div id="cabecalho">
-    
-    <div class="col" style='width:50%'>imagem</div>
-    <div class="col" style='width:50%'>documento</div>
-    
+
+	<div class="col">imagem</div>
+	<div class="col">documento</div>
+
 </div>
 
 <div id="itens">
 
-<?php
+	<?php
 
-if ( $offset < $resultado->numHits() ) {
+	if ($offset < $resultado->numHits()) {
 
 		$vn_c = 0;
 
-		$resultado->seek( $offset );
-		
-		while( $resultado->nextHit() && ( $vn_c < $itens_por_pagina ) ) {
-			
+		$resultado->seek($offset);
+
+		while ($resultado->nextHit() && ($vn_c < $itens_por_pagina)) {
+
 			$value_id = $resultado->get("ca_objects.{$primary_key}");
-			$value_hierarchy = caDetailLink($this->request, str_replace(";"," -> ", $resultado->get("ca_objects.hierarchy.preferred_labels") ), '', $tabela , $value_id);
-			$value_mediaviewer = caDetailLink($this->request, str_replace(";"," -> ", $resultado->get("ca_object_representations.media.small") ), '', $tabela , $value_id );
-			
+			$value_hierarchy = caDetailLink($this->request, str_replace(";", " -> ", $resultado->get("ca_objects.hierarchy.preferred_labels")), '', $tabela, $value_id);
+			$value_mediaviewer = caDetailLink($this->request, str_replace(";", " -> ", $resultado->get("ca_object_representations.media.small")), '', $tabela, $value_id);
+
 			print "
 			<div class='item'>
-				<div class='col' style='width:50%'>{$value_mediaviewer}</div>
-				<div class='col' style='width:50%'>{$value_hierarchy}</div>
+				<div class='col'>{$value_mediaviewer}</div>
+				<div class='col'>{$value_hierarchy}</div>
 			</div>";
-			
-			$vn_c++;
 
+			$vn_c++;
 		}
-		
 	}
 
-?>
+	?>
 
 </div>

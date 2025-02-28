@@ -284,9 +284,9 @@ menu .pagina-acessibilidade > a:hover {
 * Acertos ref tabelas/divs de resultados e filtros
 */
 
-main #resultado {
+/* main #resultado {
     width: calc(100% - 253px) !important;
-}
+} */
 .col:nth-child(2) {
     max-width: 300px !important;
 }

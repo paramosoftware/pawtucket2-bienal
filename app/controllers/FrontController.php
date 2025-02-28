@@ -93,6 +93,56 @@
  			$this->view->setVar('result_context', $o_result_context);
  			$o_result_context->setAsLastFind();
  			
+			$t_instance = new ca_objects;
+			$va_ca_objects_count = $t_instance->getCount(null, ['byType' => true]);
+			$document_item_id_list = [ // valores do banco que são utilizados para contabilizar documentos
+				"groups" => 24,
+				"subgroups" => 25,
+				"series" => 26,
+				"file" => 27,
+				"documents" => 28
+			];
+			$document_count = 0;
+			foreach($document_item_id_list as $item_number) {
+				$document_count += $va_ca_objects_count[$item_number]["count"];
+			}
+			$this->view->setVar('document_count', $document_count);
+
+			$artwork_item_id_list = [ // valores do banco que são utilizados para contabilizar obras
+				"artworks" => 30
+			];
+			$artwork_count = 0;
+			foreach($artwork_item_id_list as $item_number) {
+				$artwork_count += $va_ca_objects_count[$item_number]["count"];
+			}
+			$this->view->setVar('artwork_count', $artwork_count);
+
+			$t_instance = new ca_entities;
+			$va_ca_entities_count = $t_instance->getCount(null, ['byType' => true]);
+			$entity_item_id_list = [ // valores do banco que são utilizados para contabilizar entidades
+				"enttype_pessoa" => 92,
+				"enttype_grupodepessoas" => 93,
+				"enttype_instituicao" => 94
+			];
+			$entity_count = 0;
+			foreach($entity_item_id_list as $item_number) {
+				$entity_count += $va_ca_entities_count[$item_number]["count"];
+			}
+			$this->view->setVar('entity_count', $entity_count);
+
+			$t_instance = new ca_occurrences;
+			$va_ca_occurrences_count = $t_instance->getCount(null, ['byType' => true]);
+			$event_item_id_list = [ // valores do banco que são utilizados para contabilizar eventos
+				"event" => 117,
+				"section" => 118,
+				"subsection" => 119
+			];
+			$event_count = 0;
+			foreach($event_item_id_list as $item_number) {
+				$event_count += $va_ca_occurrences_count[$item_number]["count"];
+			}
+			$this->view->setVar('event_count', $event_count);
+
  			//
  			// Try to load selected page if it exists in Front/, otherwise load default Front/front_page_html.php
  			//

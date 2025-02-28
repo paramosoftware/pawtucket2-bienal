@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CollectiveAccess Pawtucket2 Default Theme\n"
 "POT-Creation-Date: 2016-10-10 22:50-0400\n"
-"PO-Revision-Date: 2025-02-11 15:04-0300\n"
+"PO-Revision-Date: 2025-02-28 08:42-0300\n"
 "Last-Translator: Seth <Seth@collectiveacess.org>\n"
 "Language-Team: CollectiveAccess <info@collectiveaccess.org>\n"
 "Language: pt_BR\n"
@@ -16,9 +16,27 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid "Biennials"
+msgstr "Bienais"
+
+msgid "available"
+msgstr "disponíveis"
+
 #: fundos_e_coleções/documentos
 msgid "at this level"
 msgstr "neste nível"
+
+msgid "Classification Plan"
+msgstr "Plano de Classificação"
+
+msgid "Collection Guide"
+msgstr "Guia de Acervo"
+
+msgid "Research Requests"
+msgstr "Solicitações de Pesquisas"
+
+msgid "Historical Archive"
+msgstr "Arquivo Histórico"
 
 msgid "Relationship type"
 msgstr "Tipo de Relacionamento"
@@ -82,6 +100,9 @@ msgstr "Pular para página"
 
 msgid "Of"
 msgstr "De"
+
+msgid "of"
+msgstr "de"
 
 msgid "Page"
 msgstr "Página"
@@ -551,7 +572,7 @@ msgstr "Vocabulário Relacionado"
 
 #: Filtro_Documentos/Obras
 msgid "Related Event"
-msgstr "EVENTO RELACIONADO"
+msgstr "Evento Relacionado"
 
 #: Filtro_Documentos/Obras
 msgid "Contain Image"
@@ -758,8 +779,8 @@ msgid "Reference Code"
 msgstr "Código de referência"
 
 #: Explorar_Documentos
-msgid "Level/Document"
-msgstr "Nível/documento"
+msgid "Level / Document"
+msgstr "Nível / documento"
 
 #: Explorar_Documentos
 msgid "Select a Report"
