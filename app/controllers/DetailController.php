@@ -550,7 +550,9 @@ class DetailController extends FindController {
 		// find view
 		//		first look for type-specific view
 		$path = "Details/{$table}_default_html.php";		// If no type specific view use the default
-		if ($subject_type_code = $t_subject->getTypeCode()) {
+		if($t_subject->getTypeCode() == "fonds" && $t_subject->get('idno') == "root_node") { // Se for a página inicial de fundos e coleções (.../Details/documentos/1)
+			$path = "Details/{$table}_fonds_root_html.php";
+		} elseif ($subject_type_code = $t_subject->getTypeCode()) {
 			if (is_array($type_codes = caMakeTypeList($table, [$subject_type_code]))) {
 				$type_codes = array_merge($type_codes, caMakeTypeList($table, $t_subject->getTypeInstance()->getHierarchyAncestors($t_subject->getTypeID(), ['idsOnly' => true]), ['dontIncludeSubtypesInTypeRestriction' => true]));
 				foreach($type_codes as $type_code) {   // try more specific types first

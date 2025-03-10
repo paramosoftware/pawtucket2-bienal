@@ -274,12 +274,16 @@ section {
     line-height: 1;
 }
 
+.sec-header a,
 .sec-header b {
     font-family: "Helvetica Neue Bold";
     font-size: 18px;
     font-weight: normal;
+    text-decoration: none;
+    color: var(--secondary);
 }
 
+.sec-header>span:first-of-type>a:last-of-type,
 .sec-header>span:first-of-type>b:last-of-type {
     color: var(--primary);
 }
@@ -665,6 +669,7 @@ section {
 
 .collection-list .sec-li-info-div {
     max-width: 100%;
+    width: 100%;
 }
 
 /* SECTION-LIST END */

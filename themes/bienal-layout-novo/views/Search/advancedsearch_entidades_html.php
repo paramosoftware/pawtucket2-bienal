@@ -253,11 +253,15 @@
         content: "\f059";
     }
 
-    main #formulario .campo>label,
+    main #formulario .campo>label {
+        min-width: 25% !important;
+        width: 25% !important;
+    }
+
     main #formulario .campo>input,
     main #formulario .campo>div {
-        min-width: 49% !important;
-        width: 49% !important;
+        min-width: 74% !important;
+        width: 74% !important;
     }
 
     #ui-datepicker-div {
