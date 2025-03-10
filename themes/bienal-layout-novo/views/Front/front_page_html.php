@@ -155,55 +155,24 @@
 			<h1><?= _t("Galleries") ?></h1>
 			<hr />
 		</div>
+
 		<ul class="sec-list gallery-list">
 			<?php foreach($sets as $set_id => $set) : ?>
 				<li class="sec-list-item">
 					<div class="sec-img-div">
-						<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-book.png" />
+						<?= $set["cover_image"] ?>
 					</div>
+
 					<div class="sec-li-info-div">
 						<h2><?= $set["name"] ?></h2>
+
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
 							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id))?>"><?= _t("Explore") ?></a>
 						</div>
 					</div>
 				</li>
-				<?php endforeach; ?>
-
-			<!-- <li class="sec-list-item">
-				<div class="sec-img-div">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-book.png" />
-				</div>
-				<div class="sec-li-info-div">
-					<h2>Catálagos da Bienal (1ª até 25ª)</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-img-div">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-header.png" />
-				</div>
-				<div class="sec-li-info-div">
-					<h2>Bienal de Arquitetura de São Paulo</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-li-info-div">
-					<h2>FUNDO FRANCISCO MATARAZZO SOBRINHO</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li> -->
+			<?php endforeach; ?>
 		</ul>
 	</div>
 </section>

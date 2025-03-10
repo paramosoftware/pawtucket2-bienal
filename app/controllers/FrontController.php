@@ -168,8 +168,6 @@
 			$this->view->setVar('collections', $va_collections);//var_dump($va_collections);exit();
 
 			//////////////////////////////////////////////
-
-			//////////////////////////////////////////////
 			// Retrieve galleries 			//////////////
 			//////////////////////////////////////////////
 
@@ -182,7 +180,16 @@
 			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => $gallery_set_type_id);
 			$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
 
+			foreach ($sets as &$set)
+			{
+				$t_set = new ca_sets($set["set_id"]);
+
+				$set["cover_image"] = $t_set->get("ca_sets.cover_image");
+			}
+
 			$this->view->setVar('sets', $sets);
+
+			//////////////////////////////////////////////
 
  			//
  			// Try to load selected page if it exists in Front/, otherwise load default Front/front_page_html.php
