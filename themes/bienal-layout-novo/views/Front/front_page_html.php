@@ -1,5 +1,6 @@
 <?php
 	$collections = $this->getVar('collections');
+	$sets = $this->getVar('sets');
 ?>
 
 <section id="home-sec1">
@@ -138,7 +139,7 @@
 					<div class="sec-li-info-div">
 						<h2><?= $collecton["name"] ?></h2>
 						<div>
-							<span><?= ($collecton["type_id"] == 23) ? "Fundo" : "Coleção" ?></span>
+							<span><?= ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") ?></span>
 							<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?= $collecton["object_id"] ?>"><?= _t("Explore") ?></a>
 						</div>
 					</div>
@@ -151,23 +152,26 @@
 <section class="sec-bg-color">
 	<div class="sec-content">
 		<div class="home-sec-header">
-			<h1><?=_t("Galleries")?></h1>
+			<h1><?= _t("Galleries") ?></h1>
 			<hr />
 		</div>
 		<ul class="sec-list gallery-list">
-			<li class="sec-list-item">
-				<div class="sec-img-div">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-book.png" />
-				</div>
-				<div class="sec-li-info-div">
-					<h2>Bienal de Arquitetura de São Paulo</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
+			<?php foreach($sets as $set_id => $set) : ?>
+				<li class="sec-list-item">
+					<div class="sec-img-div">
+						<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-book.png" />
 					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
+					<div class="sec-li-info-div">
+						<h2><?= $set["name"] ?></h2>
+						<div>
+							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
+							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id))?>"><?= _t("Explore") ?></a>
+						</div>
+					</div>
+				</li>
+				<?php endforeach; ?>
+
+			<!-- <li class="sec-list-item">
 				<div class="sec-img-div">
 					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-book.png" />
 				</div>
@@ -199,7 +203,7 @@
 						<a href="#"><?= _t("Explore") ?></a>
 					</div>
 				</div>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </section>

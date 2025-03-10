@@ -169,6 +169,21 @@
 
 			//////////////////////////////////////////////
 
+			//////////////////////////////////////////////
+			// Retrieve galleries 			//////////////
+			//////////////////////////////////////////////
+
+			$t_set = new ca_sets();
+			$t_list = new ca_lists();
+
+			# Which type of set is configured for display in gallery section? 		
+			$gallery_set_type_id = $t_list->getItemIDFromList('set_types', $this->config->get('gallery_set_type'));
+			
+			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => $gallery_set_type_id);
+			$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
+
+			$this->view->setVar('sets', $sets);
+
  			//
  			// Try to load selected page if it exists in Front/, otherwise load default Front/front_page_html.php
  			//
