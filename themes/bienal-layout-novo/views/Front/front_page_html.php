@@ -1,3 +1,6 @@
+<?php
+	$collections = $this->getVar('collections');
+?>
 
 <section id="home-sec1">
 	<div id="home-sec1-content">
@@ -47,12 +50,11 @@
 		<hr />
           <div id="home-sec1-footer">
             <h1>
-              Selecione a edição para consultar as informações referentes a cada
-              Bienal.
+              <?= _t("Selecione a edição para consultar as informações referentes a cada Bienal."); ?>
             </h1>
             <div id="home-select-div" class="select-div">
               <button id="home-select-btn" class="select-btn" popovertarget="select-popover">
-                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" />Selecione um Relatório
+                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Selecione um Relatório") ?>
               </button>
               <div popover id="select-popover">
                 <ul>
@@ -68,7 +70,7 @@
 <section class="sec-bg-color">
 	<div class="sec-content">
 		<div class="home-sec-header">
-			<h1>Destaques</h1>
+			<h1><?= _t("Destaques") ?></h1>
 			<hr />
 		</div>
 		<ul class="sec-list">
@@ -131,42 +133,17 @@
 			<hr />
 		</div>
 		<ul class="sec-list collection-list">
-			<li class="sec-list-item">
-				<div class="sec-li-info-div">
-					<h2>Bienal de Arquitetura de São Paulo</h2>
-					<div>
-						<span>Fundo</span>
-						<a href="#"><?= _t("Explore") ?></a>
+			<?php foreach ($collections as $collecton) : ?>
+				<li class="sec-list-item">
+					<div class="sec-li-info-div">
+						<h2><?= $collecton["name"] ?></h2>
+						<div>
+							<span><?= ($collecton["type_id"] == 23) ? "Fundo" : "Coleção" ?></span>
+							<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?= $collecton["object_id"] ?>"><?= _t("Explore") ?></a>
+						</div>
 					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-li-info-div">
-					<h2>CATÁLOGOS DA BIENAL (1ª ATÉ 25ª)</h2>
-					<div>
-						<span>Fundo</span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-li-info-div">
-					<h2>Bienal de Arquitetura de São Paulo</h2>
-					<div>
-						<span>Coleção</span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-li-info-div">
-					<h2>FUNDO FRANCISCO MATARAZZO SOBRINHO</h2>
-					<div>
-						<span>Coleção</span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li>
+				</li>
+			<?php endforeach; ?>
 		</ul>
 	</div>
 </section>
