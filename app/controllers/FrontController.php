@@ -95,6 +95,7 @@
  			
 			$t_instance = new ca_objects;
 			$va_ca_objects_count = $t_instance->getCount(null, ['byType' => true]);
+
 			$document_item_id_list = [ // valores do banco que são utilizados para contabilizar documentos
 				"groups" => 24,
 				"subgroups" => 25,
@@ -102,46 +103,128 @@
 				"file" => 27,
 				"documents" => 28
 			];
+
 			$document_count = 0;
 			foreach($document_item_id_list as $item_number) {
 				$document_count += $va_ca_objects_count[$item_number]["count"];
 			}
+
 			$this->view->setVar('document_count', $document_count);
+
 
 			$artwork_item_id_list = [ // valores do banco que são utilizados para contabilizar obras
 				"artworks" => 30
 			];
+
 			$artwork_count = 0;
 			foreach($artwork_item_id_list as $item_number) {
 				$artwork_count += $va_ca_objects_count[$item_number]["count"];
 			}
+
 			$this->view->setVar('artwork_count', $artwork_count);
 
 			$t_instance = new ca_entities;
 			$va_ca_entities_count = $t_instance->getCount(null, ['byType' => true]);
+
 			$entity_item_id_list = [ // valores do banco que são utilizados para contabilizar entidades
 				"enttype_pessoa" => 92,
 				"enttype_grupodepessoas" => 93,
 				"enttype_instituicao" => 94
 			];
+
 			$entity_count = 0;
 			foreach($entity_item_id_list as $item_number) {
 				$entity_count += $va_ca_entities_count[$item_number]["count"];
 			}
+
 			$this->view->setVar('entity_count', $entity_count);
 
 			$t_instance = new ca_occurrences;
 			$va_ca_occurrences_count = $t_instance->getCount(null, ['byType' => true]);
+
 			$event_item_id_list = [ // valores do banco que são utilizados para contabilizar eventos
 				"event" => 117,
 				"section" => 118,
 				"subsection" => 119
 			];
+
 			$event_count = 0;
 			foreach($event_item_id_list as $item_number) {
 				$event_count += $va_ca_occurrences_count[$item_number]["count"];
 			}
+
 			$this->view->setVar('event_count', $event_count);
+
+
+			//////////////////////////////////////////////
+			// Retrieve Bienal Editions		//////////////
+			//////////////////////////////////////////////
+
+			$o_search = new OccurrenceSearch();
+			$qr_results = $o_search->search("ca_occurrences.is_bienal_edition:yes");
+
+			$bienal_editions = array();
+
+			while($qr_results->nextHit())
+			{
+				$bienal_editions[$qr_results->get('ca_occurrences.occurrence_id')] = $qr_results->get('ca_occurrences.preferred_labels.name');
+			}
+
+			$this->view->setVar('bienal_editions', $bienal_editions);
+
+			//////////////////////////////////////////////
+			// Retrieve collections (fundos e coleções) //
+			//////////////////////////////////////////////
+
+			$t_item = new ca_objects;
+			$va_collections = $t_item->getHierarchyChildren(1, [
+				'additionalTableToJoin' => "ca_object_labels",
+				'additionalTableSelectFields' => array("name"),
+			]);
+
+			$this->view->setVar('collections', $va_collections);
+
+			//////////////////////////////////////////////
+			// Retrieve highlights sets  	//////////////
+			//////////////////////////////////////////////
+
+			$t_set = new ca_sets();
+			
+			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'highlight');
+			$highlight_sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
+
+			foreach ($highlight_sets as &$set)
+			{
+				$t_set = new ca_sets($set["set_id"]);
+
+				$set["cover_image"] = $t_set->get("ca_sets.cover_image");
+			}
+
+			$this->view->setVar('highlight_sets', $highlight_sets);
+
+			//////////////////////////////////////////////
+			// Retrieve galleries 			//////////////
+			//////////////////////////////////////////////
+
+			$t_set = new ca_sets();
+			$t_list = new ca_lists();
+
+			# Which type of set is configured for display in gallery section? 		
+			$gallery_set_type_id = $t_list->getItemIDFromList('set_types', $this->config->get('gallery_set_type'));
+			
+			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => $gallery_set_type_id);
+			$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
+
+			foreach ($sets as &$set)
+			{
+				$t_set = new ca_sets($set["set_id"]);
+
+				$set["cover_image"] = $t_set->get("ca_sets.cover_image");
+			}
+
+			$this->view->setVar('sets', $sets);
+
+			//////////////////////////////////////////////
 
  			//
  			// Try to load selected page if it exists in Front/, otherwise load default Front/front_page_html.php
