@@ -75,7 +75,7 @@
 			<object data="<?php print trim($vs_resource_path); ?>" type="application/pdf">
 		</object>
 		<?php } else { ?>
-		<iframe src="/pawtucket/themes/bienal/assets/pdfjs/web/viewer.html?file=<?php print $vs_resource_path; ?>" width="100%" height="600px"></iframe>
+		<iframe src="/pawtucket2-bienal/themes/bienal-layout-novo/assets/pdfjs/web/viewer.html?file=<?php print $vs_resource_path; ?>" width="100%"></iframe>
 		<?php } ?>
 		
 		<input type="hidden" id="resource_ref" value="<?php print trim($vn_resource_ref); ?>">

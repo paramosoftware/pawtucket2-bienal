@@ -130,6 +130,8 @@ class DetailController extends FindController {
 		}
 		
 		$function = strtolower($function);
+		$this->view->setVar('function', $function);
+	
 		$id = urldecode($this->request->getActionExtra()); 
 	
 		if (!isset($this->opa_detail_types[$function]) || !isset($this->opa_detail_types[$function]['table']) || (!($table = $this->opa_detail_types[$function]['table']))) {
@@ -546,7 +548,7 @@ class DetailController extends FindController {
 		
 		//////////////////////////////////////////////////////////////////
 		// FRED 25/11/2022
-
+		
 		// find view
 		//		first look for type-specific view
 		$path = "Details/{$table}_default_html.php";		// If no type specific view use the default
