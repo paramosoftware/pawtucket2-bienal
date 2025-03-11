@@ -1,6 +1,8 @@
 <?php
 	$collections = $this->getVar('collections');
+	$bienal_editions = $this->getVar('bienal_editions');
 	$sets = $this->getVar('sets');
+	$highlight_sets = $this->getVar('highlight_sets');
 ?>
 
 <section id="home-sec1">
@@ -48,23 +50,30 @@
 				<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Browse/eventos"><?= _t("Explore") ?></a>
 			</li>
 		</ul>
+
 		<hr />
-          <div id="home-sec1-footer">
+
+        <div id="home-sec1-footer">
             <h1>
               <?= _t("Selecione a edição para consultar as informações referentes a cada Bienal."); ?>
             </h1>
+
             <div id="home-select-div" class="select-div">
               <button id="home-select-btn" class="select-btn" popovertarget="select-popover">
-                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Selecione um Relatório") ?>
+                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Selecione a Edição") ?>
               </button>
+
               <div popover id="select-popover">
                 <ul>
-                  <li><a href="#">Opção 1</a></li>
-                  <li><a href="#">Opção dois</a></li>
+					<?php foreach ($bienal_editions as $event_id => $bienal_edition) : ?>
+						<li>
+							<?= caDetailLink($this->request, $bienal_edition, '', 'ca_occurrences', $event_id); ?>
+						</li>
+					<?php endforeach; ?>
                 </ul>
               </div>
             </div>
-          </div>
+        </div>
 	</div>
 </section>
 
@@ -74,55 +83,23 @@
 			<h1><?= _t("Destaques") ?></h1>
 			<hr />
 		</div>
+
 		<ul class="sec-list">
-			<li class="sec-list-item">
-				<div class="sec-img-div">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-book.png" />
-				</div>
-				<div class="sec-li-info-div">
-					<h2>Bienal de Arquitetura de São Paulo</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
+			<?php foreach($highlight_sets as $set_id => $set) : ?>
+				<li class="sec-list-item">
+					<div class="sec-img-div">
+						<?= $set["cover_image"] ?>
 					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-img-div">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-book.png" />
-				</div>
-				<div class="sec-li-info-div">
-					<h2>CATÁLOGOS DA BIENAL (1ª ATÉ 25ª)</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
+
+					<div class="sec-li-info-div">
+						<h2><?= $set["name"] ?></h2>
+						<div>
+							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
+							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id))?>"><?= _t("Explore") ?></a>
+						</div>
 					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-img-div">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-header.png" />
-				</div>
-				<div class="sec-li-info-div">
-					<h2>Bienal de Arquitetura de São Paulo</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li>
-			<li class="sec-list-item">
-				<div class="sec-img-div">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-header.png" />
-				</div>
-				<div class="sec-li-info-div">
-					<h2>FUNDO FRANCISCO MATARAZZO SOBRINHO</h2>
-					<div>
-						<span>509 <?=_t("Items")?></span>
-						<a href="#"><?= _t("Explore") ?></a>
-					</div>
-				</div>
-			</li>
+				</li>
+			<?php endforeach; ?>
 		</ul>
 	</div>
 </section>
@@ -133,6 +110,7 @@
 			<h1><?=_t("Funds and Collections")?></h1>
 			<hr />
 		</div>
+
 		<ul class="sec-list collection-list">
 			<?php foreach ($collections as $collecton) : ?>
 				<li class="sec-list-item">
