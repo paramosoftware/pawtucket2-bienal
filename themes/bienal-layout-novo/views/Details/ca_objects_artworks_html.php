@@ -2,7 +2,6 @@
 $item = $this->getVar("item");
 $exportacao_formatos = $this->getVar('export_formats');
 $acao = $this->request->getAction();
-$function = $this->getVar("function");
 ?>
 
 <style>
@@ -607,7 +606,7 @@ $function = $this->getVar("function");
         </unit>}}}
     </span>
     <script>
-        const f_name = "<?= $function ?>";
+        const f_name = "<?= $acao ?>";
         for (let a of document.getElementById("hierarchy").getElementsByTagName("a")) {
             let split_href = a.href.split("//");
             if (split_href.length == 3) {

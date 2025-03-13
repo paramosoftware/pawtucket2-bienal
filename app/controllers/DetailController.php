@@ -130,7 +130,6 @@ class DetailController extends FindController {
 		}
 		
 		$function = strtolower($function);
-		$this->view->setVar('function', $function);
 	
 		$id = urldecode($this->request->getActionExtra()); 
 	

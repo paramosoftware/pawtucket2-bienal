@@ -2,7 +2,6 @@
 $item = $this->getVar("item");
 $exportacao_formatos = $this->getVar('export_formats');
 $acao = $this->request->getAction();
-$function = $this->getVar("function");
 
 $page = $this->getVar("page");
 if (!$page)
@@ -665,7 +664,7 @@ $qr_result = $o_data->query("
         </unit>}}}
     </span>
     <script>
-        const f_name = "<?=$function?>";
+        const f_name = "<?=$acao?>";
         for(let a of document.getElementById("hierarchy").getElementsByTagName("a")) {
             let split_href = a.href.split("//");
             if(split_href.length == 3) {

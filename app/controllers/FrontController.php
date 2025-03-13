@@ -212,7 +212,7 @@
 			# Which type of set is configured for display in gallery section? 		
 			$gallery_set_type_id = $t_list->getItemIDFromList('set_types', $this->config->get('gallery_set_type'));
 			
-			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => $gallery_set_type_id);
+			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'public_presentation');
 			$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
 
 			foreach ($sets as &$set)

@@ -283,8 +283,8 @@ section {
     color: var(--secondary);
 }
 
-.sec-header>span:first-of-type>a:last-of-type,
-.sec-header>span:first-of-type>b:last-of-type {
+.sec-header>span:first-of-type>a:last-child,
+.sec-header>span:first-of-type>b:last-child {
     color: var(--primary);
 }
 
