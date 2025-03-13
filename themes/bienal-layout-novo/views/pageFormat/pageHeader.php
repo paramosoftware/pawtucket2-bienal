@@ -86,15 +86,17 @@
 					alt="bienal logo" />
 			</a>
 		</div>
+
 		<div id="header-main">
 			<ul id="header-link-list" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
-				<li><a href="#"><?=_t("Biennials")?></a></li>
+				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_idno' => 'bienais')) ?>"><?= _t("Biennials") ?></a></li>
 				<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Funds and Collections"), "", "", "Detail", "documento/1") ?></li>
 				<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Galleries"), "", "", "Gallery", "Index") ?></li>
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Documents"), "", "", "Browse", "documentos") ?></li>
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Artworks"), "", "", "Browse", "obras") ?></li>
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Entities"), "", "", "Browse", "entidades") ?></li>
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Events"), "", "", "Browse", "eventos") ?></li>
+				
 				<?php
 					$fullPath = $this->request->getFullUrlPath();
 					if(str_ends_with($fullPath, "index.php")) {
@@ -103,8 +105,10 @@
 						$fullPath = substr($fullPath, 0, strlen($fullPath)-(strlen("/lang/")+5)); # remove "/lang/<idioma>" redundantes do final para evitar chamadas redundantes de /lang como "/lang/en_US/lang/pt_BR"
 					}
 				?>
+
 				<li>|&nbsp; &nbsp;<a href="<?=$fullPath."/lang/"._t("pt_BR")?>"><?=_t("pt")?></a></li>
 			</ul>
+
 			<div id="header-form">
 				<button
 					id="header-adv-search-btn"
@@ -112,6 +116,7 @@
 					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/folder-search.svg" />
 					<?=_t("Advanced Search")?>
 				</button>
+
 				<div popover id="header-adv-search-popover">
 					<ul>
 						<li><?= caNavLink($this->request, _t("Documents"), "", "", "Search", "advanced/documentos") ?></li>
@@ -127,6 +132,7 @@
 						<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/magnifying-glass.svg" />
 					</button>
 				</form>
+
 				<script type="text/javascript">
 					$(document).ready(function() {
 						$('#headerSearchButton').prop('disabled', true);
