@@ -186,12 +186,24 @@ $vb_exibir_imagem = true;
     main #compartilhar a {}
 
     main #media_representativa {
-        padding: 30px;
+        /* padding: 30px; */
         vertical-align: top;
         font-size: 12px;
         position: relative;
-        flex-basis: 50%;
+        flex-basis: 80%;
         flex-grow: 2;
+    }
+
+    main #media_representativa div:last-of-type {
+        display: none;
+    }
+
+    #media_representativa #images #image {
+        width: 100%;
+    }
+
+    #media_representativa #images iframe {
+        height: calc(100dvh - var(--header-height));
     }
 
     main #descricao {
@@ -290,7 +302,7 @@ $vb_exibir_imagem = true;
         color: var(--primary);
 
         &:hover {
-            color: var(--secondary);    
+            color: var(--secondary);
         }
     }
 
@@ -344,6 +356,7 @@ $vb_exibir_imagem = true;
     main #itens .item .col.titulo {
         width: 30%;
         color: var(--primary);
+
         &:hover {
             color: var(--secondary);
         }
@@ -376,9 +389,13 @@ $vb_exibir_imagem = true;
         }
     }
 
-    .wrapper:not(:has(#conteudo)) {
+    .wrapper:not(:has(#conteudo)):not(:has(#media_representativa)) {
         max-width: max(50%, 600px);
         margin-inline: auto;
+    }
+
+    .wrapper:has(#media_representativa) {
+        flex-direction: row-reverse;
     }
 
     main .download-button {
@@ -428,6 +445,154 @@ $vb_exibir_imagem = true;
     @media screen and (max-width:1380px) {}
 
     @media screen and (min-width:1480px) {}
+
+    .wrapper:has(#paginacao) {
+        margin-bottom: 0;
+    }
+
+    .wrapper:has(#paginacao) #conteudo {
+        border-bottom: 0;
+    }
+
+    main #paginacao {
+        font-family: "Helvetica Neue Bold";
+        font-size: 18px;
+        text-align: center;
+        padding-top: 25px;
+        padding-bottom: 30px;
+        border-top: 2px solid var(--secondary);
+        border-bottom: 2px solid var(--tertiary3);
+        margin-bottom: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    main #paginacao * {
+        font-family: "Helvetica Neue Bold";
+    }
+
+    main #paginacao .pagina {
+        padding-left: 0;
+    }
+
+    main #paginacao .paginas {
+        display: flex;
+        align-items: center;
+    }
+
+    main #paginacao .jumper {
+        color: var(--secondary);
+        margin-left: auto;
+    }
+
+    main #paginacao .jumper input {
+        background-color: var(--tertiary);
+        color: var(--tertiary4);
+        border: 1px solid var(--tertiary3);
+        border-radius: 4px;
+        padding-left: 5px;
+        padding-right: 11px;
+        padding-top: 7px;
+        padding-bottom: 3px;
+
+        width: 90px;
+        height: 30px;
+        margin-left: 4px;
+
+        font-size: 16px;
+        text-align: end;
+    }
+
+    /* main #paginacao .paginas .botao {
+					width: 30px;
+					height: 30px;
+					margin-right: 3px;
+				} */
+
+    main #paginacao .paginas ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    main #paginacao .paginas ul li {
+        display: inline-block;
+        font-size: 16px;
+        padding: 0px;
+    }
+
+    main #paginacao .paginas a {
+        text-decoration: none;
+        color: var(--primary);
+        background-color: var(--tertiary);
+        border: 1px solid var(--primary);
+        border-radius: 4px;
+        padding: 0;
+        margin-left: 20px;
+
+        width: 30px;
+        height: 30px;
+
+        display: inline-block;
+        align-content: center;
+        font-size: 16px;
+    }
+
+    main #paginacao .paginas:not(:has(.inicio)) li:first-of-type a {
+        margin-left: 0;
+    }
+
+    main #paginacao .paginas ul a {
+        padding-top: 3px;
+    }
+
+    /* .nextNav .botao .icon .inicio {
+        margin-right: 20px;
+    } */
+
+    main #paginacao .paginas ul li.selecionado a {
+        border: 1px solid var(--primary);
+        background-color: var(--primary);
+        color: var(--tertiary);
+    }
+
+    .pagina {
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        display: inline-block;
+        font-family: "Helvetica Neue Bold";
+        font-size: 18px;
+        color: var(--secondary);
+        padding-left: 15px;
+        margin-right: auto;
+    }
+
+    .icon:before {
+        font-family: "FontAwesome";
+        border: none;
+        font-size: inherit;
+        color: inherit;
+        vertical-align: top
+    }
+
+    .icon.inicio:before {
+        content: "\f100"
+    }
+
+    .icon.final:before {
+        content: "\f101"
+    }
+
+    .icon.proximo:before {
+        content: "\f105"
+    }
+
+    .icon.anterior:before {
+        content: "\f104"
+    }
 
     .sec-header,
     .sec-list,
@@ -493,11 +658,20 @@ $qr_result = $o_data->query("
 
 
 <div class="sec-header">
-    <span>
+    <span id="hierarchy">
         {{{<unit relativeTo="ca_objects.hierarchy" delimiter="/">
-                    ^ca_objects.type_id: <l>^ca_objects.preferred_labels</l>
-                </unit>}}}
+            ^ca_objects.type_id: <l>^ca_objects.preferred_labels</l>
+        </unit>}}}
     </span>
+    <script>
+        const f_name = "<?=$acao?>";
+        for(let a of document.getElementById("hierarchy").getElementsByTagName("a")) {
+            let split_href = a.href.split("//");
+            if(split_href.length == 3) {
+                a.setAttribute("href", split_href[0] + "//" + split_href[1] + "/" + f_name + "/" + split_href[2]);
+            }
+        }
+    </script>
     <hr />
     <div>
         <h1>{{{<unit>^ca_objects.preferred_labels</unit>}}}</h1>
@@ -1091,7 +1265,6 @@ $qr_result = $o_data->query("
 
     <?php
     $o_config = Configuration::load();
-
     if (!is_array($va_api_credentials = $o_config->get('resourcespace_apis'))) {
         $va_api_credentials = [];
     }
@@ -1134,7 +1307,6 @@ $qr_result = $o_data->query("
 
             // Sign the query using the private key
             $vs_sign = hash("sha256", $vs_private_key . $vs_query);
-
             $va_resources = json_decode(file_get_contents($vs_rs_url . $vs_query . "&sign=" . $vs_sign));
 
             if (is_array($va_resources) && count($va_resources)) {
@@ -1193,7 +1365,7 @@ $qr_result = $o_data->query("
                     });
 
                     function update_image(vn_pagina, vs_location_id) {
-                        vs_url_imagem = "/pawtucket/index.php/Detail/ReadResourceSpaceResource/id/" + vn_pagina;
+                        vs_url_imagem = "/pawtucket2-bienal/index.php/Detail/ReadResourceSpaceResource/id/" + vn_pagina;
                         $("#images").html("<i class='caIcon fa fa fa-cog fa-spin fa-1x' ></i> Carregando imagem...");
 
                         $.get(vs_url_imagem, function(data, status) {
@@ -1303,54 +1475,6 @@ $qr_result = $o_data->query("
     if ($vn_numero_itens > 1) {
     ?>
         <div id="conteudo">
-            <?php
-            if ($paginas_totais > 1) {
-            ?>
-                <div style="overflow:auto; width:100%; margin:auto; text-align:center;">
-                    <a href="#" class="links page" id="previous_page">
-                        < </a>
-                            <select id="page_number">
-                                <?php
-                                $contador_paginas = 1;
-                                while ($contador_paginas <= $paginas_totais) {
-                                ?>
-                                    <option value="<?php print $contador_paginas; ?>"
-                                        <?php if ($contador_paginas == $page)
-                                            print " selected";
-                                        ?>><?php print "Página " . $contador_paginas; ?></option>
-                                <?php
-                                    $contador_paginas++;
-                                }
-                                ?>
-                                <select>
-                                    <a href="#" class="links page" id="next_page"> > </a>
-                </div>
-
-                <script>
-                    $(document).on('change', "#page_number", function() {
-                        update_page($(this).val());
-                    });
-
-                    $(document).on('click', ".page", function() {
-                        event.preventDefault();
-
-                        if ($(this).attr('id') == 'previous_page')
-                            vn_new_image = (parseInt($("#page_number").val()) - 1);
-                        else if ($(this).attr('id') == 'next_page')
-                            vn_new_image = (parseInt($("#page_number").val()) + 1);
-
-                        update_page(vn_new_image);
-                    });
-
-                    function update_page(vn_pagina) {
-                        url = '<?php print $this->request->getBaseUrlPath() . "/index.php/Detail/documento/" . $o_id; ?>';
-                        window.location.href = url + "/page/" + vn_pagina;
-                    }
-                </script>
-            <?php
-            } # FECHA if ($paginas_totais > 1)
-            ?>
-
             <div id="contagem">
                 <strong><span class="quantidade"><?= $vn_numero_itens . ($vn_numero_itens ? " " . _t("Records") . " " : " " . _t("Record") . " ") ?></span></strong><?= _t("at this level") ?>
             </div>
@@ -1380,9 +1504,75 @@ $qr_result = $o_data->query("
                     }
                 </script>
 
-            </div>
+            </div> <!-- FECHA itens -->
 
-        </div>
+
+            <?php
+            if ($paginas_totais > 1) {
+            ?>
+                <!-- PAGINAÇÂO -->
+                <div id="paginacao">
+                    <?php
+                    $fullPath = $this->request->getFullUrlPath();
+                    if (str_contains($fullPath, "page/")) {
+                        $fullPath = substr($fullPath, 0, strlen($fullPath) - (strlen("/page/" . $page))); # remove "/page/<valor>" redundantes do final para evitar chamadas redundantes de /page como "/page/2/page/4"
+                    }
+                    ?>
+
+                    <div class="pagina"><?= _t("Page") . " " . $page . " " . _t("of") . " " . $paginas_totais ?></div>
+
+                    <div class="paginas">
+                        <?php
+
+                        $vn_i = 1;
+                        $vn_f = $paginas_totais;
+                        $html_paginacao = '';
+                        if ($page > 1) {
+                            $html_paginacao .= "<a class='nextNav botao icon inicio' href='" . $fullPath . "/page/1'></a>";
+                        }
+                        if ($page > 10) {
+                            $html_paginacao .= "<a class='nextNav botao icon anterior' href='" . $fullPath . "/page/" . ($page - 1) . "'></a>";
+                        }
+                        $html_paginacao .= '<ul>';
+                        while ($vn_i <= $vn_f) {
+                            $html_paginacao .= "<li " . ($vn_i == $page ? 'class="selecionado"' : "") . ">" .
+                                "<a class='nextNav' href='" . $fullPath . "/page/$vn_i'>$vn_i</a>"
+                                . "</li>";
+                            $vn_i++;
+                        }
+                        $html_paginacao .= "</ul>";
+                        if ($page < $paginas_totais) {
+                            $html_paginacao .= "<a class='nextNav botao icon proximo' href='" . $fullPath . "/page/" . ($page + 1) . "'></a>";
+                        }
+                        if ($page < $paginas_totais) {
+                            $html_paginacao .= "<a class='nextNav botao icon final' href='" . $fullPath . "/page/$vn_f'></a>";
+                        }
+                        print $html_paginacao;
+
+                        ?>
+                    </div>
+
+                    <?php if ($paginas_totais > 1) { ?>
+                        <div class="jumper">
+                            <?= _t("Jump to page") ?>
+                            <input />
+                        </div>
+                    <?php } ?>
+
+                    <script>
+                        $(".jumper input").keypress(function($e) {
+                            if ($e.which == 13 && $(this).val().trim() != "" && !isNaN($(this).val()) && Number($(this).val()) <= <?= $paginas_totais ?> && Number($(this).val()) > 0) {
+                                window.location.href = "<?= $fullPath . '/page/' ?>" + $(this).val();
+                            }
+                        });
+                    </script>
+                </div>
+                <!-- FIM PAGINAÇÂO -->
+            <?php
+            } # FECHA if ($paginas_totais > 1)
+            ?>
+
+        </div> <!-- FECHA conteudo -->
     <?php
     } # FECHA if ($vn_numero_itens > 1)
     ?>
@@ -1395,8 +1585,11 @@ $qr_result = $o_data->query("
     <div id="caMediaPanelContentArea"></div>
 </div>
 
+
+
 <script type="text/javascript">
     var caMediaPanel;
+    current_resource_location_id = '<?php print $vn_current_object_location_id; ?>';
     jQuery(document).ready(function() {
         <?php if ($vb_resource_found && $vb_pdf) {
         ?>

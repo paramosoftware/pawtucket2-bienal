@@ -260,6 +260,7 @@
 			
 			$pn_start = $this->request->getParameter('s', pInteger);
 			$this->view->setVar("start", $pn_start);
+			$this->view->setVar('cover_image', $t_set->get("ca_sets.cover_image"));
 
 
  			$this->render("Gallery/set_info_html.php");
