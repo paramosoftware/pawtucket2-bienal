@@ -9,6 +9,7 @@
 ?>
 
 <?php if ($results->numHits() > 0) : ?>
+
     <div class="sidebar">    
         <div class="sidebar-header">
             <?= _t($block_info['displayName']); ?> 
@@ -16,6 +17,7 @@
             <span class="sidebar-header-results-counter"><?= $results->numHits() . " " . _t("resultados") ?></span>
         </div>      
             
+        <div class="sidebar-items">
         <?php
             $index = 0;
             while($results->nextHit()) 
@@ -26,7 +28,7 @@
                     <a href="<?php echo $this->request->getBaseUrlPath(); ?>/index.php/Detail/documento/<?=$results->getPrimaryKey()?>">
                         <?php echo $results->get('ca_objects.preferred_labels', array( 'delimiter' => ' '));?>
                     </a>
-                    
+
                     <p><?php echo $results->get('ca_entities.preferred_labels.displayname', array( 'delimiter' => ' ')); ?></p>
                 </div>
                 
@@ -34,8 +36,15 @@
                 $index++;
                 if ( $index == $itemsPerPage || $index >= $itemsPerPage ) {break;}
             }
-        
-            print caNavLink($this->request,'veja todos os resultados','','', 'Search','{{{block}}}',array('search' => $vs_search));
-        ?>    
+        ?>
+        </div>
+
+        <div class="all-results-button">
+            <button class="select-btn">
+                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/magnifying-glass.svg" />
+                <?php print caNavLink($this->request, 'Veja todos os resultados', '', '', 'Search', '{{{block}}}', array('search' => $vs_search)) ?>
+            </button>
+        </div>
     </div>
+
 <?php endif; ?>

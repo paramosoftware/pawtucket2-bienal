@@ -357,6 +357,15 @@ section {
 
 .select-btn {
     gap: 12px;
+    width: var(--popover-btn-width);
+}
+
+.select-btn a:hover {
+    color: var(--tertiary);
+}
+
+.select-btn:hover img {
+    filter: var(--filter-bienal-white)
 }
 
 #home-select-btn {
@@ -681,6 +690,7 @@ section {
     flex-basis: 22%;
     /* flex-grow: 2; */
     border-top: 2px solid var(--secondary);
+    /* border-bottom: 2px solid var(--secondary); */
     font-size: 16px;
 }
 
@@ -701,11 +711,11 @@ section {
     padding: 10px;
 }
 
-.sidebar-item:nth-child(odd) {
+.sidebar-item:nth-child(even) {
     background-color: var(--tertiary2);
 }
 
-.sidebar-item:nth-last-child(-n) {
+.sidebar-items {
     border-bottom: 2px solid var(--secondary);
 }
 
@@ -729,4 +739,8 @@ p {
     display: flex;
     gap: calc(4vh);
     /* justify-content: center; */
+}
+
+.all-results-button {
+    margin-top: 40px;
 }
