@@ -8,39 +8,32 @@
 
 ?>
 
-<?php if ( $results->numHits() > 0) { ?>
-
-			<div class="coluna">
-            
-            	<div class="cabecalho">
-					<?php print $block_info['displayName'] ?> <i><?php print $results->numHits() ?> resultados</i>
-				</div>
-                
-                <div class="itens">
-                	
-				<?php
-                $index = 0;
-                while($results->nextHit()) {
-                ?>
-                
-                <div class="item">
-                    <a href="<?php echo $this->request->getBaseUrlPath(); ?>/index.php/Detail/entidade/<?=$results->getPrimaryKey()?>">
-	                    <?php echo $results->get('ca_entities.preferred_labels', array( 'delimiter' => ' '));?>
-                    </a>
-                </div>
-                
-                <?php
-                $index++;
-                if ( $index == $itemsPerPage || $index >= $itemsPerPage ) {break;} 
-                }
-                ?>
+<?php if ( $results->numHits() > 0) : ?>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <?= _t($block_info['displayName']); ?> 
+            <br>
+            <span class="sidebar-header-results-counter"><?= $results->numHits() . " " . _t("resultados") ?></span>
+        </div>
                     
-                </div> 
-                
-                <?php print caNavLink($this->request,'veja todos os resultados','','', 'Search','{{{block}}}',array('search' => $vs_search));?>
-            
-            </div>
-            
-<?php
-}
-?>
+        <?php
+        $index = 0;
+        while($results->nextHit()) {
+        ?>
+        
+        <div class="sidebar-item">
+            <a href="<?php echo $this->request->getBaseUrlPath(); ?>/index.php/Detail/entidade/<?=$results->getPrimaryKey()?>">
+                <?php echo $results->get('ca_entities.preferred_labels', array( 'delimiter' => ' '));?>
+            </a>
+        </div>
+        
+        <?php
+        $index++;
+        if ( $index == $itemsPerPage || $index >= $itemsPerPage ) {break;} 
+        }
+        ?>
+        
+        <?php print caNavLink($this->request,'veja todos os resultados','','', 'Search','{{{block}}}',array('search' => $vs_search));?>
+    
+    </div>            
+<?php endif; ?>
