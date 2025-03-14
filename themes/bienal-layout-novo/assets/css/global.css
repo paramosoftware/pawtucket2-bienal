@@ -264,7 +264,7 @@ section {
 .sec-header {
     display: flex;
     flex-direction: column;
-
+    padding-inline: 40px;
     margin-block: 40px;
     width: 100%;
 }
@@ -835,21 +835,27 @@ p {
     display: flex;
     flex-flow: row wrap;
     width: 99dvw;
+    padding-inline: 40px;
+    gap: 40px;
 }
 
 .advanced-search-form-column {
     border-top: 2px solid var(--secondary);
     flex-basis: calc(25% - 60px);
     flex-grow: 2;
-    margin-top: 30px;
-    margin-left: 20px;
-    margin-right: 40px;
+    margin-top: 30px;    
+    /* margin-left: 20px; */
+    /* margin-right: 40px; */
 }
 
 .advanced-search-form-field {
     width: 100%;
     transition: background-color 1s;
     position: relative
+}
+
+.advanced-search-form-field:nth-child(odd) {
+    background-color: var(--tertiary2);
 }
 
 .advanced-search-form-field > label {
@@ -956,19 +962,18 @@ p {
     filter: var(--filter-bienal-pink);
 }
 
-.advanced-search-form .enviar {
+.advanced-search-form .submit-button {
     padding: 30px;
     flex-basis: 100%;
 }
 
-.advanced-search-form .enviar {
+.advanced-search-form .submit-button {
     border-top: 2px solid var(--secondary);
     border-bottom: 2px solid var(--tertiary4);
     margin-bottom: 60px;
-    margin-inline: 40px;
 }
 
-.advanced-search-form .enviar a {
+.advanced-search-form .submit-button a {
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;

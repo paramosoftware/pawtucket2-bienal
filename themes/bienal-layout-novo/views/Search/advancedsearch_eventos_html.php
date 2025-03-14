@@ -1,140 +1,11 @@
 <style>
-    /* main #titulo {
-        padding: 20px 30px;
-        font-family: "Helvetica Roman";
-        font-size: 38px;
-        text-transform: uppercase;
-        color: #333;
-        border-bottom: #222 dashed 1px;
-    }
-
-    main #titulo i {
-        font-style: normal;
-        font-family: "Helvetica Heavy";
-    } */
-
-    /* main .sec-header {
-        padding-inline: 40px;
-    }
-
-    main .sec-header>div>span {
-        text-transform: capitalize;
-    } */
-
-    /* main #formulario {}
-
-    main #formulario form {
-        display: flex;
-        flex-flow: row wrap;
-        width: 99dvw;
-    } */
-
-    /* main #formulario .coluna {
-        border-top: 2px solid var(--secondary);
-        flex-basis: calc(25% - 60px);
-        flex-grow: 2;
-        margin-top: 30px;
-        margin-left: 20px;
-        margin-right: 40px;
-    } */
-
-    main #formulario .coluna:first-of-type {
-        margin-left: 40px;
-        margin-right: 20px;
-    }
-
-    main #formulario .coluna .campo:last-child {
-        border: none
-    }
-
-    /* main #formulario .coluna .campo {
-        padding: 10px;
-    } */
-
-    /* main #formulario .campo {
-        width: 100%;
-        /* padding: 10px 30px; */
-        transition: background-color 1s;
-        /* border-bottom: #666 dashed 1px; */
-        position: relative
-    } */
-
-    main #formulario .campo:nth-child(even) {
-        background-color: var(--tertiary2);
-    }
-
-    /* main #formulario .campo>div {
-        display: inline-block;
-        vertical-align: top;
-        width: calc(100% - 170px);
-        position: relative
-    }
-
-    main #formulario .campo>div>div {
-        display: block
-    } */
-
-    /* main #formulario .campo i {
-        font-size: 12px;
-        font-family: "Helvetica Bold";
-        font-weight: normal;
-        font-style: normal;
-        color: #333
-    } */
-
-    /* main #formulario .campo label {
-        font-family: "Helvetica Neue Bold";
-        font-size: 16px;
-        text-transform: uppercase;
-        text-align: left;
-        color: var(--secondary);
-
-        display: inline-block;
-        vertical-align: top;
-        /* width: 50%; */
-        padding-top: 20px;
-        padding-left: 15px;
-    } */
-
     main #formulario .campo>div>label {
         display: block
     }
 
-    /* main #formulario .campo table {
-        width: 100%;
-        position: relative
-    } */
-
-
     main #formulario .campo textarea {
         display: inline-block;
     }
-
-    /* main #formulario .campo input,
-    main #formulario .campo select,
-    main #formulario .campo textarea {
-        resize: none;
-        outline: none;
-        vertical-align: top;
-        min-height: 33px;
-        width: calc(100% - 170px) !important;
-
-        color: var(--secondary);
-        background-color: var(--tertiary);
-        border: 1px solid var(--secondary);
-        border-radius: 4px;
-    } */
-
-    /* main #formulario .campo input,
-    main #formulario .campo select,
-    main #formulario .campo textarea,
-    .selectBox-dropdown {
-        margin: 0;
-        margin-block: 15px;
-
-        height: 50px;
-        width: 100% !important;
-    } */
 
     main #formulario .campo textarea {
         display: flex;
@@ -158,86 +29,6 @@
         font-size: 18px;
     }
 
-    /* .selectBox-dropdown {
-        display: flex !important;
-        align-items: center;
-
-        border: 1px solid var(--primary);
-        color: var(--secondary);
-        background-color: var(--tertiary);
-    }
-
-    .selectBox-options li a {
-        background-color: var(--tertiary) !important;
-        color: var(--secondary) !important;
-
-        &:hover {
-            background-color: var(--primary) !important;
-            color: var(--tertiary) !important;
-        }
-    }
-
-    .selectBox-dropdown-menu {
-        border: 1px solid var(--primary) !important;
-    }
-
-    .selectBox-dropdown .selectBox-label {
-        padding-right: 0;
-        padding-top: 5px;
-        padding-bottom: 0;
-        margin: 0;
-    }
-
-    .selectBox-dropdown .selectBox-arrow {
-        border-left: 1px solid var(--primary);
-        filter: var(--filter-bienal-pink);
-    } */
-
-    /* main #formulario .enviar {
-        padding: 30px;
-        flex-basis: 100%;
-    }
-
-    main #formulario .enviar {
-        border-top: 2px solid var(--secondary);
-        border-bottom: 2px solid var(--tertiary4);
-        margin-bottom: 60px;
-        margin-inline: 40px;
-    }
-
-    main #formulario .enviar a {
-        text-decoration: none;
-        text-transform: uppercase;
-        text-align: center;
-        font-family: "Helvetica Neue Medium";
-        font-size: 18px;
-        line-height: 1;
-
-        background-color: var(--tertiary);
-        color: var(--primary);
-        border: 1px solid var(--primary);
-        border-radius: 4px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: fit-content;
-        margin: 0 auto;
-        padding-inline: 15px;
-        padding-top: 17px;
-        padding-bottom: 13px;
-
-        &:hover {
-            background-color: var(--primary);
-            color: var(--tertiary);
-        }
-    } */
-
-    /* main #formulario .campo>div input {
-        width: 100% !important
-    } */
-
     .icon:before {
         font-family: "FontAwesome";
         font-weight: normal;
@@ -251,17 +42,6 @@
     .icon.question:before {
         content: "\f059";
     }
-
-    /* main #formulario .campo>label {
-        min-width: 25% !important;
-        width: 25% !important;
-    } */
-
-    /* main #formulario .campo>input,
-    main #formulario .campo>div {
-        min-width: 74% !important;
-        width: 74% !important;
-    } */
 
     #ui-datepicker-div {
         background-color: #656565 !important;
@@ -709,7 +489,7 @@
         </div>
     </div>
 
-    <div class="enviar">{{{submit%label=<?= _t("Search") ?>}}}</div>
+    <div class="submit-button">{{{submit%label=<?= _t("Search") ?>}}}</div>
 
     {{{/form}}}
 
