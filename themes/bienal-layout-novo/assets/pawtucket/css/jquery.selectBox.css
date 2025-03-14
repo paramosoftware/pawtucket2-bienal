@@ -2,11 +2,11 @@
 .selectBox-dropdown {
     min-width: 150px;
     position: relative;
-    border: solid 1px #09C;
+    border: 1px solid var(--primary);
     line-height: 1.5;
     text-decoration: none;
     text-align: left;
-    color: #fff;
+    color: var(--secondary);
     outline: none;
     vertical-align: middle;
     /*background: #F2F2F2;
@@ -23,7 +23,7 @@
     cursor: default;
     padding: 3px;
 	margin-bottom: 9px;
-	background-color: #09C;
+	background-color: var(--tertiary);
 	min-height:27px;
 }
 .pagina-acessivel .selectBox-dropdown {
@@ -267,11 +267,11 @@ menu > .pagina-acessivel li a:hover {
 #caAdvancedSearch .selectBox-dropdown {
     /*width: 100% !important;*/
 }
-.selectBox-dropdown {
-   
+
+/* .selectBox-dropdown {   
     padding: 0px;
     /*margin-bottom: 22px;*/
     background-color: #09C;
     min-height: 27px;
     height: 100%;
-}
+} */

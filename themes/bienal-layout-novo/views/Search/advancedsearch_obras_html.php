@@ -21,13 +21,13 @@
 		text-transform: capitalize;
 	}
 
-	main #formulario {}
+	/* main #formulario {}
 
 	main #formulario form {
 		display: flex;
 		flex-flow: row wrap;
 		width: 99dvw;
-	}
+	} */
 
 	main #formulario .coluna {
 		border-top: 2px solid var(--secondary);
@@ -302,7 +302,7 @@
 	</div>
 </div>
 
-<div id="formulario">
+<div id="advanced-search-form">
 
 	{{{form}}}
 

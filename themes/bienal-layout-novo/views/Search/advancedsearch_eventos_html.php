@@ -1,5 +1,5 @@
 <style>
-    main #titulo {
+    /* main #titulo {
         padding: 20px 30px;
         font-family: "Helvetica Roman";
         font-size: 38px;
@@ -11,33 +11,32 @@
     main #titulo i {
         font-style: normal;
         font-family: "Helvetica Heavy";
-    }
+    } */
 
-    main .sec-header {
+    /* main .sec-header {
         padding-inline: 40px;
     }
 
     main .sec-header>div>span {
         text-transform: capitalize;
-    }
+    } */
 
-    main #formulario {}
+    /* main #formulario {}
 
     main #formulario form {
         display: flex;
         flex-flow: row wrap;
         width: 99dvw;
-    }
+    } */
 
-    main #formulario .coluna {
+    /* main #formulario .coluna {
         border-top: 2px solid var(--secondary);
-
         flex-basis: calc(25% - 60px);
         flex-grow: 2;
         margin-top: 30px;
         margin-left: 20px;
         margin-right: 40px;
-    }
+    } */
 
     main #formulario .coluna:first-of-type {
         margin-left: 40px;
@@ -52,19 +51,19 @@
         padding: 10px;
     } */
 
-    main #formulario .campo {
+    /* main #formulario .campo {
         width: 100%;
         /* padding: 10px 30px; */
         transition: background-color 1s;
         /* border-bottom: #666 dashed 1px; */
         position: relative
-    }
+    } */
 
     main #formulario .campo:nth-child(even) {
         background-color: var(--tertiary2);
     }
 
-    main #formulario .campo>div {
+    /* main #formulario .campo>div {
         display: inline-block;
         vertical-align: top;
         width: calc(100% - 170px);
@@ -73,17 +72,17 @@
 
     main #formulario .campo>div>div {
         display: block
-    }
+    } */
 
-    main #formulario .campo i {
+    /* main #formulario .campo i {
         font-size: 12px;
         font-family: "Helvetica Bold";
         font-weight: normal;
         font-style: normal;
         color: #333
-    }
+    } */
 
-    main #formulario .campo label {
+    /* main #formulario .campo label {
         font-family: "Helvetica Neue Bold";
         font-size: 16px;
         text-transform: uppercase;
@@ -95,23 +94,23 @@
         /* width: 50%; */
         padding-top: 20px;
         padding-left: 15px;
-    }
+    } */
 
     main #formulario .campo>div>label {
         display: block
     }
 
-    main #formulario .campo table {
+    /* main #formulario .campo table {
         width: 100%;
         position: relative
-    }
+    } */
 
 
     main #formulario .campo textarea {
         display: inline-block;
     }
 
-    main #formulario .campo input,
+    /* main #formulario .campo input,
     main #formulario .campo select,
     main #formulario .campo textarea {
         resize: none;
@@ -124,9 +123,9 @@
         background-color: var(--tertiary);
         border: 1px solid var(--secondary);
         border-radius: 4px;
-    }
+    } */
 
-    main #formulario .campo input,
+    /* main #formulario .campo input,
     main #formulario .campo select,
     main #formulario .campo textarea,
     .selectBox-dropdown {
@@ -135,7 +134,7 @@
 
         height: 50px;
         width: 100% !important;
-    }
+    } */
 
     main #formulario .campo textarea {
         display: flex;
@@ -159,7 +158,7 @@
         font-size: 18px;
     }
 
-    .selectBox-dropdown {
+    /* .selectBox-dropdown {
         display: flex !important;
         align-items: center;
 
@@ -192,9 +191,9 @@
     .selectBox-dropdown .selectBox-arrow {
         border-left: 1px solid var(--primary);
         filter: var(--filter-bienal-pink);
-    }
+    } */
 
-    main #formulario .enviar {
+    /* main #formulario .enviar {
         padding: 30px;
         flex-basis: 100%;
     }
@@ -233,11 +232,11 @@
             background-color: var(--primary);
             color: var(--tertiary);
         }
-    }
+    } */
 
-    main #formulario .campo>div input {
+    /* main #formulario .campo>div input {
         width: 100% !important
-    }
+    } */
 
     .icon:before {
         font-family: "FontAwesome";
@@ -253,16 +252,16 @@
         content: "\f059";
     }
 
-    main #formulario .campo>label {
+    /* main #formulario .campo>label {
         min-width: 25% !important;
         width: 25% !important;
-    }
+    } */
 
-    main #formulario .campo>input,
+    /* main #formulario .campo>input,
     main #formulario .campo>div {
         min-width: 74% !important;
         width: 74% !important;
-    }
+    } */
 
     #ui-datepicker-div {
         background-color: #656565 !important;
@@ -302,13 +301,12 @@
     </div>
 </div>
 
-<div id="formulario">
+<div class="advanced-search-form">
 
     {{{form}}}
 
-    <div class="coluna">
-
-        <div class="campo">
+    <div class="advanced-search-form-column">
+        <div class="advanced-search-form-field">
 
             <label><?= _t("At a Level") ?></label>
             <div>
@@ -400,35 +398,26 @@
 
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Type of Level") ?></label>
             <div>
                 {{{ca_occurrences.type_id%label=<?= _t("Type of Level") ?>}}}
             </div>
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Event Denomination") ?></label>
             {{{ca_occurrences.preferred_labels%label=<?= _t("Event Denomination") ?>}}}
         </div>
 
-        <!--
-                    <div class="campo">
-                        <label>Outras denominações</label>
-                        {{{ca_occurrences.nonpreferred_labels%label=Outras denominações}}}
-                    </div>
-					-->
-
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Type of Event") ?></label>
             {{{ca_occurrences.event_type%label=<?= _t("Type of Event") ?>}}}
         </div>
-
     </div>
 
-    <div class="coluna">
-
-        <div class="campo">
+    <div class="advanced-search-form-column">
+        <div class="advanced-search-form-field">
 
             <label><?= _t("Related Entity") ?></label>
             <div>
@@ -438,14 +427,10 @@
                 <label><?= _t("Function") ?></label>
                 {{{ca_entities_x_occurrences.ocurrencexentity_entityrole%label=<?= _t("Function") ?>}}}
 
-                <!--
-                        <label>Manifestação</label>
-                        {{{ca_entities_x_occurrences.ocurrencexentity_juriartforms}}}
-						-->
-
                 <label><?= _t("National Representation") ?></label>
                 <input name="ca_entities_x_occurrences.ocurrencexentity_curatorplace" value="" class="" id="ca_entities_x_occurrences_ocurrencexentity_curatorplace" rows="1" style="" size="" type="text">
                 <input name="ca_entities_x_occurrences.ocurrencexentity_curatorplace_label" value="<?= _t("National Representation") ?>" type="hidden">
+                
                 <script>
                     jQuery(document).ready(function() {
                         var v = jQuery('#ca_entities_x_occurrences_ocurrencexentity_curatorplace').val();
@@ -493,7 +478,7 @@
 
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Event Date") ?></label>
             <div>
                 <label><?= _t("Start Date") ?></label>
@@ -504,22 +489,23 @@
             </div>
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Responsible Institution") ?></label>
             {{{ca_entities.preferred_labels%restrictToRelationshipTypes=realizacao&label=<?= _t("Responsible Institution") ?>}}}
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Event Location") ?></label>
             {{{ca_places.preferred_labels%restrictToRelationshipTypes=site&label=<?= _t("Event Location") ?>}}}
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("National Representation") ?></label>
             <div>
                 <label><?= _t("Name of Entity") ?></label>
                 <input name="ca_entities.preferred_labels.displayname/representacao" value="" id="ca_entities_preferred_labels" rows="1" style="" size="" type="text">
                 <input name="ca_entities.preferred_labels/representacao_label" value="<?= _t("Name of Entity") ?> (<?= _t("National Representation") ?>)" type="hidden">
+                
                 <script>
                     jQuery(document).ready(function() {
                         var v = jQuery('#ca_entities_preferred_labels[name="ca_entities.preferred_labels.displayname/representacao"]').val();
@@ -566,6 +552,7 @@
                 <label><?= _t("Country of Origin/Representation") ?></label>
                 <input name="ca_entities_x_occurrences.ocurrencexentity_repnacplace" value="" class="" id="ca_entities_x_occurrences_ocurrencexentity_repnacplace" rows="1" style="" size="" type="text">
                 <input name="ca_entities_x_occurrences.ocurrencexentity_repnacplace_label" value="<?= _t("Country of Origin/Representation") ?>" type="hidden">
+                
                 <script>
                     jQuery(document).ready(function() {
                         var v = jQuery('#ca_entities_x_occurrences_ocurrencexentity_repnacplace').val();
@@ -611,12 +598,13 @@
             </div>
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label>Participação</label>
             <div>
                 <label><?= _t("Name of Entity") ?></label>
                 <input name="ca_entities.preferred_labels/participation" value="" id="ca_entities_preferred_labels" rows="1" style="" size="" type="text">
                 <input name="ca_entities.preferred_labels/participation_label" value="<?= _t("Name of Entity") ?> (<?= _t("Participation") ?>)" type="hidden">
+                
                 <script>
                     jQuery(document).ready(function() {
                         var v = jQuery('#ca_entities_preferred_labels[name="ca_entities.preferred_labels/participation"]').val();
@@ -710,16 +698,15 @@
             </div>
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Related Documents (Search by Title)") ?></label>
             {{{ca_objects.preferred_labels.name/production%label=<?= _t("Related Documents (Search by Title)") ?>}}}
         </div>
 
-        <div class="campo">
+        <div class="advanced-search-form-field">
             <label><?= _t("Related Artworks (Search by Title)") ?></label>
             {{{ca_objects.preferred_labels.name/participation%label=<?= _t("Related Artworks (Search by Title)") ?>}}}
         </div>
-
     </div>
 
     <div class="enviar">{{{submit%label=<?= _t("Search") ?>}}}</div>
