@@ -80,16 +80,18 @@
 <section class="sec-bg-color">
 	<div class="sec-content">
 		<div class="home-sec-header">
-			<h1><?= _t("Destaques") ?></h1>
+			<h1><?= _t("Featured") ?></h1>
 			<hr />
 		</div>
 
 		<ul class="sec-list">
 			<?php foreach($highlight_sets as $set_id => $set) : ?>
 				<li class="sec-list-item">
-					<div class="sec-img-div">
-						<?= $set["cover_image"] ?>
-					</div>
+					<?php if (!empty($set["cover_image"])) :?>
+						<div class="sec-img-div">
+							<?= $set["cover_image"] ?>
+						</div>
+					<?php endif; ?>
 
 					<div class="sec-li-info-div">
 						<h2><?= $set["name"] ?></h2>
@@ -116,6 +118,7 @@
 				<li class="sec-list-item">
 					<div class="sec-li-info-div">
 						<h2><?= $collecton["name"] ?></h2>
+
 						<div>
 							<span><?= ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") ?></span>
 							<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?= $collecton["object_id"] ?>"><?= _t("Explore") ?></a>
@@ -137,9 +140,11 @@
 		<ul class="sec-list gallery-list">
 			<?php foreach($sets as $set_id => $set) : ?>
 				<li class="sec-list-item">
-					<div class="sec-img-div">
-						<?= $set["cover_image"] ?>
-					</div>
+					<?php if (!empty($set["cover_image"])) :?>
+						<div class="sec-img-div">
+							<?= $set["cover_image"] ?>
+						</div>
+					<?php endif; ?>
 
 					<div class="sec-li-info-div">
 						<h2><?= $set["name"] ?></h2>
