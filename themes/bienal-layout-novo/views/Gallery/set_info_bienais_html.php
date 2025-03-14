@@ -3,17 +3,8 @@
     $va_set_items = $this->getVar("set_items");
 
     $vn_numero_itens = count($va_set_items);
-
-    //var_dump($va_set_items);exit();
 ?>
 
-<style>
-    .sec-header,
-    .sec-list,
-    .sec-footer {
-        padding-inline: 40px;
-    }
-</style>
 
 <div class="sec-header">
     <span>
