@@ -1,6 +1,5 @@
 /* FOOTER START */
 footer {
-    height: 524px;
     min-height: 524px;
     width: 100%;
     padding-top: 40px;
@@ -66,8 +65,8 @@ footer a {
 
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    gap: 55px;
+    justify-content: space-between;
+    /* gap: 55px; */
 
     height: fit-content;
     width: 100%;
@@ -134,7 +133,12 @@ footer a {
 
 #footer-disclaimer-logos {
     display: flex;
+    height: 50px;
     gap: 45px;
+}
+
+#footer-disclaimer-logos img {
+    height: inherit;
 }
 
 #footer-info {
@@ -154,12 +158,74 @@ footer a {
     text-decoration: underline;
 }
 
-@media screen and (width < 1100px) {
+@media screen and (width <=1200px) {
     footer {
-        --_footer-left-column: 20dvw;
-        --_footer-center-column: 40dvw;
-        --_footer-right-column: 30dvw;
-        --_footer-column-gap: 38px;
+        --_footer-column-gap: 20px;
+    }
+}
+
+@media screen and (width <=1024px) {
+    #footer-disclaimer-logos {
+        height: 40px;
+    }
+}
+
+
+@media screen and (width <=768px) {
+    #footer-logo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "logo-bienal logo-social";
+    }
+
+    #footer-main-list {
+        grid-area: footer-main-list;
+    }
+
+    #footer-disclaimer {
+        grid-area: footer-disclaimer;
+        text-align: center;
+        align-items: center;
+    }
+
+    #footer-disclaimer-logos {
+        margin-top: 20px;
+    }
+
+    #footer-info {
+        grid-area: footer-info;
+    }
+
+    #footer-main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "footer-main-list footer-info"
+            "footer-disclaimer footer-disclaimer";
+        row-gap: 60px;
+    }
+}
+
+@media screen and (width <=576px) {
+    #footer-logo-grid {
+        grid-template-columns: 80px auto;
+        grid-template-areas: "logo-bienal logo-social";
+    }
+
+    #footer-main {
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "footer-main-list"
+            "footer-info"
+            "footer-disclaimer";
+    }
+
+    .gallery-list .sec-img-div {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .gallery-list .sec-li-info-div {
+        width: 100%;
     }
 }
 

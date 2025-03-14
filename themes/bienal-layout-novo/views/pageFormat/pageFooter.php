@@ -96,12 +96,9 @@
 			<div id="footer-disclaimer-logos">
 				<img
 					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/logo.svg"
-					height="50px"
-					width="50px"
 					alt="logo bienal" />
 				<img
 					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/sp-duplo.png"
-					height="50px"
 					alt="logo Proac, logo São Paulo" />
 			</div>
 		</div>

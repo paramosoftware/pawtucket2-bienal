@@ -45,9 +45,8 @@
 
 body {
     width: 100%;
+    max-width: 100dvw;
     min-width: fit-content;
-    height: 100dvh;
-    min-height: fit-content;
 
     display: flex;
     flex-direction: column;
@@ -60,6 +59,7 @@ body {
 main,
 section {
     width: 100%;
+    max-width: 100dvw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,7 +157,7 @@ section {
 }
 
 #home-sec1-main-list li {
-    min-width: 280px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -680,6 +680,92 @@ section {
 .collection-list .sec-li-info-div {
     max-width: 100%;
     width: 100%;
+}
+
+@media screen and (width <=1200px) {
+    #home-sec1-main-list {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 80px;
+    }
+
+    #home-sec1-main-list a {
+        margin-top: 20px;
+    }
+
+    .gallery-list .sec-list-item {
+        aspect-ratio: unset;
+    }
+
+    .gallery-list>li h2 {
+        max-width: 100%;
+    }
+
+    .collection-list .sec-list-item {
+        aspect-ratio: unset;
+    }
+}
+
+@media screen and (width <=1024px) {
+    .sec-list-item h2 {
+        font-size: 28px;
+    }
+}
+
+@media screen and (width <=768px) {
+    #home-sec1-footer {
+        align-items: center;
+    }
+
+    .sec-list {
+        grid-template-columns: repeat(1, 1fr);
+        margin-inline: 0;
+    }
+
+    .sec-list-item h2 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (width <=576px) {
+    .home-sec-header h1 {
+        white-space: normal;
+    }
+
+    #home-sec1-main-list {
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+    }
+
+    #home-sec1-main-list a {
+        margin-inline: auto;
+    }
+
+    #home-sec1-content>hr {
+        margin-block: 40px;
+    }
+
+    #home-sec1-footer {
+        flex-direction: column;
+    }
+
+    .sec-list-item {
+        flex-direction: column;
+        aspect-ratio: unset;
+    }
+
+    .sec-list-item .sec-img-div {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .sec-list-item>.sec-li-info-div {
+        min-height: fit-content;
+        gap: 20px;
+    }
+
+    .collection-list .sec-list-item>.sec-li-info-div {
+        gap: max(10dvh, 20px);
+    }
 }
 
 /* SECTION-LIST END */
