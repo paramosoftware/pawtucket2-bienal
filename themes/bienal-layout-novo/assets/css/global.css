@@ -62,7 +62,8 @@ section {
     max-width: 100dvw;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    padding: 50px;
 }
 
 /* SECTION1 @HOME */
@@ -356,6 +357,15 @@ section {
 
 .select-btn {
     gap: 12px;
+    width: var(--popover-btn-width);
+}
+
+.select-btn a:hover {
+    color: var(--tertiary);
+}
+
+.select-btn:hover img {
+    filter: var(--filter-bienal-white)
 }
 
 #home-select-btn {
@@ -539,7 +549,7 @@ section {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 0;
     column-gap: 40px;
-    margin-inline: auto;
+    /* margin-inline: auto; */
 }
 
 .sec-list h2 {
@@ -759,3 +769,64 @@ section {
 }
 
 /* SECTION-LIST END */
+
+.sidebar {
+    vertical-align: top;
+    position: relative;
+    flex-basis: 22%;
+    /* flex-grow: 2; */
+    border-top: 2px solid var(--secondary);
+    /* border-bottom: 2px solid var(--secondary); */
+    font-size: 16px;
+}
+
+.sidebar-header {
+    text-transform: uppercase;
+    color: var(--secondary);
+    font-family: "Helvetica Neue Bold";
+    background-color: var(--tertiary2);
+    padding: 10px;
+    /* padding-block: 30px; */
+}
+
+.sidebar-header-results-counter {
+    font-family: "Helvetica Neue Roman" !important;
+}
+
+.sidebar-item {
+    padding: 10px;
+}
+
+.sidebar-item:nth-child(even) {
+    background-color: var(--tertiary2);
+}
+
+.sidebar-items {
+    border-bottom: 2px solid var(--secondary);
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Helvetica Neue Bold";
+    display: inline-block;
+    vertical-align: top;
+    /* padding: 10px; */
+    color: var(--primary);
+}
+
+p {
+    font-family: "Helvetica Neue Roman";
+    font-size: 16px;
+    /* padding: 10px; */
+}
+
+.multisearch-results {
+    display: flex;
+    gap: calc(4vh);
+    /* justify-content: center; */
+}
+
+.all-results-button {
+    margin-top: 40px;
+}

@@ -217,7 +217,6 @@
  			}
  			$this->view->setVar("set_item", $set_item);
 
-
 			
 			// FRED 16/11/2022
 			$this->view->setVar("set_items", caExtractValuesByUserLocale($t_set->getItems(array("thumbnailVersions" => array("icon", "iconlarge"), "checkAccess" => $this->opa_access_values))));
@@ -262,8 +261,10 @@
 			$this->view->setVar("start", $pn_start);
 			$this->view->setVar('cover_image', $t_set->get("ca_sets.cover_image"));
 
-
- 			$this->render("Gallery/set_info_html.php");
+			if ($set_id == 3288)
+				$this->render("Gallery/set_info_bienais_html.php");
+			else
+ 				$this->render("Gallery/set_info_html.php");
  		}
 		# -------------------------------------------------------
 		/**
