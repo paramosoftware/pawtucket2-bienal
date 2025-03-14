@@ -329,7 +329,7 @@
 						html: true,
 						source: function(request, response) {
 							$.ajax({
-								url: '/pawtucket2-bienal/index.php/quickfind/Entity',
+								url: '<?= $this->request->getBaseUrlPath() ?>/index.php/quickfind/Entity',
 								dataType: 'json',
 								method: 'GET',
 								data: {
@@ -399,7 +399,7 @@
 							html: true,
 							source: function(request, response) {
 								$.ajax({
-									url: '/pawtucket2-bienal/index.php/quickfind/Occurrence',
+									url: '<?= $this->request->getBaseUrlPath() ?>/index.php/quickfind/Occurrence',
 									dataType: 'json',
 									method: 'GET',
 									data: {
@@ -458,7 +458,7 @@
 						html: true,
 						source: function(request, response) {
 							$.ajax({
-								url: '/pawtucket2-bienal/index.php/quickfind/Occurrence',
+								url: '<?= $this->request->getBaseUrlPath() ?>/index.php/quickfind/Occurrence',
 								dataType: 'json',
 								method: 'GET',
 								//data: { term: request.term , limit:5 },
@@ -510,7 +510,7 @@
 					html: true,
 					source: function(request, response) {
 						$.ajax({
-							url: '/pawtucket2-bienal/index.php/quickfind/Entity',
+							url: '<?= $this->request->getBaseUrlPath() ?>/index.php/quickfind/Entity',
 							dataType: 'json',
 							method: 'GET',
 							data: {

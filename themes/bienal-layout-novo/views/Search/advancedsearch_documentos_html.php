@@ -397,26 +397,6 @@
     {{{form}}}
 
     <div class="coluna">
-
-        <!-- Estamos desabilitando o campo "fundos e coleções, porque é um 
-					campo que se repete no primeiro nível dos campos abaixo
-					FRED 6/2/2021
-
-                    <div class="campo">        
-                        <label>fundos e coleções</label>
-                        <select name="ca_objects.idno" id="idno" >
-                            <option value="">-</option>
-                            <option value="FMS*">Francisco Matarazzo Sobrinho</option>
-                            <option value="MAM*">Museu de Arte Moderna de São Paulo</option>
-                            <option value="BSP*">Fundação Bienal de São Paulo</option>
-                            <option value="BIB*">Biblioteca</option>
-                            <option value="DAR*">Dossiê de Artistas</option>
-                            <option value="DTA*">Dossiê de Temas de Arte</option>
-                        </select>
-                        <input type="hidden" name="ca_objects.idno_label" value="fundo" />
-                    </div>
-                    -->
-
         <div class="campo">
 
             <label><?= _t("Hierarchical Level") ?></label>
@@ -435,13 +415,16 @@
                 <input type="hidden" name="ca_objects.parent_id" id="parent_id" class="hierarchyselectervalue" />
                 <input type="hidden" name="ca_objects.parent_id_label" value="nível hierárquico" />
             </div>
+
             <script>
                 function hierarchyfinder_find($obj) {
                     var selecter = $($obj);
                     var value = selecter.val();
                     var level = Number(selecter.data("level"));
                     var populate = $("#hierarchyselecter" + (level + 1));
+
                     hierarchyfinder_clear(level + 1);
+
                     populate.prop('disabled', 'disabled');
                     populate.css("opacity", ".2");
                     populate.find('option').remove().end().append('<option value="">carregando...</option>').val('');
@@ -467,7 +450,7 @@
                 }
 
                 function hierarchyfinder_get($parent_id, $selecter) {
-                    u = "/pawtucket2-bienal/service.php/HierarchyLookup/objects?id=" + $parent_id;
+                    u = "<?= $this->request->getBaseUrlPath() ?>/service.php/HierarchyLookup/objects?id=" + $parent_id;
 
                     $.ajax({
                             url: u,
@@ -588,7 +571,7 @@
 
         <script>
             function load_vocabulary_list() {
-                u = "/pawtucket2-bienal/index.php/lookup/ListItem/GetHierarchyLevel/list_id/85/id/7549/noSymbols/1/init/1";
+                u = "<?= $this->request->getBaseUrlPath() ?>/index.php/lookup/ListItem/GetHierarchyLevel/list_id/85/id/7549/noSymbols/1/init/1";
 
                 $.ajax({
                         url: u,
@@ -618,7 +601,7 @@
                         console.log(errorThrown);
                     });
 
-                u = "/pawtucket2-bienal/index.php/lookup/ListItem/GetHierarchyLevel/list_id/83/id/246/noSymbols/1/init/1";
+                u = "<?= $this->request->getBaseUrlPath() ?>/index.php/lookup/ListItem/GetHierarchyLevel/list_id/83/id/246/noSymbols/1/init/1";
 
                 $.ajax({
                     url: u,
