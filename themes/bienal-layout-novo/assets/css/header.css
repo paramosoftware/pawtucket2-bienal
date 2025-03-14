@@ -10,6 +10,7 @@ header {
 
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
 
     display: flex;
@@ -270,7 +271,7 @@ header button {
     }
 }
 
-@media screen and (width < 1000px) {
+/* @media screen and (width < 1000px) {
 
     header {
         height: fit-content;
@@ -293,6 +294,6 @@ header button {
     #header-form {
         margin-top: var(--_header-form-margin-bottom);
     }
-}
+} */
 
 /* HEADER END */
