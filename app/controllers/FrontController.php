@@ -160,14 +160,16 @@
 			// Retrieve Bienal Editions		//////////////
 			//////////////////////////////////////////////
 
-			$o_search = new OccurrenceSearch();
-			$qr_results = $o_search->search("ca_occurrences.is_bienal_edition:yes");
+			$t_set = new ca_sets();
+			$t_set->load(3288);
+
+			$va_set_items = caExtractValuesByUserLocale($t_set->getItems());
 
 			$bienal_editions = array();
 
-			while($qr_results->nextHit())
+			foreach ($va_set_items as $va_set_item)
 			{
-				$bienal_editions[$qr_results->get('ca_occurrences.occurrence_id')] = $qr_results->get('ca_occurrences.preferred_labels.name');
+				$bienal_editions[$va_set_item["row_id"]] = $va_set_item["set_item_label"];
 			}
 
 			$this->view->setVar('bienal_editions', $bienal_editions);
@@ -185,22 +187,22 @@
 			$this->view->setVar('collections', $va_collections);
 
 			//////////////////////////////////////////////
-			// Retrieve highlights sets  	//////////////
+			// Retrieve featured sets  	//////////////////
 			//////////////////////////////////////////////
 
 			$t_set = new ca_sets();
 			
 			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'highlight');
-			$highlight_sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
+			$featured_sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
 
-			foreach ($highlight_sets as &$set)
+			foreach ($featured_sets as &$set)
 			{
 				$t_set = new ca_sets($set["set_id"]);
 
 				$set["cover_image"] = $t_set->get("ca_sets.cover_image");
 			}
 
-			$this->view->setVar('highlight_sets', $highlight_sets);
+			$this->view->setVar('highlight_sets', $featured_sets);
 
 			//////////////////////////////////////////////
 			// Retrieve galleries 			//////////////
@@ -212,7 +214,7 @@
 			# Which type of set is configured for display in gallery section? 		
 			$gallery_set_type_id = $t_list->getItemIDFromList('set_types', $this->config->get('gallery_set_type'));
 			
-			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'public_presentation');
+			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'public_presentation', 'table' => 'ca_objects');
 			$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
 
 			foreach ($sets as &$set)
