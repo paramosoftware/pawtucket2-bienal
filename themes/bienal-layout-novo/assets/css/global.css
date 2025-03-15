@@ -1281,3 +1281,74 @@ p {
     padding-bottom: 3px;
     padding-inline: 9px;
 }
+
+.summary-sheet {
+    vertical-align: top;
+    font-size: 12px;
+    position: relative;
+    flex-basis: 80%;
+    flex-grow: 2;
+}
+
+.summary-sheet-attributes {
+    border-block: 2px solid var(--secondary);
+}
+
+.summary-sheet-attribute {
+    width: 100%;
+    min-height: 80px;
+    text-align: right;
+    align-content: center;
+}
+
+.summary-sheet-attribute:nth-child(odd) {
+    background-color: var(--tertiary2);
+}
+
+.summary-sheet-attribute-label {
+    display: inline-block;
+    vertical-align: top;
+    width: 240px;
+    padding: 11px;
+    color: var(--secondary);
+
+    font-family: "Helvetica Neue Bold";
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.summary-sheet-attribute-value {
+    display: inline-block;
+    max-width: calc(100% - 260px);
+    width: 100% !important;
+    vertical-align: top;
+    padding: 11px;
+
+    font-family: "Helvetica Neue Roman";
+    font-size: 16px;
+    text-align: left;
+}
+
+.summary-sheet-attribute-value a {
+    font-family: "Helvetica Neue Bold";
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--primary);
+
+    &:hover {
+        color: var(--secondary);
+    }
+}
+
+.summary-sheet-attribute:last-child {
+    border: none
+}
+
+.summary-sheet-subattribute span:nth-child(2) {
+    font-family: "Helvetica Neue Roman";
+}
+
+.summary-sheet-subattribute span:nth-child(1) {
+    font-family: "Helvetica Neue Bold";
+}
