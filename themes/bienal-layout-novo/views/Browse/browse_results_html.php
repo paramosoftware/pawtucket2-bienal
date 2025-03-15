@@ -1,14 +1,4 @@
 <style>
-	/* #home {
-		grid-area: home;
-		padding-inline: 40px;
-	}
-
-
-	#titulo {
-		grid-area: titulo;
-	} */
-
 	.sec-header {
 		grid-area: sec-header;
 		padding-inline: 40px;
@@ -39,14 +29,6 @@
 			"browse-results browse-results-facets"
 			"sec-footer sec-footer"
 	}
-
-	/* main #titulo {
-		padding: 20px 30px;
-		font-family: "Helvetica Heavy";
-		font-size: 38px;
-		text-transform: uppercase;
-		color: #333;
-	} */
 
 	.sec-header>div:has(#criterios) {
 		justify-content: start;
@@ -96,10 +78,6 @@
 		opacity: .5
 	}
 
-	/*
-	main #facetas {border-top:#555 dashed 1px;display:inline-block;vertical-align:top;width:250px;font-size:12px;height:100%;border-left:#aaa solid 1px;position:relative;}
-	*/
-
 	#filtros a {
 		color: var(--tertiary4);
 		padding-block: 6px;
@@ -109,68 +87,9 @@
 		text-align: center;
 	}
 
-	/* main #facetas li.mais {
-		margin-top: 10px
-	} */
-
 	main #facetas li.titulo {
 		font-family: "Helvetica Bold";
 		width: 100%
-	}
-
-	/* main #facetas li.mais {
-		display: inline-block;
-		color: var(--bienal_primary);
-		border: var(--bienal_primary) solid 1px;
-		color: var(--bienal_primary);
-		padding: 7px 11px;
-		font-family: "Helvetica Roman";
-		border-radius: 4px
-	}
-
-	main #facetas li.mais:before {
-		content: "\f067";
-		font-family: "FontAwesome";
-		margin-right: 5px
-	} */
-
-	/* main #resultado {
-		margin-left: 40px;
-		padding-right: 15px;
-		padding-bottom: 32px;
-		border-top: 1px solid var(--secondary);
-		display: inline-block;
-		vertical-align: top;
-		/* width: calc(100% - 250px); */
-		/* width: 100%; */
-		font-size: 12px;
-		height: 100%;
-		position: relative;
-	} */
-
-	/* main #ferramentas {
-		padding-block: 30px;
-		height: 90px;
-		text-align: right;
-
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-	} */
-
-	main #ferramentas select {
-		height: 30px;
-		line-height: 30px;
-		padding: 5px;
-		border: #999 solid 1px;
-		border-radius: 4px;
-		font-size: 14px;
-		font-family: "Helvetica Roman";
-		vertical-align: top
-	}
-
-	main #ferramentas select:last-child {
-		margin: 0
 	}
 
 	main #ferramentas .icon {
@@ -186,108 +105,13 @@
 		text-transform: uppercase
 	}
 
-	/* main #cabecalho {
-		/* font-family: "Helvetica Neue Bold";
-		font-size: 16px;
-		text-transform: uppercase; */
-		height: 94px;
-
-		color: var(--secondary);
-		background-color: var(--tertiary2);
-		border-block: 2px solid var(--secondary);
-
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	} */
-
-	/* main #itens {
-		font-family: "Helvetica Neue Roman";
-		font-size: 16px;
-		color: var(--secondary);
-		border-bottom: 1px solid var(--secondary);
-		height: max-content;
-	} */
-
-	/* main #itens a {
-		text-decoration: none;
-		font-family: "Helvetica Neue Bold";
-		
-		color: var(--primary);
-		&:hover {
-			color: var(--secondary);
-		}
-	} */
-
-	/* main #cabecalho {
-		font-family: "Helvetica Neue Bold";
-		font-size: 16px;
-		text-transform: uppercase;
-	} */
-
-	/* main #itens .item {
-		height: 100%;
-
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	} */
-
-	/* main #itens .item:nth-child(even) {
-		background-color: var(--tertiary2);
-	} */
-
 	main #itens .item:last-child {
 		border: none
 	}
 
-	/* main #paginacao {
-		font-family: "Helvetica Neue Bold";
-		font-size: 18px;
-		text-align: center;
-		padding-top: 25px;
-		padding-bottom: 30px;
-		border-bottom: 2px solid var(--tertiary3);
-
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	} */
-
-	/* main #paginacao * {
-		font-family: "Helvetica Neue Bold";
-	} */
-
 	main #paginacao .pagina {
 		padding-left: 0;
 	}
-
-	/* main #paginacao .paginas {
-		display: flex;
-		align-items: center;
-	} */
-
-	/* main #paginacao .paginas .botao {
-		width: 30px;
-		height: 30px;
-		margin-right: 3px;
-	} */
-
-	/* main #paginacao .paginas ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	main #paginacao .paginas ul li {
-		display: inline-block;
-		font-size: 16px;
-		padding: 0px;
-	} */
-
-	/* main #paginacao .paginas ul li a {
-		color: inherit
-	} */
 
 	.botao {
 		padding: 7px 10px;
@@ -300,23 +124,6 @@
 		font-size: 16px !important;
 	}
 
-	/* main #paginacao .paginas a {
-		text-decoration: none;
-		color: var(--primary);
-		background-color: var(--tertiary);
-		border: 1px solid var(--primary);
-		border-radius: 4px;
-		padding: 0;
-		margin-left: 20px;
-
-		width: 30px;
-		height: 30px;
-
-		display: inline-block;
-		align-content: center;
-		font-size: 16px;
-	} */
-
 	main #paginacao .paginas li:first-of-type a {
 		margin-left: 0;
 	}
@@ -324,35 +131,6 @@
 	main #paginacao .paginas ul a {
 		padding-top: 3px;
 	}
-
-	
-
-	/* .pagina {
-		float: left;
-		height: 30px;
-		line-height: 30px;
-		display: inline-block;
-		font-family: "Helvetica Neue Bold";
-		font-size: 18px;
-		color: var(--secondary);
-		padding-left: 15px;
-		margin-right: auto;
-	} */
-
-	/* .col {
-		padding: 20px 10px;
-		display: inline-block;
-		/* font-size: 13px; */
-		width: 20%;
-		vertical-align: top;
-		border-left: 1px solid var(--tertiary3);
-
-		height: 100%;
-	} */
-
-	/* .col:first-child {
-		border: none
-	} */
 
 	.icon {
 		color: inherit
@@ -442,86 +220,6 @@
 	}
 
 	/* LOADING COG END */
-
-	/* jQuery-SelectBox */
-	.selectBox-dropdown {
-		padding: 0;
-		margin: 0;
-		margin-left: 20px;
-		height: 50px;
-		cursor: pointer;
-
-		color: var(--primary);
-		background-color: var(--tertiary);
-		border: 1px solid var(--primary);
-		border-radius: 4px;
-
-		font-family: "Helvetica Neue Medium";
-		font-size: 18px;
-
-		display: flex !important;
-		align-items: center;
-	}
-
-	.selectBox-dropdown:hover {
-		color: var(--tertiary);
-		background-color: var(--primary);
-		border: 1px solid var(--primary);
-	}
-
-	.selectBox-dropdown:focus {
-		border: 1px solid var(--primary);
-	}
-
-	.selectBox-dropdown .selectBox-arrow {
-		display: none;
-		/* filter: var(--filter-bienal-pink); */
-	}
-
-	.selectBox-dropdown>.selectBox-label {
-		margin: 0;
-		padding-block: 0;
-		padding-right: 20px;
-		padding-left: 10px;
-	}
-
-	.selectBox-dropdown>.selectBox-label::before {
-		font-family: "FontAwesome";
-		border: none;
-		font-size: inherit;
-		color: inherit;
-		vertical-align: top;
-	}
-
-	.selectBox-dropdown:last-of-type>.selectBox-label::before {
-		content: "\f0ca";
-		margin-right: 10px;
-	}
-
-	.selectBox-dropdown:first-of-type>.selectBox-label::before {
-		content: "\f019";
-		margin-right: 10px;
-	}
-
-	.selectBox-dropdown-menu {
-		border-top: 1px solid var(--primary) !important;
-	}
-
-	.selectBox-dropdown-menu li a {
-		font-family: "Helvetica Neue Medium" !important;
-		/* font-size: 16px !important; */
-		color: var(--primary);
-		background-color: var(--tertiary);
-	}
-
-	.selectBox-dropdown-menu li a:hover {
-		color: var(--tertiary);
-		background-color: var(--primary);
-	}
-
-	.selectBox-options li a {
-		padding-top: 2px;
-	}
 </style>
 
 <?php
@@ -611,43 +309,44 @@
 			<div class="browse-results-toolbar">
 				<div class="pagination-bar-summary"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
 
-				<?php if (sizeof($exportacao_formatos)) { ?>
-					<select id="download">
-						<option data-type='none' value='none'><?= _t("Select a Report") ?></option>
-						<?php
-						foreach ($exportacao_formatos as $formato) 
-						{
-							print "<option data-type='" . $formato["type"] . "' value='" . $formato["code"] . "'>" . $formato["name"] . "</option>";
-						}
-						?>
-					</select>
+				<div class="browse-results-toolbar-buttons">
+					<?php if (sizeof($exportacao_formatos)) : ?>
+						<div class="select-div">
+							<button class="select-btn" popovertarget="report-list-popover">
+								<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
+							</button>
 
-					<script>
-						$("#download").change(function($a, $b) {
-							var selected_options = $(this).find("option:selected");
-							var view = selected_options.data("type");
-							var code = $(this).val();
-							window.open("<?php echo $this->request->getBaseUrlPath(); ?>/index.php/<?= $this->request->getController() ?>/<?= $acao ?>/view/" + view + "/download/1/export_format/" + code + "/key/<?= $key ?>", "_self");
-						});
-					</script>
-				<?php } ?>
+							<div popover class="select-popover" id="report-list-popover">
+								<ul>
+									<?php
+									foreach ($exportacao_formatos as $formato) 
+									{
+										print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . $formato["name"] . '</a></li>';
+									}
+									?>
+								</ul>
+							</div>
+						</div>
+					<?php endif; ?>
 
-				<select id="layout">
-					<option data-type='none' value='none'><?= _t("Select a View") ?></option>
-					<?php
-					foreach ($views as $layout => $layout_info) 
-					{
-						print "<option value='" . $layout . "'>" . $layout_info["title"] . "</option>";
-					}
-					?>
-				</select>
+					<div class="select-div">
+						<button class="select-btn" popovertarget="view-list-popover">
+							<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a View") ?>
+						</button>
 
-				<script>
-					$("#layout").change(function($a, $b) {
-						var code = $(this).val();
-						window.open("<?php echo $this->request->getBaseUrlPath(); ?>/index.php/<?= $this->request->getController() ?>/<?= $acao ?>/view/" + code + "/key/<?= $key ?>", "_self");
-					});
-				</script>
+						<div popover class="select-popover" id="view-list-popover">
+							<ul>
+								<?php foreach ($views as $layout => $layout_info) : ?>
+									<li>
+										<a href="<?= $this->request->getBaseUrlPath(); ?>/index.php/<?= $this->request->getController() ?>/<?= $acao ?>/view/<?= $layout ?>/key/<?= $key ?>">
+											<?= $layout_info["title"] ?>
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="browse-results-sort-bar">
