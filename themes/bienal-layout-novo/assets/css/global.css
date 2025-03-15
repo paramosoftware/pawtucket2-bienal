@@ -1001,3 +1001,245 @@ p {
         color: var(--tertiary);
     }
 }
+
+.browse-main-content
+{
+    display: flex;
+}
+
+.browse-results {
+    margin-left: 40px;
+    padding-right: 15px;
+    padding-bottom: 32px;
+    border-top: 2px solid var(--secondary);
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    height: 100%;
+    position: relative;
+}
+
+.browse-results-toolbar {
+    padding-block: 30px;
+    height: 90px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.browse-results-table-header {
+    font-family: "Helvetica Neue Bold";
+    font-size: 16px;
+    text-transform: uppercase;
+    height: 94px;
+    color: var(--secondary);
+    background-color: var(--tertiary2);
+    border-block: 2px solid var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.browse-results-table-row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.browse-results-table-row:nth-child(even) {
+    background-color: var(--tertiary2);
+}
+
+.browse-results-table-column {
+    padding: 20px 10px;
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+    border-left: 1px solid var(--tertiary3);
+    height: 100%;
+}
+
+.browse-results-table-column:first-child {
+    border: none
+}
+
+.browse-results-table-items {
+    font-family: "Helvetica Neue Roman";
+    font-size: 16px;
+    color: var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+    height: max-content;
+}
+
+.pagination-bar {
+    font-family: "Helvetica Neue Bold";
+    font-size: 18px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--tertiary3);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pagination-bar-summary {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    font-family: "Helvetica Neue Bold";
+    font-size: 18px;
+    color: var(--secondary);
+    padding-left: 15px;
+    margin-right: auto;
+}
+
+.pagination-bar-page-numbers {
+    display: flex;
+    align-items: center;
+}
+
+.pagination-bar-page-numbers ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination-bar-page-numbers ul li {
+    display: inline-block;
+    font-size: 16px;
+    padding: 0px;
+}
+
+.pagination-bar-page-numbers a {
+    text-decoration: none;
+    color: var(--primary);
+    background-color: var(--tertiary);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    padding: 0;
+    margin-left: 20px;
+
+    width: 30px;
+    height: 30px;
+
+    display: inline-block;
+    align-content: center;
+    font-size: 16px;
+}
+
+.browse-results-facets {
+    border-top: 2px solid var(--secondary);
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-right: 40px;
+}
+
+.browse-results-facets h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: normal;
+    color: var(--primary);
+    padding-top: 20px;
+    padding-bottom: 42px;
+    margin: 0;
+}
+
+.browse-results-facets h3 a {
+    color: var(--primary);
+}
+
+.browse-results-facets h3:before {
+    content: "\f0b0";
+    font-family: "FontAwesome";
+    margin-right: 5px
+}
+
+.browse-results-facets ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    color: #333;
+}
+
+.browse-results-facets li {
+    width: 100%;
+    font-family: "Helvetica Roman";
+    padding: 4px;
+    border: 1px solid var(--tertiary3);
+    border-radius: 4px;
+    background-color: var(--tertiary2);
+}
+
+.browse-results-facets a {
+    font-family: "Helvetica Neue Bold";
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.browse-results-sort-bar {
+    padding: 20px 10px;
+    color: var(--secondary);
+    font-size: 16px !important;
+    border-top: 2px solid var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.browse-results-sort-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.browse-results-sort-bar ul li:first-of-type {
+    font-family: "Helvetica Neue Medium";
+}
+
+.browse-results-sort-bar ul li {
+    display: inline-block;
+    line-height: 20px;
+    padding: 4px
+}
+
+.browse-results-sort-bar ul li a {
+    color: var(--tertiary4);
+    font-family: "Helvetica Neue Bold";
+    text-decoration: none;
+}
+
+.browse-results-sort-bar ul li:not(:first-of-type) {
+    font-family: "Helvetica Neue Bold";
+    color: var(--tertiary4);
+    background-color: var(--tertiary2);
+    border: 1px solid var(--tertiary3);
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-inline: 9px;
+}
+
+.browse-results-sort-bar ul li.selecionado {
+    font-family: "Helvetica Neue Bold";
+    color: var(--tertiary);
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-inline: 9px;
+}
