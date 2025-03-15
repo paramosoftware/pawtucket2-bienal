@@ -89,7 +89,7 @@
 
 		<div id="header-main">
 			<ul id="header-link-list" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
-				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_idno' => 'bienais')) ?>"><?= _t("Biennials") ?></a></li>
+				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => '3288')) ?>"><?= _t("Biennials") ?></a></li>
 				<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Funds and Collections"), "", "", "Detail", "documento/1") ?></li>
 				<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Galleries"), "", "", "Gallery", "Index") ?></li>
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Documents"), "", "", "Browse", "documentos") ?></li>
