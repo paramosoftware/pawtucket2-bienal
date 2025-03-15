@@ -79,7 +79,7 @@
 	<!-- <div id="skipNavigation"><a href="#main">Skip to main content</a></div> -->
 	<header>
 		<div id="header-logo-div">
-			<a id="header-logo-link" href="<?= $this->request->getBaseUrlPath() ?>/Front/Index">
+			<a id="header-logo-link" href="<?= $this->request->getBaseUrlPath() ?>">
 				<img
 					id="header-logo-img"
 					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/logo.svg"
