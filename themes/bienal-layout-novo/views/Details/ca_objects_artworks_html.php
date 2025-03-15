@@ -605,6 +605,7 @@ $acao = $this->request->getAction();
             ^ca_objects.type_id: <l>^ca_objects.preferred_labels</l>
         </unit>}}}
     </span>
+
     <script>
         const f_name = "<?= $acao ?>";
         for (let a of document.getElementById("hierarchy").getElementsByTagName("a")) {
@@ -614,11 +615,14 @@ $acao = $this->request->getAction();
             }
         }
     </script>
+
     <hr />
+
     <div>
         <h1>{{{<unit>^ca_objects.preferred_labels</unit>}}}</h1>
         <label>id: {{{<unit>^ca_objects.idno</unit>}}}</label>
     </div>
+
     <div>
         <span><b>{{{<unit>^ca_objects.type_id</unit>}}}</b></span>
         <div class="select-div">
@@ -639,24 +643,22 @@ $acao = $this->request->getAction();
 </div>
 
 <div class="wrapper">
-
-    <div id="descricao">
-
-        <div id="atributos">
+    <div class="summary-sheet">
+        <div class="summary-sheet-attributes">
 
             <!-- campos específicos de obra -->
 
             {{{<ifdef code="ca_objects.nonpreferred_labels">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Other Titles") ?></div>
-                            <div class="valor">^ca_objects.nonpreferred_labels</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Other Titles") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.nonpreferred_labels</div>
                         </div>
                         </ifdef>}}}
 
 
-            <div class="atributo">
-                <div class="label"><?= _t("Production Date") ?></div>
-                <div class="valor">{{{^ca_objects.production_date.production_date_value}}}</div>
+            <div class="summary-sheet-attribute">
+                <div class="summary-sheet-attribute-label"><?= _t("Production Date") ?></div>
+                <div class="summary-sheet-attribute-value">{{{^ca_objects.production_date.production_date_value}}}</div>
             </div>
 
             <?php
@@ -685,9 +687,9 @@ $acao = $this->request->getAction();
             if ($vs_processos_artisticos) {
             ?>
 
-                <div class="atributo">
-                    <div class="label"><?= _t("Artistic Processes (Support, Technique, and Material)") ?></div>
-                    <div class="valor"><?php print $vs_processos_artisticos; ?></div>
+                <div class="summary-sheet-attribute">
+                    <div class="summary-sheet-attribute-label"><?= _t("Artistic Processes (Support, Technique, and Material)") ?></div>
+                    <div class="summary-sheet-attribute-value"><?php print $vs_processos_artisticos; ?></div>
                 </div>
 
             <?php
@@ -695,16 +697,16 @@ $acao = $this->request->getAction();
             ?>
 
             {{{<ifdef code="ca_objects.artwork_type">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Type of Work") ?></div>
-                            <div class="valor">^ca_objects.artwork_type</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Type of Work") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.artwork_type</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.art_form">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Artistic Expression") ?></div>
-                            <div class="valor">^ca_objects.art_form</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Artistic Expression") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.art_form</div>
                         </div>
                         </ifdef>}}}
 
@@ -712,9 +714,9 @@ $acao = $this->request->getAction();
             $resp = $item->getWithTemplate('<unit relativeTo="ca_objects_x_occurrences" delimiter="<br>" restrictToRelationshipTypes="award"><b><l>^ca_occurrences.preferred_labels</l></b><unit delimiter=", ">: ^ca_objects_x_occurrences.bienal_awards</unit></unit>');
             if ($resp) {
             ?>
-                <div class="atributo">
-                    <div class="label"><?= _t("Prize Awarded") ?></div>
-                    <div class="valor">
+                <div class="summary-sheet-attribute">
+                    <div class="summary-sheet-attribute-label"><?= _t("Prize Awarded") ?></div>
+                    <div class="summary-sheet-attribute-value">
                         <?php
                         print $resp
                         ?>
@@ -725,82 +727,82 @@ $acao = $this->request->getAction();
             <!-- fim obra -->
 
             {{{<ifdef code="ca_objects.unitdate.date_value">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Dates") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Dates") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_objects.unitdate" delimiter="<br>">^ca_objects.unitdate.dates_types: ^ca_objects.unitdate.date_value</unit>
                             </div>                            
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.document_genre">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Documentary Genre") ?></div>
-                            <div class="valor">^ca_objects.document_genre</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Documentary Genre") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.document_genre</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.document_type">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Document Type") ?></div>
-                            <div class="valor">^ca_objects.document_type</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Document Type") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.document_type</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.analog_digital">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Analog/Digital") ?></div>
-                            <div class="valor">^ca_objects.analog_digital</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Analog/Digital") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.analog_digital</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.form">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Form") ?></div>
-                            <div class="valor">^ca_objects.form</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Form") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.form</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.inscription">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Inscription") ?></div>
-                            <div class="valor">^ca_objects.inscription</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Inscription") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.inscription</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.other_identification_form">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Pre-existing Identification") ?></div>
-                            <div class="valor">^ca_objects.other_identification_form</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Pre-existing Identification") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.other_identification_form</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.others_idno">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Other Numbers or Identification Codes") ?></div>
-                            <div class="valor">^ca_objects.others_idno</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Other Numbers or Identification Codes") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.others_idno</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.document_support">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Support") ?></div>
-                            <div class="valor">^ca_objects.document_support</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Support") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.document_support</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.document_technique">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Technique") ?></div>
-                            <div class="valor">^ca_objects.document_technique</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Technique") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.document_technique</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.dimensions">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Dimension") ?></div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Dimension") ?></div>
                             <unit relativeTo="ca_objects.dimensions" delimiter=" ">
-                            <div class="valor">
+                            <div class="summary-sheet-attribute-value">
                             
                             	<ifdef code="ca_objects.dimensions.measured_material_type">
                                 <div class="subatributo">
@@ -829,23 +831,23 @@ $acao = $this->request->getAction();
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.artwork_description">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Artwork Description") ?></div>
-                            <div class="valor">^ca_objects.artwork_description</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Artwork Description") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.artwork_description</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.location_identifier">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Location Code") ?></div>
-                            <div class="valor">^ca_objects.location_identifier</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Location Code") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.location_identifier</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.storage_note">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Location Note") ?></div>
-                            <div class="valor">^ca_objects.storage_note</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Location Note") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.storage_note</div>
                         </div>
                         </ifdef>}}}
 
@@ -853,9 +855,9 @@ $acao = $this->request->getAction();
             $resp = $item->getWithTemplate('<unit relativeTo="ca_objects_x_entities" delimiter="<br>" restrictToRelationshipTypes="edition;creator;contributor;publisher"><b><l>^ca_entities.preferred_labels</l></b><unit delimiter=", ">: ^ca_objects_x_entities.entity_functions</unit></unit>');
             if ($resp) {
             ?>
-                <div class="atributo">
-                    <div class="label"><?= _t("Related Entities (Production Context)") ?></div>
-                    <div class="valor">
+                <div class="summary-sheet-attribute">
+                    <div class="summary-sheet-attribute-label"><?= _t("Related Entities (Production Context)") ?></div>
+                    <div class="summary-sheet-attribute-value">
                         <?php
                         print $resp
                         ?>
@@ -863,226 +865,178 @@ $acao = $this->request->getAction();
                 </div>
             <?php } ?>
 
-            <?php
-            /*
-                        {{{<ifdef code="ca_objects.acqinfo">
-                        <div class="atributo">
-                            <div class="label">Procedência</div>
-                            <div class="valor">
-                            	
-                                <ifdef code="ca_objects.acqinfo.acqinfo_entity_source">
-                                <div class="subatributo">
-                                    <span>Fonte imedia da aquisição ou transferência:</span>
-                                    <span>^ca_objects.acqinfo.acqinfo_entity_source</span>
-                                </div>
-                                </ifdef>
-                                
-                                <ifdef code="ca_objects.acqinfo.acqinfo_acq_type">
-                                <div class="subatributo">
-                                    <span>Tipo de aquisição:</span>
-                                    <span>^ca_objects.acqinfo.acqinfo_acq_type</span>
-                                </div>
-                                </ifdef>
-                                
-                                <ifdef code="ca_objects.acqinfo.acqinfo_entry_date">
-                                <div class="subatributo">
-                                    <span>Data de entrada:</span>
-                                    <span>^ca_objects.acqinfo.acqinfo_entry_date</span>
-                                </div>
-                                </ifdef>
-                                
-                                <ifdef code="ca_objects.acqinfo.acqinfo_acquisition_date">
-                                <div class="subatributo">
-                                    <span>Data de aquisição:</span>
-                                    <span>^ca_objects.acqinfo.acqinfo_acquisition_date</span>
-                                </div>
-                                </ifdef>
-                                
-                                <ifdef code="ca_objects.acqinfo.acqinfo_acquisition_details">
-                                <div class="subatributo">
-                                    <span>Detalhes da aquisição:</span>
-                                    <span>^ca_objects.acqinfo.acqinfo_acquisition_details</span>
-                                </div>
-                                </ifdef>
-                                
-                            </div>
-                        </div>
-                        </ifdef>}}} 
-						*/
-            ?>
-
             {{{<ifdef code="ca_objects.city_country">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Place of Production") ?></div>
-                            <div class="valor">^ca_objects.city_country</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Place of Production") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.city_country</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifcount code="ca_occurrences" min="1" restrictToRelationshipTypes="production;subject">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Event (Documentary Production Context)") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Event (Documentary Production Context)") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_occurrences" delimiter="<br/>" restrictToRelationshipTypes="production;subject"><unit delimiter=" -> "><l>^ca_occurrences.hierarchy.preferred_labels</l></unit></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifdef code="ca_objects.nat_representation">
-                        <div class="atributo">
-                            <div class="label"><?= _t("National Representation") ?></div>
-                            <div class="valor">^ca_objects.nat_representation</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("National Representation") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.nat_representation</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.content_description">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Content Description") ?></div>
-                            <div class="valor">^ca_objects.content_description</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Content Description") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.content_description</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.langmaterial.lang_material_lang">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Language") ?></div>
-                            <div class="valor">^ca_objects.langmaterial.lang_material_lang</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Language") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.langmaterial.lang_material_lang</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.existing_copies_number">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Number of Existing Document Units") ?></div>
-                            <div class="valor">^ca_objects.existing_copies_number</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Number of Existing Document Units") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.existing_copies_number</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifcount code="ca_objects.related" min="1" restrictToRelationshipTypes="exemplar;copy">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Registered Copies/Originals") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Registered Copies/Originals") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_objects.related" delimiter="<br/>" restrictToRelationshipTypes="exemplar;copy"><unit delimiter=" -> "><l>^ca_objects.hierarchy.preferred_labels</l></unit></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_objects.related" min="1" restrictToTypes="file;documents;document_parts" excludeRelationshipTypes="exemplar;copy">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Documents") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Documents") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_objects.related" delimiter="<br/>" excludeRelationshipTypes="exemplar;copy"><unit delimiter=" -> "><l>^ca_objects.hierarchy.preferred_labels</l></unit></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_list_items" min="1">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Controlled Vocabulary") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Controlled Vocabulary") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_list_items" delimiter="<br/>">^ca_list_items.preferred_labels</unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_entities" min="1" excludeRelationshipTypes="edition;creator;contributor;publisher">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Entities") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Entities") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_entities" delimiter="<br/>" excludeRelationshipTypes="edition;creator;contributor;publisher"><l><b>^ca_entities.preferred_labels</b></l></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_objects.related" restrictToTypes="artworks" min="1">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Artwork") ?></div>
-                            <div class="valor"><unit relativeTo="ca_objects.related" restrictToTypes="artworks" delimiter="<br/>"><unit delimiter=" -> "><l><b>^ca_objects.hierarchy.preferred_labels</b></l></unit></unit></div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Artwork") ?></div>
+                            <div class="summary-sheet-attribute-value"><unit relativeTo="ca_objects.related" restrictToTypes="artworks" delimiter="<br/>"><unit delimiter=" -> "><l><b>^ca_objects.hierarchy.preferred_labels</b></l></unit></unit></div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_occurrences" min="1" excludeRelationshipTypes="participation;production;subject">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Events") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Events") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_occurrences" delimiter="<br/>" excludeRelationshipTypes="participation;production;subject"><unit delimiter=" -> "><l>^ca_occurrences.hierarchy.preferred_labels</l></unit></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_occurrences" min="1" restrictToRelationshipTypes="participation">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Event Participation") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Event Participation") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_occurrences" delimiter="<br/>" restrictToRelationshipTypes="participation"><unit delimiter=" -> "><l>^ca_occurrences.hierarchy.preferred_labels</l></unit></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifdef code="ca_objects.edition_month">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Edition Month") ?></div>
-                            <div class="valor">^ca_objects.edition_month</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Edition Month") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.edition_month</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.edition_number">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Edition Number") ?></div>
-                            <div class="valor">^ca_objects.edition_number</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Edition Number") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.edition_number</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.biblio_location_volume">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Tome / Volume") ?></div>
-                            <div class="valor">^ca_objects.biblio_location_volume</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Tome / Volume") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.biblio_location_volume</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.tipo_cromia">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Chromatics") ?></div>
-                            <div class="valor">^ca_objects.tipo_cromia</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Chromatics") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.tipo_cromia</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.tipo_polaridade">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Polarity") ?></div>
-                            <div class="valor">^ca_objects.tipo_polaridade</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Polarity") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.tipo_polaridade</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.tipo_midia">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Type of Media") ?></div>
-                            <div class="valor">^ca_objects.tipo_midia</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Type of Media") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.tipo_midia</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.padrao_gravacao">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Recording Standard") ?></div>
-                            <div class="valor">^ca_objects.padrao_gravacao</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Recording Standard") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.padrao_gravacao</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.biblio_location_type ">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Type of Publication") ?></div>
-                            <div class="valor">^ca_objects.biblio_location_type </div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Type of Publication") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.biblio_location_type </div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.biblio_location_subject">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Subject") ?></div>
-                            <div class="valor">^ca_objects.biblio_location_subject</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Subject") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.biblio_location_subject</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_objects.biblio_location_PHA">
-                        <div class="atributo">
-                            <div class="label"><?= _t("PHA Table") ?></div>
-                            <div class="valor">^ca_objects.biblio_location_PHA</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("PHA Table") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_objects.biblio_location_PHA</div>
                         </div>
                         </ifdef>}}}
 

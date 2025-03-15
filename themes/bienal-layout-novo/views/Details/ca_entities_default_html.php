@@ -640,92 +640,89 @@ $acao = $this->request->getAction();
     </div>
 </div>
 
-
 <div class="wrapper">
-
-    <div id="descricao">
-
-        <div id="atributos">
+    <div class="summary-sheet">
+        <div class="summary-sheet-attributes">
 
             {{{<ifdef code="ca_entities.lifespandates">
-                        <div class="atributo">
+                        <div class="summary-sheet-attribute">
                             <ifdef code="ca_entities.lifespandates.lifespandate_birthdate"><strong><?= _t("Date of Birth") ?>: ^ca_entities.lifespandates.lifespandate_birthdate</strong></ifdef>
                             <ifdef code="ca_entities.lifespandates.lifespandate_deathdate"><strong><?= _t("Date of Death") ?>: ^ca_entities.lifespandates.lifespandate_deathdate</strong></ifdef>
                         </div></ifdef>}}}
 
             {{{<ifdef code="ca_entities.preferred_labels.displayname">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Display Name") ?></div>
-                            <div class="valor">^ca_entities.preferred_labels.displayname</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Display Name") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.preferred_labels.displayname</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_entities.preferred_labels.otherforenames">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Other First Names") ?></div>
-                            <div class="valor">^ca_entities.preferred_labels.otherforenames</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Other First Names") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.preferred_labels.otherforenames</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_entities.nonpreferred_labels">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Alternative Names") ?></div>
-                            <div class="valor">^ca_entities.nonpreferred_labels</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Alternative Names") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.nonpreferred_labels</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_entities.nonpreferred_labels.otherforenames">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Other Alternative First Names") ?></div>
-                            <div class="valor">^ca_entities.nonpreferred_labels.otherforenames</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Other Alternative First Names") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.nonpreferred_labels.otherforenames</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_entities.biography">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Biography") ?></div>
-                            <div class="valor">^ca_entities.biography</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Biography") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.biography</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_entities.entity_category">
 							<unit relativeTo="ca_entities.entity_category">
 							<if rule="^ca_entities.entity_category =~ /Artista \/ Arquiteto/">
-							<div class="atributo">
-								<div class="label"><?= _t("Entity Category") ?></div>
-								<div class="valor">^ca_entities.entity_category</div>
+							<div class="summary-sheet-attribute">
+								<div class="summary-sheet-attribute-label"><?= _t("Entity Category") ?></div>
+								<div class="summary-sheet-attribute-value">^ca_entities.entity_category</div>
 							</div>
 							</if>
 							</unit>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_entities.entity_functions">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Occupation/Functions") ?></div>
-                            <div class="valor">^ca_entities.entity_functions</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Occupation/Functions") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.entity_functions</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_places" min="1" restrictToRelationshipTypes="birthplace">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Nationality") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Nationality") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_places" restrictToRelationshipTypes="birthplace">^ca_places.preferred_labels.name</unit>
                             </div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifdef code="ca_entities.note">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Note") ?></div>
-                            <div class="valor">^ca_entities.note</div>
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Note") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.note</div>
                         </div>
                         </ifdef>}}}
 
             {{{<ifcount code="ca_objects" min="1" restrictToTypes="artworks">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Artwork") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Artwork") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_objects" delimiter="<br>" restrictToTypes="artworks"><b><l>^ca_objects.preferred_labels</l></b> (<unit delimiter=", " relativeTo="ca_occurrences">^ca_occurrences.preferred_labels</unit>)</unit>
                             </div>
                         </div>
@@ -753,17 +750,17 @@ $acao = $this->request->getAction();
 
             {{{<case>
 							<ifcount code="ca_objects" min="1" restrictToTypes="file;documents;document_parts">
-							<div class="atributo">
-								<div class="label"><?= _t("Related Documents") ?></div>
+							<div class="summary-sheet-attribute">
+								<div class="summary-sheet-attribute-label"><?= _t("Related Documents") ?></div>
 								
-								<div class="valor" style="padding-bottom:0px">
+								<div class="summary-sheet-attribute-value" style="padding-bottom:0px">
 									<unit relativeTo="ca_objects" delimiter="<br/>" restrictToTypes="file;documents;document_parts">
 										<unit delimiter=" -> "><l>^ca_objects.hierarchy.preferred_labels</l>
 										</unit>
 									</unit>
 								</div>
 								
-								<div class="valor" style="padding-top:0px">
+								<div class="summary-sheet-attribute-value" style="padding-top:0px">
 									<?php
                                     $qr_result->seek(0);
                                     while ($qr_result->nextRow()) {
@@ -781,9 +778,9 @@ $acao = $this->request->getAction();
                             if ($qr_result->nextRow()) {
                             ?>
 							<ifcount code="ca_objects" max="0" restrictToTypes="file;documents;document_parts">
-							<div class="atributo">
-								<div class="label"><?= _t("Related Documents") ?></div>
-								<div class="valor">
+							<div class="summary-sheet-attribute">
+								<div class="summary-sheet-attribute-label"><?= _t("Related Documents") ?></div>
+								<div class="summary-sheet-attribute-value">
 									<?php
                                     $qr_result->seek(0);
                                     while ($qr_result->nextRow()) {
@@ -801,36 +798,36 @@ $acao = $this->request->getAction();
 						</case>}}}
 
             {{{<ifcount code="ca_occurrences" min="1" restrictToRelationshipTypes="participation">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Event Participation") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Event Participation") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_entities_x_occurrences" delimiter="<br>" restrictToRelationshipTypes="participation"><b><unit relativeTo="ca_occurrences" delimiter=" -> " ><l>^ca_occurrences.hierarchy.preferred_labels</l></unit></b> - <ifdef code="ca_entities_x_occurrences.participation_event_section"><unit delimiter=", ">^ca_entities_x_occurrences.participation_event_section</unit></ifdef>: <unit delimiter=", ">^ca_entities_x_occurrences.participation_type</unit> <ifdef code="ca_entities_x_occurrences.national_representation">(<unit delimiter=", ">^ca_entities_x_occurrences.national_representation</unit>)</ifdef></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_occurrences" min="1" restrictToRelationshipTypes="award">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Prize Awarded") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Prize Awarded") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_entities_x_occurrences" delimiter="<br>" restrictToRelationshipTypes="award"><b><unit relativeTo="ca_occurrences" delimiter=" -> " ><l>^ca_occurrences.preferred_labels</l></unit></b>: <unit delimiter=", ">^ca_entities_x_occurrences.bienal_awards</unit></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_occurrences" min="1" restrictToRelationshipTypes="representacao">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Representation in Event") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Representation in Event") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_entities_x_occurrences" delimiter="<br>" restrictToRelationshipTypes="representacao"><b><unit relativeTo="ca_occurrences" delimiter=" -> "><l>^ca_occurrences.preferred_labels</l></unit></b>: <unit delimiter=", ">^ca_entities_x_occurrences.ocurrencexentity_entityrole</unit> <ifdef code="ca_entities_x_occurrences.national_representation">(<unit delimiter=", ">^ca_entities_x_occurrences.ocurrencexentity_repnacplace</unit>)</ifdef></unit>
                             </div>
                         </div>
                         </ifcount>}}}
 
             {{{<ifcount code="ca_occurrences" min="1" excludeRelationshipTypes="participation;award;representacao;pesquisado_por;entidade_pesquisada">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Events") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Events") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_entities_x_occurrences" restrictToTypes="event;section;subsection" delimiter="<br>" excludeRelationshipTypes="participation;award;representacao;pesquisado_por;entidade_pesquisada">
 								
 								<b><unit relativeTo="ca_occurrences" restrictToTypes="event;section;subsection" delimiter=" -> ">
@@ -846,9 +843,9 @@ $acao = $this->request->getAction();
                         </ifcount>}}}
 
             {{{<ifcount code="ca_entities.related" min="1">
-                        <div class="atributo">
-                            <div class="label"><?= _t("Related Entities") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Related Entities") ?></div>
+                            <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_entities.related" delimiter="<br>"><l>^ca_entities.preferred_labels</l></unit>
                             </div>
                         </div>
@@ -856,9 +853,9 @@ $acao = $this->request->getAction();
 
             <!-- Acrescentado por Fred, 23/10/2021 -->
             {{{<ifdef code="ca_entities.external_link">
-                        <div class="atributo">
-                            <div class="label"><?= _t("External Links") ?></div>
-                            <div class="valor">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("External Links") ?></div>
+                            <div class="summary-sheet-attribute-value">
 								<unit relativeTo="ca_entities.external_link" delimiter="<br/>">
 									<a href="^ca_entities.external_link.url_entry" target="_blank">
                                     <b>
