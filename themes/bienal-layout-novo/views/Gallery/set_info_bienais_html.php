@@ -23,17 +23,27 @@
 </div>
 
 <ul class="sec-list collection-list">
-    <?php foreach ($va_set_items as $va_set_item) : ?>
+    <?php foreach ($va_set_items as $va_set_item) 
+    {
+        $t_occurrence = new ca_occurrences($va_set_item["row_id"]);
+
+		$vs_occurence_period = $t_occurrence->get("ca_occurrences.event_period.event_period_startdate");
+        $vs_occurence_period = substr($vs_occurence_period, strlen($vs_occurence_period) - 4, 4);
+    ?>
+       
         <li class="sec-list-item">
             <div class="sec-li-info-div">
                 <h2><?= $va_set_item["set_item_label"] ?></h2>
                 <div>
-                    <span><?= _t("Event") ?></span>
+                    <span><?= $vs_occurence_period ?></span>
                     <a href="<?= $this->request->getBaseUrlPath() . '/index.php/Detail/evento/' . $va_set_item["row_id"] ?>">Explore</a>
                 </div>
             </div>
         </li>
-    <?php endforeach; ?>
+
+    <?php 
+    } 
+    ?>
 </ul>
 
 <div class="sec-footer">
