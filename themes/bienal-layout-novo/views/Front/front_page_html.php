@@ -63,7 +63,7 @@
                 <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Selecione a Edição") ?>
               </button>
 
-              <div popover id="select-popover">
+              <div popover class="select-popover" id="select-popover">
                 <ul>
 					<?php foreach ($bienal_editions as $event_id => $bienal_edition) : ?>
 						<li>
