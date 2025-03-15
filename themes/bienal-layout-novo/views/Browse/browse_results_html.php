@@ -267,29 +267,6 @@
 		align-items: center;
 	} */
 
-	main #paginacao .jumper {
-		color: var(--secondary);
-		margin-left: auto;
-	}
-
-	main #paginacao .jumper input {
-		background-color: var(--tertiary);
-		color: var(--tertiary4);
-		border: 1px solid var(--tertiary3);
-		border-radius: 4px;
-		padding-left: 5px;
-		padding-right: 11px;
-		padding-top: 7px;
-		padding-bottom: 3px;
-
-		width: 90px;
-		height: 30px;
-		margin-left: 4px;
-
-		font-size: 16px;
-		text-align: end;
-	}
-
 	/* main #paginacao .paginas .botao {
 		width: 30px;
 		height: 30px;
@@ -311,18 +288,6 @@
 	/* main #paginacao .paginas ul li a {
 		color: inherit
 	} */
-
-	main #vocequisdizer {
-		border-top: #666 dashed 1px;
-		font-size: 16px;
-		padding: 30px;
-		font-family: "Helvetica Roman";
-		color: var(--bienal_primary)
-	}
-
-	main #vocequisdizer a {
-		color: inherit
-	}
 
 	.botao {
 		padding: 7px 10px;
@@ -360,11 +325,7 @@
 		padding-top: 3px;
 	}
 
-	main #paginacao .paginas ul li.selecionado a {
-		border: 1px solid var(--primary);
-		background-color: var(--primary);
-		color: var(--tertiary);
-	}
+	
 
 	/* .pagina {
 		float: left;
@@ -648,7 +609,6 @@
 
 		<div class="browse-results">
 			<div class="browse-results-toolbar">
-
 				<div class="pagination-bar-summary"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
 
 				<?php if (sizeof($exportacao_formatos)) { ?>
@@ -716,7 +676,6 @@
 			?>
 
 			<div class="pagination-bar">
-				
 				<div class="pagination-bar-summary"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
 
 				<div class="pagination-bar-page-numbers">
@@ -737,7 +696,7 @@
 
 					$html_paginacao .= '<ul>';
 					while ($vn_i <= $vn_f) {
-						$html_paginacao .= "<li " . ($offset == (($itens_por_pagina * $vn_i) - $itens_por_pagina) ? 'class="selecionado"' : "") . ">" . caNavLink($this->request, $vn_i, 'nextNav', '*', '*', '*', array('s' => ($itens_por_pagina * $vn_i) - $itens_por_pagina, 'view' => $view, 'key' => $key)) . "</li>";
+						$html_paginacao .= "<li " . ($offset == (($itens_por_pagina * $vn_i) - $itens_por_pagina) ? 'class="pagination-bar-selected-page"' : "") . ">" . caNavLink($this->request, $vn_i, 'nextNav', '*', '*', '*', array('s' => ($itens_por_pagina * $vn_i) - $itens_por_pagina, 'view' => $view, 'key' => $key)) . "</li>";
 						$vn_i++;
 					}
 
@@ -755,15 +714,13 @@
 				?>
 				</div>
 
-				<?php if ($paginas_totais > 1) { ?>
-					<div class="jumper">
+				<?php if ($paginas_totais > 1) : ?>
+					<div class="pagination-bar-page-jumper">
 						<?= _t("Jump to page") ?>
 						<input />
 					</div>
-				<?php } ?>
-
+				<?php endif; ?>
 			</div>
-
 		</div>
 
 		<div class="browse-results-facets">
@@ -801,7 +758,7 @@
 		</div>
 
 		<script>
-			$(".jumper input").keypress(function($e) {
+			$(".pagination-bar-page-jumper input").keypress(function($e) {
 				if ($e.which == 13 && $(this).val().trim() != "" && !isNaN($(this).val()) && Number($(this).val()) <= <?= $paginas_totais ?> && Number($(this).val()) > 0) {
 					var offset = <?= $itens_por_pagina ?> * ($(this).val() - 1);
 					window.location.href = "<?php echo $this->request->getBaseUrlPath(); ?>/index.php/Search/<?= $acao ?>/s/" + offset + "/view/<?= $view ?>/key/<?= $key ?>";

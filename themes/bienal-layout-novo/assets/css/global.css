@@ -1022,17 +1022,18 @@ p {
 .browse-results-toolbar {
     padding-block: 30px;
     height: 90px;
-    text-align: right;
+    /* text-align: right; */
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: var(--tertiary2);
 }
 
 .browse-results-table-header {
     font-family: "Helvetica Neue Bold";
     font-size: 16px;
     text-transform: uppercase;
-    height: 94px;
+    /* height: 94px; */
     color: var(--secondary);
     background-color: var(--tertiary2);
     border-block: 2px solid var(--secondary);
@@ -1069,7 +1070,7 @@ p {
     font-family: "Helvetica Neue Roman";
     font-size: 16px;
     color: var(--secondary);
-    border-bottom: 1px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary);
     height: max-content;
 }
 
@@ -1095,7 +1096,8 @@ p {
     font-size: 18px;
     color: var(--secondary);
     padding-left: 15px;
-    margin-right: auto;
+    /* margin-right: auto; */
+    width: 15%;
 }
 
 .pagination-bar-page-numbers {
@@ -1115,6 +1117,12 @@ p {
     padding: 0px;
 }
 
+.pagination-bar-page-numbers ul li.pagination-bar-selected-page a {
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--tertiary);
+}
+
 .pagination-bar-page-numbers a {
     text-decoration: none;
     color: var(--primary);
@@ -1130,6 +1138,29 @@ p {
     display: inline-block;
     align-content: center;
     font-size: 16px;
+}
+
+.pagination-bar-page-jumper {
+    color: var(--secondary);
+    /* margin-left: auto; */
+}
+
+.pagination-bar-page-jumper input {
+    background-color: var(--tertiary);
+    color: var(--tertiary4);
+    border: 1px solid var(--tertiary3);
+    border-radius: 4px;
+    padding-left: 5px;
+    padding-right: 11px;
+    padding-top: 7px;
+    padding-bottom: 3px;
+
+    width: 90px;
+    height: 30px;
+    margin-left: 4px;
+
+    font-size: 16px;
+    text-align: end;
 }
 
 .browse-results-facets {
