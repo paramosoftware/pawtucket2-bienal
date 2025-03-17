@@ -1352,3 +1352,159 @@ p {
 .summary-sheet-subattribute span:nth-child(1) {
     font-family: "Helvetica Neue Bold";
 }
+
+.wrapper {
+    margin-inline: 40px;
+    margin-bottom: 60px;
+    max-width: 100dvw;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+
+.wrapper:has(#descricao) #conteudo .item .col {
+    &.tipo {
+        width: 25%;
+    }
+
+    &.titulo {
+        width: 65%;
+    }
+
+    &.descricao {
+        display: none;
+    }
+
+    &.img {
+        display: none;
+    }
+}
+
+.wrapper:not(:has(#conteudo)):not(:has(#media_representativa)) {
+    max-width: max(50%, 600px);
+    margin-inline: auto;
+}
+
+.wrapper:has(#media_representativa) {
+    flex-direction: row-reverse;
+}
+
+.wrapper:has(#paginacao) #conteudo {
+    border-bottom: 0;
+}
+
+.wrapper:has(#paginacao) {
+    margin-bottom: 0;
+}
+
+#links {
+    vertical-align: top;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 40px;
+    padding-inline: 40px;
+    padding-bottom: 40px;
+}
+
+#links a {
+    font-family: "Helvetica Neue Roman";
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    padding: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    color: var(--primary);
+    width: 100%;
+
+    display: inline flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+}
+
+#itens .item:nth-child(even) {
+    background-color: var(--tertiary2);
+}
+
+#itens .item a {
+    text-decoration: none;
+    color: var(--primary);
+    &:hover {
+        color: var(--secondary);
+    }
+}
+
+#itens .item:last-child {
+    border: none
+}
+
+#itens .item .col {
+    padding: 20px 10px;
+    display: inline-block;
+    vertical-align: top;
+    border-left: 1px solid var(--tertiary3);
+}
+
+#itens .item .col:first-child {
+    border: none
+}
+
+#itens .item .col.tipo {
+    width: 20%;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-right: 5px;
+    font-family: "Helvetica Neue Bold";
+}
+
+#itens .item .col.titulo {
+    width: 30%;
+    color: var(--primary);
+
+    &:hover {
+        color: var(--secondary);
+    }
+}
+
+#itens .item .col.descricao {
+    width: 40%;
+    color: var(--secondary);
+}
+
+#itens .item .col.img {
+    width: 4%
+}
+
+#contagem {
+    text-transform: uppercase;
+
+    color: var(--secondary);
+    background-color: var(--tertiary2);
+
+    padding-left: 15px;
+    padding-block: 30px;
+}
+
+#contagem strong {
+    font-family: "Helvetica Neue Bold";
+    font-weight: normal;
+}
+
+#contagem {
+    font-family: "Helvetica Neue Roman";
+}
+
+.sec-header,
+.sec-list,
+.sec-footer {
+    padding-inline: 40px;
+}
+
+.sec-header>div>span {
+    text-transform: capitalize;
+}
