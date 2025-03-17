@@ -9,57 +9,6 @@ $primary_key = $this->getVar('primaryKey');
 
 ?>
 
-<style>
-	#cabecalho .col:nth-child(1) {
-		width: 15%
-	}
-
-	#cabecalho .col:nth-child(2) {
-		width: 35%
-	}
-
-	#cabecalho .col:nth-child(3) {
-		width: 10%
-	}
-
-	#cabecalho .col:nth-child(4) {
-		width: 20%
-	}
-
-	#cabecalho .col:nth-child(5) {
-		width: 10%
-	}
-
-	#cabecalho .col:nth-child(6) {
-		width: 10%
-	}
-
-	.item .col:nth-child(1) {
-		width: 15%;
-		overflow: hidden
-	}
-
-	.item .col:nth-child(2) {
-		width: 35%
-	}
-
-	.item .col:nth-child(3) {
-		width: 10%
-	}
-
-	.item .col:nth-child(4) {
-		width: 20%
-	}
-
-	.item .col:nth-child(5) {
-		width: 10%
-	}
-
-	.item .col:nth-child(6) {
-		width: 10%
-	}
-</style>
-
 <div class="browse-results-table-header">
 	<div class="browse-results-table-column"><?=_t("Identification Code")?></div>
 	<div class="browse-results-table-column"><?=_t("Event Name")?></div>

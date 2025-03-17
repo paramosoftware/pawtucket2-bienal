@@ -1,227 +1,3 @@
-<style>
-	.sec-header {
-		grid-area: sec-header;
-		padding-inline: 40px;
-	}
-
-	/* #criterios {
-		grid-area: criterios;
-	} */
-
-	.browse-results {
-		grid-area: browse-results;
-	}
-
-	.browse-results-facets {
-		grid-area: browse-results-facets;
-	}
-
-	.sec-footer {
-		grid-area: sec-footer;
-		padding-right: 40px;
-	}
-
-	main {
-		display: grid;
-		grid-template-columns: 85% 15%;
-		grid-template-areas:
-			"sec-header sec-header"
-			"browse-results browse-results-facets"
-			"sec-footer sec-footer"
-	}
-
-	.sec-header>div:has(#criterios) {
-		justify-content: start;
-		align-items: center;
-	}
-
-	main #criterios {
-		height: 30px;
-	}
-
-	main #criterios a {
-		text-decoration: none;
-		font-family: "Helvetica Neue Bold";
-		background-color: var(--bienal_primary);
-		color: var(--secondary);
-		font-size: 16px;
-
-		display: inline-block;
-		height: 30px;
-		border: 1px solid var(--tertiary3);
-		border-radius: 4px;
-		padding-left: 9px;
-		padding-right: 5px;
-		padding-top: 2px;
-
-		margin-left: 20px;
-	}
-
-	main #criterios a:first-of-type {
-		margin-left: 40px;
-	}
-
-
-	main #criterios span {
-		font-family: "Helvetica Neue Roman";
-		background-color: var(--tertiary);
-		color: var(--secondary);
-		/* padding: 9px 16px 9px 10px; */
-		font-size: 16px;
-		/* margin-right: 5px */
-	}
-
-	main #criterios a:before {
-		content: "\f00d";
-		font-family: "FontAwesome";
-		margin-right: 5px;
-		opacity: .5
-	}
-
-	#filtros a {
-		color: var(--tertiary4);
-		padding-block: 6px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-	}
-
-	main #facetas li.titulo {
-		font-family: "Helvetica Bold";
-		width: 100%
-	}
-
-	main #ferramentas .icon {
-		line-height: 30px;
-		margin: 0px 8px;
-		font-size: 22px
-	}
-
-	main #ferramentas .botao {
-		margin-left: 3px;
-		font-family: "Helvetica Medium";
-		font-size: 11px;
-		text-transform: uppercase
-	}
-
-	main #itens .item:last-child {
-		border: none
-	}
-
-	main #paginacao .pagina {
-		padding-left: 0;
-	}
-
-	.botao {
-		padding: 7px 10px;
-		border-radius: 4px;
-		background-color: var(--tertiary);
-		border: 1px solid var(--primary);
-		color: var(--primary) !important;
-		display: inline-block;
-		vertical-align: top;
-		font-size: 16px !important;
-	}
-
-	main #paginacao .paginas li:first-of-type a {
-		margin-left: 0;
-	}
-
-	main #paginacao .paginas ul a {
-		padding-top: 3px;
-	}
-
-	.icon {
-		color: inherit
-	}
-
-	.icon:before {
-		font-family: "FontAwesome";
-		border: none;
-		font-size: inherit;
-		color: inherit;
-		vertical-align: top
-	}
-
-	.icon.download:before {
-		content: "\f019"
-	}
-
-	.icon.layout:before {
-		content: "\f0ca"
-	}
-
-	.icon.inicio:before {
-		content: "\f100"
-	}
-
-	.icon.final:before {
-		content: "\f101"
-	}
-
-	.icon.proximo:before {
-		content: "\f105"
-	}
-
-	.icon.anterior:before {
-		content: "\f104"
-	}
-
-	.icon.ordenacao-asc:before {
-		content: "\f160"
-	}
-
-	.icon.ordenacao-desc:before {
-		content: "\f161"
-	}
-
-	/* LOADING COG ICON & ANIMATION*/
-	.fa {
-		display: inline-block;
-		font: normal normal normal 14px/1 FontAwesome;
-		font-size: inherit;
-		text-rendering: auto;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale
-	}
-
-	.fa-spin {
-		-webkit-animation: fa-spin 2s infinite linear;
-		animation: fa-spin 2s infinite linear
-	}
-
-	.fa-cog:before {
-		content: "\f013"
-	}
-
-	@-webkit-keyframes fa-spin {
-		0% {
-			-webkit-transform: rotate(0deg);
-			transform: rotate(0deg)
-		}
-
-		100% {
-			-webkit-transform: rotate(359deg);
-			transform: rotate(359deg)
-		}
-	}
-
-	@keyframes fa-spin {
-		0% {
-			-webkit-transform: rotate(0deg);
-			transform: rotate(0deg)
-		}
-
-		100% {
-			-webkit-transform: rotate(359deg);
-			transform: rotate(359deg)
-		}
-	}
-
-	/* LOADING COG END */
-</style>
-
 <?php
 	$acesso = $this->getVar('access_values');
 	$tabela = $this->getVar('table');
@@ -256,6 +32,7 @@
 	$negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 ?>
 
+<div class="browse-results-table-grid">
 <div id="home" class="sec-header">
 	<span>Home / <b><?= _t(_t($label)) ?></b></span>
 	<hr />
@@ -277,7 +54,7 @@
 		<?php if (sizeof($criterios) > 0) : ?>
 			<div id="criterios">
 				<?php
-				foreach ($criterios as $filtro) 
+				foreach ($criterios as $filtro)
 				{
 					if ($filtro['facet_name'] != '_search') {
 						$removalLinkElement = caNavLink($this->request, $filtro['value'], 'browseRemoveFacet', '*', '*', '*', array('removeCriterion' => $filtro['facet_name'], 'removeID' => $filtro['id'], 'view' => $view, 'key' => $key));
@@ -481,4 +258,5 @@
 			<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/whatsapp.svg" alt="logo whatsapp" /></a>
 		</li>
 	</ul>
+</div>
 </div>

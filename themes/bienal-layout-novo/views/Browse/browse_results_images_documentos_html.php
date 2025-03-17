@@ -7,33 +7,6 @@
 	$primary_key = $this->getVar('primaryKey');
 ?>
 
-<style>
-	.col {
-		display: flex;
-		align-items: center;
-	}
-
-	.col:nth-child(1) {
-		max-width: 30%;
-		width: 30%;
-	}
-
-	.col:nth-child(2) {
-		max-width: 69% !important;
-		width: 69%;
-	}
-
-	#itens .col:nth-child(2) a {
-		color: var(--primary);
-		text-decoration: none;
-		text-transform: none;
-
-		&:hover {
-			color: var(--secondary);
-		}
-	}
-</style>
-
 <div class="browse-results-table-header">
 	<div class="browse-results-table-column">imagem</div>
 	<div class="browse-results-table-column">documento</div>
