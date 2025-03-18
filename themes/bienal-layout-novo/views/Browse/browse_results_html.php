@@ -147,9 +147,11 @@
 				?>
 			</div>
 
+			<div class="browse-results-table-wrapper">
 			<?php
 				print $this->render("Browse/browse_results_{$view}_{$acao}_html.php");
 			?>
+			</div>
 
 			<div class="pagination-bar">
 				<div class="pagination-bar-summary"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
@@ -158,7 +160,7 @@
 				<?php
 					$vn_i = (($offset / $itens_por_pagina) + 1) - 3;
 					$vn_i = $vn_i < 1 ? 1 : $vn_i;
-					$vn_f = $vn_i + 6;
+					$vn_f = $vn_i + 4;
 					$vn_f = $vn_f > $paginas_totais ? $paginas_totais : $vn_f;
 					$html_paginacao = '';
 

@@ -86,6 +86,24 @@
 					alt="bienal logo" />
 			</a>
 		</div>
+		<button id="hamburger-btn" onclick="toggleHeaderMain()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+				<path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
+			</svg></button>
+
+		<script defer>
+			function toggleHeaderMain() {
+				let header_main = document.getElementById("header-main");
+				header_main.style.display = header_main.style.display == "flex" ? "none" : "flex";
+			}
+			addEventListener("click", function(e) {
+				let hamburger_btn = document.getElementById("hamburger-btn");
+				let header_main = document.getElementById("header-main");
+
+				if (window.innerWidth <= 768 && !header_main.contains(e.target) && e.target != hamburger_btn) {
+					header_main.style.display = "none";
+				};
+			});
+		</script>
 
 		<div id="header-main">
 			<ul id="header-link-list" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
@@ -96,17 +114,17 @@
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Artworks"), "", "", "Browse", "obras") ?></li>
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Entities"), "", "", "Browse", "entidades") ?></li>
 				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Events"), "", "", "Browse", "eventos") ?></li>
-				
+
 				<?php
-					$fullPath = $this->request->getFullUrlPath();
-					if(str_ends_with($fullPath, "index.php")) {
-						$fullPath = $fullPath."/Front/Index"; # /lang/<idioma> não funciona no index.php; mas funciona no /Front/Index, que mostra a mesma tela.
-					} elseif(str_contains($fullPath, "lang/"._t("en_US"))) {
-						$fullPath = substr($fullPath, 0, strlen($fullPath)-(strlen("/lang/")+5)); # remove "/lang/<idioma>" redundantes do final para evitar chamadas redundantes de /lang como "/lang/en_US/lang/pt_BR"
-					}
+				$fullPath = $this->request->getFullUrlPath();
+				if (str_ends_with($fullPath, "index.php")) {
+					$fullPath = $fullPath . "/Front/Index"; # /lang/<idioma> não funciona no index.php; mas funciona no /Front/Index, que mostra a mesma tela.
+				} elseif (str_contains($fullPath, "lang/" . _t("en_US"))) {
+					$fullPath = substr($fullPath, 0, strlen($fullPath) - (strlen("/lang/") + 5)); # remove "/lang/<idioma>" redundantes do final para evitar chamadas redundantes de /lang como "/lang/en_US/lang/pt_BR"
+				}
 				?>
 
-				<li>|&nbsp; &nbsp;<a href="<?=$fullPath."/lang/"._t("pt_BR")?>"><?=_t("pt")?></a></li>
+				<li>|&nbsp; &nbsp;<a href="<?= $fullPath . "/lang/" . _t("pt_BR") ?>"><?= _t("pt") ?></a></li>
 			</ul>
 
 			<div id="header-form">
@@ -114,7 +132,7 @@
 					id="header-adv-search-btn"
 					popovertarget="header-adv-search-popover">
 					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/folder-search.svg" />
-					<?=_t("Advanced Search")?>
+					<?= _t("Advanced Search") ?>
 				</button>
 
 				<div popover id="header-adv-search-popover">
@@ -125,6 +143,8 @@
 						<li><?= caNavLink($this->request, _t("Events"), "", "", "Search", "advanced/eventos") ?></li>
 					</ul>
 				</div>
+
+				<hr>
 
 				<form id="header-search-form" role="search" action="<?= caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>" aria-label="<?= _t("Search") ?>">
 					<input id="headerSearchInput" type="text" placeholder="<?= _t("Search") ?>" name="search" autocomplete="off" aria-label="<?= _t("Texto de busca"); ?>" />
