@@ -204,7 +204,7 @@
 		<div class="browse-results-facets">
 			<!-- Linha transferida de Browse/browse_facets_html.php -->
 
-			<h3>
+			<h3 onclick="toggleFiltros()">
 				<?php
 				$v_url_facets_list = "/mandic/pawtucket/index.php/Browse/" . $browse_type . "/getFacetsList/1/key/" . $key;
 				?>
@@ -248,6 +248,9 @@
 
 <div class="sec-footer">
 	<ul class="sec-footer-social-list">
+		<li>
+			<a><img class="share-img" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/share.svg" alt="share icon" tabindex="-1" /></a>
+		</li>
 		<li>
 			<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
 		</li>

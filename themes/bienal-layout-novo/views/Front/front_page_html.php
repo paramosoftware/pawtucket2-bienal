@@ -1,8 +1,8 @@
 <?php
-	$collections = $this->getVar('collections');
-	$bienal_editions = $this->getVar('bienal_editions');
-	$sets = $this->getVar('sets');
-	$highlight_sets = $this->getVar('highlight_sets');
+$collections = $this->getVar('collections');
+$bienal_editions = $this->getVar('bienal_editions');
+$sets = $this->getVar('sets');
+$highlight_sets = $this->getVar('highlight_sets');
 ?>
 
 <section id="home-sec1">
@@ -14,7 +14,7 @@
 			<li>
 				<h2><?= _t("Documents") ?></h2>
 				<hr />
-				<h3><?= $this->getVar('document_count')." "._t("Documents") ?></h3>
+				<h3><?= $this->getVar('document_count') . " " . _t("Documents") ?></h3>
 				<hr />
 				<p>
 					<?= _t("Records of sets or documentary items, organized in funds or collections") ?>
@@ -24,7 +24,7 @@
 			<li>
 				<h2><?= _t("Artworks") ?></h2>
 				<hr />
-				<h3><?= $this->getVar('artwork_count')." "._t("Artworks") ?></h3>
+				<h3><?= $this->getVar('artwork_count') . " " . _t("Artworks") ?></h3>
 				<hr />
 				<p><?= _t("Information about the artworks and their participation in the Biennials") ?></p>
 				<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Browse/obras"><?= _t("Explore") ?></a>
@@ -32,7 +32,7 @@
 			<li>
 				<h2><?= _t("Entities") ?></h2>
 				<hr />
-				<h3><?= $this->getVar('entity_count')." "._t("Entities") ?></h3>
+				<h3><?= $this->getVar('entity_count') . " " . _t("Entities") ?></h3>
 				<hr />
 				<p>
 					<?= _t("Data about people and institutions, their relationships with documentation or registered events") ?>
@@ -42,7 +42,7 @@
 			<li>
 				<h2><?= _t("Events") ?></h2>
 				<hr />
-				<h3><?= $this->getVar('event_count')." "._t("Events") ?></h3>
+				<h3><?= $this->getVar('event_count') . " " . _t("Events") ?></h3>
 				<hr />
 				<p>
 					<?= _t("Information about events held by the Bienal Foundation and others related to documentation") ?>
@@ -52,28 +52,34 @@
 		</ul>
 
 		<hr />
+		<ul id="home-sec1-main-list-tracker">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
 
-        <div id="home-sec1-footer">
-            <h1>
-              <?= _t("Selecione a edição para consultar as informações referentes a cada Bienal."); ?>
-            </h1>
+		<div id="home-sec1-footer">
+			<h1>
+				<?= _t("Selecione a edição para consultar as informações referentes a cada Bienal."); ?>
+			</h1>
 
-            <div id="home-select-div" class="select-div">
-              <button id="home-select-btn" class="select-btn" popovertarget="select-popover">
-                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Selecione a Edição") ?>
-              </button>
+			<div id="home-select-div" class="select-div">
+				<button id="home-select-btn" class="select-btn" popovertarget="select-popover">
+					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Selecione a Edição") ?>
+				</button>
 
-              <div popover class="select-popover" id="select-popover">
-                <ul>
-					<?php foreach ($bienal_editions as $event_id => $bienal_edition) : ?>
-						<li>
-							<?= caDetailLink($this->request, $bienal_edition, '', 'ca_occurrences', $event_id); ?>
-						</li>
-					<?php endforeach; ?>
-                </ul>
-              </div>
-            </div>
-        </div>
+				<div popover class="select-popover" id="select-popover">
+					<ul>
+						<?php foreach ($bienal_editions as $event_id => $bienal_edition) : ?>
+							<li>
+								<?= caDetailLink($this->request, $bienal_edition, '', 'ca_occurrences', $event_id); ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -85,9 +91,9 @@
 		</div>
 
 		<ul class="sec-list">
-			<?php foreach($highlight_sets as $set_id => $set) : ?>
+			<?php foreach ($highlight_sets as $set_id => $set) : ?>
 				<li class="sec-list-item">
-					<?php if (!empty($set["cover_image"])) :?>
+					<?php if (!empty($set["cover_image"])) : ?>
 						<div class="sec-img-div">
 							<?= $set["cover_image"] ?>
 						</div>
@@ -97,7 +103,7 @@
 						<h2><?= $set["name"] ?></h2>
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
-							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id))?>"><?= _t("Explore") ?></a>
+							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>"><?= _t("Explore") ?></a>
 						</div>
 					</div>
 				</li>
@@ -109,7 +115,7 @@
 <section class="sec-bg-color">
 	<div class="sec-content">
 		<div class="home-sec-header">
-			<h1><?=_t("Funds and Collections")?></h1>
+			<h1><?= _t("Funds and Collections") ?></h1>
 			<hr />
 		</div>
 
@@ -138,9 +144,9 @@
 		</div>
 
 		<ul class="sec-list gallery-list">
-			<?php foreach($sets as $set_id => $set) : ?>
+			<?php foreach ($sets as $set_id => $set) : ?>
 				<li class="sec-list-item">
-					<?php if (!empty($set["cover_image"])) :?>
+					<?php if (!empty($set["cover_image"])) : ?>
 						<div class="sec-img-div">
 							<?= $set["cover_image"] ?>
 						</div>
@@ -151,7 +157,7 @@
 
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
-							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id))?>"><?= _t("Explore") ?></a>
+							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>"><?= _t("Explore") ?></a>
 						</div>
 					</div>
 				</li>

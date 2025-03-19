@@ -186,53 +186,6 @@ section {
     margin-block: 0;
 }
 
-/* #home-sec1-footer > div::before {
-    content: '';
-    position: absolute;
-    inset: auto;
-    width: 40px;
-    height: 48px;
-    pointer-events: none;
-
-    background-image: url("../svg/download.svg");
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position: 10px;
-    filter: var(--filter-bienal-white);
-}
-
-#home-sec1-footer > div:hover::before {
-    filter: var(--filter-bienal-pink);
-}
-
-#home-sec1-footer > div:hover {
-    color: var(--primary);
-    background-color: var(--tertiary);
-    border-radius: 4px;
-}
-
-#home-sec1-footer select {
-    appearance: none;
-
-    height: 48px;
-    width: 220px;
-
-    border: 1px solid var(--tertiary);
-    border-radius: 4px;
-    padding-inline: 10px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-
-    text-align: end;
-
-    font-family: "Helvetica Neue Medium";
-    font-size: 18px;
-    line-height: 1;
-
-    color: inherit;
-    background-color: inherit;
-} */
-
 /* SECTION1 @HOME END */
 
 /* SECTION-LIST HEADER @HOME */
@@ -355,6 +308,16 @@ section {
     anchor-name: --sec-header-popover-anchor;
 }
 
+.select-div:first-of-type .sec-header button,
+.select-div:first-of-type .select-btn {
+    anchor-name: --sec-header-popover-anchor;
+}
+
+.select-div:not(:first-of-type) .sec-header button,
+.select-div:not(:first-of-type) .select-btn {
+    anchor-name: --sec-header-popover-anchor2;
+}
+
 .select-btn {
     gap: 12px;
     width: var(--popover-btn-width);
@@ -447,6 +410,18 @@ section {
     width: var(--popover-btn-width);
 }
 
+.select-div:first-of-type .select-popover {
+    position-anchor: --sec-header-popover-anchor;
+    top: anchor(--sec-header-popover-anchor bottom);
+    left: anchor(--sec-header-popover-anchor left);
+}
+
+.select-div:not(:first-of-type) .select-popover {
+    position-anchor: --sec-header-popover-anchor2;
+    top: anchor(--sec-header-popover-anchor2 bottom);
+    left: anchor(--sec-header-popover-anchor2 left);
+}
+
 .select-popover ul {
     list-style: none;
     padding: 0;
@@ -513,11 +488,11 @@ section {
 }
 
 .sec-footer-social-list li {
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
 }
 
-.sec-footer-social-list img {
+.sec-footer-social-list img:not(.share-img) {
     filter: var(--filter-bienal-pink);
 }
 
@@ -1060,6 +1035,11 @@ p {
     font-size: 16px;
 }
 
+.pagination-bar-page-numbers li a {
+    padding-top: 3px;
+}
+
+
 .pagination-bar-page-jumper {
     color: var(--secondary);
     /* margin-left: auto; */
@@ -1105,6 +1085,7 @@ p {
 
 .browse-results-facets h3 a {
     color: var(--primary);
+    line-height: 2;
 }
 
 .browse-results-facets h3:before {
@@ -1582,6 +1563,19 @@ p {
     content: "\f161"
 }
 
+.fa-cog:before {
+    font-family: "FontAwesome";
+    border: none;
+    font-size: inherit;
+    font-style: normal;
+    color: inherit;
+    vertical-align: top;
+    content: "\f013";
+}
+
+#home-sec1-main-list-tracker {
+    display: none;
+}
 
 @media screen and (width <=1200px) {
     #home-sec1-main-list {
@@ -1613,6 +1607,10 @@ p {
 }
 
 @media screen and (width <=768px) {
+    main:has(#home-sec1) section>* {
+        padding-inline: 20px;
+    }
+
     #home-sec1-footer {
         align-items: center;
     }
@@ -1620,6 +1618,7 @@ p {
     .sec-list {
         grid-template-columns: repeat(1, 1fr);
         margin-inline: 0;
+        padding-inline: 0;
     }
 
     .sec-list-item h2 {
@@ -1630,17 +1629,65 @@ p {
         white-space: normal;
     }
 
-    #home-sec1-main-list {
-        grid-template-columns: repeat(1, 1fr);
-        text-align: center;
+    #home-sec1-content h1,
+    #home-sec1-content h2 {
+        font-size: 24px;
     }
 
-    #home-sec1-main-list a {
-        margin-inline: auto;
+    #home-sec1-content h3 {
+        font-size: 20px;
     }
+
+    #home-sec1-content h1,
+    #home-sec1-content h2,
+    #home-sec1-content h3,
+    #home-sec1-content p {
+        text-align: start;
+    }
+
+    #home-sec1-main-list {
+        grid-template-columns: repeat(4, calc(100dvw - 40px));
+        overflow-x: scroll;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+    }
+
+    #home-sec1-main-list>* {
+        scroll-snap-stop: always;
+        scroll-snap-align: center;
+    }
+
+    #home-sec1-main-list-tracker {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+        margin-inline: auto;
+        margin-bottom: 30px;
+    }
+
+    #home-sec1-main-list-tracker li {
+        list-style: none;
+        color: var(--secondary);
+    }
+    #home-sec1-main-list-tracker li:first-of-type {
+        color: var(--tertiary);
+    }
+    
+    #home-sec1-main-list-tracker li::before {
+        content:"·";
+        font-size:90px;
+        vertical-align:middle;
+        line-height:20px;
+    }
+
+    /* #home-sec1-main-list a {
+        margin-inline: auto;
+    } */
 
     #home-sec1-content>hr {
-        margin-block: 40px;
+        margin-top: 40px;
+        margin-bottom: 30px;
     }
 
     #home-sec1-footer {
@@ -1709,6 +1756,17 @@ p {
         width: 100%;
     }
 
+    .browse-results-facets h3:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+    .browse-results-facets #filtros {
+        display: none;
+    }
+
     .browse-results-table-grid {
         grid-template-columns: 100%;
         grid-template-areas: "sec-header"
@@ -1754,6 +1812,14 @@ p {
 
     .browse-results-toolbar-buttons .select-div button {
         width: 100% !important;
+    }
+
+    .browse-results-toolbar-buttons .select-div [popover] {
+        width: calc(100% - 40px);
+    }
+
+    .browse-results-toolbar-buttons .select-div [popover] * {
+        width: 100%;
     }
 
     .browse-results-sort-bar {
@@ -1824,5 +1890,19 @@ p {
     .sec-footer {
         padding-inline: 20px;
         margin-top: 30px;
+    }
+
+    .browse-results-table-header {
+        border-block: 0;
+    }
+
+    .browse-results-table-header .browse-results-table-column {
+        border-block: 2px solid var(--secondary);
+    }
+
+    .browse-results-table-column {
+        min-width: 250px;
+        max-width: 250px;
+        word-wrap: break-word;
     }
 }

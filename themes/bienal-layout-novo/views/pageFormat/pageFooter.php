@@ -80,30 +80,37 @@
 	<hr />
 	<div id="footer-main">
 		<ul id="footer-main-list">
-			<li><a href="#"><?=_t("Historical Archive")?></a></li>
-        	<li><a href="#"><?=_t("Collection Guide")?></a></li>
-        	<li><a href="#"><?=_t("Research Requests")?></a></li>
-        	<li><a href="#"><?=_t("Classification Plan")?></a></li>
+			<li><a href="#"><?= _t("Historical Archive") ?></a></li>
+			<li><a href="#"><?= _t("Collection Guide") ?></a></li>
+			<li><a href="#"><?= _t("Research Requests") ?></a></li>
+			<li><a href="#"><?= _t("Classification Plan") ?></a></li>
 		</ul>
 		<div id="footer-disclaimer">
-			<p>
-				<?= _t("The AHWS database was supported by Proac and is under continuous development.") ?>
-			</p>
-			<p>
-				<?= _t("The information presented here is under constant review.") ?>
-				<?= _t("To complete your research, contact the Bienal Archive.") ?>
-			</p>
+			<img id="footer-bloco-logos" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bloco-logos.png"
+				alt="logo bienal" />
 			<div id="footer-disclaimer-logos">
 				<img
-					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/logo.svg"
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/proac.png"
 					alt="logo bienal" />
 				<img
-					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/sp-duplo.png"
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-texto.png"
+					alt="logo Proac, logo São Paulo" />
+				<img
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/sp-cultura.png"
+					alt="logo Proac, logo São Paulo" />
+				<img
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/cultsp.png"
+					alt="logo Proac, logo São Paulo" />
+				<img
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/secretaria-sp.png"
 					alt="logo Proac, logo São Paulo" />
 			</div>
 		</div>
 		<div id="footer-info">
 			<div>
+				<p>
+					<?= _t("The AHWS database was supported by Proac and is under continuous development.") ?>
+				</p>
 				<h4><?= _t("Wanda Svevo Historical Archive") ?></h4>
 				<p>
 					Parque Ibirapuera – Portão 3 Pavilhão Ciccillo Matarazzo - 2º

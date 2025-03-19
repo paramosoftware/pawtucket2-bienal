@@ -42,6 +42,9 @@
 	<!-- jQuery selectBox -->
 	<script type="application/javascript" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/js/jquery.selectBox.js"></script>
 
+	<!-- JS das páginas do site -->
+	<script defer type="application/javascript" src="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/js/global.js"></script>
+
 	<!-- meta/asset loader do theme default -->
 	<?php
 	// echo MetaTagManager::getHTML();
@@ -89,22 +92,6 @@
 		<button id="hamburger-btn" onclick="toggleHeaderMain()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 				<path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
 			</svg></button>
-
-		<script defer>
-			function toggleHeaderMain() {
-				let header_main = document.getElementById("header-main");
-				header_main.style.display = header_main.style.display == "flex" ? "none" : "flex";
-			}
-			addEventListener("click", function(e) {
-				let hamburger_btn = document.getElementById("hamburger-btn");
-				let header_main = document.getElementById("header-main");
-
-				if (window.innerWidth <= 768 && !header_main.contains(e.target) && e.target != hamburger_btn) {
-					header_main.style.display = "none";
-				};
-			});
-		</script>
-
 		<div id="header-main">
 			<ul id="header-link-list" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
 				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => '3288')) ?>"><?= _t("Biennials") ?></a></li>
