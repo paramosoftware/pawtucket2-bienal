@@ -93,7 +93,7 @@ $vb_exibir_imagem = true;
                 <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
             </button>
 
-            <div popover id="select-popover">
+            <div popover class="select-popover" id="select-popover">
                 <ul>
                     <?php
                     foreach ($exportacao_formatos as $formato) {
@@ -826,7 +826,7 @@ $vb_exibir_imagem = true;
     if ($vn_numero_itens > 1) {
     ?>
         <div id="conteudo">
-            <div id="contagem">
+            <div id="contagem" onclick="toggleItems()">
                 <strong><span class="quantidade"><?= $vn_numero_itens . ($vn_numero_itens ? " " . _t("Records") . " " : " " . _t("Record") . " ") ?></span></strong><?= _t("at this level") ?>
             </div>
 
@@ -848,9 +848,9 @@ $vb_exibir_imagem = true;
                 <script>
                     if ($(".summary-sheet-attribute").length <= 0) {
                         if ($("#contagem").length > 0) {
-                            $("#descricao").remove();
+                            $(".summary-sheet").remove();
                         } else {
-                            $("#descricao").html("<div class='aviso'>este item não possui descrição ou registros</div>");
+                            $(".summary-sheet").html("<div class='aviso'>este item não possui descrição ou registros</div>");
                         }
                     }
                 </script>

@@ -204,7 +204,7 @@
 		<div class="browse-results-facets">
 			<!-- Linha transferida de Browse/browse_facets_html.php -->
 
-			<h3 onclick="toggleFiltros()">
+			<h3 onclick="toggleById('filtros')">
 				<?php
 				$v_url_facets_list = "/mandic/pawtucket/index.php/Browse/" . $browse_type . "/getFacetsList/1/key/" . $key;
 				?>

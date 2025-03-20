@@ -93,6 +93,12 @@ header button {
     text-transform: uppercase;
 }
 
+#header-link-list li:last-of-type::before {
+    content: "|";
+    margin-right: 14px;
+}
+
+
 #header-link-list a:hover {
     color: var(--primary);
 }
@@ -355,6 +361,10 @@ header hr {
     #header-link-list li:last-of-type a {
         width: fit-content;
         padding: 0;
+    }
+
+    #header-link-list li:last-of-type::before {
+        content: unset;
     }
 
     #header-form {

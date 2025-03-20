@@ -248,15 +248,6 @@ footer a {
             "footer-info"
             "footer-disclaimer";
     }
-
-    .gallery-list .sec-img-div {
-        max-width: 100%;
-        margin: 0;
-    }
-
-    .gallery-list .sec-li-info-div {
-        width: 100%;
-    }
 }
 
 /* FOOTER END */

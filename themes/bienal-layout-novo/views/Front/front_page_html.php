@@ -115,30 +115,6 @@ $highlight_sets = $this->getVar('highlight_sets');
 <section class="sec-bg-color">
 	<div class="sec-content">
 		<div class="home-sec-header">
-			<h1><?= _t("Funds and Collections") ?></h1>
-			<hr />
-		</div>
-
-		<ul class="sec-list collection-list">
-			<?php foreach ($collections as $collecton) : ?>
-				<li class="sec-list-item">
-					<div class="sec-li-info-div">
-						<h2><?= $collecton["name"] ?></h2>
-
-						<div>
-							<span><?= ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") ?></span>
-							<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?= $collecton["object_id"] ?>"><?= _t("Explore") ?></a>
-						</div>
-					</div>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-	</div>
-</section>
-
-<section class="sec-bg-color">
-	<div class="sec-content">
-		<div class="home-sec-header">
 			<h1><?= _t("Galleries") ?></h1>
 			<hr />
 		</div>
@@ -158,6 +134,30 @@ $highlight_sets = $this->getVar('highlight_sets');
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
 							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>"><?= _t("Explore") ?></a>
+						</div>
+					</div>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</section>
+
+<section class="sec-bg-color">
+	<div class="sec-content">
+		<div class="home-sec-header">
+			<h1><?= _t("Funds and Collections") ?></h1>
+			<hr />
+		</div>
+
+		<ul class="sec-list collection-list">
+			<?php foreach ($collections as $collecton) : ?>
+				<li class="sec-list-item">
+					<div class="sec-li-info-div">
+						<h2><?= $collecton["name"] ?></h2>
+
+						<div>
+							<span><?= ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") ?></span>
+							<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?= $collecton["object_id"] ?>"><?= _t("Explore") ?></a>
 						</div>
 					</div>
 				</li>

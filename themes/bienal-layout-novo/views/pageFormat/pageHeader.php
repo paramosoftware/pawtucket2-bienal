@@ -89,7 +89,7 @@
 					alt="bienal logo" />
 			</a>
 		</div>
-		<button id="hamburger-btn" onclick="toggleHeaderMain()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+		<button id="hamburger-btn" onclick="toggleById('header-main', 'flex')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
 				<path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
 			</svg></button>
 		<div id="header-main">
@@ -106,12 +106,12 @@
 				$fullPath = $this->request->getFullUrlPath();
 				if (str_ends_with($fullPath, "index.php")) {
 					$fullPath = $fullPath . "/Front/Index"; # /lang/<idioma> não funciona no index.php; mas funciona no /Front/Index, que mostra a mesma tela.
-				} elseif (str_contains($fullPath, "lang/" . _t("en_US"))) {
+				} elseif (str_contains($fullPath, "lang/")) {
 					$fullPath = substr($fullPath, 0, strlen($fullPath) - (strlen("/lang/") + 5)); # remove "/lang/<idioma>" redundantes do final para evitar chamadas redundantes de /lang como "/lang/en_US/lang/pt_BR"
 				}
 				?>
 
-				<li>|&nbsp; &nbsp;<a href="<?= $fullPath . "/lang/" . _t("pt_BR") ?>"><?= _t("pt") ?></a></li>
+				<li><a href="<?= $fullPath . "/lang/pt_BR" ?>">pt</a>&nbsp; &nbsp;|&nbsp; &nbsp;<a href="<?= $fullPath . "/lang/en_US" ?>">en</a></li>
 			</ul>
 
 			<div id="header-form">
