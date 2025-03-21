@@ -1076,7 +1076,7 @@ p {
     border-top: 2px solid var(--secondary);
     vertical-align: top;
     display: inline-block;
-    width: 100%;
+    width: calc(100% - 40px);
     height: 100%;
     position: relative;
     margin-right: 40px;
@@ -1267,6 +1267,10 @@ p {
     gap: 40px;
 }
 
+#conteudo {
+    border-block: 2px solid var(--secondary);
+}
+
 .wrapper:has(.summary-sheet) #conteudo .item a {
     width: 100%;
 }
@@ -1279,10 +1283,7 @@ p {
     width: 65%;
 }
 
-.wrapper:has(.summary-sheet) #conteudo .item .descricao {
-    display: none;
-}
-
+.wrapper:has(.summary-sheet) #conteudo .item .descricao,
 .wrapper:has(.summary-sheet) #conteudo .item .img {
     display: none;
 }
@@ -1318,6 +1319,8 @@ p {
     gap: 40px;
     padding-inline: 40px;
     padding-bottom: 40px;
+    padding-top: 20px;
+    border-top: 2px solid var(--tertiary4);
 }
 
 #links a {
@@ -1591,12 +1594,25 @@ p {
     content: "\f013";
 }
 
+
+#media_representativa .download-button,
 #home-sec1-main-list-tracker {
     display: none;
 }
 
 main:has(.wrapper) .sec-footer {
     margin-top: 30px;
+}
+
+#media_representativa iframe {
+    width: 45dvw;
+    height: 45dvw;
+}
+
+#media_representativa .image-subtitle {
+    content: "Placeholder legenda.";
+    font-family: "Helvetica Neue Roman";
+    font-family: 18px;
 }
 
 @media screen and (width <=1200px) {
@@ -1699,9 +1715,12 @@ main:has(.wrapper) .sec-footer {
 
     #home-sec1-main-list-tracker li::before {
         content: "·";
-        font-size: 90px;
+        font-size: 135px;
+        display: inline-block;
+        height: 16px;
+        width: 24px;
+        line-height: 18px;
         vertical-align: middle;
-        line-height: 20px;
     }
 
     /* #home-sec1-main-list a {
@@ -1718,7 +1737,7 @@ main:has(.wrapper) .sec-footer {
     }
 
     .wrapper {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse !important;
         margin: 0;
         max-width: 100dvw;
     }
@@ -1748,14 +1767,50 @@ main:has(.wrapper) .sec-footer {
         text-align: center;
     }
 
-    .wrapper:has(.summary-sheet-attribute) #contagem:after {
-        content: "\f107";
-        font-family: "FontAwesome";
-        font-weight: bold;
-        margin-left: 5px;
+    .wrapper:not(:has(.summary-sheet-attribute)) {
+        #itens .item {
+            padding-block: 10px;
+        }
+
+        #itens .item:last-of-type {
+            border-bottom: 2px solid black;
+        }
+
+        #itens .item .col {
+            max-width: 100% !important;
+            width: 100% !important;
+            text-align: center;
+            border: 0;
+            padding-block: 7px;
+
+            >* {
+                margin-inline: auto;
+            }
+        }
+
+        #itens .item:has(.col:nth-child(3)) {
+            .col:nth-child(2) {
+                padding-bottom: 14px;
+            }
+
+            .col:nth-child(3) {
+                padding-top: 0;
+            }
+        }
+
+        #itens .item:has(.col:nth-child(4)) {
+            .col:nth-child(3) {
+                padding-bottom: 0;
+            }
+
+            .col:nth-child(4) {
+                padding-top: 14px;
+            }
+        }
     }
 
-    .wrapper:has(.summary-sheet-attribute) #itens {
+    .wrapper:has(.summary-sheet-attribute) #itens,
+    .browse-results-facets #filtros {
         display: none;
     }
 
@@ -1864,15 +1919,17 @@ main:has(.wrapper) .sec-footer {
         width: 100%;
     }
 
-    .browse-results-facets h3:after {
-        content: "\f107";
+    .browse-results-facets h3:after,
+    #contagem:after {
+        content: "\f106";
         font-family: "FontAwesome";
         font-weight: bold;
         margin-left: 5px;
     }
 
-    .browse-results-facets #filtros {
-        display: none;
+    .browse-results-table-grid:has(#filtros:not([style*="display: block"])) .browse-results-facets h3:after,
+    .wrapper:has(.summary-sheet-attribute:not([style*="display: block"])) .wrapper:has(.summary-sheet-attribute) #contagem:after {
+        content: "\f107";
     }
 
     .browse-results-table-grid {
@@ -2049,6 +2106,25 @@ main:has(.wrapper) .sec-footer {
 
     .gallery-list li {
         padding-top: 25px;
+    }
+
+    #media_representativa {
+        padding-inline: 20px;
+    }
+
+    #media_representativa #images iframe {
+        height: 74dvh;
+        width: 100%;
+    }
+
+    #links {
+        --link-marginX: 20px;
+        margin-inline: var(--link-marginX);
+        width: calc(100dvw - var(--link-marginX) * 2);
+        padding-inline: 0;
+        padding-bottom: 30px;
+        flex-direction: column;
+        gap: 20px;
     }
 }
 

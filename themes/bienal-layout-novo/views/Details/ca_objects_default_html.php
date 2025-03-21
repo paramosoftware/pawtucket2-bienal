@@ -779,6 +779,7 @@ $vb_exibir_imagem = true;
                 <?php if ($vb_pdf || true) {
                 ?>
                     <div style="margin-top:10px">
+                        <span class="image-subtitle">Placeholder para legenda.</span>
                         <button class="download-button" onClick="downloadResource();">Download</button>
                     </div>
 

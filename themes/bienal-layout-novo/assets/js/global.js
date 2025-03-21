@@ -32,8 +32,17 @@ if(main_list != null && tracker_list != null) {
  * Arquivos relevantes: pageHeader.php, front_page_html.php
  */
 addEventListener("resize", () => {
-    if(window.innerWidth > 768) document.getElementById("header-main").style.display = "flex";
-    main_list_padding_right = window.innerWidth - main_list.getBoundingClientRect().right;
+    let header_main = document.getElementById("header-main");
+    if(window.innerWidth > 768) {
+        if(header_main != null) header_main.style.display = "flex";
+        
+        let itens = document.getElementById("itens");
+        if(itens != null) itens.style.display = "block";
+    } else {
+        if(header_main != null) header_main.style.display = "none";
+    }
+
+    if(main_list != null) main_list_padding_right = window.innerWidth - main_list.getBoundingClientRect().right;
 });
 
 
@@ -60,7 +69,7 @@ addEventListener("click", function(e) {
  * Arquivos relevantes: pageHeader.php, browse_results_html.php, ca_objects_default_html.php
  * 
  * @param {string} targetId id do elemento que vai ser mostrado/escondido.
- * @param {string} [displayType='block'] 'block' por padrão. tipo de display do elemento que vai ser mostrado/escondido (e.g. 'block', 'flex').
+ * @param {string} [displayType='block'] 'block' por padrão. Tipo de display do elemento que vai ser mostrado/escondido (e.g. 'block', 'flex').
  */
 function toggleById(targetId, displayType = 'block') {
     let e = document.getElementById(targetId);
