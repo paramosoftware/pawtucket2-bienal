@@ -92,7 +92,8 @@ section {
     font-family: "Helvetica Neue Roman";
     font-size: 32px;
     font-weight: normal;
-    text-align: center;
+    text-align: start;
+    text-wrap: auto;
     margin-bottom: 60px;
 }
 
@@ -107,6 +108,7 @@ section {
     font-family: "Helvetica Neue Roman";
     font-size: 24px;
     text-transform: lowercase;
+    font-weight: normal;
     margin-bottom: 35px;
 }
 
@@ -208,7 +210,7 @@ section {
     margin-block: auto;
     width: 100%;
     border: 0;
-    border-top: 2px solid var(--secondary);
+    border-top: 2px solid var(--tertiary3);
 }
 
 /* SECTION-LIST HEADER @HOME END */
@@ -487,7 +489,13 @@ section {
     align-self: flex-end;
 }
 
-.sec-footer-social-list li {
+.sec-footer-social-list li:not(:has(img)) {
+    font-family: "Helvetica Neue Roman";
+    font-size: 18px;
+    width: fit-content;
+}
+
+.sec-footer-social-list li:has(img) {
     height: 24px;
     width: 24px;
 }
@@ -970,7 +978,7 @@ p {
 }
 
 .pagination-bar,
-#paginacao {
+main #paginacao {
     font-family: "Helvetica Neue Bold";
     font-size: 18px;
     text-align: center;
@@ -1048,13 +1056,13 @@ p {
 
 
 .pagination-bar-page-jumper,
-#paginacao .jumper {
+main #paginacao .jumper {
     color: var(--secondary);
     /* margin-left: auto; */
 }
 
 .pagination-bar-page-jumper input,
-#paginacao .jumper input {
+main #paginacao .jumper input {
     background-color: var(--tertiary);
     color: var(--tertiary4);
     border: 1px solid var(--tertiary3);
@@ -1267,7 +1275,7 @@ p {
     gap: 40px;
 }
 
-#conteudo {
+main:not(:has(.sec-header img)) #conteudo {
     border-block: 2px solid var(--secondary);
 }
 
@@ -1323,7 +1331,7 @@ p {
     border-top: 2px solid var(--tertiary4);
 }
 
-#links a {
+main #links a {
     font-family: "Helvetica Neue Roman";
     font-size: 18px;
     text-decoration: none;
@@ -1339,6 +1347,20 @@ p {
     align-items: center;
     justify-content: center;
     vertical-align: top;
+}
+
+main #links:has(.gallery-link) > div {
+    gap: 45px;
+}
+
+main #links .gallery-link {
+    border: 0;
+    border-radius: 0;
+    padding-block: 0;
+    font-family: "Helvetica Neue Bold";
+    font-size: 16px;
+    text-transform: none;
+    width: 100%;
 }
 
 #itens .item:nth-child(even) {
@@ -1528,15 +1550,15 @@ p {
     border: none
 }
 
-#paginacao .pagina {
+main #paginacao .pagina {
     padding-left: 0;
 }
 
-#paginacao .paginas li:first-of-type a {
+main #paginacao .paginas li:first-of-type a {
     margin-left: 0;
 }
 
-#paginacao .paginas ul a {
+main #paginacao .paginas ul a {
     padding-top: 3px;
 }
 
@@ -1644,7 +1666,7 @@ main:has(.wrapper) .sec-footer {
     }
 }
 
-@media screen and (width <=768px) {
+@media screen and (width <=940px) {
     main:has(#home-sec1) section>* {
         padding-inline: 20px;
     }
@@ -1758,9 +1780,41 @@ main:has(.wrapper) .sec-footer {
         max-width: calc(100% - 20px);
     }
 
-    #conteudo {
+    main:not(:has(.sec-header img)) #conteudo {
         border-block: 2px solid var(--secondary);
     }
+
+    main:has(.sec-header img) #conteudo {
+        width: inherit;
+    }
+
+    main:has(.sec-header img) .container {
+        max-width: calc(100dvw - 40px);
+    }
+
+
+    main:has(.gallery-link) .container {
+        flex-direction: column;
+        max-width: 100dvw;
+        align-items: center;
+    }
+
+    main:has(.gallery-link) #conteudo .row>div {
+        max-width: 100%;
+        margin-block: 40px;
+    }
+
+    main:has(.gallery-link) #links {
+        margin-inline: 0;
+        width: 100%;
+    }
+
+    main:has(.gallery-link) #links>div {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
 
     #contagem {
         padding-inline: 20px;
@@ -1858,7 +1912,7 @@ main:has(.wrapper) .sec-footer {
     }
 
     .sec-header {
-        padding-inline: 20px;
+        padding-inline: 20px !important;
         margin-bottom: 30px;
     }
 
@@ -1920,7 +1974,7 @@ main:has(.wrapper) .sec-footer {
     }
 
     .browse-results-facets h3:after,
-    #contagem:after {
+    .wrapper #conteudo #contagem:after {
         content: "\f106";
         font-family: "FontAwesome";
         font-weight: bold;
@@ -1928,7 +1982,7 @@ main:has(.wrapper) .sec-footer {
     }
 
     .browse-results-table-grid:has(#filtros:not([style*="display: block"])) .browse-results-facets h3:after,
-    .wrapper:has(.summary-sheet-attribute:not([style*="display: block"])) .wrapper:has(.summary-sheet-attribute) #contagem:after {
+    .wrapper:has(.summary-sheet-attribute) #conteudo:has(#itens:not([style*="display: block"])) #contagem:after {
         content: "\f107";
     }
 
@@ -1952,7 +2006,7 @@ main:has(.wrapper) .sec-footer {
     .browse-results-toolbar,
     .browse-results-sort-bar,
     .pagination-bar,
-    #paginacao {
+    main #paginacao {
         margin-inline: 20px;
     }
 
@@ -2021,7 +2075,7 @@ main:has(.wrapper) .sec-footer {
     }
 
     .pagination-bar,
-    #paginacao {
+    main #paginacao {
         flex-direction: column;
         align-items: center;
         gap: 20px;
@@ -2041,7 +2095,7 @@ main:has(.wrapper) .sec-footer {
 
     .pagination-bar-summary,
     .pagination-bar-page-jumper,
-    #paginacao .jumper {
+    main #paginacao .jumper {
         margin-right: auto;
     }
 
@@ -2131,5 +2185,17 @@ main:has(.wrapper) .sec-footer {
 @media screen and (width <=576px) {
     #itens .item .col.titulo {
         max-width: 300px !important;
+    }
+
+    .sec-header:has(img)>div:first-of-type {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+
+@media screen and (width <=400px) {
+    .sec-content:has(.collection-list) .home-sec-header h1 {
+        white-space: normal;
     }
 }

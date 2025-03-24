@@ -16,6 +16,9 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid "Share"
+msgstr "Compartilhar"
+
 msgid "Biennials"
 msgstr "Bienais"
 

@@ -126,133 +126,6 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 		background-color: var(--tertiary2);
 	}
 
-	.botao {
-		padding: 7px 10px;
-		border-radius: 4px;
-		background-color: #fff;
-		border: #333 solid 1px;
-		color: #333;
-		display: inline-block;
-		vertical-align: top;
-		font-size: 14px
-	}
-
-	main #paginacao {
-		font-family: "Helvetica Neue Bold";
-		font-size: 18px;
-		text-align: center;
-		padding-top: 25px;
-		padding-bottom: 30px;
-		border-top: 2px solid var(--secondary);
-		border-bottom: 2px solid var(--tertiary3);
-		margin-bottom: 60px;
-
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	main #paginacao * {
-		font-family: "Helvetica Neue Bold";
-	}
-
-	main #paginacao .pagina {
-		padding-left: 0;
-	}
-
-	main #paginacao .paginas {
-		display: flex;
-		align-items: center;
-	}
-
-	main #paginacao .jumper {
-		color: var(--secondary);
-		margin-left: auto;
-	}
-
-	main #paginacao .jumper input {
-		background-color: var(--tertiary);
-		color: var(--tertiary4);
-		border: 1px solid var(--tertiary3);
-		border-radius: 4px;
-		padding-left: 5px;
-		padding-right: 11px;
-		padding-top: 7px;
-		padding-bottom: 3px;
-
-		width: 90px;
-		height: 30px;
-		margin-left: 4px;
-
-		font-size: 16px;
-		text-align: end;
-	}
-
-	/* main #paginacao .paginas .botao {
-					width: 30px;
-					height: 30px;
-					margin-right: 3px;
-				} */
-
-	main #paginacao .paginas ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	main #paginacao .paginas ul li {
-		display: inline-block;
-		font-size: 16px;
-		padding: 0px;
-	}
-
-	main #paginacao .paginas a {
-		text-decoration: none;
-		color: var(--primary);
-		background-color: var(--tertiary);
-		border: 1px solid var(--primary);
-		border-radius: 4px;
-		padding: 0;
-		margin-left: 20px;
-
-		width: 30px;
-		height: 30px;
-
-		display: inline-block;
-		align-content: center;
-		font-size: 16px;
-	}
-
-	main #paginacao .paginas:not(:has(.inicio)) li:first-of-type a {
-		margin-left: 0;
-	}
-
-	main #paginacao .paginas ul a {
-		padding-top: 3px;
-	}
-
-	/* .nextNav .botao .icon .inicio {
-        margin-right: 20px;
-    } */
-
-	main #paginacao .paginas ul li.selecionado a {
-		border: 1px solid var(--primary);
-		background-color: var(--primary);
-		color: var(--tertiary);
-	}
-
-	.pagina {
-		float: left;
-		height: 30px;
-		line-height: 30px;
-		display: inline-block;
-		font-family: "Helvetica Neue Bold";
-		font-size: 18px;
-		color: var(--secondary);
-		padding-left: 15px;
-		margin-right: auto;
-	}
-
 	.icon:before {
 		font-family: "FontAwesome";
 		border: none;
@@ -284,13 +157,11 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 	}
 
 	.bResultItemCol {
-		height: 280px;
+		/* height: 280px; */
 		width: 280px;
-
 		border-block: 2px solid var(--secondary);
 		padding-top: 20px;
-		padding-bottom: 2px;
-
+		padding-bottom: 8px;
 		display: inline flex;
 		justify-content: center;
 		align-items: center;
@@ -614,7 +485,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 				$vn_i = (($offset / $itens_por_pagina) + 1) - 10;
 				$vn_i = $vn_i < 1 ? 1 : $vn_i;
-				$vn_f = $vn_i + 20;
+				$vn_f = $vn_i + 4;
 				$vn_f = $vn_f > $paginas_totais ? $paginas_totais : $vn_f;
 				$html_paginacao = '';
 				if ($vn_i > 1) {
@@ -662,6 +533,9 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 <div class="sec-footer">
 	<ul class="sec-footer-social-list">
+		<li>
+			<?= _t("Share") ?>
+		</li>
 		<li>
 			<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
 		</li>

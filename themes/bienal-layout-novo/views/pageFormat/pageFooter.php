@@ -93,7 +93,7 @@
 					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/proac.png"
 					alt="logo bienal" />
 				<img
-					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/bienal-texto.png"
+					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/bienal-texto.svg"
 					alt="logo Proac, logo São Paulo" />
 				<img
 					src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/img/sp-cultura.png"

@@ -460,6 +460,9 @@ $acao = $this->request->getAction();
 <div class="sec-footer">
     <ul class="sec-footer-social-list">
         <li>
+            <?= _t("Share") ?>
+        </li>
+        <li>
             <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
         </li>
         <li>

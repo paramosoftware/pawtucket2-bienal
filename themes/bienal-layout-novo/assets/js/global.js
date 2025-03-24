@@ -1,3 +1,5 @@
+const width_breakpoint = 940; // previamente 768 (px)
+
 /** Usado na homepage quando a tela está em modo mobile.
  * 
  * Troca a cor dos círculos do carrossel da homepage, mostrando qual item do carrossel está visível.
@@ -26,14 +28,14 @@ if(main_list != null && tracker_list != null) {
 
 /** Usado no header e na homepage quando a tela é redimensionada.
  * 
- * Garante que o elemento #header-main esteja visível quando a tela for redimensionada para width > 768px.
+ * Garante que o elemento #header-main esteja visível quando a tela for redimensionada para width > width_breakpoint
  * Altera o valor da variável global main_list_padding_right para que bata com o padding_right do elemento #home-sec1-main-list.
  * 
  * Arquivos relevantes: pageHeader.php, front_page_html.php
  */
 addEventListener("resize", () => {
     let header_main = document.getElementById("header-main");
-    if(window.innerWidth > 768) {
+    if(window.innerWidth > width_breakpoint) {
         if(header_main != null) header_main.style.display = "flex";
         
         let itens = document.getElementById("itens");
@@ -56,7 +58,7 @@ addEventListener("click", function(e) {
     let hamburger_btn = document.getElementById("hamburger-btn");
     let header_main = document.getElementById("header-main");
 
-    if (window.innerWidth <= 768 && !header_main.contains(e.target) && e.target != hamburger_btn) {
+    if (window.innerWidth <= width_breakpoint && !header_main.contains(e.target) && e.target != hamburger_btn) {
         header_main.style.display = "none";
     };
 });
@@ -75,7 +77,7 @@ function toggleById(targetId, displayType = 'block') {
     let e = document.getElementById(targetId);
     // console.log(targetId);
     if(e == null) return;
-    e.style.display = window.innerWidth <= 768 && e.style.display == displayType ? "none" : displayType;
+    e.style.display = window.innerWidth <= width_breakpoint && e.style.display == displayType ? "none" : displayType;
 }
 
 

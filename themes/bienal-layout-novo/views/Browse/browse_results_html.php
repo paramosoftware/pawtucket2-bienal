@@ -1,85 +1,84 @@
 <?php
-	$acesso = $this->getVar('access_values');
-	$tabela = $this->getVar('table');
-	$resultado = $this->getVar('result');
-	$itens_por_pagina = (int)$this->getVar('hits_per_block');
-	$offset	= (int)$this->getVar('start');
-	$pagina_atual = (($offset / $itens_por_pagina) + 1);
-	$paginas_totais = ceil($resultado->numHits() / $itens_por_pagina);
-	$browse_info = $this->getVar("browseInfo");
+$acesso = $this->getVar('access_values');
+$tabela = $this->getVar('table');
+$resultado = $this->getVar('result');
+$itens_por_pagina = (int)$this->getVar('hits_per_block');
+$offset	= (int)$this->getVar('start');
+$pagina_atual = (($offset / $itens_por_pagina) + 1);
+$paginas_totais = ceil($resultado->numHits() / $itens_por_pagina);
+$browse_info = $this->getVar("browseInfo");
 
-	$o_browse = $this->getVar('browse');
-	$browse_type = $this->getVar("browse_type");
+$o_browse = $this->getVar('browse');
+$browse_type = $this->getVar("browse_type");
 
-	$instance = $this->getVar('t_instance');
-	$ordenacao_direcao = $this->getVar('sort_direction');
-	$ordenacoes = $this->getVar('sortBy');
-	$ordenacao_atual = $this->getVar('sort');
-	$views = $this->getVar('views');
-	$view = $this->getVar('view');
-	$key = $this->getVar('key');
-	$is_advanced = (int)$this->getVar('is_advanced');
-	$is_search = ($this->request->getController() == 'Search');
-	$exportacao_formatos = $this->getVar('export_formats');
-	$criterios = $this->getVar('criteria');
-	$acao = $this->request->getAction();
-	//$total_resultado = ( sizeof($criterios) > 0 ) ? $resultado->numHits() : $this->getVar('totalRecordsAvailable');
-	$total_resultado = $resultado->numHits();
-	$label = $browse_info["labelPlural"] ? $browse_info["labelPlural"] : $instance->getProperty('NAME_PLURAL');
-	$label_singular = $browse_info["labelSingular"] ? $browse_info["labelSingular"] : $instance->getProperty('NAME_SINGULAR');
-	$found_plural = $browse_info["foundPlural"];
-	$found_singular = $browse_info["foundSingular"];
-	$negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
+$instance = $this->getVar('t_instance');
+$ordenacao_direcao = $this->getVar('sort_direction');
+$ordenacoes = $this->getVar('sortBy');
+$ordenacao_atual = $this->getVar('sort');
+$views = $this->getVar('views');
+$view = $this->getVar('view');
+$key = $this->getVar('key');
+$is_advanced = (int)$this->getVar('is_advanced');
+$is_search = ($this->request->getController() == 'Search');
+$exportacao_formatos = $this->getVar('export_formats');
+$criterios = $this->getVar('criteria');
+$acao = $this->request->getAction();
+//$total_resultado = ( sizeof($criterios) > 0 ) ? $resultado->numHits() : $this->getVar('totalRecordsAvailable');
+$total_resultado = $resultado->numHits();
+$label = $browse_info["labelPlural"] ? $browse_info["labelPlural"] : $instance->getProperty('NAME_PLURAL');
+$label_singular = $browse_info["labelSingular"] ? $browse_info["labelSingular"] : $instance->getProperty('NAME_SINGULAR');
+$found_plural = $browse_info["foundPlural"];
+$found_singular = $browse_info["foundSingular"];
+$negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 ?>
 
 <div class="browse-results-table-grid">
-<div id="home" class="sec-header">
-	<span>Home / <b><?= _t(_t($label)) ?></b></span>
-	<hr />
+	<div id="home" class="sec-header">
+		<span>Home / <b><?= _t(_t($label)) ?></b></span>
+		<hr />
 
-	<div id="titulo">
-		<?php
-		if ($total_resultado > 0) {
-			$h1_text =  _t(_t($label));
-		} else {
-			$h1_text =  "$negative_word $label_singular $found_singular";
-		}
-		?>
-		<h1><?= $h1_text ?></h1>
-	</div>
+		<div id="titulo">
+			<?php
+			if ($total_resultado > 0) {
+				$h1_text =  _t(_t($label));
+			} else {
+				$h1_text =  "$negative_word $label_singular $found_singular";
+			}
+			?>
+			<h1><?= $h1_text ?></h1>
+		</div>
 
-	<div>
-		<span><b><?= $total_resultado . " " . _t(_t($label)) ?></b> <?= _t("available") ?></span>
+		<div>
+			<span><b><?= $total_resultado . " " . _t(_t($label)) ?></b> <?= _t("available") ?></span>
 
-		<?php if (sizeof($criterios) > 0) : ?>
-			<div id="criterios">
-				<?php
-				foreach ($criterios as $filtro)
-				{
-					if ($filtro['facet_name'] != '_search') {
-						$removalLinkElement = caNavLink($this->request, $filtro['value'], 'browseRemoveFacet', '*', '*', '*', array('removeCriterion' => $filtro['facet_name'], 'removeID' => $filtro['id'], 'view' => $view, 'key' => $key));
-						$removalLinkElement_prefix = substr($removalLinkElement, 0, 1 + strpos($removalLinkElement, '>'));
-						$removalLinkElement_suffix = substr($removalLinkElement, strlen($removalLinkElement_prefix));
+			<?php if (sizeof($criterios) > 0) : ?>
+				<div id="criterios">
+					<?php
+					foreach ($criterios as $filtro) {
+						if ($filtro['facet_name'] != '_search') {
+							$removalLinkElement = caNavLink($this->request, $filtro['value'], 'browseRemoveFacet', '*', '*', '*', array('removeCriterion' => $filtro['facet_name'], 'removeID' => $filtro['id'], 'view' => $view, 'key' => $key));
+							$removalLinkElement_prefix = substr($removalLinkElement, 0, 1 + strpos($removalLinkElement, '>'));
+							$removalLinkElement_suffix = substr($removalLinkElement, strlen($removalLinkElement_prefix));
 
-						print $removalLinkElement_prefix . "<span>" . $filtro['facet'] . ":&nbsp;</span>" . $removalLinkElement_suffix;
+							print $removalLinkElement_prefix . "<span>" . $filtro['facet'] . ":&nbsp;</span>" . $removalLinkElement_suffix;
 
-						// print "<span>" . $filtro['facet'] . ": $removalLinkElement</span>";
-					} else {
-						$termo_busca = $filtro['value'];
-						if ($is_advanced) {
-							print "<span>" . $termo_busca . "</span>";
+							// print "<span>" . $filtro['facet'] . ": $removalLinkElement</span>";
 						} else {
-							print "<span>Palavra chave: " . $termo_busca . "</span>";
+							$termo_busca = $filtro['value'];
+							if ($is_advanced) {
+								print "<span>" . $termo_busca . "</span>";
+							} else {
+								print "<span>Palavra chave: " . $termo_busca . "</span>";
+							}
 						}
 					}
-				}
-				?>
-			</div>
-		<?php endif; ?>
+					?>
+				</div>
+			<?php endif; ?>
+		</div>
 	</div>
-</div>
 
-<!-- <div class="browse-main-content"> -->
+	<!-- <div class="browse-main-content"> -->
 	<?php if ($total_resultado > 0) : ?>
 
 		<div class="browse-results">
@@ -96,8 +95,7 @@
 							<div popover class="select-popover" id="report-list-popover">
 								<ul>
 									<?php
-									foreach ($exportacao_formatos as $formato) 
-									{
+									foreach ($exportacao_formatos as $formato) {
 										print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . $formato["name"] . '</a></li>';
 									}
 									?>
@@ -131,8 +129,7 @@
 					<li><?= _t("Order by") ?></li>
 
 					<?php
-					foreach ($ordenacoes as $ordenacao => $campo_ordenacao) 
-					{
+					foreach ($ordenacoes as $ordenacao => $campo_ordenacao) {
 						if ($ordenacao_atual === $ordenacao) {
 							print "<li class='selecionado'>" . _t(_t($ordenacao)) . "</li>\n";
 						} else {
@@ -143,21 +140,21 @@
 				</ul>
 
 				<?php
-					print caNavLink($this->request, '', 'botao icon ordenacao-' . $ordenacao_direcao, '*', '*', '*', array('view' => $view, 'key' => $key, 'sort' => $ordenacao_atual, '_advanced' => $is_advanced ? 1 : 0, 'direction' => $ordenacao_direcao == 'asc' ? 'desc' : 'asc'));
+				print caNavLink($this->request, '', 'botao icon ordenacao-' . $ordenacao_direcao, '*', '*', '*', array('view' => $view, 'key' => $key, 'sort' => $ordenacao_atual, '_advanced' => $is_advanced ? 1 : 0, 'direction' => $ordenacao_direcao == 'asc' ? 'desc' : 'asc'));
 				?>
 			</div>
 
 			<div class="browse-results-table-wrapper">
-			<?php
+				<?php
 				print $this->render("Browse/browse_results_{$view}_{$acao}_html.php");
-			?>
+				?>
 			</div>
 
 			<div class="pagination-bar">
 				<div class="pagination-bar-summary"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
 
 				<div class="pagination-bar-page-numbers">
-				<?php
+					<?php
 					$vn_i = (($offset / $itens_por_pagina) + 1) - 3;
 					$vn_i = $vn_i < 1 ? 1 : $vn_i;
 					$vn_f = $vn_i + 4;
@@ -179,7 +176,7 @@
 					}
 
 					$html_paginacao .= "</ul>";
-					
+
 					if ($vn_f < $paginas_totais) {
 						$html_paginacao .= caNavLink($this->request, "", 'nextNav botao icon proximo', '*', '*', '*', array('s' => ($itens_por_pagina * ($vn_i)) - $itens_por_pagina, 'view' => $view, 'key' => $key));
 					}
@@ -189,7 +186,7 @@
 					}
 
 					print $html_paginacao;
-				?>
+					?>
 				</div>
 
 				<?php if ($paginas_totais > 1) : ?>
@@ -244,24 +241,24 @@
 			});
 		</script>
 	<?php endif; ?>
-<!-- </div> -->
+	<!-- </div> -->
 
-<div class="sec-footer">
-	<ul class="sec-footer-social-list">
-		<li>
-			<a><img class="share-img" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/share.svg" alt="share icon" tabindex="-1" /></a>
-		</li>
-		<li>
-			<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
-		</li>
+	<div class="sec-footer">
+		<ul class="sec-footer-social-list">
+			<li>
+				<?= _t("Share") ?>
+			</li>
+			<li>
+				<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
+			</li>
 
-		<li>
-			<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/x-twitter.svg" alt="logo twitter" /></a>
-		</li>
+			<li>
+				<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/x-twitter.svg" alt="logo twitter" /></a>
+			</li>
 
-		<li>
-			<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/whatsapp.svg" alt="logo whatsapp" /></a>
-		</li>
-	</ul>
-</div>
+			<li>
+				<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/whatsapp.svg" alt="logo whatsapp" /></a>
+			</li>
+		</ul>
+	</div>
 </div>

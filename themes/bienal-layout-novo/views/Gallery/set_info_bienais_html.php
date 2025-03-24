@@ -1,8 +1,8 @@
 <?php
-    $vn_set_id = $this->getVar("set_id");
-    $va_set_items = $this->getVar("set_items");
+$vn_set_id = $this->getVar("set_id");
+$va_set_items = $this->getVar("set_items");
 
-    $vn_numero_itens = count($va_set_items);
+$vn_numero_itens = count($va_set_items);
 ?>
 
 
@@ -14,7 +14,7 @@
     <hr />
 
     <div>
-        <h1><?=_t("Biennials")?></h1>
+        <h1><?= _t("Biennials") ?></h1>
     </div>
 
     <div>
@@ -23,14 +23,13 @@
 </div>
 
 <ul class="sec-list collection-list">
-    <?php foreach ($va_set_items as $va_set_item) 
-    {
+    <?php foreach ($va_set_items as $va_set_item) {
         $t_occurrence = new ca_occurrences($va_set_item["row_id"]);
 
-		$vs_occurence_period = $t_occurrence->get("ca_occurrences.event_period.event_period_startdate");
+        $vs_occurence_period = $t_occurrence->get("ca_occurrences.event_period.event_period_startdate");
         $vs_occurence_period = substr($vs_occurence_period, strlen($vs_occurence_period) - 4, 4);
     ?>
-       
+
         <li class="sec-list-item">
             <div class="sec-li-info-div">
                 <h2><?= $va_set_item["set_item_label"] ?></h2>
@@ -41,13 +40,16 @@
             </div>
         </li>
 
-    <?php 
-    } 
+    <?php
+    }
     ?>
 </ul>
 
 <div class="sec-footer">
     <ul class="sec-footer-social-list">
+        <li>
+            <?= _t("Share") ?>
+        </li>
         <li>
             <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
         </li>

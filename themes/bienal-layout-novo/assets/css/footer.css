@@ -117,8 +117,11 @@ footer a {
 }
 
 #footer-main-list a,
-#footer-info a {
+#footer-main-list p,
+#footer-info a,
+#footer-info p {
     font-family: "Helvetica Neue Roman";
+    font-size: 18px;
 }
 
 .footer-logo:hover,
@@ -192,7 +195,7 @@ footer a {
 }
 
 
-@media screen and (width <=768px) {
+@media screen and (width <=940px) {
     footer {
         padding-inline: 20px;
     }
@@ -215,6 +218,10 @@ footer a {
         row-gap: 60px;
     }
 
+    #footer-main-list {
+        gap: 12px;
+    }
+
     #footer-info > div:first-of-type > p {
         padding-bottom: 40px;
     }
@@ -223,20 +230,47 @@ footer a {
         display: none;
     }
 
+    #footer-disclaimer-logos > img:nth-child(1) {
+        grid-area: logo-1;
+    }
+
+    #footer-disclaimer-logos > img:nth-child(2) {
+        grid-area: logo-2;
+        margin-left: auto;
+        height: 100%;
+    }
+
+    #footer-disclaimer-logos > img:nth-child(3) {
+        grid-area: logo-3;
+    }
+
+    #footer-disclaimer-logos > img:nth-child(4) {
+        grid-area: logo-4;
+        margin-left: auto;
+    }
+
+    #footer-disclaimer-logos > img:nth-child(5) {
+        grid-area: logo-5;
+    }
+
     #footer-disclaimer-logos {
         height: fit-content;
         
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
         row-gap: 40px;
-        column-gap: 5px;
+        column-gap: 0;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "logo-1 logo-2"
+            "logo-3 logo-4"
+            "logo-5 logo-5";
     }
 }
 
 @media screen and (width <=576px) {
     #footer-logo-grid {
-        grid-template-columns: 80px auto;
+        grid-template-columns: 120px auto;
         grid-template-areas: "logo-bienal logo-social";
     }
 
@@ -249,5 +283,26 @@ footer a {
             "footer-disclaimer";
     }
 }
+
+@media screen and (width <=400px) {
+    #footer-logo-grid {
+        grid-template-columns: 80px auto;
+    }
+
+    #footer-disclaimer-logos {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo-1"
+            "logo-2"
+            "logo-3"
+            "logo-4"
+            "logo-5";
+    }
+
+    #footer-disclaimer-logos > * {
+        margin-inline: auto;
+    }
+}
+
 
 /* FOOTER END */

@@ -71,11 +71,11 @@ $qr_result = $o_data->query("
 
 <div class="sec-header">
     <span>
-        Home / <b><?=_t("Funds and Collections")?></b>
+        Home / <b><?= _t("Funds and Collections") ?></b>
     </span>
     <hr />
     <div>
-        <h1><?=_t("Funds and Collections")?></h1>
+        <h1><?= _t("Funds and Collections") ?></h1>
         <label>id: {{{<unit>^ca_objects.idno</unit>}}}</label>
     </div>
     <div>
@@ -86,9 +86,9 @@ $qr_result = $o_data->query("
             </button>
             <div popover id="select-popover">
                 <ul>
-                <?php foreach ($exportacao_formatos as $formato) {
-                    print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . $formato["name"] . '</a></li>';
-                } ?>
+                    <?php foreach ($exportacao_formatos as $formato) {
+                        print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . $formato["name"] . '</a></li>';
+                    } ?>
                 </ul>
             </div>
         </div>
@@ -128,6 +128,9 @@ $qr_result = $o_data->query("
 
 <div class="sec-footer">
     <ul class="sec-footer-social-list">
+        <li>
+            <?= _t("Share") ?>
+        </li>
         <li>
             <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
         </li>
