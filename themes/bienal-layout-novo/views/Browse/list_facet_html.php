@@ -107,7 +107,7 @@
 		if($va_facet_info["group_mode"]== "alphabetical"){
 			print "<div id='bLetterBar'>";
 			foreach($va_letter_bar as $vs_letter){
-				print "<a href='#' onclick='jumpToLetter(\"facetList".$vs_letter."\"); return false;'>".$vs_letter."</a><br/>";
+				print "<a href='#' onclick='jumpToLetter(\"facetList".$vs_letter."\"); return false;'>".$vs_letter."</a>";
 			}
 			print "</div><!-- end bLetterBar -->";
 		}

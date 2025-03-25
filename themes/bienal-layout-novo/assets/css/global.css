@@ -1637,6 +1637,26 @@ main:has(.wrapper) .sec-footer {
     font-family: 18px;
 }
 
+
+#bMorePanel {
+    background-color: var(--primary) !important;
+}
+
+#bLetterBar {
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+#bScrollList {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--tertiary);
+}
+
+#bScrollList * {
+    text-align: start !important;
+    font-size: 16px !important;
+}
+
 @media screen and (width <=1200px) {
     #home-sec1-main-list {
         grid-template-columns: repeat(2, 1fr);
