@@ -144,10 +144,13 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 				?>
 			</div>
 
-			<div class="browse-results-table-wrapper">
-				<?php
-				print $this->render("Browse/browse_results_{$view}_{$acao}_html.php");
-				?>
+			<div class="table-overflow">
+
+				<table class="browse-results-table-wrapper">
+					<?php
+					print $this->render("Browse/browse_results_{$view}_{$acao}_html.php");
+					?>
+				</table>
 			</div>
 
 			<div class="pagination-bar">

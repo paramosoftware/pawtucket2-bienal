@@ -1,25 +1,26 @@
 <?php
-	$acesso = $this->getVar('access_values');
-	$tabela = $this->getVar('table');
-	$resultado = $this->getVar('result');
-	$itens_por_pagina = (int)$this->getVar('hits_per_block');
-	$offset	= (int)$this->getVar('start');
-	$primary_key = $this->getVar('primaryKey');
+$acesso = $this->getVar('access_values');
+$tabela = $this->getVar('table');
+$resultado = $this->getVar('result');
+$itens_por_pagina = (int)$this->getVar('hits_per_block');
+$offset	= (int)$this->getVar('start');
+$primary_key = $this->getVar('primaryKey');
 ?>
 
-<div class="browse-results-table-header">
-	<div class="browse-results-table-column"><?=_t("Identification Code")?></div>
-	<div class="browse-results-table-column"><?=_t("Title of the Artwork")?></div>
-	<div class="browse-results-table-column"><?=_t("Artist")?></div>
-	<div class="browse-results-table-column"><?=_t("Technique")?></div>
-	<div class="browse-results-table-column"><?=_t("Date")?></div>
-	<div class="browse-results-table-column"><?=_t("Event")?></div>
-</div>
+<thead class="browse-results-table-header">
+	<tr>
+		<th class="browse-results-table-column"><?= _t("Identification Code") ?></th>
+		<th class="browse-results-table-column"><?= _t("Title of the Artwork") ?></th>
+		<th class="browse-results-table-column"><?= _t("Artist") ?></th>
+		<th class="browse-results-table-column"><?= _t("Technique") ?></th>
+		<th class="browse-results-table-column"><?= _t("Date") ?></th>
+		<th class="browse-results-table-column"><?= _t("Event") ?></th>
+	</tr>
+</thead>
 
-<div class="browse-results-table-items">
-<?php
-	if ($offset < $resultado->numHits()) 
-	{
+<tbody class="browse-results-table-items">
+	<?php
+	if ($offset < $resultado->numHits()) {
 		$vn_c = 0;
 
 		$resultado->seek($offset);
@@ -48,17 +49,17 @@
 			$value_event = $resultado->get('ca_occurrences.preferred_labels', array("checkAccess" => $acesso, 'delimiter' => ', ', 'restrictToRelationshipTypes' => array('participation')));
 
 			print "
-			<div class='browse-results-table-row'>
-				<div class='browse-results-table-column idno'>{$value_idno}</div>
-				<div class='browse-results-table-column displayname'>{$value_displayname_link}</div>
-				<div class='browse-results-table-column artist'>{$value_artistname}</div>
-				<div class='browse-results-table-column technique'>{$value_tech}</div>
-				<div class='browse-results-table-column date'>{$value_date}</div>
-				<div class='browse-results-table-column event'>{$value_event}</div>
-			</div>";
+			<tr class='browse-results-table-row'>
+				<td class='browse-results-table-column idno'>{$value_idno}</td>
+				<td class='browse-results-table-column displayname'>{$value_displayname_link}</td>
+				<td class='browse-results-table-column artist'>{$value_artistname}</td>
+				<td class='browse-results-table-column technique'>{$value_tech}</td>
+				<td class='browse-results-table-column date'>{$value_date}</td>
+				<td class='browse-results-table-column event'>{$value_event}</td>
+			</tr>";
 
 			$vn_c++;
 		}
 	}
-?>
-</div>
+	?>
+</tbody>

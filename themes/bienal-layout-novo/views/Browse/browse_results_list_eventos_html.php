@@ -9,25 +9,25 @@ $primary_key = $this->getVar('primaryKey');
 
 ?>
 
-<div class="browse-results-table-header">
-	<div class="browse-results-table-column"><?=_t("Identification Code")?></div>
-	<div class="browse-results-table-column"><?=_t("Event Name")?></div>
-	<div class="browse-results-table-column"><?=_t("Date")?></div>
-	<div class="browse-results-table-column"><?=_t("Place")?></div>
-	<div class="browse-results-table-column"><?=_t("Bienal Event")?></div>
-	<div class="browse-results-table-column"><?=_t("Type")?></div>
-</div>
+<thead class="browse-results-table-header">
+	<tr>
+		<th class="browse-results-table-column"><?= _t("Identification Code") ?></th>
+		<th class="browse-results-table-column"><?= _t("Event Name") ?></th>
+		<th class="browse-results-table-column"><?= _t("Date") ?></th>
+		<th class="browse-results-table-column"><?= _t("Place") ?></th>
+		<th class="browse-results-table-column"><?= _t("Bienal Event") ?></th>
+		<th class="browse-results-table-column"><?= _t("Type") ?></th>
+	</tr>
+</thead>
 
-<div class="browse-results-table-items">
-<?php
-	if ($offset < $resultado->numHits())
-	{
+<tbody class="browse-results-table-items">
+	<?php
+	if ($offset < $resultado->numHits()) {
 		$vn_c = 0;
 
 		$resultado->seek($offset);
 
-		while ($resultado->nextHit() && ($vn_c < $itens_por_pagina)) 
-		{
+		while ($resultado->nextHit() && ($vn_c < $itens_por_pagina)) {
 			$value_id = $resultado->get("ca_occurrences.{$primary_key}");
 			$value_idno = $resultado->get("ca_occurrences.idno");
 			$value_hierarchy_link = caDetailLink($this->request, str_replace(";", " -> ", $resultado->get("ca_occurrences.hierarchy.preferred_labels")), '', $tabela, $value_id);
@@ -41,17 +41,17 @@ $primary_key = $this->getVar('primaryKey');
 			$value_date .= $value_date_end ? ($value_date_start ? " - " . $value_date_end : $value_date_end) : "";
 
 			print "
-			<div class='browse-results-table-row'>
-				<div class='browse-results-table-column'>{$value_idno}</div>
-				<div class='browse-results-table-column'>{$value_hierarchy_link}</div>
-				<div class='browse-results-table-column'>{$value_date}</div>
-				<div class='browse-results-table-column'>{$value_local}</div>
-				<div class='browse-results-table-column'>{$value_bienal}</div>
-				<div class='browse-results-table-column'>{$value_occurrence_type}</div>
-			</div>";
+			<tr class='browse-results-table-row'>
+				<td class='browse-results-table-column'>{$value_idno}</td>
+				<td class='browse-results-table-column'>{$value_hierarchy_link}</td>
+				<td class='browse-results-table-column'>{$value_date}</td>
+				<td class='browse-results-table-column'>{$value_local}</td>
+				<td class='browse-results-table-column'>{$value_bienal}</td>
+				<td class='browse-results-table-column'>{$value_occurrence_type}</td>
+			</tr>";
 
 			$vn_c++;
 		}
 	}
-?>
-</div>
+	?>
+</tbody>

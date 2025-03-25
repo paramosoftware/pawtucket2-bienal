@@ -940,16 +940,16 @@ p {
     color: var(--secondary);
     background-color: var(--tertiary2);
     border-block: 2px solid var(--secondary);
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 .browse-results-table-row {
     height: 100%;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 .browse-results-table-row:nth-child(even) {
@@ -958,11 +958,11 @@ p {
 
 .browse-results-table-column {
     padding: 20px 10px;
-    display: inline-block;
-    width: 20%;
-    vertical-align: top;
+    /* display: inline-block; */
+    /* width: 20%; */
+    /* vertical-align: top; */
     border-left: 1px solid var(--tertiary3);
-    height: 100%;
+    /* height: 100%; */
 }
 
 .browse-results-table-column:first-child {
@@ -1657,6 +1657,31 @@ main:has(.wrapper) .sec-footer {
     font-size: 16px !important;
 }
 
+.bResultItemText span:nth-child(2) {
+    font-family: "Helvetica Neue Roman" !important;
+    color: var(--primary);
+}
+
+.browse-results-table-wrapper {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.browse-results-table-wrapper tr .img-flag {
+    min-width: 24px;
+}
+
+.browse-results-table-wrapper tr .level-td,
+.browse-results-table-wrapper tr .type-td,
+.browse-results-table-wrapper tr .event-td {
+    min-width: 200px;
+}
+
+.table-overflow {
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
 @media screen and (width <=1200px) {
     #home-sec1-main-list {
         grid-template-columns: repeat(2, 1fr);
@@ -2090,10 +2115,6 @@ main:has(.wrapper) .sec-footer {
         width: auto;
     }
 
-    .browse-results-table-wrapper {
-        overflow: auto;
-    }
-
     .pagination-bar,
     main #paginacao {
         flex-direction: column;
@@ -2160,12 +2181,6 @@ main:has(.wrapper) .sec-footer {
 
     .browse-results-table-header .browse-results-table-column {
         border-block: 2px solid var(--secondary);
-    }
-
-    .browse-results-table-column {
-        min-width: 250px;
-        max-width: 250px;
-        word-wrap: break-word;
     }
 
     .gallery-list .sec-li-info-div {
