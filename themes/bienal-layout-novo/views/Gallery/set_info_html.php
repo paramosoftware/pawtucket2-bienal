@@ -13,7 +13,7 @@ $vn_parent_set = $this->getVar("parent_set") ?? "";
 // FRED 14/03/2024
 // Recuperando subsets deste set //
 
-$itens_por_pagina = 8;
+$itens_por_pagina = 24;
 
 $offset	= (int)$this->getVar('start');
 $pagina_atual = (($offset / $itens_por_pagina) + 1);
@@ -466,7 +466,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 							</a>
 						</div>
 				<?php
-						if ($contador == 8 + $offset)
+						if ($contador == $itens_por_pagina + $offset)
 							break;
 					}
 
@@ -485,7 +485,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 				$vn_i = (($offset / $itens_por_pagina) + 1) - 10;
 				$vn_i = $vn_i < 1 ? 1 : $vn_i;
-				$vn_f = $vn_i + 4;
+				$vn_f = $vn_i + floor($itens_por_pagina/2);
 				$vn_f = $vn_f > $paginas_totais ? $paginas_totais : $vn_f;
 				$html_paginacao = '';
 				if ($vn_i > 1) {
