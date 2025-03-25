@@ -167,8 +167,12 @@ header button {
 
 #header-search-form button,
 #header-search-form input {
-    color: var(--tertiary4);
+    color: var(--tertiary);
     background-color: var(--secondary);
+}
+
+#header-search-form input::placeholder {
+    color: var(--tertiary4);
 }
 
 #header-search-form input {
