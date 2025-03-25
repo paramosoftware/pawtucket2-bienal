@@ -47,6 +47,7 @@ header a {
     text-decoration: none;
     font-family: "Helvetica Neue Roman";
     font-size: 18px;
+    text-transform: uppercase;
 }
 
 header button {
