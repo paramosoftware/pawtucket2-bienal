@@ -158,7 +158,8 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 	.bResultItemCol {
 		/* height: 280px; */
-		width: 280px;
+		width: 20dvw;
+		min-width: 280px;
 		border-block: 2px solid var(--secondary);
 		padding-top: 20px;
 		padding-bottom: 8px;
@@ -334,22 +335,22 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 	if (count($va_subsets_info) || $vn_parent_set) {
 	?>
 		<div id="links">
-			<div>
+			<div id="subgallery-links">
 				<?php
 				if ($vn_parent_set) {
 				?>
-					<a href="/pawtucket2-bienal/index.php/Gallery/getSetInfo/set_id/<?php print $vn_parent_set; ?>">Voltar</a>
+					<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Gallery/getSetInfo/set_id/<?php print $vn_parent_set; ?>">Voltar</a>
 				<?php
 				}
 
 				foreach ($va_subsets_info as $va_subset) {
 				?>
-					<a class="gallery-link" href="/pawtucket2-bienal/index.php/Gallery/getSetInfo/set_id/<?php print $va_subset["set_id"]; ?>/parent/<?php print $vn_set_id; ?>"><?php print $va_subset["set_name"]; ?></a>
+					<a class="gallery-link" href="<?= $this->request->getBaseUrlPath() ?>/index.php/Gallery/getSetInfo/set_id/<?php print $va_subset["set_id"]; ?>/parent/<?php print $vn_set_id; ?>"><?php print $va_subset["set_name"]; ?></a>
 				<?php
 				}
 				?>
 			</div>
-			<span>&nbsp;Subgalerias</span>
+			<span onclick="toggleById('subgallery-links', 'flex')">&nbsp;Subgalerias</span>
 
 		</div>
 	<?php
@@ -485,7 +486,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 				$vn_i = (($offset / $itens_por_pagina) + 1) - 10;
 				$vn_i = $vn_i < 1 ? 1 : $vn_i;
-				$vn_f = $vn_i + floor($itens_por_pagina/2);
+				$vn_f = $vn_i + floor($itens_por_pagina / 2);
 				$vn_f = $vn_f > $paginas_totais ? $paginas_totais : $vn_f;
 				$html_paginacao = '';
 				if ($vn_i > 1) {
@@ -532,7 +533,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 </script>
 
 <div class="sec-footer">
-	<ul class="sec-footer-social-list">
+	<ul class="sec-footer-social-list <?= $this->request->getAction(); ?>">
 		<li>
 			<?= _t("Share") ?>
 		</li>
