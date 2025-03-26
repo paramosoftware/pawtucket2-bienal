@@ -24,3 +24,22 @@
 	} 		
 	?>
 </div>
+
+<div class="sec-footer">
+		<ul class="sec-footer-social-list">
+			<li>
+				<?= _t("Share") ?>
+			</li>
+			<li>
+				<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>
+			</li>
+
+			<li>
+				<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/x-twitter.svg" alt="logo twitter" /></a>
+			</li>
+
+			<li>
+				<a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/whatsapp.svg" alt="logo whatsapp" /></a>
+			</li>
+		</ul>
+	</div>

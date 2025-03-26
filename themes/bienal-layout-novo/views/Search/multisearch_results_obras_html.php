@@ -39,12 +39,7 @@
         ?>
         </div>
 
-        <div class="all-results-button">
-            <button class="select-btn">
-                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/magnifying-glass.svg" />
-                <?php print caNavLink($this->request, 'Veja todos os resultados', '', '', 'Search', '{{{block}}}', array('search' => $vs_search)) ?>
-            </button>
-        </div>
+        <?php print caNavLink($this->request, 'Veja todos os resultados', 'all-results-button', '', 'Search', '{{{block}}}', array('search' => $vs_search)); ?>
     </div>
 
 <?php endif; ?>
