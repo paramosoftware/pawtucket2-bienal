@@ -921,7 +921,7 @@ $vb_exibir_imagem = true;
                                     
 	    							function downloadResource()
                                     {
-                                        window.location.href = "/pawtucket/index.php/Detail/DownloadResourceSpaceResource/object_id/<?php print $item->get('object_id'); ?>/location_id/"+current_resource_location_id+"/resource/"+current_resource_ref+"/format/<?php print $va_resource->file_extension; ?>";
+                                        window.location.href = "<?=$this->request->getBaseUrlPath()?>/index.php/Detail/DownloadResourceSpaceResource/object_id/<?php print $item->get('object_id'); ?>/location_id/"+current_resource_location_id+"/resource/"+current_resource_ref+"/format/<?php print $va_resource->file_extension; ?>";
                                     }
 								</script>
 								<?php

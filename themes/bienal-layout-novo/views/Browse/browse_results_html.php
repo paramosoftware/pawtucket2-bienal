@@ -49,7 +49,7 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 		</div>
 
 		<div>
-			<span><b><?= $total_resultado . " " . _t(_t($label)) ?></b> <?= _t("available") ?></span>
+			<span class="browse-results-span" ><b><?= $total_resultado ?></b> <?= _t(_t($label)) ?></span>
 
 			<?php if (sizeof($criterios) > 0) : ?>
 				<div id="criterios">
