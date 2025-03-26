@@ -11,23 +11,23 @@ $vb_exibir_imagem = true;
 ?>
 
 <?php
-    $o_data = new Db();
-    $o_id = $item->get('object_id');
+$o_data = new Db();
+$o_id = $item->get('object_id');
 
-    $qr_result = $o_data->query("
+$qr_result = $o_data->query("
                             SELECT COUNT(ca_objects.object_id) as Q
                             FROM ca_objects
                             WHERE ca_objects.parent_id = $o_id AND ca_objects.deleted = 0 AND ca_objects.access = 1
                         ");
 
-    $vn_numero_itens = 0;
-    if ($qr_result->nextRow())
-        $vn_numero_itens = $qr_result->get('Q');
+$vn_numero_itens = 0;
+if ($qr_result->nextRow())
+    $vn_numero_itens = $qr_result->get('Q');
 
-    $primeiro_item = ($page - 1) * 20;
-    $paginas_totais = ceil($vn_numero_itens / 20);
+$primeiro_item = ($page - 1) * 20;
+$paginas_totais = ceil($vn_numero_itens / 20);
 
-    $qr_result = $o_data->query("
+$qr_result = $o_data->query("
         SELECT ca_list_item_labels.name_singular, ca_objects.access, ca_objects.object_id, ca_object_labels.name, (
             SELECT ca_attribute_values.value_longtext1
             FROM ca_attribute_values
@@ -67,12 +67,12 @@ $vb_exibir_imagem = true;
             ^ca_objects.type_id: <l>^ca_objects.preferred_labels</l>
         </unit>}}}
     </span>
-    
+
     <script>
-        const f_name = "<?=$acao?>";
-        for(let a of document.getElementById("hierarchy").getElementsByTagName("a")) {
+        const f_name = "<?= $acao ?>";
+        for (let a of document.getElementById("hierarchy").getElementsByTagName("a")) {
             let split_href = a.href.split("//");
-            if(split_href.length == 3) {
+            if (split_href.length == 3) {
                 a.setAttribute("href", split_href[0] + "//" + split_href[1] + "/" + f_name + "/" + split_href[2]);
             }
         }
@@ -676,21 +676,20 @@ $vb_exibir_imagem = true;
                 <?php
                 if (count($va_object_locations_ids) > 1) {
                 ?>
-                    <div style="overflow:auto; width:100%; margin:auto; text-align:center;">
+                    <div id="media_representativa_seletor" style="overflow:auto; width:100%; margin:auto; text-align:center;">
                         <a href="#" class="links" id="previous_image" style="display:none">
                             < </a>
                                 <select id="image_number">
                                     <?php
                                     $contador_recursos = 1;
                                     foreach ($va_object_locations_ids as $vs_resource_location_id) {
-                                    ?>
-                                        <option value="<?php print $vs_resource_location_id; ?>"><?php print $vs_resource_location_id; ?></option>
-                                    <?php
+                                        echo "<option value=" . $vs_resource_location_id . ">" . $vs_resource_location_id . "</option>";
+
                                         $contador_recursos++;
                                     }
                                     ?>
-                                    <select>
-                                        <a href="#" class="links" id="next_image"> > </a>
+                                </select>
+                                <a href="#" class="links" id="next_image"> > </a>
                     </div>
                 <?php
                 }
@@ -716,7 +715,7 @@ $vb_exibir_imagem = true;
                     });
 
                     function update_image(vn_pagina, vs_location_id) {
-                        vs_url_imagem = "/pawtucket2-bienal/index.php/Detail/ReadResourceSpaceResource/id/" + vn_pagina;
+                        vs_url_imagem = "<?= $this->request->getBaseUrlPath() ?>/index.php/Detail/ReadResourceSpaceResource/id/" + vn_pagina;
                         $("#images").html("<i class='caIcon fa fa fa-cog fa-spin fa-1x' ></i> Carregando imagem...");
 
                         $.get(vs_url_imagem, function(data, status) {
@@ -788,7 +787,7 @@ $vb_exibir_imagem = true;
                         current_resource_location_id = '<?php print $vn_current_object_location_id; ?>';
 
                         function downloadResource() {
-                            window.location.href = <?php print $this->request->getBaseUrlPath() ?> "/index.php/Detail/DownloadResourceSpaceResource/object_id/<?php print $item->get('object_id'); ?>/location_id/" + current_resource_location_id + "/resource/" + current_resource_ref + "/format/<?php print $va_resource->file_extension; ?>";
+                            window.location.href = "<?=$this->request->getBaseUrlPath()?>/index.php/Detail/DownloadResourceSpaceResource/object_id/<?php print $item->get('object_id'); ?>/location_id/" + current_resource_location_id + "/resource/" + current_resource_ref + "/format/<?php print $va_resource->file_extension; ?>";
                         }
                     </script>
                 <?php
@@ -831,17 +830,17 @@ $vb_exibir_imagem = true;
                 <strong><span class="quantidade"><?= $vn_numero_itens . ($vn_numero_itens ? " " . _t("Records") . " " : " " . _t("Record") . " ") ?></span></strong><?= _t("at this level") ?>
             </div>
 
-            <div id="itens">
+            <table id="itens">
                 <?php while ($qr_result->nextRow()) {
-                    print '<div class="item"><a href="' . $this->request->getBaseUrlPath() . '/index.php/Detail/documento/' . $qr_result->get('ca_objects.object_id') . '">';
-                    print '<div class="col tipo">' . $qr_result->get('ca_list_item_labels.name_singular') . ' </div>';
-                    print '<div class="col titulo">' . $qr_result->get('ca_object_labels.name') . '</div>';
-                    print '<div class="col descricao">' . $qr_result->get('description') . '</div>';
+                    print '<tr class="item">';
+                    print '<td class="col tipo">' . $qr_result->get('ca_list_item_labels.name_singular') . '</td>';
+                    print '<td class="col titulo"><a href="' . $this->request->getBaseUrlPath() . '/index.php/Detail/documento/' . $qr_result->get('ca_objects.object_id') . '">' . $qr_result->get('ca_object_labels.name') . '</a></td>';
+                    print '<td class="col descricao">' . $qr_result->get('description') . '</td>';
 
                     if (($qr_result->get('has_external_image') == 227))
-                        print '<div class="col img"><img src="/pawtucket2-bienal/themes/bienal-layout-novo/assets/pawtucket/graphics/image.png" width="24px"></div>';
+                        print '<td class="col img"><img src="' . $this->request->getBaseUrlPath() . '/themes/bienal-layout-novo/assets/pawtucket/graphics/image.png" width="24px"></td>';
 
-                    print '</a></div>';
+                    print '</tr>';
                 } #FECHA while($qr_result->nextRow()) 
                 ?>
 
@@ -856,7 +855,7 @@ $vb_exibir_imagem = true;
                     }
                 </script>
 
-            </div> <!-- FECHA itens -->
+                </table> <!-- FECHA itens -->
 
 
             <?php
@@ -955,7 +954,7 @@ $vb_exibir_imagem = true;
 <div class="sec-footer">
     <ul class="sec-footer-social-list">
         <li>
-			<?=_t("Share")?>
+            <?= _t("Share") ?>
         </li>
         <li>
             <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/facebook.svg" alt="logo facebook" /></a>

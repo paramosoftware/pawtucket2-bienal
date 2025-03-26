@@ -32,9 +32,11 @@
 <!-- HandTalk -->
 <script type="application/javascript" src="//api.handtalk.me/plugin/latest/handtalk.min.js"></script>
 <script>
-	var ht = new HT({
-		token: "1ac1a32959126e7c2aaf00ed89ce3f0b"
-	});
+	if (typeof(HT) != "undefined") {
+		var ht = new HT({
+			token: "1ac1a32959126e7c2aaf00ed89ce3f0b"
+		});
+	}
 </script>
 
 <footer>
