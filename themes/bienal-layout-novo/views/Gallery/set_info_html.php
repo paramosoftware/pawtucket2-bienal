@@ -157,20 +157,23 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 	}
 
 	.bResultItemCol {
-		/* height: 280px; */
+		height: 330px;
 		width: 20dvw;
 		min-width: 280px;
 		border-block: 2px solid var(--secondary);
-		padding-top: 20px;
-		padding-bottom: 8px;
+		padding-top: 40px;
 		display: inline flex;
 		justify-content: center;
 		align-items: center;
 	}
 
+	.bResultItemCol *:has(a) {
+		height: 100%;
+	}
+
 	.bResultItemContent {
-		height: 260px;
-		overflow: hidden;
+		/* height: 260px;
+		overflow: hidden; */
 
 		display: inline-flex;
 		align-items: center;
@@ -208,6 +211,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 		font-family: "Helvetica Neue Medium";
 		font-size: 16px;
 		line-height: 1;
+		height: 2ch;
 
 		color: var(--secondary);
 	}
@@ -519,6 +523,12 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 				</div>
 			<?php } ?>
 
+
+			<script>
+				if ($(".paginas").length <= 1) {
+					$(".paginas").remove();
+				}
+			</script>
 		</div>
 	</div>
 </div>
