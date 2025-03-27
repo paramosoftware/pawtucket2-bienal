@@ -106,7 +106,7 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 
 					<div class="select-div">
 						<button class="select-btn" popovertarget="view-list-popover">
-							<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a View") ?>
+							<img class="list-refresh-svg" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/refresh.svg" /><?= _t("Select a View") ?>
 						</button>
 
 						<div popover class="select-popover" id="view-list-popover">

@@ -417,7 +417,7 @@ $qr_result = $o_data->query("
 
             {{{<ifdef code="ca_objects.nat_representation">
                         <div class="summary-sheet-attribute">
-                            <div class="summary-sheet-attribute-label"><?= _t("National Representation)") ?></div>
+                            <div class="summary-sheet-attribute-label"><?= _t("National Representation") ?></div>
                             <div class="summary-sheet-attribute-value">
 							<unit delimiter="<br>">
 								^ca_objects.nat_representation
@@ -677,8 +677,7 @@ $qr_result = $o_data->query("
                 if (count($va_object_locations_ids) > 1) {
                 ?>
                     <div id="media_representativa_seletor" style="overflow:auto; width:100%; margin:auto; text-align:center;">
-                        <a href="#" class="links" id="previous_image" style="display:none">
-                            < </a>
+                        <a href="#" class="links icon anterior" id="previous_image" style="display:none"></a>
                                 <select id="image_number">
                                     <?php
                                     $contador_recursos = 1;
@@ -689,7 +688,7 @@ $qr_result = $o_data->query("
                                     }
                                     ?>
                                 </select>
-                                <a href="#" class="links" id="next_image"> > </a>
+                                <a href="#" class="links icon proximo" id="next_image"></a>
                     </div>
                 <?php
                 }
@@ -963,7 +962,7 @@ $qr_result = $o_data->query("
             <a href="#" onclick="window.open('https://twitter.com/intent/tweet?original_referer=' + encodeURIComponent(location.href) + '&amp;tw_p=tweetbutton&amp;url=' + encodeURIComponent(location.href),'twitter-share-dialog','width=626,height=436');return false;"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/x-twitter.svg" alt="logo twitter" /></a>
         </li>
         <li>
-            <a href="#"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/whatsapp.svg" alt="logo whatsapp" /></a>
+            <a href="#" onclick="window.open('https://wa.me/?text=' + encodeURIComponent(location.href),'whatsapp-share-dialog','width=626,height=436');return false;"><img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/whatsapp.svg" alt="logo whatsapp" /></a>
         </li>
     </ul>
 </div>
