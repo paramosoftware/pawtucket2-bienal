@@ -97,10 +97,15 @@
 				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => '3288')) ?>"><?= _t("Biennials") ?></a></li>
 				<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Funds and Collections"), "", "", "Detail", "documento/1") ?></li>
 				<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Galleries"), "", "", "Gallery", "Index") ?></li>
-				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Documents"), "", "", "Browse", "documentos") ?></li>
-				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Artworks"), "", "", "Browse", "obras") ?></li>
-				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Entities"), "", "", "Browse", "entidades") ?></li>
-				<li <?= ($this->request->getController() == "Browse") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Events"), "", "", "Browse", "eventos") ?></li>
+				<li id="browse-popover-wrapper">
+					<button id="browse-popover-btn" popovertarget="browse-popover-list"><?= _t("Browse") ?></button>
+					<ul id="browse-popover-list" popover>
+						<li><?= caNavLink($this->request, _t("Documents"), "", "", "Browse", "documentos") ?></li>
+						<li><?= caNavLink($this->request, _t("Artworks"), "", "", "Browse", "obras") ?></li>
+						<li><?= caNavLink($this->request, _t("Entities"), "", "", "Browse", "entidades") ?></li>
+						<li><?= caNavLink($this->request, _t("Events"), "", "", "Browse", "eventos") ?></li>
+					</ul>
+				</li>
 
 				<?php
 				$fullPath = $this->request->getFullUrlPath();
@@ -111,7 +116,13 @@
 				}
 				?>
 
-				<li><a href="<?= $fullPath . "/lang/pt_BR" ?>">pt</a>&nbsp; &nbsp;|&nbsp; &nbsp;<a href="<?= $fullPath . "/lang/en_US" ?>">en</a></li>
+				<li id="header-lang-desktop">
+					<button popovertarget="lang-popover-div"><?= _t("en") ?></button>
+					<div id="lang-popover-div" popover>
+						<a href="<?= $fullPath . "/lang/" . _t("pt_BR") ?>"><?= _t("pt") ?></a>
+					</div>
+				</li>
+				<li id="header-lang-mobile"><a href="<?= $fullPath . "/lang/pt_BR" ?>">pt</a>&nbsp; &nbsp;|&nbsp; &nbsp;<a href="<?= $fullPath . "/lang/en_US" ?>">en</a></li>
 			</ul>
 
 			<div id="header-form">

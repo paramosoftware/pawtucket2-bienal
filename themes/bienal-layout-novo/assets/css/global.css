@@ -70,9 +70,18 @@ table {
     border-collapse: collapse;
 }
 
+[popover] {
+    border: 0;
+    padding: 0;
+}
+
 /* SECTION1 @HOME */
 #home-sec1 {
     background-color: var(--primary);
+}
+
+:root:has(#home-select-div) {
+    --popover-btn-width: 165px;
 }
 
 #home-sec1-content {
@@ -143,7 +152,7 @@ table {
     justify-content: center;
 
     align-self: flex-end;
-    margin-right: auto;
+    margin-inline: auto;
 
     &:hover {
         color: var(--primary);
@@ -155,7 +164,7 @@ table {
     list-style: none;
     padding: 0;
     height: 100%;
-    min-height: 380px;
+    min-height: 360px;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -196,8 +205,9 @@ table {
 
 /* SECTION-LIST HEADER @HOME */
 .home-sec-header {
+    --home-sec-header-gap: 20px;
     display: flex;
-    gap: 20px;
+    gap: var(--home-sec-header-gap);
     margin-block: 60px;
 }
 
@@ -208,6 +218,39 @@ table {
     white-space: nowrap;
     text-transform: uppercase;
     line-height: 1;
+}
+
+.home-sec-header > .home-gallery-hr-row {
+    width: 100%;
+    display: inline flex;
+    gap: var(--home-sec-header-gap);
+}
+
+.home-sec-header > .home-gallery-hr-row > a {
+    font-size: 18px;
+    white-space: nowrap;
+    text-transform: capitalize;
+    line-height: 2;
+}
+
+.home-sec-header > .home-gallery-hr-row > a:hover {
+    color: var(--secondary);    
+}
+
+.home-sec-header > .home-gallery-hr-row > a::after {
+    content: '';
+    display: inline-block;
+    border: solid var(--primary);
+    border-width: 0 2px 2px 0;
+    padding: 4px;
+
+    margin-inline: 5px;
+    translate: 4px 0px;
+    transform: rotate(-45deg);
+}
+
+.home-sec-header > .home-gallery-hr-row > a:hover::after {
+    border-color: var(--secondary);    
 }
 
 .home-sec-header hr {
@@ -429,7 +472,7 @@ table {
     list-style: none;
     padding: 0;
     border-top: 1px solid var(--primary);
-    width: 260px;
+    width: var(--popover-btn-width);
 
     display: flex;
     flex-direction: column;
@@ -643,9 +686,9 @@ table {
     width: 100%;
 }
 
-.gallery-list h2 {
-    /* max-width: 60%; */
-}
+/* .gallery-list h2 {
+    max-width: 60%;
+} */
 
 .gallery-list>li:not(:has(.sec-img-div)) h2 {
     max-width: 60%;
@@ -664,6 +707,30 @@ table {
 .collection-list .sec-li-info-div {
     max-width: 100%;
     width: 100%;
+}
+
+main:has(#home-sec1) .gallery-list {
+    grid-template-columns: repeat(1, 1fr);
+    padding-inline: 0;
+    margin-bottom: 70px;
+}
+
+main:has(#home-sec1) .gallery-list .sec-list-item {
+    max-height: 550px;
+    aspect-ratio: unset;
+    border-top: 0;
+    border-bottom-color: var(--tertiary3);
+    margin-bottom: 0;
+}
+
+main:has(#home-sec1) .gallery-list .sec-img-div {
+    max-width: unset;
+}
+
+main:has(#home-sec1) .sec-content:has(.gallery-list) {
+    max-width: 1200px;
+    padding-inline: 0;
+    margin-inline: auto;
 }
 
 /* SECTION-LIST END */

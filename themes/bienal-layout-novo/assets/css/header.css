@@ -72,6 +72,10 @@ header button {
     justify-content: space-between;
 }
 
+#header-link-list #header-lang-mobile {
+    display: none;
+}
+
 #header-link-list {
     padding: 0;
     list-style: none;
@@ -80,40 +84,164 @@ header button {
     display: flex;
     justify-content: space-between;
     /* gap: 45px; */
-    margin-top: 24px;
+    margin-top: 22px;
 }
 
 #header-link-list,
-#header-link-list li,
-#header-link-list a {
+#header-link-list>li,
+#header-link-list>li>a {
     max-height: 18px;
     line-height: 1;
+}
+
+#header-lang-desktop * {
+    text-transform: uppercase;
+    color: var(--tertiary);
+    background-color: var(--secondary);
+}
+
+#header-lang-desktop button {
+    anchor-name: --lang-anchor;
+    padding-inline: 10px;
+}
+#lang-popover-div a {
+    padding: 10px;
+    padding-top: 16px;
+    width: 62px;
+}
+
+#lang-popover-div {
+    position: fixed;
+    inset: auto;
+    top: 0;
+    left: anchor(--lang-anchor left);
+}
+
+#browse-popover-btn,
+#header-lang-desktop button {
+    max-height: 18px;
+    line-height: 1;
+    cursor: pointer;
+
+    color: var(--tertiary);
+    background-color: var(--secondary);
+    border: 0;
+
+    font-family: "Helvetica Neue Roman";
+    font-size: 18px;
+    text-transform: uppercase;
+
+    &:hover {
+        color: var(--primary);
+
+        &::after {
+            border-color: var(--primary);
+        }
+    }
+}
+
+#browse-popover-btn::after, #header-lang-desktop button:after {
+    content: '';
+    display: inline-block;
+    border: solid var(--tertiary);
+    border-width: 0 2px 2px 0;
+    padding: 4px;
+
+    margin-inline: 5px;
+    translate: 5px -4px;
+    transform: rotate(45deg);
+}
+
+#browse-popover-wrapper,
+#browse-popover-list {
+    background-color: var(--secondary);
+    border: 0;
+    padding: 0;
+}
+
+#browse-popover-wrapper {
+    width: 160px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#browse-popover-btn {
+    anchor-name: --browse-anchor;
+    width: 100%;
+    text-align: start;
+    padding-inline: 10px;
+}
+
+#browse-popover-list {
+    list-style: none;
+
+    position: absolute;
+    inset: auto;
+    overflow: hidden;
+
+    /* border: 1px solid var(--tertiary);
+    border-radius: 4px; */
+
+    position-anchor: --browse-anchor;
+    top: 0;
+    left: anchor(--browse-anchor left);
+}
+
+#browse-popover-list * {
+    width: 100%;
+}
+
+#browse-popover-list li a {
+    padding-inline: 10px;
+    padding-block: 8px;
+}
+
+#browse-popover-list li:first-of-type a {
+    padding-top: 16px;
+}
+
+#header-link-list:has(#browse-popover-btn:hover) #browse-popover-list,
+#browse-popover-list:not(:hover):popover-open,
+#browse-popover-list:hover,
+#header-link-list:has(#header-lang-desktop button:hover) #header-lang-desktop > div,
+#header-lang-desktop > div:not(:hover):popover-open,
+#header-lang-desktop > div:hover {
+    display: block;
+    transform: translateY(40px);
+    position: fixed;
+}
+
+#header-form:has(#header-adv-search-popover:popover-open) #header-adv-search-btn,
+#header-form:has(#header-adv-search-btn:hover) #header-adv-search-btn,
+#header-form:has(#header-adv-search-popover:hover) #header-adv-search-btn {
+    color: var(--primary);
+
+    &::after {
+        border-color: var(--primary);
+    }
 }
 
 #header-link-list li:last-of-type a {
     text-transform: uppercase;
 }
 
-#header-link-list li:last-of-type::before {
+/* #header-link-list>li:last-of-type::before {
     content: "|";
     margin-right: 14px;
-}
-
+} */
 
 #header-link-list a:hover {
     color: var(--primary);
 }
 
 #header-form {
-    --_header-form-margin-bottom: 15px;
-
     width: 100%;
     display: flex;
     align-items: end;
     justify-content: space-between;
-    margin-bottom: var(--_header-form-margin-bottom);
+    margin-bottom: 13px;
     gap: var(--_header-form-gap);
-
 }
 
 #header-adv-search-btn {
@@ -235,7 +363,8 @@ header button {
     left: anchor(--adv-search-anchor left);
 }
 
-#header-adv-search-popover * {
+#header-adv-search-popover *,
+#browse-popover-list * {
     outline: none;
 }
 
@@ -323,7 +452,7 @@ header hr {
         left: 0;
         margin: 0;
         padding: 0px;
-        height: 580px;
+        height: 425px;
     }
 
     /* header:has(>button:focus) #header-main,
@@ -331,45 +460,86 @@ header hr {
         display: flex;
     } */
 
+    #header-link-list #header-lang-desktop {
+        display: none;
+    }
+
+    #header-link-list #header-lang-mobile {
+        display: inline-flex;
+    }
+
     #header-link-list {
         flex-direction: column;
         margin: 0;
     }
 
     #header-link-list li,
-    #header-link-list a {
-        min-height: 50px;
+    #header-link-list a,
+    #header-link-list button {
+        min-height: 51px;
+    }
+
+    #header-link-list>li>a,
+    #header-link-list>li>button {
+        padding-inline: 20px;
     }
 
     #header-link-list a {
         /* width: 100%; */
-        padding-inline: 20px;
         display: inline flex;
         align-items: center;
     }
 
-    #header-link-list li:not(:last-of-type):has(a:focus) {
+    #header-link-list>li:not(:last-of-type):has(a:focus) {
         background-color: var(--primary);
 
-        > a {
+        >a {
             color: var(--tertiary);
         }
     }
 
-    #header-link-list li:last-of-type {
+    #header-link-list>li:last-of-type {
         border-block: 2px solid var(--tertiary);
         margin-inline: 20px;
         display: inline flex;
         align-items: center;
     }
 
-    #header-link-list li:last-of-type a {
+    #header-link-list>li:last-of-type a {
         width: fit-content;
         padding: 0;
     }
 
-    #header-link-list li:last-of-type::before {
+    #header-link-list>li:last-of-type::before {
         content: unset;
+    }
+
+    #header-adv-search-popover {
+        top: 0;
+    }
+
+    #header-form:has(#header-adv-search-btn:hover) #header-adv-search-popover,
+    #header-adv-search-popover:not(:hover):popover-open,
+    #header-adv-search-popover:hover {
+        transform: translateY(385px);
+    }
+
+    #browse-popover-list {
+        width: 100%;
+        border-block: 2px solid var(--tertiary);
+
+        z-index: 100;
+        left: 0;
+    }
+
+    #header-link-list:has(#browse-popover-btn:hover) #browse-popover-list,
+    #browse-popover-list:not(:hover):popover-open,
+    #browse-popover-list:hover {
+        transform: translateY(271px);
+    }
+
+    #browse-popover-list li a {
+        padding-inline: 30px;
     }
 
     #header-form {

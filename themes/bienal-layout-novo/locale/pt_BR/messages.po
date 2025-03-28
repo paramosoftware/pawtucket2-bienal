@@ -16,6 +16,15 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid "Editions"
+msgstr "Edições"
+
+msgid "Select a Biennal by edition"
+msgstr "Selecione uma edição da Bienal"
+
+msgid "Browse"
+msgstr "Explorar"
+
 msgid "Share"
 msgstr "Compartilhar"
 
