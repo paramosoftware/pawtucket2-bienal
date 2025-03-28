@@ -53,20 +53,20 @@ $highlight_sets = $this->getVar('highlight_sets');
 
 		<hr />
 		<ul id="home-sec1-main-list-tracker">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
+			<li><!-- A aparência dessa lista --></li>
+			<li><!-- é 100% css --></li>
+			<li><!-- não altere o html antes de olhar o css --></li>
+			<li><!-- Johnathan (28-03-25) --></li>
 		</ul>
 
 		<div id="home-sec1-footer">
 			<h1>
-				<?= _t("Selecione a edição para consultar as informações referentes a cada Bienal."); ?>
+				<?= _t("Select a Biennal by edition"); ?>.
 			</h1>
 
 			<div id="home-select-div" class="select-div">
 				<button id="home-select-btn" class="select-btn" popovertarget="select-popover">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Selecione a Edição") ?>
+					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Edition") ?>
 				</button>
 
 				<div popover class="select-popover" id="select-popover">
@@ -142,26 +142,26 @@ $highlight_sets = $this->getVar('highlight_sets');
 	</div>
 </section>
 
-<section class="sec-bg-color">
+<!-- <section class="sec-bg-color">
 	<div class="sec-content">
 		<div class="home-sec-header">
-			<h1><?= _t("Funds and Collections") ?></h1>
+			<h1><?php # echo _t("Funds and Collections") ?></h1>
 			<hr />
 		</div>
 
 		<ul class="sec-list collection-list">
-			<?php foreach ($collections as $collecton) : ?>
+			<?php # foreach ($collections as $collecton) : ?>
 				<li class="sec-list-item">
 					<div class="sec-li-info-div">
-						<h2><?= $collecton["name"] ?></h2>
+						<h2><?php # echo $collecton["name"] ?></h2>
 
 						<div>
-							<span><?= ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") ?></span>
-							<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?= $collecton["object_id"] ?>"><?= _t("Explore") ?></a>
+							<span><?php # echo ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") ?></span>
+							<a href="<?php # echo $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?php # echo $collecton["object_id"] ?>"><?php # echo _t("Explore") ?></a>
 						</div>
 					</div>
 				</li>
-			<?php endforeach; ?>
+			<?php # endforeach; ?>
 		</ul>
 	</div>
-</section>
+</section> -->
