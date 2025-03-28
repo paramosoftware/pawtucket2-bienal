@@ -709,13 +709,13 @@ table {
     width: 100%;
 }
 
-main:has(#home-sec1) .gallery-list {
+main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list {
     grid-template-columns: repeat(1, 1fr);
     padding-inline: 0;
     margin-bottom: 70px;
 }
 
-main:has(#home-sec1) .gallery-list .sec-list-item {
+main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list .sec-list-item {
     max-height: 550px;
     aspect-ratio: unset;
     border-top: 0;
@@ -723,11 +723,11 @@ main:has(#home-sec1) .gallery-list .sec-list-item {
     margin-bottom: 0;
 }
 
-main:has(#home-sec1) .gallery-list .sec-img-div {
+main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list .sec-img-div {
     max-width: unset;
 }
 
-main:has(#home-sec1) .sec-content:has(.gallery-list) {
+main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) {
     max-width: 1200px;
     padding-inline: 0;
     margin-inline: auto;

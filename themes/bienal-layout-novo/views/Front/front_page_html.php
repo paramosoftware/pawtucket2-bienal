@@ -117,6 +117,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 		<div class="home-sec-header">
 			<h1><?= _t("Galleries") ?></h1>
 			<hr />
+			<!-- <div class="home-gallery-hr-row"><hr /><a href="#">Acessar Galerias</a></div> -->
 		</div>
 
 		<ul class="sec-list gallery-list">
