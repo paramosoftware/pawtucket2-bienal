@@ -66,9 +66,9 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 						} else {
 							$termo_busca = $filtro['value'];
 							if ($is_advanced) {
-								print "<span>" . $termo_busca . "</span>";
+								print "<a class='no-content'>" . $termo_busca . "</a>";
 							} else {
-								print "<span>Palavra chave: " . $termo_busca . "</span>";
+								print "<a class='no-content'>Palavra chave: <span>" . $termo_busca . "</span></a>";
 							}
 						}
 					}
