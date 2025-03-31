@@ -16,6 +16,9 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
+msgid "Access Galleries"
+msgstr "Acessar Galerias"
+
 msgid "Editions"
 msgstr "Edições"
 

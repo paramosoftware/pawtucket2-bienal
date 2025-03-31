@@ -66,7 +66,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 
 			<div id="home-select-div" class="select-div">
 				<button id="home-select-btn" class="select-btn" popovertarget="select-popover">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Edition") ?>
+					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Editions") ?>
 				</button>
 
 				<div popover class="select-popover" id="select-popover">
@@ -87,20 +87,28 @@ $highlight_sets = $this->getVar('highlight_sets');
 	<div class="sec-content">
 		<div class="home-sec-header">
 			<h1><?= _t("Featured") ?></h1>
-			<hr />
+			<div class="home-gallery-hr-row">
+				<hr />
+				<!-- <?= caNavLink($this->request, _t("Acessar Galerias"), "", "", "Gallery", "Index") ?> -->
+			</div>
 		</div>
 
-		<ul class="sec-list">
+		<ul class="sec-list gallery-list">
 			<?php foreach ($highlight_sets as $set_id => $set) : ?>
 				<li class="sec-list-item">
 					<?php if (!empty($set["cover_image"])) : ?>
-						<div class="sec-img-div">
+						<figure class="sec-img-div">
 							<?= $set["cover_image"] ?>
-						</div>
+							<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit.</figcaption>
+						</figure>
 					<?php endif; ?>
 
 					<div class="sec-li-info-div">
 						<h2><?= $set["name"] ?></h2>
+						<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius.
+							<?php # echo $set["description"] ?>
+						</p>
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
 							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>"><?= _t("Explore") ?></a>
@@ -116,22 +124,28 @@ $highlight_sets = $this->getVar('highlight_sets');
 	<div class="sec-content">
 		<div class="home-sec-header">
 			<h1><?= _t("Galleries") ?></h1>
-			<hr />
-			<!-- <div class="home-gallery-hr-row"><hr /><a href="#">Acessar Galerias</a></div> -->
+			<!-- <hr /> -->
+			<div class="home-gallery-hr-row">
+				<hr /><?= caNavLink($this->request, _t("Access Galleries"), "", "", "Gallery", "Index") ?>
+			</div>
 		</div>
 
 		<ul class="sec-list gallery-list">
 			<?php foreach ($sets as $set_id => $set) : ?>
 				<li class="sec-list-item">
 					<?php if (!empty($set["cover_image"])) : ?>
-						<div class="sec-img-div">
+						<figure class="sec-img-div">
 							<?= $set["cover_image"] ?>
-						</div>
+							<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit.</figcaption>
+						</figure>
 					<?php endif; ?>
 
 					<div class="sec-li-info-div">
 						<h2><?= $set["name"] ?></h2>
-
+						<p>
+						<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius. -->
+							<?= $set["description"] ?>
+						</p>
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
 							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>"><?= _t("Explore") ?></a>
@@ -146,23 +160,31 @@ $highlight_sets = $this->getVar('highlight_sets');
 <!-- <section class="sec-bg-color">
 	<div class="sec-content">
 		<div class="home-sec-header">
-			<h1><?php # echo _t("Funds and Collections") ?></h1>
+			<h1><?php # echo _t("Funds and Collections") 
+				?></h1>
 			<hr />
 		</div>
 
 		<ul class="sec-list collection-list">
-			<?php # foreach ($collections as $collecton) : ?>
+			<?php # foreach ($collections as $collecton) : 
+			?>
 				<li class="sec-list-item">
 					<div class="sec-li-info-div">
-						<h2><?php # echo $collecton["name"] ?></h2>
+						<h2><?php # echo $collecton["name"] 
+							?></h2>
 
 						<div>
-							<span><?php # echo ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") ?></span>
-							<a href="<?php # echo $this->request->getBaseUrlPath() ?>/index.php/Detail/documento/<?php # echo $collecton["object_id"] ?>"><?php # echo _t("Explore") ?></a>
+							<span><?php # echo ($collecton["type_id"] == 23) ? _t("Fond") : _t("Collection") 
+									?></span>
+							<a href="<?php # echo $this->request->getBaseUrlPath() 
+										?>/index.php/Detail/documento/<?php # echo $collecton["object_id"] 
+																		?>"><?php # echo _t("Explore") 
+																			?></a>
 						</div>
 					</div>
 				</li>
-			<?php # endforeach; ?>
+			<?php # endforeach; 
+			?>
 		</ul>
 	</div>
 </section> -->

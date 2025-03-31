@@ -222,6 +222,7 @@
 				$t_set = new ca_sets($set["set_id"]);
 
 				$set["cover_image"] = $t_set->get("ca_sets.cover_image.large");
+				$set["description"] = $t_set->get($this->config->get('gallery_set_description_element_code'), array("delimiter" => "<br/><br/>"));
 			}
 
 			$this->view->setVar('sets', $sets);

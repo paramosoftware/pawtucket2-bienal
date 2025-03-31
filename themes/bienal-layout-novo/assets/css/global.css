@@ -152,7 +152,7 @@ table {
     justify-content: center;
 
     align-self: flex-end;
-    margin-inline: auto;
+    margin-right: auto;
 
     &:hover {
         color: var(--primary);
@@ -164,7 +164,7 @@ table {
     list-style: none;
     padding: 0;
     height: 100%;
-    min-height: 360px;
+    min-height: 340px;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -187,7 +187,8 @@ table {
 }
 
 #home-sec1-content>hr {
-    margin-block: 60px;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
 
 #home-sec1-footer {
@@ -220,24 +221,24 @@ table {
     line-height: 1;
 }
 
-.home-sec-header > .home-gallery-hr-row {
+.home-sec-header>.home-gallery-hr-row {
     width: 100%;
     display: inline flex;
     gap: var(--home-sec-header-gap);
 }
 
-.home-sec-header > .home-gallery-hr-row > a {
+.home-sec-header>.home-gallery-hr-row>a {
     font-size: 18px;
     white-space: nowrap;
     text-transform: capitalize;
     line-height: 2;
 }
 
-.home-sec-header > .home-gallery-hr-row > a:hover {
-    color: var(--secondary);    
+.home-sec-header>.home-gallery-hr-row>a:hover {
+    color: var(--secondary);
 }
 
-.home-sec-header > .home-gallery-hr-row > a::after {
+.home-sec-header>.home-gallery-hr-row>a::after {
     content: '';
     display: inline-block;
     border: solid var(--primary);
@@ -249,8 +250,8 @@ table {
     transform: rotate(-45deg);
 }
 
-.home-sec-header > .home-gallery-hr-row > a:hover::after {
-    border-color: var(--secondary);    
+.home-sec-header>.home-gallery-hr-row>a:hover::after {
+    border-color: var(--secondary);
 }
 
 .home-sec-header hr {
@@ -709,10 +710,18 @@ table {
     width: 100%;
 }
 
+main:has(#home-sec1) .home-sec-header {
+    margin-block: 0;
+}
+
+main:has(#home-sec1) .home-sec-header hr {
+    border-color: var(--secondary);
+}
+
 main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list {
     grid-template-columns: repeat(1, 1fr);
     padding-inline: 0;
-    margin-bottom: 70px;
+    margin-bottom: 0;
 }
 
 main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list .sec-list-item {
@@ -720,17 +729,55 @@ main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list .sec-l
     aspect-ratio: unset;
     border-top: 0;
     border-bottom-color: var(--tertiary3);
-    margin-bottom: 0;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 
-main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list .sec-img-div {
+main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list .sec-list-item:last-of-type:not(:first-of-type) {
+    border-bottom: 0;
+}
+
+main:has(#home-sec1) .sec-content .gallery-list .sec-img-div {
     max-width: unset;
+    flex-direction: column;
 }
 
-main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) {
+main:has(#home-sec1) .sec-content .gallery-list .sec-img-div main:has(#home-sec1) .sec-content .gallery-list .sec-li-info-div {
+    padding-block: 0;
+    margin-block: 0;
+}
+
+main:has(#home-sec1) .sec-content:first-of-type {
+    margin-top: 70px;
+}
+
+main:has(#home-sec1) .sec-content
+
+/*:has(.home-gallery-hr-row)*/
+    {
     max-width: 1200px;
     padding-inline: 0;
     margin-inline: auto;
+}
+
+.sec-li-info-div h2+p {
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.sec-li-info-div:has(h2 + p)>div {
+    margin-top: auto;
+}
+
+main:has(#home-sec1) .sec-list-item .sec-img-div img {
+    height: calc(550px - 34px - 80px);
+    /* sec-list-item height - figcaption height - margin-block */
+}
+
+figcaption {
+    font-family: "Helvetica Neue Roman";
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 /* SECTION-LIST END */
@@ -940,6 +987,14 @@ p {
         background-color: var(--primary) !important;
         color: var(--tertiary) !important;
     }
+}
+
+.selectBox-dropdown {
+    color: var(--secondary) !important;
+}
+
+.selectBox.selectBox-disabled .selectBox-label {
+    color: var(--tertiary4) !important;
 }
 
 .selectBox-dropdown-menu {
@@ -1707,6 +1762,10 @@ main #paginacao .paginas ul a {
     content: "\f101"
 }
 
+.icon.question:before {
+    content: "\f059"
+}
+
 .icon.proximo:before {
     content: "\f105"
 }
@@ -1828,6 +1887,12 @@ main:has(.wrapper) .sec-footer {
 
 #bMorePanel {
     background-color: var(--primary) !important;
+}
+
+#bMorePanel #bScrollListLabel,
+#bMorePanel #bScrollListLabel .bFilterCount {
+    color: inherit !important;
+    background-color: inherit !important;
 }
 
 #bLetterBar {
