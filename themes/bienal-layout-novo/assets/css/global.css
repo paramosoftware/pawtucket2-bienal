@@ -488,6 +488,10 @@ table {
     justify-content: center;
 }
 
+.select-popover li:has(a:empty) {
+    display: none;
+}
+
 .select-popover a {
     border-left: 1px solid var(--primary);
     border-right: 1px solid var(--primary);
