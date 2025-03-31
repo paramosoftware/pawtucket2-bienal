@@ -312,7 +312,7 @@
             }
 
             function select_vocabulary_item(ps_value) {
-                $("#ca_list_items_preferred_labels").val(ps_value);
+                $(("input[name='ca_list_items.preferred_labels']")).val(ps_value);
                 $("#bScrollList").empty();
                 jQuery("#bMorePanel").hide();
             }
