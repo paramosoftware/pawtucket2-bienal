@@ -5,7 +5,7 @@ $va_first_items_from_set = $this->getVar("first_items_from_sets");
 if (is_array($va_sets) && sizeof($va_sets)) { ?>
 
 	<section class="sec-bg-color">
-		<div class="sec-content">
+		<div class="sec-content gallery-index">
 			<div class="sec-header">
 				<span>Home / <b><?= _t("Galleries") ?></b></span>
 				<hr />

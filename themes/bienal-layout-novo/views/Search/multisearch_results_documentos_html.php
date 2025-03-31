@@ -39,7 +39,6 @@ $vn_init_with_start    = (int)$this->getVar('initializeWithStart');
 
     <div class="sidebar">
         <div class="sidebar-header">
-            <?= var_dump($block_info['displayName']) ?>
             <?= _t($block_info['displayName']); ?>
             <br>
             <span class="sidebar-header-results-counter"><?= $results->numHits() . " " . _t("resultados") ?></span>

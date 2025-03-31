@@ -291,6 +291,9 @@ table {
 .sec-header>div>span {
     text-transform: lowercase;
 }
+.sec-header>div>span>b {
+    text-transform: capitalize;
+}
 
 .sec-header hr {
     width: 100%;
@@ -568,6 +571,10 @@ table {
 
     background-color: var(--tertiary);
     color: var(--secondary);
+}
+
+.sec-content.gallery-index {
+    padding-inline: 0;
 }
 
 .sec-list {
@@ -1629,10 +1636,6 @@ main #links:has(.gallery-link) span {
     grid-area: sec-header;
 }
 
-.sec-header>div>span {
-    text-transform: capitalize;
-}
-
 .browse-results {
     grid-area: browse-results;
 }
@@ -1962,6 +1965,10 @@ main:has(.wrapper) .sec-footer {
 .table-overflow {
     overflow-x: scroll;
     scrollbar-width: none;
+}
+
+.no-content::before, .no-content::after {
+    content: unset !important;
 }
 
 @media screen and (width <=1200px) {
