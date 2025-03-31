@@ -80,10 +80,6 @@ table {
     background-color: var(--primary);
 }
 
-:root:has(#home-select-div) {
-    --popover-btn-width: 165px;
-}
-
 #home-sec1-content {
     height: fit-content;
     min-height: 600px;
