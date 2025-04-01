@@ -84,7 +84,7 @@ $qr_result = $o_data->query("
             <button class="select-btn" popovertarget="select-popover">
                 <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
             </button>
-            <div popover id="select-popover">
+            <div popover class="select-popover" id="select-popover">
                 <ul>
                     <?php foreach ($exportacao_formatos as $formato) {
                         print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . $formato["name"] . '</a></li>';
