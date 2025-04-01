@@ -1454,18 +1454,18 @@ main:not(:has(.sec-header img)) #conteudo {
     width: 100%;
 }
 
-.wrapper:has(.summary-sheet) #conteudo .item .tipo {
+/* .wrapper:has(.summary-sheet) #conteudo .item .tipo {
     width: 25%;
-}
+} */
 
-.wrapper:has(.summary-sheet) #conteudo .item .titulo {
+/* .wrapper:has(.summary-sheet) #conteudo .item .titulo {
     width: 65%;
-}
+} */
 
-.wrapper:has(.summary-sheet) #conteudo .item .descricao,
+/* .wrapper:has(.summary-sheet) #conteudo .item .descricao,
 .wrapper:has(.summary-sheet) #conteudo .item .img {
     display: none;
-}
+} */
 
 .wrapper:not(:has(#conteudo)):not(:has(#media_representativa)) {
     max-width: max(50%, 600px);
@@ -1604,6 +1604,7 @@ main #links:has(.gallery-link) span {
 }
 
 #itens .item .col.img {
+    padding: 20px 0px;
     width: 4%
 }
 
