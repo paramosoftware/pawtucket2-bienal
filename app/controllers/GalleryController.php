@@ -111,10 +111,15 @@
 							}
 						}
 					}
-					foreach ($sets as &$set) {
+					foreach ($sets as &$set) 
+					{
 						$t_set = new ca_sets($set["set_id"]);
-						$set["cover_image"] = $t_set->get("ca_sets.cover_image.large");
+
+						$set["caption"] = $t_set->get("ca_sets.caption");
+						$set["cover_image"] = $t_set->get("ca_sets.cover_image2.cover_image_image.large");
+						$set["cover_image_caption"] = $t_set->get("ca_sets.cover_image2.cover_image_caption.large");
 					}
+
 					$this->view->setVar('sets', $sets);
 					$this->view->setVar('first_items_from_sets', $set_first_items);
 				}
