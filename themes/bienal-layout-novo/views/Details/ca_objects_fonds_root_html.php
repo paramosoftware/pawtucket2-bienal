@@ -86,17 +86,25 @@ $qr_result = $o_data->query("
 </div>
 
 <ul class="sec-list collection-list">
-    <?php while ($qr_result->nextRow()) { ?>
+    <?php while ($qr_result->nextRow())
+    {
+        $vo_object = new ca_objects($qr_result->get('ca_objects.object_id'));
+    ?>
         <li class="sec-list-item">
             <div class="sec-li-info-div">
                 <h2><?= $qr_result->get('ca_object_labels.name') ?></h2>
+
+                <div><?= $vo_object->get("ca_objects.scopecontent"); ?></div>
+
                 <div>
                     <span><?= $qr_result->get('ca_list_item_labels.name_singular') ?></span>
                     <a href="<?= $this->request->getBaseUrlPath() . '/index.php/Detail/documento/' . $qr_result->get('ca_objects.object_id') ?>">Explore</a>
                 </div>
             </div>
         </li>
-    <?php } /* FECHA WHILE */ ?>
+    <?php 
+    } 
+    ?>
 </ul>
 
 
