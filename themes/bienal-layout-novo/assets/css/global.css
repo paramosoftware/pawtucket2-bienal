@@ -68,6 +68,7 @@ section {
 
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 [popover] {
@@ -291,6 +292,7 @@ table {
 .sec-header>div>span {
     text-transform: lowercase;
 }
+
 .sec-header>div>span>b {
     text-transform: capitalize;
 }
@@ -709,7 +711,7 @@ table {
 
 .collection-list .sec-list-item {
     /* max-width: 388px; */
-    aspect-ratio: 388 / 250;
+    aspect-ratio: unset;
 }
 
 .collection-list .sec-li-info-div {
@@ -744,7 +746,7 @@ main:has(#home-sec1) .sec-content:has(.home-gallery-hr-row) .gallery-list .sec-l
     border-bottom: 0;
 }
 
-main:has(#home-sec1) .sec-content .gallery-list .sec-img-div {
+.sec-content .gallery-list .sec-img-div {
     max-width: unset;
     flex-direction: column;
 }
@@ -769,8 +771,13 @@ main:has(#home-sec1) .sec-content
 
 .sec-li-info-div h2+p {
     margin-top: 40px;
+    margin-bottom: 20px;
     font-size: 18px;
 }
+
+/* .collection-list .sec-li-info-div h2+p {
+    margin-bottom: 20px;
+} */
 
 .sec-li-info-div:has(h2 + p)>div {
     margin-top: auto;
@@ -1170,9 +1177,10 @@ main #paginacao {
     font-family: "Helvetica Neue Bold";
     font-size: 18px;
     color: var(--secondary);
-    padding-left: 15px;
+    /* padding-left: 15px; */
     /* margin-right: auto; */
     width: 15%;
+    text-align: start;
 }
 
 .pagination-bar-page-numbers,
@@ -1625,6 +1633,11 @@ main #links:has(.gallery-link) span {
 
 #contagem {
     font-family: "Helvetica Neue Roman";
+    border-top: 2px solid var(--secondary);
+}
+
+#itens {
+    border-bottom: 2px solid var(--secondary);
 }
 
 .sec-header,
@@ -1968,7 +1981,8 @@ main:has(.wrapper) .sec-footer {
     scrollbar-width: none;
 }
 
-.no-content::before, .no-content::after {
+.no-content::before,
+.no-content::after {
     content: unset !important;
 }
 

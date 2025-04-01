@@ -192,14 +192,15 @@
 
 			$t_set = new ca_sets();
 			
-			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'highlight');
+			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'featured_items');
 			$featured_sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
 
 			foreach ($featured_sets as &$set)
 			{
 				$t_set = new ca_sets($set["set_id"]);
 
-				$set["cover_image"] = $t_set->get("ca_sets.cover_image");
+				$set["cover_image"] = $t_set->get("ca_sets.cover_image.cover_image_image.large");
+				$set["cover_image_caption"] = $t_set->get("ca_sets.cover_image.cover_image_caption");
 			}
 
 			$this->view->setVar('highlight_sets', $featured_sets);
@@ -221,8 +222,10 @@
 			{
 				$t_set = new ca_sets($set["set_id"]);
 
-				$set["cover_image"] = $t_set->get("ca_sets.cover_image.large");
-				$set["description"] = $t_set->get($this->config->get('gallery_set_description_element_code'), array("delimiter" => "<br/><br/>"));
+				$set["cover_image"] = $t_set->get("ca_sets.cover_image.cover_image_image.large");
+				$set["cover_image_caption"] = $t_set->get("ca_sets.cover_image.cover_image_caption");
+				// $set["description"] = $t_set->get($this->config->get('gallery_set_description_element_code'), array("delimiter" => "<br/><br/>"));
+				$set["caption"] = $t_set->get("ca_sets.caption");
 			}
 
 			$this->view->setVar('sets', $sets);

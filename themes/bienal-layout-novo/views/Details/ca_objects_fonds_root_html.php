@@ -94,7 +94,7 @@ $qr_result = $o_data->query("
             <div class="sec-li-info-div">
                 <h2><?= $qr_result->get('ca_object_labels.name') ?></h2>
 
-                <div><?= $vo_object->get("ca_objects.scopecontent"); ?></div>
+                <p><?= $vo_object->get("ca_objects.scopecontent"); ?></p>
 
                 <div>
                     <span><?= $qr_result->get('ca_list_item_labels.name_singular') ?></span>

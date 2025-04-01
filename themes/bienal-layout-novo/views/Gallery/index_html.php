@@ -24,15 +24,16 @@ if (is_array($va_sets) && sizeof($va_sets)) { ?>
 				<?php foreach ($va_sets as $vn_set_id => $va_set) { ?>
 					<li class="sec-list-item">
 						<?php if (!empty($va_set["cover_image"])) : ?>
-							<div class="sec-img-div">
+							<figure class="sec-img-div">
 								<?= $va_set["cover_image"] ?>
-							</div>
+								<figcaption><?= $va_set["cover_image_caption"] ?></figcaption>
+							</figure>
 						<?php endif; ?>
 
 						<div class="sec-li-info-div">
 							<h2><?= $va_set["name"] ?></h2>
 
-							<div><?= $va_set["caption"] ?></div>
+							<p><?= $va_set["caption"] ?></p>
 
 							<div>
 								<span><?= $va_set["item_count"] . " " . _t("Items") ?></span>

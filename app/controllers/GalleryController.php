@@ -116,8 +116,8 @@
 						$t_set = new ca_sets($set["set_id"]);
 
 						$set["caption"] = $t_set->get("ca_sets.caption");
-						$set["cover_image"] = $t_set->get("ca_sets.cover_image2.cover_image_image.large");
-						$set["cover_image_caption"] = $t_set->get("ca_sets.cover_image2.cover_image_caption.large");
+						$set["cover_image"] = $t_set->get("ca_sets.cover_image.cover_image_image.large");
+						$set["cover_image_caption"] = $t_set->get("ca_sets.cover_image.cover_image_caption");
 					}
 
 					$this->view->setVar('sets', $sets);

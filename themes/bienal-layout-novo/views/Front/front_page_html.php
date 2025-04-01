@@ -136,7 +136,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 					<?php if (!empty($set["cover_image"])) : ?>
 						<figure class="sec-img-div">
 							<?= $set["cover_image"] ?>
-							<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit.</figcaption>
+							<figcaption><?= $set["cover_image_caption"] ?></figcaption>
 						</figure>
 					<?php endif; ?>
 
@@ -144,7 +144,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 						<h2><?= $set["name"] ?></h2>
 						<p>
 						<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius. -->
-							<?= $set["description"] ?>
+							<?= $set["caption"] ?>
 						</p>
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
