@@ -1,64 +1,64 @@
 <?php
-$item = $this->getVar("item");
-$exportacao_formatos = $this->getVar('export_formats');
-$acao = $this->request->getAction();
+    $item = $this->getVar("item");
+    $exportacao_formatos = $this->getVar('export_formats');
+    $acao = $this->request->getAction();
 
-$page = $this->getVar("page");
-if (!$page)
-    $page = 1;
+    $page = $this->getVar("page");
+    if (!$page)
+        $page = 1;
 
-$vb_exibir_imagem = true;
-?>
+    $vb_exibir_imagem = true;
+    ?>
 
-<?php
-$o_data = new Db();
-$o_id = $item->get('object_id');
+    <?php
+    $o_data = new Db();
+    $o_id = $item->get('object_id');
 
-$qr_result = $o_data->query("
-                            SELECT COUNT(ca_objects.object_id) as Q
-                            FROM ca_objects
-                            WHERE ca_objects.parent_id = $o_id AND ca_objects.deleted = 0 AND ca_objects.access = 1
-                        ");
+    $qr_result = $o_data->query("
+                                SELECT COUNT(ca_objects.object_id) as Q
+                                FROM ca_objects
+                                WHERE ca_objects.parent_id = $o_id AND ca_objects.deleted = 0 AND ca_objects.access = 1
+                            ");
 
-$vn_numero_itens = 0;
-if ($qr_result->nextRow())
-    $vn_numero_itens = $qr_result->get('Q');
+    $vn_numero_itens = 0;
+    if ($qr_result->nextRow())
+        $vn_numero_itens = $qr_result->get('Q');
 
-$primeiro_item = ($page - 1) * 20;
-$paginas_totais = ceil($vn_numero_itens / 20);
+    $primeiro_item = ($page - 1) * 20;
+    $paginas_totais = ceil($vn_numero_itens / 20);
 
-$qr_result = $o_data->query("
-        SELECT ca_list_item_labels.name_singular, ca_objects.access, ca_objects.object_id, ca_object_labels.name, (
-            SELECT ca_attribute_values.value_longtext1
-            FROM ca_attribute_values
-            INNER JOIN ca_attributes
-            ON ca_attributes.attribute_id = ca_attribute_values.attribute_id
-            INNER JOIN ca_metadata_elements
-            ON ca_metadata_elements.element_id = ca_attribute_values.element_id
-            AND ca_metadata_elements.element_code = 'content_description' 
-            WHERE ca_attributes.row_id = ca_objects.object_id 
-            LIMIT 1 
-        ) as description,
-        
-        (SELECT ca_attribute_values.value_longtext1
-            FROM ca_attribute_values
-            INNER JOIN ca_attributes
-            ON ca_attributes.attribute_id = ca_attribute_values.attribute_id
-            WHERE ca_attributes.row_id = ca_objects.object_id 
-            AND ca_attributes.element_id = 289
-            LIMIT 1 
-        ) as has_external_image
-        
-        FROM ca_objects
-        INNER JOIN ca_list_items
-        ON ca_objects.type_id=ca_list_items.item_id
-        INNER JOIN ca_list_item_labels 
-        ON ca_list_item_labels.item_id = ca_list_items.item_id
-        INNER JOIN ca_object_labels
-        ON ca_object_labels.object_id = ca_objects.object_id							
-        WHERE ca_objects.parent_id = $o_id AND ca_list_item_labels.locale_id = 13 AND ca_object_labels.locale_id = 13 AND ca_objects.deleted = 0 AND ca_objects.access = 1
-        LIMIT $primeiro_item, 20
-    ");
+    $qr_result = $o_data->query("
+            SELECT ca_list_item_labels.name_singular, ca_objects.access, ca_objects.object_id, ca_object_labels.name, (
+                SELECT ca_attribute_values.value_longtext1
+                FROM ca_attribute_values
+                INNER JOIN ca_attributes
+                ON ca_attributes.attribute_id = ca_attribute_values.attribute_id
+                INNER JOIN ca_metadata_elements
+                ON ca_metadata_elements.element_id = ca_attribute_values.element_id
+                AND ca_metadata_elements.element_code = 'content_description' 
+                WHERE ca_attributes.row_id = ca_objects.object_id 
+                LIMIT 1 
+            ) as description,
+            
+            (SELECT ca_attribute_values.value_longtext1
+                FROM ca_attribute_values
+                INNER JOIN ca_attributes
+                ON ca_attributes.attribute_id = ca_attribute_values.attribute_id
+                WHERE ca_attributes.row_id = ca_objects.object_id 
+                AND ca_attributes.element_id = 289
+                LIMIT 1 
+            ) as has_external_image
+            
+            FROM ca_objects
+            INNER JOIN ca_list_items
+            ON ca_objects.type_id=ca_list_items.item_id
+            INNER JOIN ca_list_item_labels 
+            ON ca_list_item_labels.item_id = ca_list_items.item_id
+            INNER JOIN ca_object_labels
+            ON ca_object_labels.object_id = ca_objects.object_id							
+            WHERE ca_objects.parent_id = $o_id AND ca_list_item_labels.locale_id = 13 AND ca_object_labels.locale_id = 13 AND ca_objects.deleted = 0 AND ca_objects.access = 1
+            LIMIT $primeiro_item, 20
+        ");
 ?>
 
 <div class="sec-header">
@@ -202,6 +202,7 @@ $qr_result = $o_data->query("
 
             <!-- Acrescentado por Fred, 20/4/2023 -->
             <!-- Alterado por Fred, 27/7/2023 -->
+
             <?php {
                 $vs_recursos = $item->getWithTemplate('<unit relativeTo="ca_objects.info_resource_rs">^ca_objects.info_resource_rs.info_resource_rs_location_id|^ca_objects.info_resource_rs.info_resource_access</unit>');
                 $va_recursos = array();
@@ -830,7 +831,8 @@ $qr_result = $o_data->query("
             </div>
 
             <table id="itens">
-                <?php while ($qr_result->nextRow()) {
+                <?php while ($qr_result->nextRow()) 
+                {
                     print '<tr class="item">';
                     print '<td class="col tipo">' . $qr_result->get('ca_list_item_labels.name_singular') . '</td>';
                     print '<td class="col titulo"><a href="' . $this->request->getBaseUrlPath() . '/index.php/Detail/documento/' . $qr_result->get('ca_objects.object_id') . '">' . $qr_result->get('ca_object_labels.name') . '</a></td>';
@@ -858,10 +860,12 @@ $qr_result = $o_data->query("
 
 
             <?php
-            if ($paginas_totais > 1) {
+            if ($paginas_totais > 1) 
+            {
+                $vb_has_summary_sheet = !empty($item->getWithTemplate('^ca_objects.content_description'))
             ?>
                 <!-- PAGINAÇÂO -->
-                <div id="paginacao">
+                <div class="pagination-bar">
                     <?php
                     $fullPath = $this->request->getFullUrlPath();
                     if (str_contains($fullPath, "page/")) {
@@ -869,48 +873,72 @@ $qr_result = $o_data->query("
                     }
                     ?>
 
-                    <div class="pagina"><?= _t("Page") . " " . $page . " " . _t("of") . " " . $paginas_totais ?></div>
-
-                    <div class="paginas">
+                    <div class="pagination-bar-summary">
                         <?php
-
-                        $vn_i = 1;
-                        $vn_f = $paginas_totais;
-                        $html_paginacao = '';
-                        if ($page > 1) {
-                            $html_paginacao .= "<a class='nextNav botao icon inicio' href='" . $fullPath . "/page/1'></a>";
-                        }
-                        if ($page > 10) {
-                            $html_paginacao .= "<a class='nextNav botao icon anterior' href='" . $fullPath . "/page/" . ($page - 1) . "'></a>";
-                        }
-                        $html_paginacao .= '<ul>';
-                        while ($vn_i <= $vn_f) {
-                            $html_paginacao .= "<li " . ($vn_i == $page ? 'class="selecionado"' : "") . ">" .
-                                "<a class='nextNav' href='" . $fullPath . "/page/$vn_i'>$vn_i</a>"
-                                . "</li>";
-                            $vn_i++;
-                        }
-                        $html_paginacao .= "</ul>";
-                        if ($page < $paginas_totais) {
-                            $html_paginacao .= "<a class='nextNav botao icon proximo' href='" . $fullPath . "/page/" . ($page + 1) . "'></a>";
-                        }
-                        if ($page < $paginas_totais) {
-                            $html_paginacao .= "<a class='nextNav botao icon final' href='" . $fullPath . "/page/$vn_f'></a>";
-                        }
-                        print $html_paginacao;
-
+                            if ($vb_has_summary_sheet)
+                                print $page . "/" . $paginas_totais;
+                            else
+                                print _t("Page") . " " . $page . " " . _t("of") . " " . $paginas_totais 
                         ?>
                     </div>
 
+                    <?php if (!$vb_has_summary_sheet) : ?>
+                        <div class="pagination-bar-page-numbers">
+                        <?php
+                            $vn_i = 1;
+
+                            if (in_array($page, [1,2]))
+                                $vn_f = 5;
+                            elseif ($page + 2 < $paginas_totais)
+                                $vn_f = $page + 2;
+                            else
+                                $vn_f = $paginas_totais;
+                            
+                            $html_paginacao = '';
+                            
+                            if ($page > 1) {
+                                $html_paginacao .= "<a class='nextNav botao icon inicio' href='" . $fullPath . "/page/1'></a>";
+                            }
+
+                            if ($page > 10) {
+                                $html_paginacao .= "<a class='nextNav botao icon anterior' href='" . $fullPath . "/page/" . ($page - 1) . "'></a>";
+                            }
+
+                            $html_paginacao .= '<ul>';
+
+                            while ($vn_i <= $vn_f) {
+                                $html_paginacao .= "<li " . ($vn_i == $page ? 'class="pagination-bar-selected-page"' : "") . ">" .
+                                    "<a class='nextNav' href='" . $fullPath . "/page/$vn_i'>$vn_i</a>"
+                                    . "</li>";
+                                $vn_i++;
+                            }
+
+                            $html_paginacao .= "</ul>";
+
+                            if (!$vb_has_summary_sheet && ($page < $paginas_totais)) {
+                                $html_paginacao .= "<a class='nextNav botao icon proximo' href='" . $fullPath . "/page/" . ($page + 1) . "'></a>";
+                            }
+
+                            if (!$vb_has_summary_sheet && ($page < $paginas_totais)) {
+                                $html_paginacao .= "<a class='nextNav botao icon final' href='" . $fullPath . "/page/$vn_f'></a>";
+                            }
+
+                            print $html_paginacao;
+                        ?>
+                        </div>
+                    <?php endif; ?>
+
                     <?php if ($paginas_totais > 1) { ?>
-                        <div class="jumper">
-                            <?= _t("Jump to page") ?>
+                        <div class="pagination-bar-page-jumper">
+                            <?php
+                                print _t("Jump to page");
+                            ?><br>
                             <input />
                         </div>
                     <?php } ?>
 
                     <script>
-                        $(".jumper input").keypress(function($e) {
+                        $(".pagination-bar-page-jumper input").keypress(function($e) {
                             if ($e.which == 13 && $(this).val().trim() != "" && !isNaN($(this).val()) && Number($(this).val()) <= <?= $paginas_totais ?> && Number($(this).val()) > 0) {
                                 window.location.href = "<?= $fullPath . '/page/' ?>" + $(this).val();
                             }
