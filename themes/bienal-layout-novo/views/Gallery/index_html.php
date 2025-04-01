@@ -28,8 +28,12 @@ if (is_array($va_sets) && sizeof($va_sets)) { ?>
 								<?= $va_set["cover_image"] ?>
 							</div>
 						<?php endif; ?>
+
 						<div class="sec-li-info-div">
 							<h2><?= $va_set["name"] ?></h2>
+
+							<div><?= $va_set["caption"] ?></div>
+
 							<div>
 								<span><?= $va_set["item_count"] . " " . _t("Items") ?></span>
 								<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $vn_set_id)) ?>"><?= _t("Explore") ?></a>

@@ -73,40 +73,38 @@ $qr_result = $o_data->query("
     <span>
         Home / <b><?= _t("Funds and Collections") ?></b>
     </span>
+
     <hr />
+
     <div>
         <h1><?= _t("Funds and Collections") ?></h1>
-        <label>id: {{{<unit>^ca_objects.idno</unit>}}}</label>
     </div>
+
     <div>
         <span><b><?= $vn_numero_itens . ($vn_numero_itens != 1 ? " " . _t("Records") . " " : " " . _t("Record") . " ") ?></b> <?= _t("at this level") ?></span>
-        <div class="select-div">
-            <button class="select-btn" popovertarget="select-popover">
-                <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
-            </button>
-            <div popover class="select-popover" id="select-popover">
-                <ul>
-                    <?php foreach ($exportacao_formatos as $formato) {
-                        print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . $formato["name"] . '</a></li>';
-                    } ?>
-                </ul>
-            </div>
-        </div>
     </div>
 </div>
 
 <ul class="sec-list collection-list">
-    <?php while ($qr_result->nextRow()) { ?>
+    <?php while ($qr_result->nextRow())
+    {
+        $vo_object = new ca_objects($qr_result->get('ca_objects.object_id'));
+    ?>
         <li class="sec-list-item">
             <div class="sec-li-info-div">
                 <h2><?= $qr_result->get('ca_object_labels.name') ?></h2>
+
+                <div><?= $vo_object->get("ca_objects.scopecontent"); ?></div>
+
                 <div>
                     <span><?= $qr_result->get('ca_list_item_labels.name_singular') ?></span>
                     <a href="<?= $this->request->getBaseUrlPath() . '/index.php/Detail/documento/' . $qr_result->get('ca_objects.object_id') ?>">Explore</a>
                 </div>
             </div>
         </li>
-    <?php } /* FECHA WHILE */ ?>
+    <?php 
+    } 
+    ?>
 </ul>
 
 
