@@ -1380,6 +1380,18 @@ main #paginacao .jumper input {
     flex-grow: 2;
 }
 
+#itens .item .col.descricao:empty {
+    display: none;
+}
+
+.wrapper:has(:has(.descricao)) .summary-sheet {
+    flex-basis: 60%;
+}
+
+.wrapper:has(.summary-sheet) #conteudo:has(.descricao:not(:empty)) {
+    flex-basis: 39%;
+}
+
 .summary-sheet-attributes {
     border-block: 2px solid var(--secondary);
 }
@@ -1613,7 +1625,8 @@ main #links:has(.gallery-link) span {
 
 #itens .item .col.img {
     padding: 20px 0px;
-    width: 4%
+    width: 4%;
+    padding-left: 10px
 }
 
 #contagem {
