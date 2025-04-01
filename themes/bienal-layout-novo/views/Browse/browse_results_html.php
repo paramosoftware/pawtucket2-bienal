@@ -49,7 +49,7 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 		</div>
 
 		<div>
-			<span class="browse-results-span" ><b><?= $total_resultado ?></b> <?= _t(_t($label)) ?></span>
+			<span class="browse-results-span"><b><?= $total_resultado ?></b> <?= _t(_t($label)) ?></span>
 
 			<?php if (sizeof($criterios) > 0) : ?>
 				<div id="criterios">
@@ -66,7 +66,16 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 						} else {
 							$termo_busca = $filtro['value'];
 							if ($is_advanced) {
-								print "<a class='no-content'>" . $termo_busca . "</a>";
+								$va_termos = explode("; ", $termo_busca);
+
+								foreach ($va_termos as $vs_k_comma_v) {
+									$va_kv_pair = explode(': ', $vs_k_comma_v);
+									$va_termos_deduplicados[$va_kv_pair[0]] = $va_kv_pair[1];
+								}
+
+								foreach ($va_termos_deduplicados as $termo => $valor) {
+									print "<a class='no-content'>" . $termo . ":&nbsp;<span>" . $valor . "</span>" . "</a>";
+								}
 							} else {
 								print "<a class='no-content'>Palavra chave: <span>" . $termo_busca . "</span></a>";
 							}
