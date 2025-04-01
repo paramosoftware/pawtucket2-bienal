@@ -157,11 +157,15 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 				<div class="pagination-bar-summary"><?= _t("Page") . " " . $pagina_atual . " " . _t("of") . " " . $paginas_totais ?></div>
 
 				<div class="pagination-bar-page-numbers">
-					<?php
-					$vn_i = (($offset / $itens_por_pagina) + 1) - 3;
-					$vn_i = $vn_i < 1 ? 1 : $vn_i;
-					$vn_f = $vn_i + 4;
+				<?php
+					$page = (($offset / $itens_por_pagina) + 1);
+
+					$vn_f = ($page < 3) ? 5 : $page + 2;
 					$vn_f = $vn_f > $paginas_totais ? $paginas_totais : $vn_f;
+					
+					$vn_i = ($page < 3) ? 1 : (in_array($page, [$paginas_totais, $paginas_totais-1]) ? $vn_f - 4 : $page - 2);
+					$vn_i = $vn_i < 1 ? 1 : $vn_i;
+					
 					$html_paginacao = '';
 
 					if ($vn_i > 1) {
@@ -189,7 +193,7 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 					}
 
 					print $html_paginacao;
-					?>
+				?>
 				</div>
 
 				<?php if ($paginas_totais > 1) : ?>
