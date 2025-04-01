@@ -267,7 +267,7 @@ class SearchController extends FindController {
 		// Add criteria and execute
 		//
 
-				
+		
 		if (($o_browse->numCriteria() == 0) && $vs_search_expression) {
 			$o_browse->addCriteria("_search", [caMatchOnStem($vs_search_expression)], array($vs_search_expression_for_display));
 		}
@@ -380,7 +380,7 @@ class SearchController extends FindController {
 			$o_browse->setFacetGroup($vs_facet_group);
 		}
 		$va_available_facet_list = caGetOption('availableFacets', $va_browse_info, null);
-		//$va_facets = $o_browse->getInfoForAvailableFacets(['checkAccess' => $this->opa_access_values, 'request' => $this->request]);
+		$va_facets = $o_browse->getInfoForAvailableFacets(['checkAccess' => $this->opa_access_values, 'request' => $this->request]);
 		if(is_array($va_available_facet_list) && sizeof($va_available_facet_list)) {
 			foreach($va_facets as $vs_facet_name => $va_facet_info) {
 				if (!in_array($vs_facet_name, $va_available_facet_list)) {
@@ -414,7 +414,7 @@ class SearchController extends FindController {
 		}
 		if(isset($va_criteria['_search']) && is_array($va_criteria['_search'])) {
 			foreach($va_criteria['_search'] as $k => $v) {
-				if(strlen($ds = caGetDisplayStringForSearch($k))) {
+				if(strlen($ds = caGetDisplayStringForSearch($v))) {
 					$va_criteria['_search'][$k] = $ds;
 				}
 			}
