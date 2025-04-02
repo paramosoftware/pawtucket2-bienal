@@ -105,7 +105,7 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 								<ul>
 									<?php
 									foreach ($exportacao_formatos as $formato) {
-										print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . $formato["name"] . '</a></li>';
+										print '<li><a target="_blank" href="' . $this->request->getFullUrlPath() . '/view/' . $formato["type"] . '/download/1/export_format/' . $formato["code"] . '">' . _t($formato['name']) . '</a></li>';
 									}
 									?>
 								</ul>
