@@ -25,13 +25,17 @@ if (is_array($va_sets) && sizeof($va_sets)) { ?>
 					<li class="sec-list-item">
 						<?php if (!empty($va_set["cover_image"])) : ?>
 							<figure class="sec-img-div">
-								<?= $va_set["cover_image"] ?>
+								<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $vn_set_id)) ?>">
+									<?= $va_set["cover_image"] ?>
+								</a>
 								<figcaption><?= $va_set["cover_image_caption"] ?></figcaption>
 							</figure>
 						<?php endif; ?>
 
 						<div class="sec-li-info-div">
-							<h2><?= $va_set["name"] ?></h2>
+							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $vn_set_id)) ?>">
+								<h2><?= $va_set["name"] ?></h2>
+							</a>
 
 							<p><?= $va_set["caption"] ?></p>
 

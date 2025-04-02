@@ -2057,6 +2057,10 @@ main:has(.wrapper) .sec-footer {
         padding-inline: 0;
     }
 
+    .gallery-index .gallery-list {
+        margin-inline: 20px;
+    }
+
     .sec-list-item h2 {
         font-size: 24px;
     }
