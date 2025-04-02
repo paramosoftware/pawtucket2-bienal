@@ -1220,7 +1220,7 @@ main #paginacao {
     padding: 0;
     margin-left: 20px;
 
-    width: 30px;
+    min-width: 30px;
     height: 30px;
 
     display: inline-block;
@@ -1819,6 +1819,10 @@ main #paginacao .paginas ul a {
 
 .icon.anterior:before {
     content: "\f104"
+}
+
+.pagination-bar-page-numbers li a, .icon.inicio:before, .icon.anterior:before, .icon.proximo:before, .icon.final:before {
+    padding-inline: 9px;
 }
 
 .icon.ordenacao-asc,
