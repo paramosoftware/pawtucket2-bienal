@@ -80,6 +80,23 @@ function toggleById(targetId, displayType = 'block') {
     e.style.display = window.innerWidth <= width_breakpoint && e.style.display == displayType ? "none" : displayType;
 }
 
+/** Funcionalidade similar à função toggleById; contrário a toggleById, preserva a contagem das subgalerias.
+ * 
+ * Arquivos relevantes: set_info_html.php
+ * 
+ * @param {string} targetId id do elemento que vai ser mostrado/escondido.
+ */
+function toggleVisibilityById(targetId) {
+    let e = document.getElementById(targetId);
+    // console.log(targetId);
+    if(e == null) return;
+    if(e.classList.contains("visibility-hidden")) {
+        e.classList.remove("visibility-hidden");
+    } else {
+        e.classList.add("visibility-hidden");
+    }
+}
+
 
 /** Função de guarda para toggleById.
  * 

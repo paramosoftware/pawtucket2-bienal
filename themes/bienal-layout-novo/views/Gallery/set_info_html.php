@@ -354,7 +354,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 				}
 				?>
 			</div>
-			<span onclick="toggleById('subgallery-links', 'flex')">&nbsp;Subgalerias</span>
+			<span onclick="toggleVisibilityById('subgallery-links')">&nbsp;Subgalerias</span>
 
 		</div>
 	<?php
