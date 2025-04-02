@@ -98,16 +98,21 @@ $highlight_sets = $this->getVar('highlight_sets');
 				<li class="sec-list-item">
 					<?php if (!empty($set["cover_image"])) : ?>
 						<figure class="sec-img-div">
+							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
 							<?= $set["cover_image"] ?>
+							</a>
 							<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit.</figcaption>
 						</figure>
 					<?php endif; ?>
 
 					<div class="sec-li-info-div">
+						<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
 						<h2><?= $set["name"] ?></h2>
+						</a>
 						<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius.
-							<?php # echo $set["description"] ?>
+							<?php # echo $set["description"] 
+							?>
 						</p>
 						<div>
 							<span><?= $set["item_count"] . " " . _t("Items") ?></span>
@@ -135,13 +140,17 @@ $highlight_sets = $this->getVar('highlight_sets');
 				<li class="sec-list-item">
 					<?php if (!empty($set["cover_image"])) : ?>
 						<figure class="sec-img-div">
+							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
 							<?= $set["cover_image"] ?>
+							</a>
 							<figcaption><?= $set["cover_image_caption"] ?></figcaption>
 						</figure>
 					<?php endif; ?>
 
 					<div class="sec-li-info-div">
+						<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
 						<h2><?= $set["name"] ?></h2>
+						</a>
 						<p>
 						<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius. -->
 							<?= $set["caption"] ?>
