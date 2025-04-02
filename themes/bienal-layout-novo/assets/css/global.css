@@ -1380,7 +1380,7 @@ main #paginacao .jumper input {
     flex-grow: 2;
 }
 
-#itens .item .col.descricao:empty {
+#itens:not(:has(.col.descricao:not(:empty))) .item .col.descricao:empty {
     display: none;
 }
 
@@ -1623,10 +1623,17 @@ main #links:has(.gallery-link) span {
     color: var(--secondary);
 }
 
+#itens:has(.col.img) .item .col.descricao.col:nth-child(3):nth-last-child(1) {
+    border-right: 1px solid var(--tertiary3);
+}
+
 #itens .item .col.img {
-    padding: 20px 0px;
+    padding: 20px 10px;
     width: 4%;
-    padding-left: 10px
+}
+
+#itens .item .col.img > img {
+    min-width: 24px;
 }
 
 #contagem {
@@ -2264,7 +2271,7 @@ main:has(.wrapper) .sec-footer {
         max-width: fit-content !important;
     }
 
-    .wrapper:has(.summary-sheet-attribute) #itens .item .col.descricao {
+    .wrapper:has(.summary-sheet-attribute) #itens:not(:has(.col.descricao:not(:empty))) .item .col.descricao {
         display: none;
     }
 
