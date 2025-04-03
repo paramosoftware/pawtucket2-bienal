@@ -901,7 +901,7 @@ function caGetDisplayStringForHTMLFormInput($po_result_context, $pa_options=null
 		) { continue; }
 
 		if(!is_array($pa_form_values[$vs_dotless_element])) { $pa_form_values[$vs_dotless_element] = array($pa_form_values[$vs_dotless_element]); }
-		//if(!($vs_label = trim($pa_form_values["{$vs_dotless_element}_label"]))) { $vs_label = "xxx"; }
+		if(!($vs_label = trim($pa_form_values["{$vs_dotless_element}_label"]))) { $vs_label = "xxx"; }
 		
 		if(isset($pa_form_values["{$vs_dotless_element}_autocomplete"])) {
 			if(!is_array($pa_form_values["{$vs_dotless_element}_autocomplete"])) { $pa_form_values["{$vs_dotless_element}_autocomplete"] = [$pa_form_values["{$vs_dotless_element}_autocomplete"]]; }
@@ -956,6 +956,8 @@ function caGetDisplayStringForHTMLFormInput($po_result_context, $pa_options=null
 	
 	$po_result_context->setParameter("pawtucketAdvancedSearchFormDisplayString_{$pa_form_values['_advancedFormName']}", $va_display_string);
 	$po_result_context->saveContext();
+
+	// var_dump($va_display_string);
 
 	return join("; ", $va_display_string);
 }

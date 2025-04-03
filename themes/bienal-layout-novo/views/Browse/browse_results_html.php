@@ -65,7 +65,8 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 							// print "<span>" . $filtro['facet'] . ": $removalLinkElement</span>";
 						} else {
 							$termo_busca = $filtro['value'];
-							if ($is_advanced) {
+							if ($is_advanced) {							
+								$termo_busca = $this->getVar("adv_search_fields");
 								$va_termos = explode("; ", $termo_busca);
 
 								foreach ($va_termos as $vs_k_comma_v) {

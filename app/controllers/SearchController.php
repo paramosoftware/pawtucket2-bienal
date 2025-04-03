@@ -149,6 +149,8 @@ class SearchController extends FindController {
 			
 			$this->opo_result_context->setAsLastFind(true);
 		}
+
+
 		
 		MetaTagManager::setWindowTitle($this->request->config->get("app_display_name").$this->request->config->get("page_title_delimiter")._t("Search %1", $va_browse_info["displayName"]).$this->request->config->get("page_title_delimiter").$this->opo_result_context->getSearchExpressionForDisplay());
 
@@ -166,6 +168,7 @@ class SearchController extends FindController {
 				$this->opo_result_context->setSearchExpression($vs_search_expression);
 			}
 		}
+
 		
 		$this->view->setVar('browseInfo', $va_browse_info);
 		$this->view->setVar('paging', in_array(strtolower($va_browse_info['paging']), array('continuous', 'nextprevious', 'letter')) ? strtolower($va_browse_info['paging']) : 'continuous');
@@ -267,7 +270,6 @@ class SearchController extends FindController {
 		// Add criteria and execute
 		//
 
-		
 		if (($o_browse->numCriteria() == 0) && $vs_search_expression) {
 			$o_browse->addCriteria("_search", [caMatchOnStem($vs_search_expression)], array($vs_search_expression_for_display));
 		}
@@ -285,6 +287,7 @@ class SearchController extends FindController {
 		} elseif ($vs_facet = $this->request->getParameter('facet', pString, ['forcePurify' => true])) {
 			$o_browse->addCriteria($vs_facet, explode("|", $this->request->getParameter('id', pString, ['forcePurify' => true])));
 		}
+
 		
 		//
 		// Add additional base criteria if necessary
@@ -294,6 +297,7 @@ class SearchController extends FindController {
 				$o_browse->addCriteria($vs_facet, $vs_value);
 			}
 		}
+
 		
 		//
 		// Sorting
@@ -372,7 +376,8 @@ class SearchController extends FindController {
 	
 		// Set highlight text
 		MetaTagManager::setHighlightText($o_browse->getSearchedTerms() ?? $vs_search_expression, ['persist' => !RequestHTTP::isAjax()]); 
-	
+
+
 		//
 		// Facets
 		//
@@ -408,6 +413,8 @@ class SearchController extends FindController {
 		//
 		// Current criteria
 		//
+		$this->view->setVar('adv_search_fields', $vs_search_expression_for_display);
+
 		$va_criteria = $o_browse->getCriteriaWithLabels();
 		if (isset($va_criteria['_search']) && (isset($va_criteria['_search']['*']))) {
 			unset($va_criteria['_search']['*']);
