@@ -2417,6 +2417,15 @@ main:has(.wrapper) .sec-footer {
         right: 40px;
     }
 
+
+    .browse-results-facets h3 {
+        text-align: start;
+    }
+
+    .browse-results-facets h3:after {
+        right: 15px;
+    }
+
     /* #links span:after {
         position: absolute;
         right: 40px;
@@ -2444,6 +2453,10 @@ main:has(.wrapper) .sec-footer {
 
     .browse-results-table-wrapper {
         margin-left: 20px;
+    }
+
+    #conteudo:has(#itens) #itens:not([style*="display: block"]) + .pagination-bar {
+        display: none;
     }
 
     .browse-results-toolbar,
