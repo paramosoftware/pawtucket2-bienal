@@ -1661,6 +1661,10 @@ main #links:has(.gallery-link) span {
     border-top: 2px solid var(--secondary);
 }
 
+#conteudo .gallery-sidebar {
+    border: 0;
+}
+
 #itens {
     border-bottom: 2px solid var(--secondary);
 }
@@ -2198,7 +2202,7 @@ main:has(.wrapper) .sec-footer {
 
     #contagem {
         padding-inline: 20px;
-        text-align: center;
+        text-align: start;
     }
 
     .wrapper:not(:has(.summary-sheet-attribute)) {
@@ -2260,6 +2264,9 @@ main:has(.wrapper) .sec-footer {
         display: none;
     }
 
+    .wrapper:has(.summary-sheet-attribute) #conteudo:has(.gallery-sidebar) #itens {
+        border: none;
+    }
 
     .visibility-hidden {
         visibility: hidden;
@@ -2397,7 +2404,8 @@ main:has(.wrapper) .sec-footer {
 
     #links:has(#subgallery-links):has(.visibility-hidden) span:after,
     .browse-results-table-grid:has(#filtros:not([style*="display: block"])) .browse-results-facets h3:after,
-    .wrapper:has(.summary-sheet-attribute) #conteudo:has(#itens:not([style*="display: block"])) #contagem:after {
+    .wrapper:has(.summary-sheet-attribute) #conteudo:not(:has(.gallery-sidebar)):has(#itens:not([style*="display: block"])) #contagem:after,
+    .wrapper:has(.summary-sheet-attribute) #conteudo:has(#itens.visibility-hidden) #contagem:after {
         content: "\f107";
     }
 

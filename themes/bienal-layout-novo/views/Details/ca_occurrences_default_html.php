@@ -225,7 +225,7 @@ $acao = $this->request->getAction();
                 
                 <div id="conteudo">
     
-                    <div id="contagem">
+                    <div id="contagem" class="gallery-sidebar" onclick="toggleVisibilityById('itens')">
                         <strong><span class="quantidade"></span></strong><?= _t("Sections / Subsections") ?>
                     </div>            
 
