@@ -217,7 +217,8 @@
 			
 			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'public_presentation', 'table' => 'ca_objects');
 			$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
-
+			$sets = array_slice($sets, 0, 3);
+			
 			foreach ($sets as &$set)
 			{
 				$t_set = new ca_sets($set["set_id"]);
