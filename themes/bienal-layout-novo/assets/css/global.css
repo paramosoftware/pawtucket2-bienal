@@ -1798,12 +1798,17 @@ main #paginacao .paginas ul a {
     color: inherit
 }
 
-.icon:before {
+.icon:before,
+.glyphicon:before {
     font-family: "FontAwesome";
     border: none;
     font-size: inherit;
     color: inherit;
     vertical-align: top
+}
+
+.glyphicon-remove-circle:before {
+    content: "\f05c"
 }
 
 .icon.download:before {
@@ -1962,6 +1967,13 @@ main:has(.wrapper) .sec-footer {
 #bMorePanel #bScrollListLabel .bFilterCount {
     color: inherit !important;
     background-color: inherit !important;
+}
+
+#bMorePanel #bMorePanelClose {
+    justify-content: flex-end;
+    color: black;
+    height: 0px;
+    font-size: 24px;
 }
 
 #bLetterBar {
