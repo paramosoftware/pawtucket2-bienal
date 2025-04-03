@@ -1231,6 +1231,11 @@ main #paginacao {
     font-size: 16px;
 }
 
+.paginas .icon.anterior,
+.paginas:not(:has(.icon.anterior)) .icon.icon.inicio {
+    margin-right: 20px;
+}
+
 .pagination-bar-page-numbers li a,
 .paginas li a {
     padding-top: 3px;

@@ -488,9 +488,10 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 			<div class="paginas">
 				<?php
 
-				$vn_i = (($offset / $itens_por_pagina) + 1) - 10;
+				$vn_delta = 2;
+				$vn_i = (($offset / $itens_por_pagina) + 1) - $vn_delta;
 				$vn_i = $vn_i < 1 ? 1 : $vn_i;
-				$vn_f = $vn_i + floor($itens_por_pagina / 2);
+				$vn_f = $vn_i + $vn_delta*2;
 				$vn_f = $vn_f > $paginas_totais ? $paginas_totais : $vn_f;
 				$html_paginacao = '';
 				if ($vn_i > 1) {
@@ -499,7 +500,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 				if ($vn_i > 10) {
 					$html_paginacao .= caNavLink($this->request, "", 'nextNav botao icon anterior', '*', '*', '*', array('set_id' => $vn_set_id, 's' => ($itens_por_pagina * ($vn_i - 1)) - $itens_por_pagina));
 				}
-				$html_paginacao .= '<ul>';
+				$html_paginacao .= '<ul class="paginas-ul" >';
 				while ($vn_i <= $vn_f) {
 					$html_paginacao .= "<li " . ($offset == (($itens_por_pagina * $vn_i) - $itens_por_pagina) ? 'class="selecionado"' : "") . ">" . caNavLink($this->request, $vn_i, 'nextNav', '*', '*', '*', array('set_id' => $vn_set_id, 's' => ($itens_por_pagina * $vn_i) - $itens_por_pagina)) . "</li>";
 					$vn_i++;
@@ -521,14 +522,11 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 					<?= _t("Jump to page") ?>
 					<input />
 				</div>
-			<?php } ?>
-
-
-			<script>
-				if ($(".paginas").length <= 1) {
+			<?php } else { ?>
+				<script>
 					$(".paginas").remove();
-				}
-			</script>
+				</script>
+			<?php } ?>
 		</div>
 	</div>
 </div>
