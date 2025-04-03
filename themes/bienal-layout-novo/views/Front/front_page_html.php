@@ -11,7 +11,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 			<?= _t("Consult information about the document archive and the São Paulo Biennials.") ?>
 		</h1>
 		<ul id="home-sec1-main-list">
-			<li>
+			<li id="li_documents">
 				<h2><?= _t("Documents") ?></h2>
 				<hr />
 				<h3><?= $this->getVar('document_count') . " " . _t("Documents") ?></h3>
@@ -21,7 +21,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 				</p>
 				<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Browse/documentos"><?= _t("Explore") ?></a>
 			</li>
-			<li>
+			<li id="li_artworks">
 				<h2><?= _t("Artworks") ?></h2>
 				<hr />
 				<h3><?= $this->getVar('artwork_count') . " " . _t("Artworks") ?></h3>
@@ -29,7 +29,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 				<p><?= _t("Information about the artworks and their participation in the Biennials") ?></p>
 				<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Browse/obras"><?= _t("Explore") ?></a>
 			</li>
-			<li>
+			<li id="li_entities">
 				<h2><?= _t("Entities") ?></h2>
 				<hr />
 				<h3><?= $this->getVar('entity_count') . " " . _t("Entities") ?></h3>
@@ -39,7 +39,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 				</p>
 				<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Browse/entidades"><?= _t("Explore") ?></a>
 			</li>
-			<li>
+			<li id="li_events">
 				<h2><?= _t("Events") ?></h2>
 				<hr />
 				<h3><?= $this->getVar('event_count') . " " . _t("Events") ?></h3>
@@ -53,10 +53,10 @@ $highlight_sets = $this->getVar('highlight_sets');
 
 		<hr />
 		<ul id="home-sec1-main-list-tracker">
-			<li><!-- A aparência dessa lista --></li>
-			<li><!-- é 100% css --></li>
-			<li><!-- não altere o html antes de olhar o css --></li>
-			<li><!-- Johnathan (28-03-25) --></li>
+			<li onclick="jumpToListItemById('li_documents');"></li>
+			<li onclick="jumpToListItemById('li_artworks');"></li>
+			<li onclick="jumpToListItemById('li_entities');"></li>
+			<li onclick="jumpToListItemById('li_events');"></li>
 		</ul>
 
 		<div id="home-sec1-footer">
@@ -99,7 +99,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 					<?php if (!empty($set["cover_image"])) : ?>
 						<figure class="sec-img-div">
 							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
-							<?= $set["cover_image"] ?>
+								<?= $set["cover_image"] ?>
 							</a>
 							<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit.</figcaption>
 						</figure>
@@ -107,10 +107,10 @@ $highlight_sets = $this->getVar('highlight_sets');
 
 					<div class="sec-li-info-div">
 						<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
-						<h2><?= $set["name"] ?></h2>
+							<h2><?= $set["name"] ?></h2>
 						</a>
 						<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius.
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius.
 							<?php # echo $set["description"] 
 							?>
 						</p>
@@ -141,7 +141,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 					<?php if (!empty($set["cover_image"])) : ?>
 						<figure class="sec-img-div">
 							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
-							<?= $set["cover_image"] ?>
+								<?= $set["cover_image"] ?>
 							</a>
 							<figcaption><?= $set["cover_image_caption"] ?></figcaption>
 						</figure>
@@ -149,10 +149,10 @@ $highlight_sets = $this->getVar('highlight_sets');
 
 					<div class="sec-li-info-div">
 						<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
-						<h2><?= $set["name"] ?></h2>
+							<h2><?= $set["name"] ?></h2>
 						</a>
 						<p>
-						<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius. -->
+							<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius. -->
 							<?= $set["caption"] ?>
 						</p>
 						<div>

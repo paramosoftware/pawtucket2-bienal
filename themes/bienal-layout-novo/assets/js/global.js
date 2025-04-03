@@ -8,21 +8,29 @@ const width_breakpoint = 940; // previamente 768 (px)
  */
 const main_list = document.getElementById("home-sec1-main-list");
 const tracker_list = document.getElementById("home-sec1-main-list-tracker");
-if(main_list != null && tracker_list != null) {
-    const main_list_items = main_list.getElementsByTagName('li');
-    const tracker_list_items = tracker_list.getElementsByTagName('li');
-    var main_list_padding_right = window.innerWidth - main_list.getBoundingClientRect().right;
-    main_list.addEventListener('scroll', () => {
-        for (let i = 0; i < main_list_items.length; i++) {
-            if (main_list_items[i].getBoundingClientRect().right == window.innerWidth - main_list_padding_right) {
-                tracker_list_items[i].style.color = "white";
-                for (let j = 0; j < main_list_items.length; j++) {
-                    if (j != i) tracker_list_items[j].style.color = "black";
-                }
-                break;
+const main_list_items = main_list.getElementsByTagName('li');
+const tracker_list_items = tracker_list.getElementsByTagName('li');
+var main_list_padding_right = window.innerWidth - main_list.getBoundingClientRect().right;
+main_list.addEventListener('scroll', retrack);
+
+function retrack() {
+    for (let i = 0; i < main_list_items.length; i++) {
+        if (main_list_items[i].getBoundingClientRect().right == window.innerWidth - main_list_padding_right) {
+            tracker_list_items[i].style.color = "white";
+            for (let j = 0; j < main_list_items.length; j++) {
+                if (j != i) tracker_list_items[j].style.color = "black";
             }
+            break;
         }
-    });
+    }
+}
+
+function jumpToListItemById(li_id) {
+    document.getElementById(li_id).scrollIntoView();
+    location.href='#'+li_id;
+    window.scrollTo(0, 0);
+    retrack();
+    return false;
 }
 
 
@@ -79,6 +87,7 @@ function toggleById(targetId, displayType = 'block') {
     if(e == null) return;
     e.style.display = window.innerWidth <= width_breakpoint && e.style.display == displayType ? "none" : displayType;
 }
+
 
 /** Funcionalidade similar à função toggleById; contrário a toggleById, preserva a contagem das subgalerias.
  * 
