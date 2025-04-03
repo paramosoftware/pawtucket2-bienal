@@ -229,16 +229,16 @@ $acao = $this->request->getAction();
                         <strong><span class="quantidade"></span></strong><?= _t("Sections / Subsections") ?>
                     </div>            
 
-                    <div id="itens">
+                    <table id="itens">
                       	
                         <unit relativeTo="ca_occurrences.children" delimiter=" ">
-                        <div class="item">
-                            <div class="col tipo">^ca_occurrences.type_id</div>
-                            <div class="col titulo"><l>^ca_occurrences.preferred_labels</l></div>
-                        </div>
+                        <tr class="item">
+                            <td class="col tipo">^ca_occurrences.type_id</td>
+                            <td class="col titulo"><l>^ca_occurrences.preferred_labels</l></td>
+                        </tr>
                         </unit>
                         
-                    </div>  
+                    </table>  
                     
                 </div>
 

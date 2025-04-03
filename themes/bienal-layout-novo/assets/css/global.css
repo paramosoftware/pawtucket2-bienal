@@ -2255,7 +2255,7 @@ main:has(.wrapper) .sec-footer {
     }
 
     /* #links #subgallery-links, */
-    .wrapper:has(.summary-sheet-attribute) #itens,
+    .wrapper:has(.summary-sheet-attribute) #conteudo:not(:has(.gallery-sidebar)) #itens,
     .browse-results-facets #filtros {
         display: none;
     }
