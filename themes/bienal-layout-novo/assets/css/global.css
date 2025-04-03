@@ -1703,10 +1703,11 @@ main #links:has(.gallery-link) span {
 .sec-header>div:has(#criterios) {
     justify-content: start;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #criterios {
-    height: 30px;
+    min-height: 30px;
 }
 
 #criterios a {
@@ -1717,7 +1718,7 @@ main #links:has(.gallery-link) span {
     font-size: 16px;
 
     display: inline-block;
-    height: 30px;
+    min-height: 30px;
     border: 1px solid var(--tertiary3);
     border-radius: 4px;
     padding-left: 9px;
@@ -1725,6 +1726,9 @@ main #links:has(.gallery-link) span {
     padding-top: 2px;
 
     margin-left: 20px;
+    margin-block: 5px;
+
+    white-space: nowrap;
 }
 
 #criterios a:first-of-type {
@@ -1997,6 +2001,10 @@ main:has(.wrapper) .sec-footer {
 
 .sec-header>div>.browse-results-span {
     text-transform: lowercase;
+}
+
+.sec-header>div:has(#criterios)>.browse-results-span {
+    white-space: nowrap;
 }
 
 .browse-results-table-wrapper {
