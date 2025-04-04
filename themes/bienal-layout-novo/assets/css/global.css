@@ -2457,11 +2457,19 @@ main:has(.wrapper) .sec-footer {
         padding: 0;
     }
 
+
+    .table-overflow {
+        scrollbar-width: unset;
+        padding-bottom: 4px;
+        scrollbar-color: var(--primary) var(--tertiary2);
+    }
+
+
     .browse-results-table-wrapper {
         margin-left: 20px;
     }
 
-    #conteudo:has(#itens) #itens:not([style*="display: block"]) + .pagination-bar {
+    #conteudo:has(#itens) #itens:not([style*="display: block"])+.pagination-bar {
         display: none;
     }
 
