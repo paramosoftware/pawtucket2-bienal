@@ -1797,6 +1797,7 @@ main #paginacao .paginas li:first-of-type a {
 
 main #paginacao .paginas ul a {
     padding-top: 3px;
+    padding-inline: 9px;
 }
 
 .icon {
