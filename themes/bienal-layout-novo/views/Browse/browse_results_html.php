@@ -42,7 +42,7 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 			if ($total_resultado > 0) {
 				$h1_text =  _t(_t($label));
 			} else {
-				$h1_text =  "$negative_word $label_singular $found_singular";
+				$h1_text =  "$negative_word $label_singular "._t($found_singular);
 			}
 			?>
 			<h1><?= $h1_text ?></h1>

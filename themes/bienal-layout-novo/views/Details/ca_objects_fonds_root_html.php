@@ -99,7 +99,7 @@ $qr_result = $o_data->query("
 
                 <div>
                     <span><?= $qr_result->get('ca_list_item_labels.name_singular') ?></span>
-                    <a href="<?= $this->request->getBaseUrlPath() . '/index.php/Detail/documento/' . $qr_result->get('ca_objects.object_id') ?>">Explore</a>
+                    <a href="<?= $this->request->getBaseUrlPath() . '/index.php/Detail/documento/' . $qr_result->get('ca_objects.object_id') ?>"><?= _t("Explore") ?></a>
                 </div>
             </div>
         </li>

@@ -18,7 +18,7 @@ $vn_numero_itens = count($va_set_items);
     </div>
 
     <div>
-        <span><b><?= $vn_numero_itens . ($vn_numero_itens != 1 ? " " . _t("Events") . " " : " " . _t("Evet") . " ") ?></b> <?= _t("available") ?></span>
+        <span><b><?= $vn_numero_itens . ($vn_numero_itens != 1 ? " " . _t("Events") . " " : " " . _t("Event") . " ") ?></b> <?= _t("available") ?></span>
     </div>
 </div>
 
@@ -35,7 +35,7 @@ $vn_numero_itens = count($va_set_items);
                 <h2><?= $va_set_item["set_item_label"] ?></h2>
                 <div>
                     <span><?= $vs_occurence_period ?></span>
-                    <a href="<?= $this->request->getBaseUrlPath() . '/index.php/Detail/evento/' . $va_set_item["row_id"] ?>">Explore</a>
+                    <a href="<?= $this->request->getBaseUrlPath() . '/index.php/Detail/evento/' . $va_set_item["row_id"] ?>"><?= _t("Explore") ?></a>
                 </div>
             </div>
         </li>
