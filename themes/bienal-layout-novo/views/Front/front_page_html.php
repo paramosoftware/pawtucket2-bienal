@@ -65,11 +65,11 @@ $highlight_sets = $this->getVar('highlight_sets');
 			</h1>
 
 			<div id="home-select-div" class="select-div">
-				<button id="home-select-btn" class="select-btn" popovertarget="select-popover">
-					<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/down-chevron.svg" /><?= _t("Editions") ?>
+				<button id="home-select-btn" class="select-btn" onclick="toggleById('home-select-popover', 'flex', 9000)">
+					<?= _t("Editions") ?>
 				</button>
 
-				<div popover class="select-popover" id="select-popover">
+			<div class="select-popover" id="home-select-popover">
 					<ul>
 						<?php foreach ($bienal_editions as $event_id => $bienal_edition) : ?>
 							<li>

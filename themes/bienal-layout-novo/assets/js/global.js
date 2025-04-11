@@ -81,11 +81,11 @@ addEventListener("click", function(e) {
  * @param {string} targetId id do elemento que vai ser mostrado/escondido.
  * @param {string} [displayType='block'] 'block' por padrão. Tipo de display do elemento que vai ser mostrado/escondido (e.g. 'block', 'flex').
  */
-function toggleById(targetId, displayType = 'block') {
+function toggleById(targetId, displayType = 'block', breakpoint = width_breakpoint) {
     let e = document.getElementById(targetId);
     // console.log(targetId);
     if(e == null) return;
-    e.style.display = window.innerWidth <= width_breakpoint && e.style.display == displayType ? "none" : displayType;
+    e.style.display = window.innerWidth <= breakpoint && e.style.display == displayType ? "none" : displayType;
 }
 
 
@@ -116,4 +116,14 @@ function toggleVisibilityById(targetId) {
 function toggleItems() {
     if(document.getElementsByClassName('.summary-sheet-attribute') == null) return;
     toggleById('itens');
+}
+
+
+const home_popover_div = document.getElementById("home-select-div");
+if(home_popover_div != null) {
+    addEventListener('click', event => {
+        if (!home_popover_div.contains(event.target)) {
+            toggleById('home-select-popover', 'none', 9000);
+        }
+      });    
 }
