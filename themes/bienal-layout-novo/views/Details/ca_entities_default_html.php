@@ -48,13 +48,6 @@ $acao = $this->request->getAction();
 <div class="wrapper">
     <div class="summary-sheet">
         <div class="summary-sheet-attributes">
-
-            {{{<ifdef code="ca_entities.lifespandates">
-                        <div class="summary-sheet-attribute">
-                            <ifdef code="ca_entities.lifespandates.lifespandate_birthdate"><strong><?= _t("Date of Birth") ?>: ^ca_entities.lifespandates.lifespandate_birthdate</strong></ifdef>
-                            <ifdef code="ca_entities.lifespandates.lifespandate_deathdate"><strong><?= _t("Date of Death") ?>: ^ca_entities.lifespandates.lifespandate_deathdate</strong></ifdef>
-                        </div></ifdef>}}}
-
             {{{<ifdef code="ca_entities.preferred_labels.displayname">
                         <div class="summary-sheet-attribute">
                             <div class="summary-sheet-attribute-label"><?= _t("Display Name") ?></div>
@@ -82,6 +75,23 @@ $acao = $this->request->getAction();
                             <div class="summary-sheet-attribute-value">^ca_entities.nonpreferred_labels.otherforenames</div>
                         </div>
                         </ifdef>}}}
+
+            {{{<ifdef code="ca_entities.lifespandates">
+                    <ifdef code="ca_entities.lifespandates.lifespandate_birthdate">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Date of Birth") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.lifespandates.lifespandate_birthdate</div>
+                        </div>
+                    </ifdef>
+
+                    <ifdef code="ca_entities.lifespandates.lifespandate_deathdate">
+                        <div class="summary-sheet-attribute">
+                            <div class="summary-sheet-attribute-label"><?= _t("Date of Death") ?></div>
+                            <div class="summary-sheet-attribute-value">^ca_entities.lifespandates.lifespandate_deathdate</div>
+                        </div>
+                    </ifdef>
+            </ifdef>}}}
+
 
             {{{<ifdef code="ca_entities.biography">
                         <div class="summary-sheet-attribute">
