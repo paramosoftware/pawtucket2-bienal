@@ -82,8 +82,8 @@ header button {
     width: 100%;
 
     display: flex;
-    justify-content: space-between;
-    /* gap: 45px; */
+    justify-content: end;
+    gap: 45px;
     margin-top: 22px;
 }
 
@@ -160,7 +160,7 @@ header button {
 }
 
 #browse-popover-wrapper {
-    width: 160px;
+    width: 150px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -175,6 +175,7 @@ header button {
 
 #browse-popover-list {
     list-style: none;
+    width: inherit;
 
     position: absolute;
     inset: auto;
