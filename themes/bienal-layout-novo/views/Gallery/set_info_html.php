@@ -2,7 +2,16 @@
 $vn_set_id = $this->getVar("set_id");
 $va_set_item = $this->getVar("set_item");
 $vs_cover_image = $this->getVar("cover_image");
+$vs_cover_image_caption = $this->getVar("cover_image_caption");
 $va_set_items = $this->getVar("set_items");
+
+if($this->getVar("set_list") == 'featured') {
+	$set_list_function = 'Featured';
+	$set_list_display_name = 'Featured';
+} else {
+	$set_list_function = 'Index';
+	$set_list_display_name = 'Galleries';
+}
 
 // FRED 14/03/2024
 // Recuperando subsets deste set //
@@ -311,11 +320,12 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 <div class="sec-header">
 	<span>
-		Home / <?= caNavLink($this->request, _t("Galleries"), "", "", "Gallery", "Index") ?> / <b><?= $this->getVar("label") ?></b>
+		Home / <?= caNavLink($this->request, _t($set_list_display_name), "", "", "Gallery", $set_list_function) ?> / <b><?= $this->getVar("label") ?></b>
 	</span>
 	<hr />
 	<div>
 		<?= $vs_cover_image ?>
+		<!-- <?= $vs_cover_image_caption ?> -->
 		<div>
 			<h1><?= $this->getVar("label") ?></h1>
 			<span><b><?= _t("Gallery") ?></b></span>
