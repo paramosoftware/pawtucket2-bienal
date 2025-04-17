@@ -89,7 +89,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 			<h1><?= _t("Featured") ?></h1>
 			<div class="home-gallery-hr-row">
 				<hr />
-				<!-- <?= caNavLink($this->request, _t("Acessar Galerias"), "", "", "Gallery", "Index") ?> -->
+				<?= caNavLink($this->request, _t("Access")." "._t("Featured"), "", "", "Gallery", "Featured") ?>
 			</div>
 		</div>
 
@@ -131,7 +131,8 @@ $highlight_sets = $this->getVar('highlight_sets');
 			<h1><?= _t("Galleries") ?></h1>
 			<!-- <hr /> -->
 			<div class="home-gallery-hr-row">
-				<hr /><?= caNavLink($this->request, _t("Access Galleries"), "", "", "Gallery", "Index") ?>
+				<hr />
+				<?= caNavLink($this->request, _t("Access")." "._t("Galleries"), "", "", "Gallery", "Index") ?>
 			</div>
 		</div>
 

@@ -73,10 +73,14 @@
  			$t_set = new ca_sets();
  			$t_list = new ca_lists();
  			
- 			# Which type of set is configured for display in gallery section? 		
- 			$gallery_set_type_id = $t_list->getItemIDFromList('set_types', $this->config->get('gallery_set_type')); 		
+ 			# Which type of set is configured for display in gallery section?
+ 			$gallery_set_type_id = $t_list->getItemIDFromList('set_types', $this->config->get('gallery_set_type'));	
  			
- 			if($function == "index"){
+ 			if($function == "index" || $function == "featured"){
+				if ($function == "featured") {
+					$gallery_set_type_id = $t_list->getItemIDFromList('set_types', 'featured_items');
+				}
+
  				if($gallery_set_type_id){
 					$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => $gallery_set_type_id);
 					if(!$this->config->get("gallery_include_all_tables")){
@@ -85,10 +89,13 @@
 					$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
 					$set_first_items = $t_set->getPrimaryItemsFromSets(array_keys($sets), array("version" => "iconlarge", "checkAccess" => $this->opa_access_values));
 				
-					// Sort by name by default; otherwise sort on rank
-					if($this->config->get('gallery_sort_by') !== 'name') {
+
+					if ($function == "featured") {
+						$sets = caSortArrayByKeyInValue($sets, ['created', 'set_id'], 'ASC', ['mode' => SORT_NUMERIC]);
+					} elseif($this->config->get('gallery_sort_by') !== 'name') { // Sort by name by default; otherwise sort on rank
 						$sets = caSortArrayByKeyInValue($sets, ['rank', 'set_id'], 'ASC', ['mode' => SORT_NUMERIC]);
 					}
+
 					$vs_front_page_set = $o_front_config->get('front_page_set_code');
 					$vb_omit_front_page_set = (bool)$this->config->get('omit_front_page_set_from_gallery');
 					foreach($sets as $set_id => $va_set) {
@@ -202,7 +209,13 @@
  		public function getSetInfo() {
  			$set_id = $this->request->getParameter('set_id', pInteger);
  			$t_set = $this->_getSet($set_id);
- 			
+
+			$t_list = new ca_lists();
+
+			if($t_set->get('type_id') == $t_list->getItemIDFromList('set_types', 'featured_items')) {
+				$this->view->setVar("set_list", 'featured');
+			}
+
  			$this->view->setVar("set", $t_set);
  			$this->view->setVar("set_id", $set_id);
  			$this->view->setVar("label", $t_set->getLabelForDisplay());
@@ -268,7 +281,8 @@
 			
 			$pn_start = $this->request->getParameter('s', pInteger);
 			$this->view->setVar("start", $pn_start);
-			$this->view->setVar('cover_image', $t_set->get("ca_sets.cover_image.large"));
+			$this->view->setVar('cover_image', $t_set->get("ca_sets.cover_image.cover_image_image.large"));
+			$this->view->setVar('cover_image_caption', $t_set->get("ca_sets.cover_image.cover_image_caption"));
 
 			if ($set_id == 3288)
 				$this->render("Gallery/set_info_bienais_html.php");

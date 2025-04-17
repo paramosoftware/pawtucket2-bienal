@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CollectiveAccess Pawtucket2 Default Theme\n"
 "POT-Creation-Date: 2016-10-10 22:50-0400\n"
-"PO-Revision-Date: 2025-04-02 16:33-0300\n"
+"PO-Revision-Date: 2025-04-17 11:21-0300\n"
 "Last-Translator: Seth <Seth@collectiveacess.org>\n"
 "Language-Team: CollectiveAccess <info@collectiveaccess.org>\n"
 "Language: pt_BR\n"
@@ -22,6 +22,9 @@ msgstr "Ficha do documento"
 msgid "Access Galleries"
 msgstr "Acessar Galerias"
 
+msgid "Access"
+msgstr "Acessar"
+
 msgid "Editions"
 msgstr "Edições"
 
@@ -36,6 +39,12 @@ msgstr "Compartilhar"
 
 msgid "Biennials"
 msgstr "Bienais"
+
+msgid "Featured Galleries"
+msgstr "Destaques"
+
+msgid "Featured Items"
+msgstr "Destaques"
 
 msgid "Featured"
 msgstr "Destaques"

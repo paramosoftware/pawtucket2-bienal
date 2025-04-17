@@ -1,19 +1,25 @@
 <?php
 $va_sets = $this->getVar("sets");
 $va_first_items_from_set = $this->getVar("first_items_from_sets");
+$acao = $this->request->getAction();
+
+$breadcumb = _t("Galleries");
+if(strtolower($acao) == 'featured') {
+	$breadcumb = _t("Featured Items");
+}
 
 if (is_array($va_sets) && sizeof($va_sets)) { ?>
 
 	<section class="sec-bg-color">
 		<div class="sec-content gallery-index">
 			<div class="sec-header">
-				<span>Home / <b><?= _t("Galleries") ?></b></span>
+				<span>Home / <b><?= $breadcumb ?></b></span>
 				<hr />
 				<div>
-					<h1><?= _t("Galleries") ?></h1>
+					<h1><?= $breadcumb ?></h1>
 				</div>
 				<div>
-					<span><b><?= count($va_sets) . " " . _t("Galleries") ?></b> <?= _t("available") ?></span>
+					<span><b><?= count($va_sets) . " " . $breadcumb ?></b> <?= _t("available") ?></span>
 					<button>
 						<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/filter-descending.svg" />
 					</button>
