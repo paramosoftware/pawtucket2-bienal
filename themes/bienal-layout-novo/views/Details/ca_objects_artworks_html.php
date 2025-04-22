@@ -34,7 +34,7 @@ $acao = $this->request->getAction();
             <button class="select-btn" popovertarget="select-popover">
                 <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
             </button>
-            <div popover id="select-popover">
+            <div popover id="select-popover" class="select-popover">
                 <ul>
                     <?php
                     foreach ($exportacao_formatos as $formato) {

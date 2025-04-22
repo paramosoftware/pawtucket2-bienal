@@ -36,7 +36,7 @@ $acao = $this->request->getAction();
                 <button class="select-btn" popovertarget="select-popover">
                     <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
                 </button>
-                <div popover id="select-popover">
+                <div popover id="select-popover" class="select-popover">
                     <ul>
                         <?php
                         foreach ($exportacao_formatos as $formato) {
@@ -104,16 +104,14 @@ $acao = $this->request->getAction();
                         </div>
                         </ifdef>}}}
 
-            {{{
-                        <ifcount code="ca_places" min="1">
+            {{{<ifcount code="ca_places" min="1">
                         <div class="summary-sheet-attribute">
                             <div class="summary-sheet-attribute-label"><?= _t("Event Location") ?></div>
                             <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_places" delimiter="<br/>" restrictToRelationshipTypes="site"><l>^ca_places.hierarchy.preferred_labels%delimiter=_->_</l></unit>
                             </div>
                         </div>
-                        </ifcount>
-                        }}}
+                        </ifcount>}}}
 
             {{{<ifcount code="ca_entities" min="1" restrictToRelationshipTypes="realizacao">
                         <div class="summary-sheet-attribute">
@@ -124,16 +122,14 @@ $acao = $this->request->getAction();
                         </div>
                         </ifcount>}}}
 
-            {{{
-                        <ifcount code="ca_places" min="1">
+            {{{<ifcount code="ca_places" min="1">
                         <div class="summary-sheet-attribute">
                             <div class="summary-sheet-attribute-label"><?= _t("Related Places") ?></div>
                             <div class="summary-sheet-attribute-value">
                                 <unit relativeTo="ca_places" delimiter="<br/>"><l>^ca_places.hierarchy.preferred_labels%delimiter=_->_</l></unit>
                             </div>
                         </div>
-                        </ifcount>
-                        }}}
+            </ifcount>}}}
 
             {{{<ifdef code="ca_occurrences.visitors_number">
                         <div class="summary-sheet-attribute">
