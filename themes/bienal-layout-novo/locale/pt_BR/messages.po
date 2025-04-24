@@ -248,7 +248,7 @@ msgstr "Data"
 msgid "Type"
 msgstr "Tipo"
 
-msgid "Type."
+msgid "type"
 msgstr "Espécie"
 
 msgid "Artwork Description"

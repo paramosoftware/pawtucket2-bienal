@@ -15,7 +15,7 @@ $primary_key = $this->getVar('primaryKey');
 		<th class="browse-results-table-column level-td"><?= _t("Level / Document") ?></th>
 		<th class="browse-results-table-column"><?= _t("Date") ?></th>
 		<th class="browse-results-table-column"><?= _t("Genre") ?></th>
-		<th class="browse-results-table-column type-td"><?= _t("Type.") ?></th>
+		<th class="browse-results-table-column type-td"><?= _t("type") ?></th>
 		<th class="browse-results-table-column event-td"><?= _t("Event") ?></th>
 	</tr>
 </thead>

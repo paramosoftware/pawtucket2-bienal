@@ -1419,6 +1419,7 @@ main #paginacao .jumper input {
     color: var(--tertiary4);
     font-family: "Helvetica Neue Bold";
     text-decoration: none;
+    text-transform: capitalize;
 }
 
 .browse-results-sort-bar ul li:not(:first-of-type) {
