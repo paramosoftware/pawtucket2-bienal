@@ -32,11 +32,11 @@ $acao = $this->request->getAction();
         <span><b>{{{<unit>^ca_occurrences.type_id</unit>}}}</b></span>
 
         <?php if (count($exportacao_formatos)) { ?>
-            <div class="select-div">
-                <button class="select-btn" popovertarget="select-popover">
+            <div class="select-div" id="<?=$this->request->getController()?>-select-wrapper">
+                <button class="select-btn <?=$this->request->getController()?>" onclick="toggleById('select-popover', 'block', 9000)">
                     <img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
                 </button>
-                <div popover id="select-popover" class="select-popover">
+                <div id="select-popover" class="select-popover">
                     <ul>
                         <?php
                         foreach ($exportacao_formatos as $formato) {

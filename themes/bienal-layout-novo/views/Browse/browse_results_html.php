@@ -97,12 +97,12 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 
 				<div class="browse-results-toolbar-buttons">
 					<?php if (sizeof($exportacao_formatos)) : ?>
-						<div class="select-div">
-							<button class="select-btn" popovertarget="report-list-popover">
+						<div class="select-div" id="<?=$this->request->getController()?>-select-wrapper1">
+							<button class="select-btn <?=$this->request->getController()?>" onclick="toggleById('report-list-popover', 'block', 9000)">
 								<img src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/download.svg" /><?= _t("Select a Report") ?>
 							</button>
 
-							<div popover class="select-popover" id="report-list-popover">
+							<div class="select-popover" id="report-list-popover">
 								<ul>
 									<?php
 									foreach ($exportacao_formatos as $formato) {
@@ -114,12 +114,12 @@ $negative_word = "nenhum" . (substr($found_singular, -1) == "a" ? "a" : "");
 						</div>
 					<?php endif; ?>
 
-					<div class="select-div">
-						<button class="select-btn" popovertarget="view-list-popover">
+					<div class="select-div" id="<?=$this->request->getController()?>-select-wrapper2">
+						<button class="select-btn <?=$this->request->getController()?>" onclick="toggleById('view-list-popover', 'block', 9000)">
 							<img class="list-refresh-svg" src="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/svg/refresh.svg" /><?= _t("Select a View") ?>
 						</button>
 
-						<div popover class="select-popover" id="view-list-popover">
+						<div class="select-popover" id="view-list-popover">
 							<ul>
 								<?php foreach ($views as $layout => $layout_info) : ?>
 									<li>

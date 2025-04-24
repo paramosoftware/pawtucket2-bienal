@@ -8,13 +8,12 @@ const width_breakpoint = 940; // previamente 768 (px)
  */
 const main_list = document.getElementById("home-sec1-main-list");
 const tracker_list = document.getElementById("home-sec1-main-list-tracker");
-const main_list_items = main_list.getElementsByTagName('li');
-const tracker_list_items = tracker_list.getElementsByTagName('li');
-var main_list_padding_right = window.innerWidth - main_list.getBoundingClientRect().right;
-main_list.addEventListener('scroll', retrack);
+const main_list_items = main_list != null ? main_list.getElementsByTagName('li') : null;
+const tracker_list_items = tracker_list != null ? tracker_list.getElementsByTagName('li') : null;
+var main_list_padding_right = main_list != null ? window.innerWidth - main_list.getBoundingClientRect().right : null;
 
 function retrack() {
-    for (let i = 0; i < main_list_items.length; i++) {
+    for (let i = 0; main_list != null && i < main_list_items.length; i++) {
         if (main_list_items[i].getBoundingClientRect().right == window.innerWidth - main_list_padding_right) {
             tracker_list_items[i].style.color = "white";
             for (let j = 0; j < main_list_items.length; j++) {
@@ -24,6 +23,9 @@ function retrack() {
         }
     }
 }
+
+if(main_list != null) main_list.addEventListener('scroll', retrack);
+
 
 function jumpToListItemById(li_id) {
     document.getElementById(li_id).scrollIntoView();
@@ -119,11 +121,20 @@ function toggleItems() {
 }
 
 
-const home_popover_div = document.getElementById("home-select-div");
-if(home_popover_div != null) {
-    addEventListener('click', event => {
-        if (!home_popover_div.contains(event.target)) {
-            toggleById('home-select-popover', 'none', 9000);
-        }
-      });    
+function hideOnOutOfBoundsClick(wrapper_id, popover_id) {
+    // console.log("hideOn "+popover_id);
+    let popover_wrapper = document.getElementById(wrapper_id);
+    if(popover_wrapper != null) {
+        addEventListener('click', event => {
+            if (!popover_wrapper.contains(event.target)) {
+                toggleById(popover_id, 'none', 9000);
+            }
+          });    
+    }
 }
+
+hideOnOutOfBoundsClick('home-select-div', 'home-select-popover');
+hideOnOutOfBoundsClick('Detail-select-wrapper', 'select-popover');
+hideOnOutOfBoundsClick('Browse-select-wrapper1', 'report-list-popover');
+hideOnOutOfBoundsClick('Browse-select-wrapper2', 'view-list-popover');
+
