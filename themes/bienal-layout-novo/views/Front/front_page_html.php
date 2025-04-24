@@ -101,7 +101,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 							<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $set_id)) ?>">
 								<?= $set["cover_image"] ?>
 							</a>
-							<figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit.</figcaption>
+							<figcaption><?= $set["cover_image_caption"]; ?></figcaption>
 						</figure>
 					<?php endif; ?>
 
@@ -110,8 +110,8 @@ $highlight_sets = $this->getVar('highlight_sets');
 							<h2><?= $set["name"] ?></h2>
 						</a>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius.
-							<?php # echo $set["description"] 
+							<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia saepe facere iusto reprehenderit nihil. Blanditiis illum amet quaerat est, expedita, nisi aliquid quod tempora corrupti totam, vitae porro voluptatum eius. -->
+							<?php echo $set["caption"] 
 							?>
 						</p>
 						<div>

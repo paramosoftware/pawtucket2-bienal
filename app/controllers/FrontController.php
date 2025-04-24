@@ -199,8 +199,16 @@
 			{
 				$t_set = new ca_sets($set["set_id"]);
 
+				if ( is_null($t_set->get("ca_sets.publish_home_website")) || ($t_set->get("ca_sets.publish_home_website") != 227) )
+				{
+					unset($featured_sets[$set["set_id"]]);
+
+					continue;
+				}
+
 				$set["cover_image"] = $t_set->get("ca_sets.cover_image.cover_image_image.large");
 				$set["cover_image_caption"] = $t_set->get("ca_sets.cover_image.cover_image_caption");
+				$set["caption"] = $t_set->get("ca_sets.caption");
 			}
 
 			$this->view->setVar('highlight_sets', $featured_sets);
@@ -217,11 +225,17 @@
 			
 			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'public_presentation', 'table' => 'ca_objects');
 			$sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
-			$sets = array_slice($sets, 0, 3);
-			
+
 			foreach ($sets as &$set)
 			{
 				$t_set = new ca_sets($set["set_id"]);
+
+				if ( is_null($t_set->get("ca_sets.publish_home_website")) || ($t_set->get("ca_sets.publish_home_website") != 227) )
+				{
+					unset($sets[$set["set_id"]]);
+
+					continue;
+				}
 
 				$set["cover_image"] = $t_set->get("ca_sets.cover_image.cover_image_image.large");
 				$set["cover_image_caption"] = $t_set->get("ca_sets.cover_image.cover_image_caption");
