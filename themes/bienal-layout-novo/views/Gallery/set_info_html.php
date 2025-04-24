@@ -255,7 +255,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 	.sec-header p {
 		font-family: "Helvetica Neue Roman";
-		font-size: 16px;
+		font-size: 18px;
 		border-block: 2px solid var(--tertiary3);
 		padding-block: 40px;
 		margin-bottom: 25px;

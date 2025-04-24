@@ -29,7 +29,7 @@ if (is_array($va_sets) && sizeof($va_sets)) { ?>
 			<ul class="sec-list gallery-list">
 				<?php foreach ($va_sets as $vn_set_id => $va_set) { ?>
 					<li class="sec-list-item">
-						<?php if (!empty($va_set["cover_image"])) : ?>
+						<?php if (false && !empty($va_set["cover_image"])) : ?>
 							<figure class="sec-img-div">
 								<a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => $vn_set_id)) ?>">
 									<?= $va_set["cover_image"] ?>

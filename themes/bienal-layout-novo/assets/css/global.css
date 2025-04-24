@@ -292,6 +292,11 @@ figure img {
     border-top: 2px solid var(--tertiary3);
 }
 
+main:has(#home-sec1) section:last-of-type .gallery-list {
+    border-bottom: 2px solid var(--tertiary3);
+    margin-bottom: 80px !important;
+}
+
 /* SECTION-LIST HEADER @HOME END */
 
 /* SECTION-LIST HEADER NOT @HOME */
@@ -754,6 +759,10 @@ figure img {
 
 .gallery-list>li:not(:has(.sec-img-div)) h2 {
     max-width: 60%;
+}
+
+.gallery-index .gallery-list:not(:has(.sec-img-div)) h2 {
+    max-width: 100%;
 }
 
 .gallery-list:not(:has(.sec-img-div)),

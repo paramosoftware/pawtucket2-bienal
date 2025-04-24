@@ -472,6 +472,8 @@ header hr {
     #header-link-list {
         flex-direction: column;
         margin: 0;
+        max-height: fit-content;
+        gap: unset;
     }
 
     #header-link-list li,
@@ -546,7 +548,7 @@ header hr {
     #header-form {
         flex-direction: column;
         align-items: center;
-        margin-block: 20px;
+        /* margin-block: 20px; */
         gap: 20px;
     }
 
