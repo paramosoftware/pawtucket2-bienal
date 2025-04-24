@@ -54,6 +54,8 @@
 ?>
 			<div id='headerdompdf'>
 				<?= caGetReportLogo(); ?>
+
+				<?php print "<div class='pagingText'>" . _t('Pág.') . " </div>"; ?>
 			</div>
 <?php
 		break;
