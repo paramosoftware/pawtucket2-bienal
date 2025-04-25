@@ -292,8 +292,11 @@ figure img {
     border-top: 2px solid var(--tertiary3);
 }
 
-main:has(#home-sec1) section:last-of-type .gallery-list {
+main:has(#home-sec1) section:last-of-type .gallery-list:has(li:nth-child(2)) {
     border-bottom: 2px solid var(--tertiary3);
+}
+
+main:has(#home-sec1) section:last-of-type .gallery-list {
     margin-bottom: 80px !important;
 }
 

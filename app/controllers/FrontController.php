@@ -169,9 +169,13 @@
 
 			foreach ($va_set_items as $va_set_item)
 			{
-				$bienal_editions[$va_set_item["row_id"]] = $va_set_item["set_item_label"];
+				$bienal_editions[] = [
+					"row_id" => $va_set_item["row_id"], 
+					"set_item_label" => $va_set_item["set_item_label"]
+				];
 			}
 
+			$bienal_editions = caSortArrayByKeyInValue($bienal_editions, ["row_id"], 'ASC', ['mode' => SORT_NUMERIC]);
 			$this->view->setVar('bienal_editions', $bienal_editions);
 
 			//////////////////////////////////////////////

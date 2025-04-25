@@ -328,7 +328,6 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 		<!-- <?= $vs_cover_image_caption ?> -->
 		<div>
 			<h1><?= $this->getVar("label") ?></h1>
-			<span><b><?= _t("Gallery") ?></b></span>
 		</div>
 	</div>
 	<p><?= $this->getVar("description") ?></p>

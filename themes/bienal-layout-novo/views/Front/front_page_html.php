@@ -71,9 +71,9 @@ $highlight_sets = $this->getVar('highlight_sets');
 
 			<div class="select-popover" id="home-select-popover">
 					<ul>
-						<?php foreach ($bienal_editions as $event_id => $bienal_edition) : ?>
+						<?php foreach ($bienal_editions as $bienal) : ?>
 							<li>
-								<?= caDetailLink($this->request, $bienal_edition, '', 'ca_occurrences', $event_id); ?>
+								<?= caDetailLink($this->request, $bienal["set_item_label"], '', 'ca_occurrences', $bienal["row_id"]); ?>
 							</li>
 						<?php endforeach; ?>
 					</ul>
