@@ -52,8 +52,8 @@
 	?>
 
 	<title>
-		LAYOUT-DEV
 		<?php
+		echo $this->request->getController(). "/" . $this->request->getAction();
 		//echo (MetaTagManager::getWindowTitle()) ? MetaTagManager::getWindowTitle() : $this->request->config->get("app_display_name");
 		?>
 	</title>
@@ -94,7 +94,9 @@
 			</svg></button>
 		<div id="header-main">
 			<ul id="header-link-list" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
-				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => '3288')) ?>"><?= _t("Biennials") ?></a></li>
+
+				<li><?= caNavLink($this->request, _t("Featured"), "", "", "Gallery", "Featured") ?></li>
+				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => '3288')) ?>">Bienais</a></li>
 				<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Funds and Collections"), "", "", "Detail", "documento/1") ?></li>
 				<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Galleries"), "", "", "Gallery", "Index") ?></li>
 				<li id="browse-popover-wrapper">

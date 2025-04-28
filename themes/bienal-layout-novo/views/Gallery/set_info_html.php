@@ -5,7 +5,7 @@ $vs_cover_image = $this->getVar("cover_image");
 $vs_cover_image_caption = $this->getVar("cover_image_caption");
 $va_set_items = $this->getVar("set_items");
 
-if($this->getVar("set_list") == 'featured') {
+if ($this->getVar("set_list") == 'featured') {
 	$set_list_function = 'Featured';
 	$set_list_display_name = 'Featured';
 } else {
@@ -298,6 +298,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 		align-items: start;
 		justify-content: start;
 		gap: 40px;
+		flex-direction: column-reverse;
 	}
 
 	.sec-header>div:first-of-type>div {
@@ -315,6 +316,12 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 		max-height: 400px;
 		height: fit-content;
 		object-fit: contain;
+	}
+
+	@media screen and (width < 940px) {
+		.sec-header>div:first-of-type img {
+			width: 100%;
+		}
 	}
 </style>
 
@@ -500,7 +507,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 				$vn_delta = 2;
 				$vn_i = (($offset / $itens_por_pagina) + 1) - $vn_delta;
 				$vn_i = $vn_i < 1 ? 1 : $vn_i;
-				$vn_f = $vn_i + $vn_delta*2;
+				$vn_f = $vn_i + $vn_delta * 2;
 				$vn_f = $vn_f > $paginas_totais ? $paginas_totais : $vn_f;
 				$html_paginacao = '';
 				if ($vn_i > 1) {

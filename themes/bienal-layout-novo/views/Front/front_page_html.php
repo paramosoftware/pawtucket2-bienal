@@ -8,7 +8,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 <section id="home-sec1">
 	<div id="home-sec1-content">
 		<h1>
-			<?= _t("Consult information about the document archive and the São Paulo Biennials.") ?>
+			<?= _t("Consult information about the document archive and the Bienal de São Paulo.") ?>
 		</h1>
 		<ul id="home-sec1-main-list">
 			<li id="li_documents">
@@ -26,7 +26,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 				<hr />
 				<h3><?= $this->getVar('artwork_count') . " " . _t("Artworks") ?></h3>
 				<hr />
-				<p><?= _t("Information about the artworks and their participation in the Biennials") ?></p>
+				<p><?= _t("Information about artworks and their participation in the Bienal editions") ?></p>
 				<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Browse/obras"><?= _t("Explore") ?></a>
 			</li>
 			<li id="li_entities">
@@ -45,7 +45,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 				<h3><?= $this->getVar('event_count') . " " . _t("Events") ?></h3>
 				<hr />
 				<p>
-					<?= _t("Information about events held by the Bienal Foundation and others related to documentation") ?>
+					<?= _t("Information about events held by the Fundação Bienal and others related to documentation") ?>
 				</p>
 				<a href="<?= $this->request->getBaseUrlPath() ?>/index.php/Browse/eventos"><?= _t("Explore") ?></a>
 			</li>
@@ -61,7 +61,7 @@ $highlight_sets = $this->getVar('highlight_sets');
 
 		<div id="home-sec1-footer">
 			<h1>
-				<?= _t("Select a Biennal by edition"); ?>.
+				<?= _t("Select a Bienal"); ?>
 			</h1>
 
 			<div id="home-select-div" class="select-div">

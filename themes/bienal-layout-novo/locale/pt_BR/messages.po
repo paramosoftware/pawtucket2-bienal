@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CollectiveAccess Pawtucket2 Default Theme\n"
 "POT-Creation-Date: 2016-10-10 22:50-0400\n"
-"PO-Revision-Date: 2025-04-17 11:21-0300\n"
+"PO-Revision-Date: 2025-04-28 15:53-0300\n"
 "Last-Translator: Seth <Seth@collectiveacess.org>\n"
 "Language-Team: CollectiveAccess <info@collectiveaccess.org>\n"
 "Language: pt_BR\n"
@@ -28,8 +28,8 @@ msgstr "Acessar"
 msgid "Editions"
 msgstr "Edições"
 
-msgid "Select a Biennal by edition"
-msgstr "Selecione uma edição da Bienal"
+msgid "Select a Bienal"
+msgstr "Selecione uma Bienal"
 
 msgid "Browse"
 msgstr "Explorar"
@@ -164,13 +164,13 @@ msgstr "Bienal de São Paulo"
 msgid "Explore over 200,000 records from the Bienal Archive"
 msgstr "Explore mais de 200 mil registros do Arquivo Bienal"
 
-msgid "Information about events held by the Bienal Foundation and others related to documentation"
+msgid "Information about events held by the Fundação Bienal and others related to documentation"
 msgstr "Informações sobre eventos realizados pela Fundação Bienal e outros relacionados à documentação"
 
 msgid "Data about people and institutions, their relationships with documentation or registered events"
 msgstr "Dados sobre pessoas e instituições, suas relações com a documentação ou eventos cadastrados"
 
-msgid "Information about the artworks and their participation in the Biennials"
+msgid "Information about artworks and their participation in the Bienal editions"
 msgstr "Informações sobre as obras e suas participações nas Bienais"
 
 msgid "Records of sets or documentary items, organized in funds or collections"
@@ -182,8 +182,8 @@ msgstr "Busca ampla em qualquer campo, recupera todos os termos indicados indivi
 msgid "Do a quick search"
 msgstr "Faça uma busca rápida"
 
-msgid "Consult information about the document archive and the São Paulo Biennials."
-msgstr "Consulte informações sobre o acervo documental e as Bienais de São Paulo."
+msgid "Consult information about the document archive and the Bienal de São Paulo"
+msgstr "Consulte informações sobre o acervo documental e as Bienais de São Paulo"
 
 msgid "The AHWS database was supported by ProAC and PROMAC and is under continuous development."
 msgstr "O banco de dados do AHWS contou com recursos do ProAC e do PROMAC e está em constante desenvolvimento."
@@ -249,7 +249,7 @@ msgid "Type"
 msgstr "Tipo"
 
 msgid "type"
-msgstr "Espécie"
+msgstr "espécie"
 
 msgid "Artwork Description"
 msgstr "Descrição da obra"
