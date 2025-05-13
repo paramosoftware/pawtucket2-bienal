@@ -243,9 +243,15 @@ header button {
     justify-content: space-between;
     margin-bottom: 13px;
     gap: var(--_header-form-gap);
-    background-color: inherit;
-    padding-bottom: 20px;
 
+}
+
+
+@media (max-width: 940px) {
+    #header-form {
+        background-color: inherit;
+        padding-bottom: 20px;
+    }
 }
 
 #header-adv-search-btn {
