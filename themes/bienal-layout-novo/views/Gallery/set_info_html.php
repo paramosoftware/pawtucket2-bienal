@@ -247,6 +247,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 		margin-bottom: 40px;
 	}
 
+
 	.sec-header,
 	.sec-list,
 	.sec-footer {
@@ -308,7 +309,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 
 	.sec-header>div:first-of-type>div {
 		display: flex;
-		flex-direction: column;
+		flex-direction: column
 		gap: 40px;
 	}
 
@@ -321,6 +322,7 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 		max-height: 400px;
 		height: fit-content;
 		object-fit: contain;
+		object-position: left;
 	}
 
 	@media screen and (width < 940px) {
