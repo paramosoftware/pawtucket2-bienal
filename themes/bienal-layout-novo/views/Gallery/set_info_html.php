@@ -252,13 +252,18 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 	.sec-footer {
 		padding-inline: 40px;
 	}
-
+	#sec-header-description	{
+		border-block: 2px solid var(--tertiary3);
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 25px;
+		padding: 10px 0;
+	}
 	.sec-header p {
 		font-family: "Helvetica Neue Roman";
 		font-size: 18px;
-		border-block: 2px solid var(--tertiary3);
-		padding-block: 40px;
-		margin-bottom: 25px;
+		padding-block: 10px;
+		margin-bottom: 0;
 	}
 
 	.sec-header>div:last-of-type {
@@ -337,7 +342,9 @@ foreach ($va_api_credentials as $vs_instance => $va_instance_api) {
 			<h1><?= $this->getVar("label") ?></h1>
 		</div>
 	</div>
-	<p><?= $this->getVar("description") ?></p>
+
+	<div id="sec-header-description"><?= $this->getVar("description") ?></div>
+	
 	<div>
 		<span><b><?= _t("Gallery") ?></b></span>
 		<button>
