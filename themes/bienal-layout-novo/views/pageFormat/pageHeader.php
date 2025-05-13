@@ -96,7 +96,7 @@
 			<ul id="header-link-list" role="list" aria-label="<?= _t("Primary Navigation"); ?>">
 
 				<li><?= caNavLink($this->request, _t("Featured"), "", "", "Gallery", "Featured") ?></li>
-				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => '3291')) ?>">Bienais</a></li>
+				<li><a href="<?= caNavUrl($this->request, '', 'Gallery', 'getSetInfo', array('set_id' => '3288')) ?>">Bienais</a></li>
 				<li <?= ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Funds and Collections"), "", "", "Detail", "documento/1") ?></li>
 				<li <?= ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?= caNavLink($this->request, _t("Galleries"), "", "", "Gallery", "Index") ?></li>
 				<li id="browse-popover-wrapper">
