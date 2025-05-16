@@ -161,7 +161,7 @@
 			//////////////////////////////////////////////
 
 			$t_set = new ca_sets();
-			$t_set->load(3288);
+			$t_set->load(3291);
 
 			$va_set_items = caExtractValuesByUserLocale($t_set->getItems());
 
@@ -196,7 +196,8 @@
 
 			$t_set = new ca_sets();
 			
-			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'featured_items');
+			$set_opts = array('checkAccess' => $this->opa_access_values, 'setType' => 'featured_items', 'sort' => 'cs.rank');
+
 			$featured_sets = caExtractValuesByUserLocale($t_set->getSets($set_opts));
 
 			foreach ($featured_sets as &$set)

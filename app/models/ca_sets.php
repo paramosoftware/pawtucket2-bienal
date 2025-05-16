@@ -788,8 +788,8 @@ class ca_sets extends BundlableLabelableBaseModelWithAttributes implements IBund
 				".join("\n", $va_extra_joins)."
 				".(sizeof($va_sql_wheres) ? 'WHERE ' : '')."
 				".join(' AND ', $va_sql_wheres)."
-				ORDER BY csl.name
-			", $va_sql_params);
+				ORDER BY " . ($ps_sort ?? "csl.name")
+			, $va_sql_params);
 			$va_sets = array();
 			$va_type_name_cache = array();
 
