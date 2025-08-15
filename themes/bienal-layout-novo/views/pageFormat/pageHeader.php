@@ -26,6 +26,8 @@
 	<link rel="stylesheet" type="text/css" href="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/css/header.css" />
 	<!-- Footer CSS -->
 	<link rel="stylesheet" type="text/css" href="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/css/footer.css" />
+	<!-- Accessibility CSS -->
+	<link rel="stylesheet" type="text/css" href="<?= $this->request->getBaseUrlPath() ?>/themes/bienal-layout-novo/assets/css/accessibility.css" />
 
 	<!-- Accessibility -->
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->request->getBaseUrlPath(); ?>/themes/bienal-layout-novo/assets/pawtucket/css/jbility.css" />
